@@ -62,3 +62,5 @@ Sequalize is a Object Relation Mapping (ORM) solution that I've used in my previ
 
 **What are your concerns around using Sequelize?**
 Looking at the Sequalize doc at https://sequelize.org/v5/ it intuitive similar to the express docs and could find answers to my problems there.
+
+– update
