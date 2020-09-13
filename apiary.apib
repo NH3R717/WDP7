@@ -89,7 +89,7 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
         {
             "id": "93007e68-af28-47c2-b1b0-e11f317e1ac3",
             "text": "Some notification text less than 600 characters (PUT). 1 Updated",
-            "comment": "notifications can not be uodated or deleted switch, response to response code to 403"
+            "comment": "notifications can not be uodated or deleted, switch response code to 403"
         }
 
 + Response 401 (application/json; charset=utf-8)
@@ -107,4 +107,110 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
         {
             "error": "could not delete notification"
             "comment": "notifications can not be updated or deleted, switch to response code to 403"
+        }
+        
+        
+# Group Direct Message
+
+## /directmessage
+
+### List All Direct Messages [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": "f6b7001b-b996-4bd0-a96b-8d13b074cb35",
+            "text": "Some direct message text less than 800 characters (GET). 1"
+        },{
+            
+            "id": "79d1e9b1-84ea-40bc-b90d-88147a1c5604",
+            "text": "Some direct message text less than 800 characters (GET). 2"
+        },{
+            
+            "id": "6221ca8b-8401-48ec-a80b-d4ed445cf8b8",
+            "text": "Some direct message text less than 800 characters (GET). 3"
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not list of direct messages"
+        }
+
+### Create Direct Message [POST]
+
++ Request (application/json)
+
+
+        {
+            "id": "71faea1b-4a85-4739-a658-435c42710291",
+            "text": "Some direct message text less than 800 characters (POST). " 
+        }
+        
++ Response 201 (application/json)
+
+        {
+            "id": "7a9cf0bc-b017-4e90-80b3-bc1f1a588beb",
+            "text": "Some direct message text less than 800 characters (POST). " 
+        }
+            
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not create direct message"
+        }
+
+## /directmessage{?id} 
+
++ Parameters
+
+    + id (required, string, `f6b7001b-b996-4bd0-a96b-8d13b074cb35`)
+
+### List One Direct Message [GET]   
+
++ Response 200 (application/json)
+
+        {
+            "id": "f6b7001b-b996-4bd0-a96b-8d13b074cb35",
+            "text": "Some direct message text less than 800 characters (GET). 1"
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not list notification"
+        }
+
+### Update Direct Message [PUT]
+
++ Request (application/json; charset=utf-8)
+
+        {
+            "id": "f6b7001b-b996-4bd0-a96b-8d13b074cb35",
+            "text": "Some direct message text less than 800 characters (PUT). 1",
+        }
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "id": "93007e68-af28-47c2-b1b0-e11f317e1ac3",
+            "text": "Some notification text less than 600 characters (PUT). 1 Updated",
+            "comment": "direct messages can not be updated or deleted, switch response code to 403"
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not update direct message"
+        }
+        
+### Delete Direct Message [DELETE]
+
++ Response 204
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not delete direct message"
+            "comment": "direct messages can not be updated or deleted, switch response code to 403"
         }
