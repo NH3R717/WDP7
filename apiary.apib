@@ -226,17 +226,17 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 
         {
             "id": "97833587-c80f-42e9-b9eb-807f5bebc5cc",
-            "url": "https://picsum.photos/200/300",
+            "url": "https://picsum.photos/800/500",
             "get": 1
         },{
             
             "id": "c052c6fb-557d-4e62-9533-e15a830441bc",
-            "url": "https://picsum.photos/200/300",
+            "url": "https://picsum.photos/800/500",
             "get": 2
         },{
             
             "id": "ddeb2327-2e4c-4103-9910-7ea111f0bcf5",
-            "url": "https://picsum.photos/200/300",
+            "url": "https://picsum.photos/800/500",
             "get": 3
         }
 
@@ -246,14 +246,14 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
             "error": "could not list images"
         }
 
-### Create Direct Message [POST]
+### Create Image [POST]
 
 + Request (application/json)
 
 
         {
             "id": "71faea1b-4a85-4739-a658-435c42710291",
-            "url": "https://picsum.photos/200/300",
+            "url": "https://picsum.photos/800/500",
             "post": 1
         }
         
@@ -261,7 +261,7 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 
         {
             "id": "7a9cf0bc-b017-4e90-80b3-bc1f1a588beb",
-            "url": "https://picsum.photos/200/300"
+            "url": "https://picsum.photos/800/500"
             "post": 1
         }
             
@@ -283,7 +283,7 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 
         {
             "id": "97833587-c80f-42e9-b9eb-807f5bebc5cc",
-            "url": "https://picsum.photos/200/300"
+            "url": "https://picsum.photos/800/500"
             "get": 1
         }
 
@@ -293,23 +293,22 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
             "error": "could get image"
         }
 
-### Update Direct Message [PUT]
+### Update Image [PUT]
 
 + Request (application/json; charset=utf-8)
 
         {
             "id": "97833587-c80f-42e9-b9eb-807f5bebc5cc",
-            "url": "https://picsum.photos/200/300",
-            "put": 1
+            "url": "https://picsum.photos/800/500",
         }
 
 + Response 200 (application/json; charset=utf-8)
 
         {
             "id": "97833587-c80f-42e9-b9eb-807f5bebc5cc",
-            "url": "https://picsum.photos/200/300",
+            "url": "https://picsum.photos/800/500",
             "put": 1
-            "comment": "direct messages can not be updated or deleted, switch response code to 403"
+            "comment": "Image can not be updated or deleted, switch response code to 403"
         }
 
 + Response 401 (application/json; charset=utf-8)
@@ -318,7 +317,7 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
             "error": "could not update image"
         }
         
-### Delete Direct Message [DELETE]
+### Delete Image [DELETE]
 
 + Response 204
 
@@ -326,5 +325,119 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 
         {
             "error": "could not delete image"
-            "comment": "direct messages can not be updated or deleted, switch response code to 403"
+            "comment": "Image can not be updated or deleted, switch response code to 403"
+        }
+        
+        
+# Group Audio
+
+## /audio
+
+### List All Audio [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
+            "url": "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
+            "get": 1
+        },{
+            
+            "id": "d7a34a8e-d18e-4bc8-9893-7daf896d3035",
+            "url": "http://amclassical.com/mp3/amclassical_joplin_the_entertainer_rag.mp3",
+            "get": 2
+        },{
+            
+            "id": "71099a84-62b1-4b62-a400-dc8c224fe059",
+            "url": "http://amclassical.com/mp3/amclassical_prelude_in_c_major_bwv_846a.mp3",
+            "get": 3
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not list audio files"
+        }
+
+### Create Audio [POST]
+
++ Request (application/json)
+
+
+        {
+            "id": "e46e0365-c808-4291-9124-d3c4f7d3b245",
+            "url": "http://amclassical.com/mp3/amclassical_twopart_invention_in_e.mp3",
+            "post": 1
+        }
+        
++ Response 201 (application/json)
+
+        {
+            "id": "e46e0365-c808-4291-9124-d3c4f7d3b245",
+            "url": "http://amclassical.com/mp3/amclassical_twopart_invention_in_e.mp3",
+            "post": 1
+        }
+            
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not create audio file"
+        }
+
+## /image{?id} 
+
++ Parameters
+
+    + id (required, string, `f6b7001b-b996-4bd0-a96b-8d13b074cb35`)
+
+### List One Audio [GET]   
+
++ Response 200 (application/json)
+
+        {
+            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
+            "url": "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
+            "get": 1
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could get audio file"
+        }
+
+### Update Audio [PUT]
+
++ Request (application/json; charset=utf-8)
+
+        {
+            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
+            "url": "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
+            "put": 1
+        }
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
+            "url": "http://amclassical.com/mp3/amclassical_piano_sonata_k_545_mvt_1.mp3",
+            "put": 1
+            "comment": "audio can not be updated or deleted, switch response code to 403"
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not update audio file"
+        }
+        
+### Delete Audio [DELETE]
+
++ Response 204
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not delete audio file"
+            "comment": "audio can not be updated or deleted, switch response code to 403"
         }
