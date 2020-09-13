@@ -4,81 +4,107 @@ FORMAT: 1A
 
 Coms Management API allows for front-end developmet testing of the Coms Managment app.
 
-## Notification Collection
-## /notifications{?userId}
+# Notification Group
 
-+ Parameters
-
-    + userId (required, string, `7a9cf0bc-b017-4e90-80b3-bc1f1a588beb`) – User Id
+## /notifications
 
 ### List All Notifications [GET]
 
 + Response 200 (application/json)
 
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
+        {
+            "id": "93007e68-af28-47c2-b1b0-e11f317e1ac3",
+            "text": "Some notification text less than 600 characters (GET). 1"
+        },{
+            
+            "id": "3d80ddbb-40de-42fc-9c44-137ac6beddc0",
+            "text": "Some notification text less than 600 characters (GET). 2"
+        },{
+            
+            "id": "b1358b9a-739f-4de2-bc94-a3fcf0389135",
+            "text": "Some notification text less than 600 characters (GET). 3"
+        }
 
-### Create a New Question [POST]
++ Response 401 (application/json; charset=utf-8)
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+        {
+            "error": "could not list of notifications"
+        }
+
+### Create Notification [POST]
 
 + Request (application/json)
 
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
 
+        {
+            "id": "7a9cf0bc-b017-4e90-80b3-bc1f1a588beb",
+            "text": "Some notification text less than 600 characters (POST). " 
+        }
+        
 + Response 201 (application/json)
 
-    + Headers
+        {
+            "id": "7a9cf0bc-b017-4e90-80b3-bc1f1a588beb",
+            "text": "Some notification text less than 600 characters (POST). " 
+        }
+            
++ Response 401 (application/json; charset=utf-8)
 
-            Location: /questions/2
+        {
+            "error": "could not create notification"
+        }
 
-    + Body
+## /notifications{?id} 
 
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
-            }
++ Parameters
+
+    + id (required, string, `93007e68-af28-47c2-b1b0-e11f317e1ac3`)
+
+### List One Notifications [GET]   
+
++ Response 200 (application/json)
+
+        {
+            "id": "93007e68-af28-47c2-b1b0-e11f317e1ac3",
+            "text": "Some notification text less than 600 characters (GET). 1"
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not list notification"
+        }
+
+### Update Notification [PUT]
+
++ Request (application/json; charset=utf-8)
+
+        {
+            "id": "93007e68-af28-47c2-b1b0-e11f317e1ac3",
+            "text": "Some notification text less than 600 characters (PUT). 1",
+        }
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "id": "93007e68-af28-47c2-b1b0-e11f317e1ac3",
+            "text": "Some notification text less than 600 characters (PUT). 1 Updated",
+            "comment": "notifications can not be uodated or deleted switch, response to response code to 403"
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not update notification"
+        }
+        
+### Delete Notification [DELETE]
+
++ Response 204
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not delete notification"
+            "comment": "notifications can not be updated or deleted, switch to response code to 403"
+        }
