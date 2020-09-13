@@ -28,7 +28,7 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not list of notifications"
+            "error": "could not list  notifications"
         }
 
 ### Create Notification [POST]
@@ -134,7 +134,7 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not list of direct messages"
+            "error": "could not list direct messages"
         }
 
 ### Create Direct Message [POST]
@@ -178,7 +178,7 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not list notification"
+            "error": "could get direct message"
         }
 
 ### Update Direct Message [PUT]
@@ -243,7 +243,7 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not list of direct messages"
+            "error": "could not list images"
         }
 
 ### Create Direct Message [POST]
@@ -268,7 +268,7 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not create direct message"
+            "error": "could not create image"
         }
 
 ## /image{?id} 
@@ -277,7 +277,7 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 
     + id (required, string, `f6b7001b-b996-4bd0-a96b-8d13b074cb35`)
 
-### List One Direct Message [GET]   
+### List One Image [GET]   
 
 + Response 200 (application/json)
 
@@ -290,7 +290,7 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not list notification"
+            "error": "could get image"
         }
 
 ### Update Direct Message [PUT]
@@ -315,7 +315,7 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not update direct message"
+            "error": "could not update image"
         }
         
 ### Delete Direct Message [DELETE]
@@ -325,6 +325,6 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not delete direct message"
+            "error": "could not delete image"
             "comment": "direct messages can not be updated or deleted, switch response code to 403"
         }
