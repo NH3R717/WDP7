@@ -214,3 +214,117 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
             "error": "could not delete direct message"
             "comment": "direct messages can not be updated or deleted, switch response code to 403"
         }
+        
+        
+# Group Image
+
+## /image
+
+### List All Images [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": "97833587-c80f-42e9-b9eb-807f5bebc5cc",
+            "url": "https://picsum.photos/200/300",
+            "get": 1
+        },{
+            
+            "id": "c052c6fb-557d-4e62-9533-e15a830441bc",
+            "url": "https://picsum.photos/200/300",
+            "get": 2
+        },{
+            
+            "id": "ddeb2327-2e4c-4103-9910-7ea111f0bcf5",
+            "url": "https://picsum.photos/200/300",
+            "get": 3
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not list of direct messages"
+        }
+
+### Create Direct Message [POST]
+
++ Request (application/json)
+
+
+        {
+            "id": "71faea1b-4a85-4739-a658-435c42710291",
+            "url": "https://picsum.photos/200/300",
+            "post": 1
+        }
+        
++ Response 201 (application/json)
+
+        {
+            "id": "7a9cf0bc-b017-4e90-80b3-bc1f1a588beb",
+            "url": "https://picsum.photos/200/300"
+            "post": 1
+        }
+            
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not create direct message"
+        }
+
+## /image{?id} 
+
++ Parameters
+
+    + id (required, string, `f6b7001b-b996-4bd0-a96b-8d13b074cb35`)
+
+### List One Direct Message [GET]   
+
++ Response 200 (application/json)
+
+        {
+            "id": "97833587-c80f-42e9-b9eb-807f5bebc5cc",
+            "url": "https://picsum.photos/200/300"
+            "get": 1
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not list notification"
+        }
+
+### Update Direct Message [PUT]
+
++ Request (application/json; charset=utf-8)
+
+        {
+            "id": "97833587-c80f-42e9-b9eb-807f5bebc5cc",
+            "url": "https://picsum.photos/200/300",
+            "put": 1
+        }
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "id": "97833587-c80f-42e9-b9eb-807f5bebc5cc",
+            "url": "https://picsum.photos/200/300",
+            "put": 1
+            "comment": "direct messages can not be updated or deleted, switch response code to 403"
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not update direct message"
+        }
+        
+### Delete Direct Message [DELETE]
+
++ Response 204
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not delete direct message"
+            "comment": "direct messages can not be updated or deleted, switch response code to 403"
+        }
