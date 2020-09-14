@@ -35,7 +35,6 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 
 + Request (application/json)
 
-
         {
             "id": "7a9cf0bc-b017-4e90-80b3-bc1f1a588beb",
             "text": "Some notification text less than 600 characters (POST). " 
@@ -140,7 +139,6 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 ### Create Direct Message [POST]
 
 + Request (application/json)
-
 
         {
             "id": "71faea1b-4a85-4739-a658-435c42710291",
@@ -250,7 +248,6 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 
 + Request (application/json)
 
-
         {
             "id": "71faea1b-4a85-4739-a658-435c42710291",
             "url": "https://picsum.photos/800/500",
@@ -275,7 +272,7 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 
 + Parameters
 
-    + id (required, string, `f6b7001b-b996-4bd0-a96b-8d13b074cb35`)
+    + id (required, string, `97833587-c80f-42e9-b9eb-807f5bebc5cc`)
 
 ### List One Image [GET]   
 
@@ -363,7 +360,6 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 
 + Request (application/json)
 
-
         {
             "id": "e46e0365-c808-4291-9124-d3c4f7d3b245",
             "url": "http://amclassical.com/mp3/amclassical_twopart_invention_in_e.mp3",
@@ -384,11 +380,11 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
             "error": "could not create audio file"
         }
 
-## /image{?id} 
+## /audio{?id} 
 
 + Parameters
 
-    + id (required, string, `f6b7001b-b996-4bd0-a96b-8d13b074cb35`)
+    + id (required, string, `c2aacc85-2b88-47c0-ac5e-ff17af848281`)
 
 ### List One Audio [GET]   
 
@@ -440,4 +436,117 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
         {
             "error": "could not delete audio file"
             "comment": "audio can not be updated or deleted, switch response code to 403"
+        }
+
+
+# Group Video
+
+## /video
+
+### List All Video [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": "e91d0220-08e9-4432-8e28-da7dd5078759",
+            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+            "get": 1
+        },{
+            
+            "id": "9a5db0b8-ee7d-4c2d-82f2-2cb71218fb4c",
+            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+            "get": 2
+        },{
+            
+            "id": "c297939a-5cf6-46f0-9abe-f5ce4456fdef",
+            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+            "get": 3
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not list video files"
+        }
+
+### Create Video [POST]
+
++ Request (application/json)
+
+        {
+            "id": "e46e0365-c808-4291-9124-d3c4f7d3b245",
+            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+            "post": 1
+        }
+        
++ Response 201 (application/json)
+
+        {
+            "id": "e46e0365-c808-4291-9124-d3c4f7d3b245",
+            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+            "post": 1
+        }
+            
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not create video file"
+        }
+
+## /video{?id} 
+
++ Parameters
+
+    + id (required, string, `c2aacc85-2b88-47c0-ac5e-ff17af848281`)
+
+### List One Video [GET]   
+
++ Response 200 (application/json)
+
+        {
+            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
+            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+            "get": 1
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could get video file"
+        }
+
+### Update Video [PUT]
+
++ Request (application/json; charset=utf-8)
+
+        {
+            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
+            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+            "put": 1
+        }
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
+            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+            "put": 1
+            "comment": "video can not be updated or deleted, switch response code to 403"
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not update video file"
+        }
+        
+### Delete Video [DELETE]
+
++ Response 204
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not delete video file"
+            "comment": "video can not be updated or deleted, switch response code to 403"
         }
