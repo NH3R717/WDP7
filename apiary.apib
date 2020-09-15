@@ -1,0 +1,564 @@
+– 3FORMAT: 1A
+
+# Coms Management
+
+Coms Management API allows for front-end developmet testing of the Coms Managment app.
+
+
+# Group Notifications
+
+
+## Notifications – w/o id [/notifications]
+
+### List All Notifications [GET]
+
++ Response 200 (application/json)
+
+        [
+                {
+                    "id": "93007e68-af28-47c2-b1b0-e11f317e1ac3",
+                    "text": "Some notification text less than 600 characters (GET). 1"
+                },
+                {
+                    "id": "3d80ddbb-40de-42fc-9c44-137ac6beddc0",
+                    "text": "Some notification text less than 600 characters (GET). 2"
+                },
+                {
+                    "id": "b1358b9a-739f-4de2-bc94-a3fcf0389135",
+                    "text": "Some notification text less than 600 characters (GET). 3"
+                }
+        ]
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not list  notifications"
+        }
+
+### Create Notification [POST]
+
++ Request (application/json)
+
+        {
+            "id": "7a9cf0bc-b017-4e90-80b3-bc1f1a588beb",
+            "text": "Some notification text less than 600 characters (POST). " 
+        }
+        
++ Response 201 (application/json)
+
+        {
+            "id": "7a9cf0bc-b017-4e90-80b3-bc1f1a588beb",
+            "text": "Some notification text less than 600 characters (POST). " 
+        }
+        
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not create notification"
+        }
+
+## Notifications – w/ id [/notifications{?id}]
+
++ Parameters
+
+    + id (required, string, `93007e68-af28-47c2-b1b0-e11f317e1ac3`)
+
+### List One Notifications [GET]   
+
++ Response 200 (application/json)
+
+        {
+            "id": "93007e68-af28-47c2-b1b0-e11f317e1ac3",
+            "text": "Some notification text less than 600 characters (GET). 1"
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not list notification"
+        }
+
+### Update Notification [PUT]
+
++ Request (application/json; charset=utf-8)
+
+        {
+            "id": "93007e68-af28-47c2-b1b0-e11f317e1ac3",
+            "text": "Some notification text less than 600 characters (PUT). 1",
+        }
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "id": "93007e68-af28-47c2-b1b0-e11f317e1ac3",
+            "text": "Some notification text less than 600 characters (PUT). 1 Updated",
+            "comment": "notifications can not be uodated or deleted, switch response code to 403"
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not update notification"
+        }
+        
+### Delete Notification [DELETE]
+
++ Response 204
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not delete notification"
+            "comment": "notifications can not be updated or deleted, switch to response code to 403"
+        }
+        
+        
+# Group Direct Messages
+
+## Direct Messages – w/o id [/directmessages]
+
+### List All Direct Messages [GET]
+
++ Response 200 (application/json)
+
+        ]
+                {
+                    "id": "f6b7001b-b996-4bd0-a96b-8d13b074cb35",
+                    "text": "Some direct message text less than 800 characters (GET). 1"
+                },
+                {
+                    "id": "79d1e9b1-84ea-40bc-b90d-88147a1c5604",
+                    "text": "Some direct message text less than 800 characters (GET). 2"
+                },
+                {
+                    "id": "6221ca8b-8401-48ec-a80b-d4ed445cf8b8",
+                    "text": "Some direct message text less than 800 characters (GET). 3"
+                }
+        [        
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not list direct messages"
+        }
+
+### Create Direct Message [POST]
+
++ Request (application/json)
+
+        {
+            "id": "71faea1b-4a85-4739-a658-435c42710291",
+            "text": "Some direct message text less than 800 characters (POST). " 
+        }
+        
++ Response 201 (application/json)
+
+        {
+            "id": "7a9cf0bc-b017-4e90-80b3-bc1f1a588beb",
+            "text": "Some direct message text less than 800 characters (POST). " 
+        }
+            
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not create direct message"
+        }
+
+## Direct Messages – w/ id [/directmessages{?id}]
+
++ Parameters
+
+    + id (required, string, `f6b7001b-b996-4bd0-a96b-8d13b074cb35`)
+
+### List One Direct Message [GET]   
+
++ Response 200 (application/json)
+
+        {
+            "id": "f6b7001b-b996-4bd0-a96b-8d13b074cb35",
+            "text": "Some direct message text less than 800 characters (GET). 1"
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could get direct message"
+        }
+
+### Update Direct Message [PUT]
+
++ Request (application/json; charset=utf-8)
+
+        {
+            "id": "f6b7001b-b996-4bd0-a96b-8d13b074cb35",
+            "text": "Some direct message text less than 800 characters (PUT). 1",
+        }
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "id": "93007e68-af28-47c2-b1b0-e11f317e1ac3",
+            "text": "Some notification text less than 600 characters (PUT). 1 Updated",
+            "comment": "direct messages can not be updated or deleted, switch response code to 403"
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not update direct message"
+        }
+        
+### Delete Direct Message [DELETE]
+
++ Response 204
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not delete direct message"
+            "comment": "direct messages can not be updated or deleted, switch response code to 403"
+        }
+        
+        
+# Group Images
+
+## Images – w/o id [/images]
+
+### List All Images [GET]
+
++ Response 200 (application/json)
+
+        ]
+                {
+                    "id": "97833587-c80f-42e9-b9eb-807f5bebc5cc",
+                    "url": "https://picsum.photos/800/500",
+                    "get": 1
+                },{
+                    
+                    "id": "c052c6fb-557d-4e62-9533-e15a830441bc",
+                    "url": "https://picsum.photos/800/500",
+                    "get": 2
+                },{
+                    
+                    "id": "ddeb2327-2e4c-4103-9910-7ea111f0bcf5",
+                    "url": "https://picsum.photos/800/500",
+                    "get": 3
+                }
+        ]        
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not list images"
+        }
+
+### Create Image [POST]
+
++ Request (application/json)
+
+        {
+            "id": "71faea1b-4a85-4739-a658-435c42710291",
+            "url": "https://picsum.photos/800/500",
+            "post": 1
+        }
+        
++ Response 201 (application/json)
+
+        {
+            "id": "7a9cf0bc-b017-4e90-80b3-bc1f1a588beb",
+            "url": "https://picsum.photos/800/500"
+            "post": 1
+        }
+            
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not create image"
+        }
+
+## Images – w/ id [/images{?id}]
+
++ Parameters
+
+    + id (required, string, `97833587-c80f-42e9-b9eb-807f5bebc5cc`)
+
+### List One Image [GET]   
+
++ Response 200 (application/json)
+
+        {
+            "id": "97833587-c80f-42e9-b9eb-807f5bebc5cc",
+            "url": "https://picsum.photos/800/500"
+            "get": 1
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could get image"
+        }
+
+### Update Image [PUT]
+
++ Request (application/json; charset=utf-8)
+
+        {
+            "id": "97833587-c80f-42e9-b9eb-807f5bebc5cc",
+            "url": "https://picsum.photos/800/500",
+        }
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "id": "97833587-c80f-42e9-b9eb-807f5bebc5cc",
+            "url": "https://picsum.photos/800/500",
+            "put": 1
+            "comment": "Image can not be updated or deleted, switch response code to 403"
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not update image"
+        }
+        
+### Delete Image [DELETE]
+
++ Response 204
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not delete image"
+            "comment": "Image can not be updated or deleted, switch response code to 403"
+        }
+        
+        
+# Group Audios
+
+## Audio – w/o id [/audios]
+
+### List All Audio [GET]
+
++ Response 200 (application/json)
+
+        ]
+                {
+                    "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
+                    "url": "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
+                    "get": 1
+                },{
+                    
+                    "id": "d7a34a8e-d18e-4bc8-9893-7daf896d3035",
+                    "url": "http://amclassical.com/mp3/amclassical_joplin_the_entertainer_rag.mp3",
+                    "get": 2
+                },{
+                    
+                    "id": "71099a84-62b1-4b62-a400-dc8c224fe059",
+                    "url": "http://amclassical.com/mp3/amclassical_prelude_in_c_major_bwv_846a.mp3",
+                    "get": 3
+                }
+        ]        
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not list audio files"
+        }
+
+### Create Audio [POST]
+
++ Request (application/json)
+
+        {
+            "id": "e46e0365-c808-4291-9124-d3c4f7d3b245",
+            "url": "http://amclassical.com/mp3/amclassical_twopart_invention_in_e.mp3",
+            "post": 1
+        }
+        
++ Response 201 (application/json)
+
+        {
+            "id": "e46e0365-c808-4291-9124-d3c4f7d3b245",
+            "url": "http://amclassical.com/mp3/amclassical_twopart_invention_in_e.mp3",
+            "post": 1
+        }
+            
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not create audio file"
+        }
+
+## Audio – w/ id [/audios{?id}]
+
++ Parameters
+
+    + id (required, string, `c2aacc85-2b88-47c0-ac5e-ff17af848281`)
+
+### List One Audio [GET]   
+
++ Response 200 (application/json)
+
+        {
+            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
+            "url": "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
+            "get": 1
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could get audio file"
+        }
+
+### Update Audio [PUT]
+
++ Request (application/json; charset=utf-8)
+
+        {
+            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
+            "url": "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
+            "put": 1
+        }
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
+            "url": "http://amclassical.com/mp3/amclassical_piano_sonata_k_545_mvt_1.mp3",
+            "put": 1
+            "comment": "audio can not be updated or deleted, switch response code to 403"
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not update audio file"
+        }
+        
+### Delete Audio [DELETE]
+
++ Response 204
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not delete audio file"
+            "comment": "audio can not be updated or deleted, switch response code to 403"
+        }
+
+
+# Group Videos
+
+## Video – w/o id [/videos]
+
+### List All Video [GET]
+
++ Response 200 (application/json)
+
+        ]
+                {
+                    "id": "e91d0220-08e9-4432-8e28-da7dd5078759",
+                    "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+                    "get": 1
+                },{
+                    
+                    "id": "9a5db0b8-ee7d-4c2d-82f2-2cb71218fb4c",
+                    "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+                    "get": 2
+                },{
+                    
+                    "id": "c297939a-5cf6-46f0-9abe-f5ce4456fdef",
+                    "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+                    "get": 3
+                }
+        ]        
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not list video files"
+        }
+
+### Create Video [POST]
+
++ Request (application/json)
+
+        {
+            "id": "e46e0365-c808-4291-9124-d3c4f7d3b245",
+            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+            "post": 1
+        }
+        
++ Response 201 (application/json)
+
+        {
+            "id": "e46e0365-c808-4291-9124-d3c4f7d3b245",
+            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+            "post": 1
+        }
+            
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not create video file"
+        }
+
+## Video – w/ id [/videos{?id}]
+
++ Parameters
+
+    + id (required, string, `c2aacc85-2b88-47c0-ac5e-ff17af848281`)
+
+### List One Video [GET]   
+
++ Response 200 (application/json)
+
+        {
+            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
+            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+            "get": 1
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could get video file"
+        }
+
+### Update Video [PUT]
+
++ Request (application/json; charset=utf-8)
+
+        {
+            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
+            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+            "put": 1
+        }
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
+            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+            "put": 1
+            "comment": "video can not be updated or deleted, switch response code to 403"
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not update video file"
+        }
+        
+### Delete Video [DELETE]
+
++ Response 204
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+            "error": "could not delete video file"
+            "comment": "video can not be updated or deleted, switch response code to 403"
+        }
