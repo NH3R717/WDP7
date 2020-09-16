@@ -2,14 +2,14 @@
   "name": "comsmanagement",
   "version": "1.0.0",
   "scripts": {
-    "client": "cd client && yarn start",
-    "api": "cd api && yarn start",
-    "dev": "concurrently --kill-others-on-fail \"yarn api\" \"yarn client\"",
+    "client": "cd client && npm start",
+    "api": "cd api && npm start",
+    "dev": "concurrently --kill-others-on-fail \"npm run api\" \"npm run client\"",
     "start": "node api/server.js",
-    "install-client": "yarn --prefix client",
-    "install-api": "yarn --prefix api",
-    "build-client": "yarn build --prefix client",
-    "heroku-postbuild": "concurrently \"yarn:install-*\"; concurrently \"yarn:build-*\"; "
+    "install-client": "npm i --prefix client",
+    "install-api": "npm i --prefix api",
+    "build-client": "npm run build --prefix client",
+    "heroku-postbuild": "concurrently \"npm:install-*\"; concurrently \"npm:build-*\"; "
   },
   "dependencies": {
     "body-parser": "^1.19.0",
