@@ -5,7 +5,7 @@
     "client": "cd reactapp/client && yarn start",
     "server": "cd reactapp/ && nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-    "start": "cd react/app node server.js",
+    "start": "cd reactapp/ node server.js",
     "heroku-postbuild": "cd reactapp/client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "dependencies": {
