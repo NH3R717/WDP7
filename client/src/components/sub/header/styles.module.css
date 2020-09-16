@@ -1,0 +1,7 @@
+.defaultTextStyle {
+    font-weight: bolder;
+}
+
+.defaultContainerStyle {
+    flex: auto;
+}
