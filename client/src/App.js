@@ -1,30 +1,32 @@
-import React, { Component } from 'react';
+import React from 'react';
+// import React, { Component } from 'react';
 // import logo from './logo.svg';
 // import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import styles from './App.css';
 
+// route imports
 import Header from './components/sub/header';
-// import Login from './components/view/login';
-// import Register from './components/view/login';
-// import DirectMessage from './components/view/content';
-// import Notification from './components/view/content';
-// import Search from './components/view/search';
-// import Profile from './components/view/content';
+import Login from './components/view/login';
+import Register from './components/view/login';
+import DirectMessage from './components/view/content';
+import Notification from './components/view/content';
+import Search from './components/view/search';
+import Profile from './components/view/content';
 
 function App() {
   return (
     <div className={styles.body}>
       <Router>
         <Route path="/" component={Header} />
-        {/* <main>
+        <main>
           <Route path="/" exact component={Login} Route />
           <Route path="/register" exact component={Register} Route />
           <Route path="/direct-message" exact component={DirectMessage} Route />
           <Route path="/notification" exact component={Notification} Route />
           <Route path="/search" exact component={Search} Route />
           <Route path="/profile" exact component={Profile} Route />
-        </main> */}
+        </main>
       </Router>
     </div>
   );
