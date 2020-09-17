@@ -1,0 +1,52 @@
+.body {
+  display: flex;
+  font: var(--default-font);
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  padding: 2em 5em 2em 5em;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-grow: 5;
+  background-image: url(/background.png);
+  background-size: 0.75em 0.75em;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@import url('/client/public/Comfortaa-Regular.ttf');
+:root {
+  font-family: var(--default-font);
+  /* --secondary-font-family: 'Comfortaa', sans-serif;
+  --default-font: 200 18px/1.25em var(--default-font-family); */
+  background-image: url(/background.png);
+  background-size: 0.75em 0.75em;
+  --default-font: 'Comfortaa', sans-serif;
+  --active-color: #005030;
+  --primary-color: #229405;
+  --secondary-color: #f47321;
+  --secondaryShade-color: #ffdc8b;
+  --text-color: #08489f;
+  --light-text-color: #fdfdfd;
+  --border-color: #e6e6ea;
+  --secondary-background-color: #f4f4f8;
+  --error-color: #d91f34;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font: var(--default-font);
+}
