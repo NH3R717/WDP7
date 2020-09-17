@@ -10,8 +10,8 @@
   align-items: stretch;
   justify-content: flex-start;
   flex-grow: 5;
-  background-image: url(/background.png);
-  background-size: 0.75em 0.75em;
+  /* background-image: url(/background.png);
+  background-size: 0.75em 0.75em; */
 }
 
 .center {
