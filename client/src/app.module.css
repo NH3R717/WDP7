@@ -1,6 +1,6 @@
 .body {
   display: flex;
-  font: var(--default-font);
+  /* font: var(--secondary-font); */
   flex-direction: column;
   width: auto;
   height: auto;
@@ -21,11 +21,11 @@
   justify-content: center;
 }
 
-@import url('/client/public/Comfortaa-Regular.ttf');
+/* @import url('/Comfortaa-Regular.ttf');
 :root {
   font-family: var(--default-font);
-  /* --secondary-font-family: 'Comfortaa', sans-serif;
-  --default-font: 200 18px/1.25em var(--default-font-family); */
+  --secondary-font-family: 'Comfortaa', sans-serif;
+  --default-font: 200 18px/1.25em var(--default-font-family);
   background-image: url(/background.png);
   background-size: 0.75em 0.75em;
   --default-font: 'Comfortaa', sans-serif;
@@ -40,8 +40,7 @@
   --error-color: #d91f34;
 }
 
-*::before,
-*::after {
+*::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -49,4 +48,4 @@
 
 html {
   font: var(--default-font);
-}
+} */
