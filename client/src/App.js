@@ -1,9 +1,6 @@
 import React from 'react';
-// import React, { Component } from 'react';
-// import logo from './logo.svg';
-// import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import styles from './App.css';
+import styles from './app.module.css';
 
 // route imports
 import Header from './components/sub/header';

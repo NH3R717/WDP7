@@ -1,7 +1,16 @@
 .defaultTextStyle {
-    font-weight: bolder;
+  font-weight: bolder;
+}
+
+img {
+  width: 70%;
+  /* -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    flex: 1 1 auto; */
 }
 
 .defaultContainerStyle {
-    flex: auto;
+  flex: auto;
 }

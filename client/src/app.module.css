@@ -1,4 +1,27 @@
-@import url('/Comfortaa-Regular.ttf');
+.body {
+  display: flex;
+  /* font: var(--secondary-font); */
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  padding: 2em 5em 2em 5em;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-grow: 5;
+  /* background-image: url(/background.png);
+  background-size: 0.75em 0.75em; */
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* @import url('/Comfortaa-Regular.ttf');
 :root {
   font-family: var(--default-font);
   --secondary-font-family: 'Comfortaa', sans-serif;
@@ -17,8 +40,7 @@
   --error-color: #d91f34;
 }
 
-*::before,
-*::after {
+*::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -26,18 +48,4 @@
 
 html {
   font: var(--default-font);
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 } */
