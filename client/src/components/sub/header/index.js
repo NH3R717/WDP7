@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, NavLink, Container } from 'reactstrap';
+import { Nav, Navbar, NavItem, NavLink, Container } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './styles.module.css';
@@ -9,9 +9,7 @@ class Header extends Component {
     const { loggedIn } = this.props;
     return (
       <Container className={styles.header_container}>
-        {/* <div className={styles.nav_container}> */}
         <img className={styles.header_img} src="/header-logo.png"></img>
-        {/* </div> */}
         <div className={styles.header_nav}>
           {loggedIn && (
             <>
@@ -37,6 +35,7 @@ class Header extends Component {
 }
 
 Header.propTypes = {
+  id: PropTypes.string,
   loggedIn: PropTypes.bool,
 };
 
