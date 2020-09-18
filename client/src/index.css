@@ -1,20 +1,30 @@
-@import url('/Comfortaa-Regular.ttf');
+@import url('http://fonts.googleapis.com/css?family=Comfortta');
+/* @font-face {
+  font-family: 'Comfortaa';
+  src: url('http://fonts.googleapis.com/css?family=Comfortta');
+} */
+
 :root {
   font-family: var(--default-font);
-  --secondary-font-family: 'Comfortaa', sans-serif;
-  --default-font: 200 18px/1.25em var(--default-font-family);
+  /* --secondary-font-family: 'Comfortaa', sans-serif; */
+  /* --default-font: 200 18px/1.25em var(--default-font-family); */
   background-image: url(/background.png);
   background-size: 0.75em 0.75em;
   --default-font: 'Comfortaa', sans-serif;
-  --active-color: #005030;
-  --primary-color: #229405;
-  --secondary-color: #f47321;
-  --secondaryShade-color: #ffdc8b;
-  --text-color: #08489f;
-  --light-text-color: #fdfdfd;
-  --border-color: #e6e6ea;
-  --secondary-background-color: #f4f4f8;
-  --error-color: #d91f34;
+  --brand-red-dark: #eb6854;
+  --brand-red-med: #ef8372;
+  --brand-red-lite: #fdedea;
+  --brand-blue-dark: #509bc8;
+  --brand-blue-med: #7cb4d6;
+  --brand-blue-lite: #ebf4f9;
+  --brand-green-dark: #67da4f;
+  --brand-green-med: #a8ea9a;
+  --brand-green-lite: #e5f9e1;
+  --brand-grey-1: #6a6a6a;
+  --brand-grey-2: #6a6a6a;
+  --brand-grey-3: #cfcfcf;
+  --brand-grey-4: #f1f1f1;
+  --brand-grey-5: #f1f1f1;
 }
 
 *::before,

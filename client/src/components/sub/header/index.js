@@ -9,7 +9,9 @@ class Header extends Component {
     const { loggedIn } = this.props;
     return (
       <Container className={styles.header_container}>
-        <img className={styles.header_img} src="/header-logo.png"></img>
+        {/* <div className={styles.nav_container}> */}
+
+        {/* </div> */}
         <div className={styles.header_nav}>
           {loggedIn && (
             <>
@@ -28,6 +30,9 @@ class Header extends Component {
               </Navbar>
             </>
           )}
+        </div>
+        <div>
+          <img className={styles.header_img} src="/header-logo.png"></img>
         </div>
       </Container>
     );

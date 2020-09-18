@@ -2,14 +2,15 @@
   display: flex;
   /* font: var(--secondary-font); */
   flex-direction: column;
-  width: auto;
+  /* width: auto; */
   height: auto;
   margin: 0 auto;
-  padding: 2em 5em 2em 5em;
-  flex-wrap: wrap;
-  align-items: stretch;
-  justify-content: flex-start;
-  flex-grow: 5;
+  padding: 2em;
+  max-width: 1100px;
+  /* flex-wrap: wrap; */
+  /* align-items: stretch; */
+  /* justify-content: flex-start; */
+  /* flex-grow: 2; */
   /* background-image: url(/background.png);
   background-size: 0.75em 0.75em; */
 }

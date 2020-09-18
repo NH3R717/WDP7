@@ -1,19 +1,60 @@
 import React, { Component } from 'react';
+import {
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  FormText,
+  Container,
+} from 'reactstrap';
 import PropTypes from 'prop-types';
 import styles from './styles.module.css';
 
-class Default_Comp extends Component {
+class Login_Register extends Component {
   render() {
-    return <h1 className={styles.defaultTextStyle}>Login / Register</h1>;
+    const { register } = this.props;
+    return (
+      <Container className={styles.form_container}>
+        {!register && (
+          <>
+            <section className={styles.form_box}>
+              <h2>Login</h2>
+              <Form>
+                <FormGroup>
+                  <Input
+                    className={styles.input}
+                    type="email"
+                    name="email"
+                    id="exampleEmail"
+                    placeholder="Email"
+                  />
+                </FormGroup>
+                <FormGroup>
+                  <Input
+                    className={styles.input}
+                    type="password"
+                    name="password"
+                    id="examplePassword"
+                    placeholder="Password"
+                  />
+                </FormGroup>
+                <Button className={styles.button}>Login</Button>
+              </Form>
+            </section>
+          </>
+        )}
+      </Container>
+    );
   }
 }
 
-Default_Comp.propTypes = {
-  id: PropTypes.string,
+Login_Register.propTypes = {
+  register: PropTypes.bool,
 };
 
-Default_Comp.defaultProps = {
-  choice: {},
+Login_Register.defaultProps = {
+  register: false,
 };
 
-export default Default_Comp;
+export default Login_Register;

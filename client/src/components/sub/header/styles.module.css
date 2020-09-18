@@ -1,5 +1,5 @@
 .header_container {
-  display: flex;
+  display: block;
   justify-content: space-between;
 }
 
@@ -8,7 +8,8 @@
 }
 
 .header_nav {
-  padding: 0.3em 0 0 0.8em;
+  float: right;
+  padding: 0.3em 0 0.3em 0.8em;
   width: 180px;
 }
 
@@ -27,7 +28,8 @@
 }
 
 img {
-  width: 60%;
+  width: 100%;
+  max-width: 600px;
 }
 
 .defaultContainerStyle {
