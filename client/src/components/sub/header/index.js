@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, NavItem, NavLink, Container } from 'reactstrap';
+import { Navbar, NavLink, Container } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './styles.module.css';
@@ -37,7 +37,6 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  id: PropTypes.string,
   loggedIn: PropTypes.bool,
 };
 
