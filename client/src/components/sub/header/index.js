@@ -1,19 +1,47 @@
 import React, { Component } from 'react';
+import { Navbar, NavLink, Container } from 'reactstrap';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styles from './styles.module.css';
 
-class Default_Comp extends Component {
+class Header extends Component {
   render() {
-    return <h1 className={styles.defaultTextStyle}>Header</h1>;
+    const { loggedIn } = this.props;
+    return (
+      <Container className={styles.header_container}>
+        {/* <div className={styles.nav_container}> */}
+        <img className={styles.header_img} src="/header-logo.png"></img>
+        {/* </div> */}
+        <div className={styles.header_nav}>
+          {loggedIn && (
+            <>
+              <Navbar className={styles.header_nav}>
+                <NavLink className={styles.nav_link} href="/search">
+                  search
+                </NavLink>
+                {/* <p className={styles.nav_link}>/</p> */}
+                <NavLink className={styles.nav_link} href="/profile">
+                  profile
+                </NavLink>
+                {/* <p className={styles.nav_link}>/</p> */}
+                <NavLink className={styles.nav_link} href="/logout">
+                  logout
+                </NavLink>
+              </Navbar>
+            </>
+          )}
+        </div>
+      </Container>
+    );
   }
 }
 
-Default_Comp.propTypes = {
-  id: PropTypes.string,
+Header.propTypes = {
+  loggedIn: PropTypes.bool,
 };
 
-Default_Comp.defaultProps = {
-  choice: {},
+Header.defaultProps = {
+  loggedIn: true,
 };
 
-export default Default_Comp;
+export default Header;

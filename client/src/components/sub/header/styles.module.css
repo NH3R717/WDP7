@@ -1,16 +1,35 @@
+.header_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header_img {
+  display: inline-block;
+}
+
+.header_nav {
+  padding: 0.3em 0 0 0.8em;
+  width: 180px;
+}
+
+.nav_container {
+  height: auto;
+}
+
+.nav_link {
+  font-size: small;
+  padding: 0.3em;
+  display: inline-block;
+}
+
 .defaultTextStyle {
   font-weight: bolder;
 }
 
 img {
-  width: 70%;
-  /* -webkit-box-flex: 1;
-    -moz-box-flex: 1;
-    box-flex: 1;
-    -webkit-flex: 1 1 auto;
-    flex: 1 1 auto; */
+  width: 60%;
 }
 
 .defaultContainerStyle {
-  flex: auto;
+  height: auto;
 }
