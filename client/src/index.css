@@ -1,13 +1,54 @@
-body {
+@import url('http://fonts.googleapis.com/css?family=Comfortta');
+/* @font-face {
+  font-family: 'Comfortaa';
+  src: url('http://fonts.googleapis.com/css?family=Comfortta');
+} */
+
+:root {
+  font-family: var(--default-font);
+  /* margin: 0; */
+  /* --secondary-font-family: 'Comfortaa', sans-serif; */
+  /* --default-font: 200 18px/1.25em var(--default-font-family); */
+  background-image: url(/background.png);
+  background-size: 0.75em 0.75em;
+  --default-font: 'Comfortaa', sans-serif;
+  --brand-red-dark: #eb6854;
+  --brand-red-med: #ef8372;
+  --brand-red-lite: #fdedea;
+  --brand-blue-dark: #509bc8;
+  --brand-blue-med: #7cb4d6;
+  --brand-blue-lite: #ebf4f9;
+  --brand-green-dark: #67da4f;
+  --brand-green-med: #a8ea9a;
+  --brand-green-lite: #e5f9e1;
+  --brand-grey-1: #6a6a6a;
+  --brand-grey-2: #6a6a6a;
+  --brand-grey-3: #cfcfcf;
+  --brand-grey-4: #f1f1f1;
+  --brand-grey-5: #f1f1f1;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+}
+
+html {
+  font: var(--default-font);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+} */

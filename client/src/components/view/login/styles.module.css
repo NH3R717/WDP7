@@ -1,0 +1,47 @@
+h2 {
+  color: var(--brand-red-dark);
+}
+
+.defaultContainerStyle {
+  flex: auto;
+}
+
+.form_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form_box {
+  margin: 3em 0 3em 0;
+  align-content: space-around;
+  /* width: 23em; */
+}
+
+.input {
+  margin: 0.5em;
+  padding: 0.3em;
+  border-radius: 0.7em;
+  background-color: var(--brand-red-lite);
+  color: var(--brand-blue-dark);
+  text-align: center;
+  width: 20em;
+}
+
+.button {
+  text-align: center;
+  color: var(--brand-blue-dark);
+  background-color: var(--brand-green-lite);
+  margin: 1.5em 0 0 0;
+  padding: 0.3em 1em;
+  width: 7.25em;
+  float: left;
+}
+
+.left_button {
+  float: left;
+}
+
+.right_button {
+  float: right;
+}
