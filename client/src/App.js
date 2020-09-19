@@ -4,6 +4,7 @@ import styles from './app.module.css';
 
 // route imports
 import Header from './components/sub/header';
+import Footer from './components/sub/buttons';
 import Login from './components/view/login';
 import Register from './components/view/login';
 import DirectMessage from './components/view/content';
@@ -24,6 +25,10 @@ function App() {
           <Route path="/search" exact component={Search} Route />
           <Route path="/profile" exact component={Profile} Route />
         </main>
+        <Route
+          path={['/direct-message', '/notification', 'search', 'profile']}
+          component={Footer}
+        />
       </Router>
     </div>
   );
