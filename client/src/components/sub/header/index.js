@@ -8,7 +8,7 @@ class Header extends Component {
     const { loggedIn } = this.props;
     return (
       <Container className={styles.header_container}>
-        <div className={styles.header_nav}>
+        <header className={styles.header_nav}>
           {loggedIn && (
             <>
               <Navbar className={styles.header_nav}>
@@ -24,7 +24,7 @@ class Header extends Component {
               </Navbar>
             </>
           )}
-        </div>
+        </header>
         <div>
           <img
             className={styles.header_img}
