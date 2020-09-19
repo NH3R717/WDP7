@@ -2,18 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './styles.module.css';
 
-class Default_Comp extends Component {
+class Buttons extends Component {
   render() {
     return <h1 className={styles.defaultTextStyle}>Button</h1>;
   }
 }
 
-Default_Comp.propTypes = {
+Buttons.propTypes = {
   id: PropTypes.string,
 };
 
-Default_Comp.defaultProps = {
+Buttons.defaultProps = {
   choice: {},
 };
 
-export default Default_Comp;
+export default Buttons;
