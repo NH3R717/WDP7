@@ -1,7 +1,32 @@
-.defaultTextStyle {
-    font-weight: bolder;
+.card_container {
+  display: flex;
+  margin: 0.3em 0.5em 0 0.5em;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.defaultContainerStyle {
-    flex: auto;
+.card_head {
+  display: flex;
+  /* max-width: 550px; */
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.notification_message {
+  display: flex;
+  margin: 0 0 0 0.3em;
+  font-size: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+.card_thumb {
+  margin: 0 0 0 2em;
+  width: 4.5em;
+  height: 3em;
+  float: right;
+}
+.avatar_img {
+  width: 3.5em;
+  height: 3.5em;
 }
