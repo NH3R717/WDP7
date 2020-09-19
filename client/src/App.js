@@ -26,7 +26,7 @@ function App() {
           <Route path="/profile" exact component={Profile} Route />
         </main>
         <Route
-          path={['/direct-message', '/notification', 'search', 'profile']}
+          path={['/direct-message', '/notification', '/search', '/profile']}
           component={Footer}
         />
       </Router>
@@ -79,15 +79,15 @@ export default App;
 
 //   render() {
 //     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
+//       <div className='App'>
+//         <header className='App-header'>
+//           <img src={logo} className='App-logo' alt='logo' />
 //           <p>Updated component</p>
 //           <a
-//             className="App-link"
-//             href="https://reactjs.org"
-//             target="_blank"
-//             rel="noopener noreferrer"
+//             className='App-link'
+//             href='https://reactjs.org'
+//             target='_blank'
+//             rel='noopener noreferrer'
 //           >
 //             Learn React
 //           </a>
@@ -98,11 +98,11 @@ export default App;
 //             <strong>Post to Server:</strong>
 //           </p>
 //           <input
-//             type="text"
+//             type='text'
 //             value={this.state.post}
 //             onChange={(e) => this.setState({ post: e.target.value })}
 //           />
-//           <button type="submit">Submit</button>
+//           <button type='submit'>Submit</button>
 //         </form>
 //         <p>{this.state.responseToPost}</p>
 //       </div>

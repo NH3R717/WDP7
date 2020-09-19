@@ -6,6 +6,7 @@
 
 :root {
   font-family: var(--default-font);
+  /* margin: 0; */
   /* --secondary-font-family: 'Comfortaa', sans-serif; */
   /* --default-font: 200 18px/1.25em var(--default-font-family); */
   background-image: url(/background.png);

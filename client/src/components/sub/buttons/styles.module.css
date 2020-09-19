@@ -1,7 +1,16 @@
-.defaultTextStyle {
-  font-weight: bolder;
+.buttons_container {
+  /* flex: auto;
+  position: 'absolute';
+  margin: 0;
+  bottom: 0; */
+  display: flex;
+  flex: 1;
+  justify-content: 'flex-end';
+  margin-bottom: 36;
 }
 
-.defaultContainerStyle {
-  flex: auto;
+.buttons {
+  font-weight: bolder;
+  margin: 0;
+  bottom: 0;
 }

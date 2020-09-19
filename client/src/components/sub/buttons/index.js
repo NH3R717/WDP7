@@ -4,7 +4,11 @@ import styles from './styles.module.css';
 
 class Buttons extends Component {
   render() {
-    return <h1 className={styles.defaultTextStyle}>Button</h1>;
+    return (
+      <section className={styles.buttons_container}>
+        <h1 className={styles.buttons}>Button</h1>
+      </section>
+    );
   }
 }
 
