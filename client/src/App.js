@@ -8,6 +8,7 @@ import Footer from './components/sub/buttons';
 import Login from './components/view/login';
 import Register from './components/view/login';
 import DirectMessage from './components/view/content';
+import Notifications from './components/view/content';
 import Notification from './components/view/content';
 import Search from './components/view/search';
 import Profile from './components/view/content';
@@ -19,14 +20,23 @@ function App() {
         <Route path="/" component={Header} />
         <main>
           <Route path="/" exact component={Login} Route />
+          <Route path="/logout" exact component={Login} Route />
           <Route path="/register" exact component={Register} Route />
-          <Route path="/direct-message" exact component={DirectMessage} Route />
-          <Route path="/notification" exact component={Notification} Route />
+          <Route path="/" exact component={DirectMessage} Route />
+          <Route path="/notifications" exact component={Notification} Route />
+          <Route path="/notification" exact component={Notifications} Route />
+          <Route path="/direct-message" exact component={Notifications} Route />
           <Route path="/search" exact component={Search} Route />
           <Route path="/profile" exact component={Profile} Route />
         </main>
         <Route
-          path={['/direct-message', '/notification', '/search', '/profile']}
+          path={[
+            '/notifications',
+            '/notification',
+            '/direct-message',
+            '/search',
+            '/profile',
+          ]}
           component={Footer}
         />
       </Router>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Container } from 'reactstrap';
 import { FaHome } from 'react-icons/fa';
-import { IoIosArrowBack } from 'react-icons/io';
 import PropTypes from 'prop-types';
 import styles from './styles.module.css';
 
@@ -10,14 +10,17 @@ class Buttons extends Component {
     return (
       <Container className={styles.sticky_container}>
         <section className={styles.buttons_container}>
-          <Button className={styles.buttons}>
-            <IoIosArrowBack />
-          </Button>
-          <Button className={styles.buttons}>
-            <FaHome />
-          </Button>
-          <Button className={styles.buttons}>NC</Button>
-          <Button className={styles.buttons}>DM</Button>
+          <Link to="/notifications">
+            <Button className={styles.buttons}>
+              <FaHome />
+            </Button>
+          </Link>
+          <Link to="/notification">
+            <Button className={styles.buttons}>NC</Button>
+          </Link>
+          <Link to="/direct-message">
+            <Button className={styles.buttons}>DM</Button>
+          </Link>
         </section>
       </Container>
     );

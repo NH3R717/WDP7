@@ -1,5 +1,4 @@
 .sticky_container {
-  /* display: flex; */
   position: fixed;
   bottom: 0;
   margin: 0 0 0.5em auto;
@@ -8,13 +7,19 @@
 }
 .buttons_container {
   display: flex;
-  max-width: 730px;
-  margin: 0 0 0.5em 0;
+  max-width: 705px;
+  margin: 0 0.8em 0.5em 0.8em;
   bottom: 0;
   justify-content: space-between;
 }
 
 .buttons {
-  /* display: flex;
-  justify-content: space-around; */
+  font-size: 1.3em;
+  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50px;
+  height: 50px;
+  border: solid var(--brand-green-med);
+  border-radius: 100%;
 }
