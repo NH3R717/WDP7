@@ -29,8 +29,6 @@ h2 {
 }
 
 .button {
-  /* border: solid var(--brand-green-med); */
-  /* border-radius: 20%; */
   text-align: center;
   color: var(--brand-blue-dark);
   background-color: var(--brand-green-lite);
