@@ -4,9 +4,11 @@ import styles from './app.module.css';
 
 // route imports
 import Header from './components/sub/header';
+import Footer from './components/sub/buttons';
 import Login from './components/view/login';
 import Register from './components/view/login';
 import DirectMessage from './components/view/content';
+import Notifications from './components/view/content';
 import Notification from './components/view/content';
 import Search from './components/view/search';
 import Profile from './components/view/content';
@@ -18,12 +20,25 @@ function App() {
         <Route path="/" component={Header} />
         <main>
           <Route path="/" exact component={Login} Route />
+          <Route path="/logout" exact component={Login} Route />
           <Route path="/register" exact component={Register} Route />
-          <Route path="/direct-message" exact component={DirectMessage} Route />
-          <Route path="/notification" exact component={Notification} Route />
+          <Route path="/" exact component={DirectMessage} Route />
+          <Route path="/notifications" exact component={Notification} Route />
+          <Route path="/notification" exact component={Notifications} Route />
+          <Route path="/direct-message" exact component={Notifications} Route />
           <Route path="/search" exact component={Search} Route />
           <Route path="/profile" exact component={Profile} Route />
         </main>
+        <Route
+          path={[
+            '/notifications',
+            '/notification',
+            '/direct-message',
+            '/search',
+            '/profile',
+          ]}
+          component={Footer}
+        />
       </Router>
     </div>
   );
@@ -74,15 +89,15 @@ export default App;
 
 //   render() {
 //     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
+//       <div className='App'>
+//         <header className='App-header'>
+//           <img src={logo} className='App-logo' alt='logo' />
 //           <p>Updated component</p>
 //           <a
-//             className="App-link"
-//             href="https://reactjs.org"
-//             target="_blank"
-//             rel="noopener noreferrer"
+//             className='App-link'
+//             href='https://reactjs.org'
+//             target='_blank'
+//             rel='noopener noreferrer'
 //           >
 //             Learn React
 //           </a>
@@ -93,11 +108,11 @@ export default App;
 //             <strong>Post to Server:</strong>
 //           </p>
 //           <input
-//             type="text"
+//             type='text'
 //             value={this.state.post}
 //             onChange={(e) => this.setState({ post: e.target.value })}
 //           />
-//           <button type="submit">Submit</button>
+//           <button type='submit'>Submit</button>
 //         </form>
 //         <p>{this.state.responseToPost}</p>
 //       </div>
