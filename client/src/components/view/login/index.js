@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Input, Container } from 'reactstrap';
+import { Container, Button, Form, FormGroup, Input } from 'reactstrap';
 import PropTypes from 'prop-types';
 import styles from './styles.module.css';
 
