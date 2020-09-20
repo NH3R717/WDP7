@@ -10,7 +10,7 @@ import {
 import PropTypes from 'prop-types';
 import styles from '../styles.module.css';
 
-class Default_Comp extends Component {
+class Notifications_Compose extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -54,7 +54,7 @@ class Default_Comp extends Component {
   }
 }
 
-Default_Comp.propTypes = {
+Notifications_Compose.propTypes = {
   id: PropTypes.string,
   notification_text: PropTypes.string,
   avatar_img_blue: PropTypes.string,
@@ -62,11 +62,11 @@ Default_Comp.propTypes = {
   loggedIn: PropTypes.bool,
 };
 
-Default_Comp.defaultProps = {
+Notifications_Compose.defaultProps = {
   loggedIn: true,
-  notification_text: 'This is a notification, Notification!',
+  notification_text: 'This is a notification, Notification(s)!',
   avatar_img_blue: '/avatar_blue.png',
   sample_thumbnail: '/sample_image.jpg',
 };
 
-export default Default_Comp;
+export default Notifications_Compose;
