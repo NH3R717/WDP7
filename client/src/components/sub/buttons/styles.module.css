@@ -4,16 +4,17 @@
   margin: 0 0 0.5em auto;
   width: 93.7%;
 }
+
 .buttons_container {
   display: flex;
   max-width: 705px;
-
   margin: 0 0.8em 0.5em 0.8em;
   bottom: 0;
   justify-content: space-between;
 }
 
 .buttons {
+  color: var(--brand-grey-1);
   font-size: 1.3em;
   padding: 0px;
   margin-left: auto;

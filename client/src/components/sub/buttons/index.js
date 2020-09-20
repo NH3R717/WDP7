@@ -15,10 +15,10 @@ class Buttons extends Component {
               <FaHome />
             </Button>
           </Link>
-          <Link to="/notification">
+          <Link to="/notification-compose">
             <Button className={styles.buttons}>NC</Button>
           </Link>
-          <Link to="/direct-message">
+          <Link to="/direct-message-contacts">
             <Button className={styles.buttons}>DM</Button>
           </Link>
         </section>

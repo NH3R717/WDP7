@@ -1,32 +1,155 @@
+/* all */
+
 .card_container {
-  display: flex;
   margin: 0.3em 0.5em 0 0.5em;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .card_head {
   display: flex;
-  /* max-width: 550px; */
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-.notification_message {
+
+.avatar_img {
+  width: 3.5em;
+  height: 3.5em;
+}
+
+.card_thumb {
+  width: 4.5em;
+  height: 3em;
+}
+
+/* notification  */
+
+.notification_text {
   display: flex;
-  margin: 0 0 0 0.3em;
+  padding-right: 2em;
+  margin: 0 0 0 0.6em;
+  width: 30em;
   font-size: 1em;
+  justify-content: left;
+}
+
+/* profile */
+
+.username {
+  display: flex;
+  padding-right: 2em;
+  margin: 0 0 0 0.6em;
+  width: 26em;
+  font-size: 1em;
+  justify-content: left;
+  /* align-items: center; */
+}
+
+.user_bio_container {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.card_thumb {
-  margin: 0 0 0 2em;
-  width: 4.5em;
-  height: 3em;
+.user_bio {
+  width: 90%;
+}
+
+/* direct message contacts */
+
+.contacts_card_link {
+  color: var(--brand-grey-1);
+  text-decoration: none;
+}
+
+/* direct message compose*/
+
+.direct_message_container {
+  margin: 1em 0 0 0;
+}
+
+.direct_message {
+  display: flex;
+  /* padding-right: 2em; */
+  margin: 0.8em;
+  /* width: 30em; */
+  font-size: 0.7em;
+  justify-content: left;
+}
+
+.direct_message_input_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.direct_message_input {
+  margin: 0.5em 2em 0.5em 0.5em;
+  padding: 0.3em;
+  border-radius: 0.7em;
+  background-color: var(--brand-red-lite);
+  color: var(--brand-blue-dark);
+  text-align: center;
+  width: 90%;
+}
+
+.direct_message_button {
+  margin: 0;
+  text-align: center;
+  color: var(--brand-blue-dark);
+  background-color: var(--brand-green-lite);
+  padding: 0.3em;
+  width: 5em;
+  float: left;
   float: right;
 }
-.avatar_img {
-  width: 3.5em;
-  height: 3.5em;
+
+/* 
+form 
+*/
+
+h4 {
+  color: var(--brand-blue-dark);
+  margin: 0.8em auto 0.2em 0.8em;
+}
+
+.form_container {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
+.form_group {
+  margin: auto;
+}
+
+.form_box {
+  margin: 0em 0 3em 0;
+}
+
+.input {
+  margin: 0.5em;
+  padding: 0.3em;
+  border-radius: 0.7em;
+  background-color: var(--brand-red-lite);
+  color: var(--brand-blue-dark);
+  text-align: center;
+  width: 20em;
+}
+
+.button {
+  text-align: center;
+  color: var(--brand-blue-dark);
+  background-color: var(--brand-green-lite);
+  margin: 1.5em 0 0 0;
+  padding: 0.3em 1em;
+  width: 7.25em;
+  float: left;
+}
+
+.left_button {
+  float: left;
+}
+
+.right_button {
+  float: right;
 }
