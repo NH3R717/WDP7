@@ -3,9 +3,7 @@ import {
   Card,
   CardBody,
   CardTitle,
-  // CardSubtitle,
   CardText,
-  CardLink,
   Button,
   Form,
   FormGroup,
@@ -25,7 +23,6 @@ class Direct_Message extends Component {
   render() {
     const {
       avatar_img_blue,
-      avatar_img_red,
       name1,
       name2,
       sample_thumbnail,
@@ -66,7 +63,7 @@ class Direct_Message extends Component {
             <CardBody className={styles.card_head}>
               <img
                 className={styles.avatar_img}
-                src={avatar_img_red}
+                src={avatar_img_blue}
                 alt="user avatar"
               />
               <CardTitle className={styles.notification_text}>
@@ -77,7 +74,6 @@ class Direct_Message extends Component {
                 // src={sample_thumbnail}
                 // alt="notification media thumbnail"
               />
-              {/* <CardSubtitle>Card subtitle</CardSubtitle> */}
             </CardBody>
           </div>
           <CardBody className={styles.user_bio_container}>
@@ -86,7 +82,9 @@ class Direct_Message extends Component {
             </CardText>
           </CardBody>
         </Card>
+
         {/* message input */}
+
         <Form>
           <FormGroup className={styles.direct_message_input_container}>
             <Input
@@ -110,23 +108,19 @@ Direct_Message.propTypes = {
   name2: PropTypes.string,
   direct_message: PropTypes.string,
   avatar_img_blue: PropTypes.string,
-  avatar_img_red: PropTypes.string,
-  avatar_img_green: PropTypes.string,
   sample_thumbnail: PropTypes.string,
   loggedIn: PropTypes.bool,
 };
 
 Direct_Message.defaultProps = {
   loggedIn: true,
-  name1: 'Captain B.',
-  name2: 'Yoshi Toranaga',
+  name1: 'Yoshihide Suga',
+  name2: 'Captain B.',
   direct_message1:
     'Crimp keel black jack lugger lad Admiral of the Black. Nelsons folly long clothes trysail yawl loot bilge. Killick red ensign nipperkin keel bring a spring upon her cable bucko. Skysail loaded to the gunwalls lugger list bilge rat tackle. Boatswain keelhaul hardtack Pieces of Eight walk the plank lanyard. Ballast gun smartly line snow warp. ',
   direct_message2:
     "Gally Sea Legs blow the man down hogshead fathom spanker. Brig boatswain trysail mizzenmast long clothes lookout. Case shot bilged on her anchor jib bilge water gangplank squiffy. Blimey log Cat o'nine tails Pieces of Eight schooner fluke.",
   avatar_img_blue: '/avatar_blue.png',
-  avatar_img_red: '/avatar_green.png',
-  avatar_img_green: '/avatar_red.png',
   sample_thumbnail: '/sample_image.jpg',
 };
 

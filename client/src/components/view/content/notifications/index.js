@@ -10,7 +10,7 @@ import {
 import PropTypes from 'prop-types';
 import styles from '../styles.module.css';
 
-class Notifications_List extends Component {
+class NotificationsList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -19,11 +19,17 @@ class Notifications_List extends Component {
   }
 
   render() {
-    const { avatar_img_blue, notification_text, sample_thumbnail } = this.props;
+    const {
+      avatar_img_blue,
+      avatar_img_red,
+      notification_text,
+      sample_thumbnail,
+    } = this.props;
     return (
       <section className={styles.card_container}>
         {/* notification */}
-        <Card>
+
+        <Card Card className={styles.card_container}>
           <div>
             <CardBody className={styles.card_head}>
               <img
@@ -39,34 +45,52 @@ class Notifications_List extends Component {
                 src={sample_thumbnail}
                 alt="notification media thumbnail"
               />
-              {/* <CardSubtitle>Card subtitle</CardSubtitle> */}
             </CardBody>
           </div>
-          {/* <CardBody>
-            <CardText>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </CardText>
-          </CardBody> */}
+        </Card>
+        <Card className={styles.card_container}>
+          <div>
+            <CardBody className={styles.card_head}>
+              <img
+                className={styles.avatar_img}
+                src={avatar_img_red}
+                alt="user avatar"
+              />
+              <CardTitle className={styles.notification_text}>
+                {notification_text}
+              </CardTitle>
+              <div
+                className={styles.card_thumb}
+                // src={sample_thumbnail}
+                // alt="notification media thumbnail"
+              />
+            </CardBody>
+          </div>
         </Card>
       </section>
     );
   }
 }
 
-Notifications_List.propTypes = {
+NotificationsList.propTypes = {
   id: PropTypes.string,
-  notification_text: PropTypes.string,
+  name1: PropTypes.string,
+  name2: PropTypes.string,
+  direct_message: PropTypes.string,
   avatar_img_blue: PropTypes.string,
+  avatar_img_red: PropTypes.string,
+  avatar_img_green: PropTypes.string,
   sample_thumbnail: PropTypes.string,
   loggedIn: PropTypes.bool,
 };
 
-Notifications_List.defaultProps = {
+NotificationsList.defaultProps = {
   loggedIn: true,
   notification_text: 'Here is a notification, now you know!',
   avatar_img_blue: '/avatar_blue.png',
+  avatar_img_red: '/avatar_red.png',
+  avatar_img_green: '/avatar_green.png',
   sample_thumbnail: '/sample_image.jpg',
 };
 
-export default Notifications_List;
+export default NotificationsList;

@@ -27,7 +27,8 @@ class Profile extends Component {
     const { avatar_img_blue, username, discription, bio } = this.props;
     return (
       <section className={styles.card_container}>
-        {/* notification */}
+        {/* profile */}
+
         <Card>
           <div>
             <CardBody className={styles.card_head}>
@@ -85,7 +86,7 @@ class Profile extends Component {
               </FormGroup>
               <Button
                 className={
-                  styles.right_button + ' ' + styles.direct_messafe_button
+                  styles.right_button + ' ' + styles.direct_message_button
                 }
               >
                 Update

@@ -19,7 +19,6 @@
 .card_thumb {
   width: 4.5em;
   height: 3em;
-  /* float: right; */
 }
 
 /* notification  */
@@ -31,7 +30,6 @@
   width: 30em;
   font-size: 1em;
   justify-content: left;
-  /* align-items: center; */
 }
 
 /* profile */
@@ -48,10 +46,8 @@
 
 .user_bio_container {
   display: flex;
-  /* flex-direction: row; */
   justify-content: center;
   align-items: center;
-  /* width: 95%; */
 }
 
 .user_bio {
@@ -62,7 +58,6 @@
 
 .contacts_card_link {
   color: var(--brand-grey-1);
-  /* color: black; */
   text-decoration: none;
 }
 
@@ -102,8 +97,7 @@
   text-align: center;
   color: var(--brand-blue-dark);
   background-color: var(--brand-green-lite);
-  /* margin: 1.5em 0 0 0; */
-  padding: 0.3em 1em;
+  padding: 0.3em;
   width: 5em;
   float: left;
   float: right;

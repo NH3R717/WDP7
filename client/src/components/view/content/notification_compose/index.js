@@ -13,7 +13,7 @@ class Notifications_Compose extends Component {
   }
 
   render() {
-    const { avatar_img_blue, notification_text, sample_thumbnail } = this.props;
+    // const {} = this.props;
     return (
       <section className={styles.card_container}>
         <h2>Compose Notification</h2>
@@ -24,7 +24,7 @@ class Notifications_Compose extends Component {
               type="text"
               name="direct_message_input"
               id="direct_message_input"
-              // placeholder="Bio"
+              // placeholder=""
             />
             <Link to="/notifications">
               <Button className={styles.direct_message_button}>Send</Button>
@@ -37,18 +37,12 @@ class Notifications_Compose extends Component {
 }
 
 Notifications_Compose.propTypes = {
-  id: PropTypes.string,
-  notification_text: PropTypes.string,
-  avatar_img_blue: PropTypes.string,
-  sample_thumbnail: PropTypes.string,
+  // id: PropTypes.string,
   loggedIn: PropTypes.bool,
 };
 
 Notifications_Compose.defaultProps = {
   loggedIn: true,
-  notification_text: 'This is a notification, Notification(s)!',
-  avatar_img_blue: '/avatar_blue.png',
-  sample_thumbnail: '/sample_image.jpg',
 };
 
 export default Notifications_Compose;
