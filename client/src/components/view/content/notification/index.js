@@ -3,15 +3,23 @@ import {
   Card,
   CardBody,
   CardTitle,
-  CardSubtitle,
-  CardText,
-  CardLink,
+  // CardSubtitle,
+  // CardText,
+  // CardLink,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
-import styles from './styles.module.css';
+import styles from '../styles.module.css';
 
 class Default_Comp extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      '': '',
+    };
+  }
+
   render() {
+    const { avatar_img_blue, notification_text, sample_thumbnail } = this.props;
     return (
       <section className={styles.card_container}>
         {/* notification */}
@@ -20,16 +28,16 @@ class Default_Comp extends Component {
             <CardBody className={styles.card_head}>
               <img
                 className={styles.avatar_img}
-                src="/avatar_blue.png"
-                alt="Card image cap"
+                src={avatar_img_blue}
+                alt="user avatar"
               />
-              <CardTitle className={styles.notification_message}>
-                This is a notification, letting you know.
+              <CardTitle className={styles.notification_text}>
+                {notification_text}
               </CardTitle>
               <img
                 className={styles.card_thumb}
-                src="/sample_image.jpg"
-                alt="Card image cap"
+                src={sample_thumbnail}
+                alt="notification media thumbnail"
               />
               {/* <CardSubtitle>Card subtitle</CardSubtitle> */}
             </CardBody>
@@ -48,10 +56,17 @@ class Default_Comp extends Component {
 
 Default_Comp.propTypes = {
   id: PropTypes.string,
+  notification_text: PropTypes.string,
+  avatar_img_blue: PropTypes.string,
+  sample_thumbnail: PropTypes.string,
+  loggedIn: PropTypes.bool,
 };
 
 Default_Comp.defaultProps = {
-  choice: {},
+  loggedIn: true,
+  notification_text: 'This is a notification, Notification!',
+  avatar_img_blue: '/avatar_blue.png',
+  sample_thumbnail: '/sample_image.jpg',
 };
 
 export default Default_Comp;
