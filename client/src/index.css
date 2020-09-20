@@ -21,7 +21,7 @@
   --brand-green-dark: #67da4f;
   --brand-green-med: #a8ea9a;
   --brand-green-lite: #e5f9e1;
-  --brand-grey-1: #6a6a6a;
+  --brand-grey-1: #555555;
   --brand-grey-2: #6a6a6a;
   --brand-grey-3: #cfcfcf;
   --brand-grey-4: #f1f1f1;
@@ -37,6 +37,13 @@
 
 html {
   font: var(--default-font);
+  font: var(--brand-grey-1);
+}
+
+a {
+  color: var(--brand-grey-1);
+  /* color: black; */
+  text-decoration: none;
 }
 
 code {
