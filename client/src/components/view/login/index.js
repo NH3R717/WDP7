@@ -94,7 +94,7 @@ class Login_Register extends Component {
                       placeholder="Reenter Password"
                     />
                   </FormGroup>
-                  <Link to="/notifications">
+                  <Link to="/">
                     <Button
                       className={styles.right_button + ' ' + styles.button}
                     >
