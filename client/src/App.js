@@ -8,7 +8,8 @@ import Footer from './components/sub/buttons';
 import Login from './components/view/login';
 import Register from './components/view/login';
 // import DirectMessage from './components/view/content';
-import DirectMessage from './components/view/content/direct_message';
+import DirectMessage from './components/view/content/direct_message_contacts';
+import DirectMessageCompose from './components/view/content/direct_message_compose';
 // import Notifications from './components/view/content';
 import Notifications from './components/view/content/notifications';
 // import Notification from './components/view/content';
@@ -29,7 +30,18 @@ function App() {
           <Route path="/" exact component={DirectMessage} Route />
           <Route path="/notifications" exact component={Notification} Route />
           <Route path="/notification" exact component={Notifications} Route />
-          <Route path="/direct-message" exact component={DirectMessage} Route />
+          <Route
+            path="/direct-message-contacts"
+            exact
+            component={DirectMessage}
+            Route
+          />
+          <Route
+            path="/direct-message-compose"
+            exact
+            component={DirectMessageCompose}
+            Route
+          />
           <Route path="/search" exact component={Search} Route />
           <Route path="/profile" exact component={Profile} Route />
         </main>
@@ -37,7 +49,8 @@ function App() {
           path={[
             '/notifications',
             '/notification',
-            '/direct-message',
+            '/direct-message-contacts',
+            '/direct-message-compose',
             '/search',
             '/profile',
           ]}

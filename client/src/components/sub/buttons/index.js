@@ -18,7 +18,7 @@ class Buttons extends Component {
           <Link to="/notification">
             <Button className={styles.buttons}>NC</Button>
           </Link>
-          <Link to="/direct-message">
+          <Link to="/direct-message-contacts">
             <Button className={styles.buttons}>DM</Button>
           </Link>
         </section>

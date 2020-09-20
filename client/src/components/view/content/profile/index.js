@@ -66,8 +66,6 @@ class Profile extends Component {
                 />
               </FormGroup>
               <FormGroup className={styles.form_group}>
-                {/* <Label>Begining Date</Label> */}
-                {/* <h4 for="begining_date">Begining Date</h4> */}
                 <Input
                   className={styles.input}
                   type="text"
@@ -77,7 +75,6 @@ class Profile extends Component {
                 />
               </FormGroup>
               <FormGroup>
-                {/* <h4 for="end_date">End Date</h4> */}
                 <Input
                   className={styles.input}
                   type="text"

@@ -1,3 +1,5 @@
+/* all */
+
 .card_container {
   margin: 0.3em 0.5em 0 0.5em;
 }
@@ -8,6 +10,31 @@
   justify-content: center;
   align-items: center;
 }
+
+.avatar_img {
+  width: 3.5em;
+  height: 3.5em;
+}
+
+.card_thumb {
+  width: 4.5em;
+  height: 3em;
+  /* float: right; */
+}
+
+/* notification  */
+
+.notification_text {
+  display: flex;
+  padding-right: 2em;
+  margin: 0 0 0 0.6em;
+  width: 30em;
+  font-size: 1em;
+  justify-content: left;
+  /* align-items: center; */
+}
+
+/* profile */
 
 .username {
   display: flex;
@@ -31,28 +58,24 @@
   width: 90%;
 }
 
-.notification_text {
+/* direct message */
+
+.direct_message_container {
+  margin: 1em 0 0 0;
+}
+
+.direct_message {
   display: flex;
-  padding-right: 2em;
-  margin: 0 0 0 0.6em;
-  width: 30em;
-  font-size: 1em;
+  /* padding-right: 2em; */
+  margin: 0.8em;
+  /* width: 30em; */
+  font-size: 0.7em;
   justify-content: left;
-  /* align-items: center; */
 }
 
-.card_thumb {
-  width: 4.5em;
-  height: 3em;
-  /* float: right; */
-}
-
-.avatar_img {
-  width: 3.5em;
-  height: 3.5em;
-}
-
-/* form */
+/* 
+form 
+*/
 
 h4 {
   color: var(--brand-blue-dark);
