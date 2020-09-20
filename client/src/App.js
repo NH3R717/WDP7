@@ -27,7 +27,7 @@ function App() {
           <Route path="/" exact component={Login} Route />
           <Route path="/logout" exact component={Login} Route />
           <Route path="/register" exact component={Register} Route />
-          <Route path="/" exact component={DirectMessage} Route />
+          {/* <Route path="/" exact component={DirectMessage} Route /> */}
           <Route path="/notifications" exact component={Notifications} Route />
           <Route
             path="/notification-compose"

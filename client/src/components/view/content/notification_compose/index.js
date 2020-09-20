@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
-import {
-  Card,
-  CardBody,
-  CardTitle,
-  // CardSubtitle,
-  // CardText,
-  // CardLink,
-} from 'reactstrap';
+import { Button, Form, FormGroup, Input } from 'reactstrap';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from '../styles.module.css';
 
@@ -22,33 +16,21 @@ class Notifications_Compose extends Component {
     const { avatar_img_blue, notification_text, sample_thumbnail } = this.props;
     return (
       <section className={styles.card_container}>
-        {/* notification */}
-        <Card>
-          <div>
-            <CardBody className={styles.card_head}>
-              <img
-                className={styles.avatar_img}
-                src={avatar_img_blue}
-                alt="user avatar"
-              />
-              <CardTitle className={styles.notification_text}>
-                {notification_text}
-              </CardTitle>
-              <img
-                className={styles.card_thumb}
-                src={sample_thumbnail}
-                alt="notification media thumbnail"
-              />
-              {/* <CardSubtitle>Card subtitle</CardSubtitle> */}
-            </CardBody>
-          </div>
-          {/* <CardBody>
-            <CardText>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </CardText>
-          </CardBody> */}
-        </Card>
+        <h2>Compose Notification</h2>
+        <Form>
+          <FormGroup className={styles.direct_message_input_container}>
+            <Input
+              className={styles.direct_message_input}
+              type="text"
+              name="direct_message_input"
+              id="direct_message_input"
+              // placeholder="Bio"
+            />
+            <Link to="/notifications">
+              <Button className={styles.direct_message_button}>Send</Button>
+            </Link>
+          </FormGroup>
+        </Form>
       </section>
     );
   }

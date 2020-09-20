@@ -15,7 +15,7 @@ class Buttons extends Component {
               <FaHome />
             </Button>
           </Link>
-          <Link to="/notification">
+          <Link to="/notification-compose">
             <Button className={styles.buttons}>NC</Button>
           </Link>
           <Link to="/direct-message-contacts">

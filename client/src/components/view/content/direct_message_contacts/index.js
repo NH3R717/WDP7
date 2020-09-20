@@ -9,7 +9,7 @@ import {
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import styles from '../styles.module.css';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 class Direct_Message extends Component {
   constructor(props) {

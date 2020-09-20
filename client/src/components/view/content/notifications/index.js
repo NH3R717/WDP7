@@ -64,7 +64,7 @@ Notifications_List.propTypes = {
 
 Notifications_List.defaultProps = {
   loggedIn: true,
-  notification_text: 'Compose notifications here!',
+  notification_text: 'Here is a notification, now you know!',
   avatar_img_blue: '/avatar_blue.png',
   sample_thumbnail: '/sample_image.jpg',
 };
