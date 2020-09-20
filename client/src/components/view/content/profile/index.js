@@ -83,7 +83,11 @@ class Profile extends Component {
                   placeholder="Bio"
                 />
               </FormGroup>
-              <Button className={styles.right_button + ' ' + styles.button}>
+              <Button
+                className={
+                  styles.right_button + ' ' + styles.direct_messafe_button
+                }
+              >
                 Update
               </Button>
             </Form>

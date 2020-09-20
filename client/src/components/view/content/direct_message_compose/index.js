@@ -6,6 +6,10 @@ import {
   // CardSubtitle,
   CardText,
   CardLink,
+  Button,
+  Form,
+  FormGroup,
+  Input,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import styles from '../styles.module.css';
@@ -82,6 +86,19 @@ class Direct_Message extends Component {
             </CardText>
           </CardBody>
         </Card>
+        {/* message input */}
+        <Form>
+          <FormGroup className={styles.direct_message_input_container}>
+            <Input
+              className={styles.direct_message_input}
+              type="text"
+              name="direct_message_input"
+              id="direct_message_input"
+              // placeholder="Bio"
+            />
+            <Button className={styles.direct_message_button}>Send</Button>
+          </FormGroup>
+        </Form>
       </section>
     );
   }
@@ -93,6 +110,8 @@ Direct_Message.propTypes = {
   name2: PropTypes.string,
   direct_message: PropTypes.string,
   avatar_img_blue: PropTypes.string,
+  avatar_img_red: PropTypes.string,
+  avatar_img_green: PropTypes.string,
   sample_thumbnail: PropTypes.string,
   loggedIn: PropTypes.bool,
 };

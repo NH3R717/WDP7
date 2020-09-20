@@ -5,7 +5,7 @@ import {
   CardTitle,
   // CardSubtitle,
   // CardText,
-  // CardLink,
+  CardLink,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import styles from '../styles.module.css';
@@ -21,6 +21,9 @@ class Direct_Message extends Component {
 
   render() {
     const {
+      name1,
+      name2,
+      name3,
       avatar_img_blue,
       avatar_img_red,
       avatar_img_green,
@@ -28,11 +31,14 @@ class Direct_Message extends Component {
       sample_thumbnail,
     } = this.props;
     return (
-      <section className={styles.direct_message_container}>
+      <section className={styles.card_container}>
         {/* notification */}
-        <Card>
+        <Card className={styles.direct_message_container}>
           <div>
-            <Link to="/direct-message-compose">
+            <CardLink
+              className={styles.contacts_card_link}
+              href="/direct-message-compose"
+            >
               <CardBody className={styles.card_head}>
                 <img
                   className={styles.avatar_img}
@@ -40,56 +46,16 @@ class Direct_Message extends Component {
                   alt="user avatar"
                 />
                 <CardTitle className={styles.notification_text}>
-                  {notification_text}
+                  {name1}
                 </CardTitle>
-
-                {/* <img
-                className={styles.card_thumb}
-                src={sample_thumbnail}
-                alt="notification media thumbnail"
-              />
-              <CardSubtitle>Card subtitle</CardSubtitle> */}
+                <div
+                  className={styles.card_thumb}
+                  // src={sample_thumbnail}
+                  // alt=""
+                />
               </CardBody>
-            </Link>
-            <CardBody className={styles.card_head}>
-              <img
-                className={styles.avatar_img}
-                src={avatar_img_red}
-                alt="user avatar"
-              />
-              <CardTitle className={styles.notification_text}>
-                {notification_text}
-              </CardTitle>
-              {/* <img
-                className={styles.card_thumb}
-                src={sample_thumbnail}
-                alt="notification media thumbnail"
-              />
-              <CardSubtitle>Card subtitle</CardSubtitle> */}
-            </CardBody>
-            <CardBody className={styles.card_head}>
-              <img
-                className={styles.avatar_img}
-                src={avatar_img_green}
-                alt="user avatar"
-              />
-              <CardTitle className={styles.notification_text}>
-                {notification_text}
-              </CardTitle>
-              {/* <img
-                className={styles.card_thumb}
-                src={sample_thumbnail}
-                alt="notification media thumbnail"
-              />
-              <CardSubtitle>Card subtitle</CardSubtitle> */}
-            </CardBody>
+            </CardLink>
           </div>
-          {/* <CardBody>
-            <CardText>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </CardText>
-          </CardBody> */}
         </Card>
       </section>
     );
@@ -98,15 +64,21 @@ class Direct_Message extends Component {
 
 Direct_Message.propTypes = {
   id: PropTypes.string,
-  notification_text: PropTypes.string,
+  name1: PropTypes.string,
+  name2: PropTypes.string,
+  name3: PropTypes.string,
+  direct_message: PropTypes.string,
   avatar_img_blue: PropTypes.string,
-  sample_thumbnail: PropTypes.string,
+  avatar_img_red: PropTypes.string,
+  avatar_img_green: PropTypes.string,
   loggedIn: PropTypes.bool,
 };
 
 Direct_Message.defaultProps = {
   loggedIn: true,
-  notification_text: 'View DM Contacts here!',
+  name1: 'Captain B.',
+  name2: 'Yoshi Toranaga',
+  name3: 'Toda Mariko',
   avatar_img_blue: '/avatar_blue.png',
   avatar_img_red: '/avatar_green.png',
   avatar_img_green: '/avatar_red.png',
