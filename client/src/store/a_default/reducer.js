@@ -1,4 +1,4 @@
-import createReducer from '../helpers/createReducer';
+import createReducer from '../utils/createReducer';
 import {
   REQ_ITEMS_PENDING,
   REQ_ITEMS_SUCCESS,
@@ -97,7 +97,7 @@ function itemSuccess(state, action) {
         data: action.data,
       },
     },
-    alllds: [...new Set([mstate.allIds, action.payload.id])],
+    alllds: [...new Set([...state.allIds, action.payload.id])],
   };
 }
 function itemError(state, action) {

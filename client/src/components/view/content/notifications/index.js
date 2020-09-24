@@ -20,10 +20,11 @@ class NotificationsList extends Component {
 
   render() {
     const {
-      avatar_img_blue,
-      avatar_img_red,
+      // avatar_img_blue,
+      // avatar_img_red,
+      avatar,
       notification_text,
-      sample_thumbnail,
+      thumbnail,
     } = this.props;
     return (
       <section className={styles.card_container}>
@@ -34,7 +35,7 @@ class NotificationsList extends Component {
             <CardBody className={styles.card_head}>
               <img
                 className={styles.avatar_img}
-                src={avatar_img_blue}
+                src={avatar}
                 alt="user avatar"
               />
               <CardTitle className={styles.notification_text}>
@@ -42,7 +43,7 @@ class NotificationsList extends Component {
               </CardTitle>
               <img
                 className={styles.card_thumb}
-                src={sample_thumbnail}
+                src={thumbnail}
                 alt="notification media thumbnail"
               />
             </CardBody>
@@ -53,17 +54,13 @@ class NotificationsList extends Component {
             <CardBody className={styles.card_head}>
               <img
                 className={styles.avatar_img}
-                src={avatar_img_red}
+                src={avatar}
                 alt="user avatar"
               />
               <CardTitle className={styles.notification_text}>
                 {notification_text}
               </CardTitle>
-              <div
-                className={styles.card_thumb}
-                // src={sample_thumbnail}
-                // alt="notification media thumbnail"
-              />
+              <div className={styles.card_thumb} />
             </CardBody>
           </div>
         </Card>
@@ -74,23 +71,22 @@ class NotificationsList extends Component {
 
 NotificationsList.propTypes = {
   id: PropTypes.string,
-  name1: PropTypes.string,
-  name2: PropTypes.string,
-  direct_message: PropTypes.string,
-  avatar_img_blue: PropTypes.string,
-  avatar_img_red: PropTypes.string,
-  avatar_img_green: PropTypes.string,
-  sample_thumbnail: PropTypes.string,
+  // name1: PropTypes.string,
+  // name2: PropTypes.string,
+  notification_text: PropTypes.string,
+  avatar: PropTypes.string,
+  thumbnail: PropTypes.string,
   loggedIn: PropTypes.bool,
 };
 
 NotificationsList.defaultProps = {
   loggedIn: true,
-  notification_text: 'Here is a notification, now you know!',
-  avatar_img_blue: '/avatar_blue.png',
-  avatar_img_red: '/avatar_red.png',
-  avatar_img_green: '/avatar_green.png',
-  sample_thumbnail: '/sample_image.jpg',
+  // notification_text: 'Here is a notification, now you know!',
+  // avatar_img_blue: '/avatar_blue.png',
+  // avatar_img_red: '/avatar_red.png',
+  // avatar_img_green: '/avatar_green.png',
+  // sample_thumbnail: '/sample_image.jpg',
+  notifications: [],
 };
 
 export default NotificationsList;

@@ -102,7 +102,7 @@ function notificationSuccess(state, action) {
         data: action.data,
       },
     },
-    alllds: [...new Set([mstate.allIds, action.payload.id])],
+    alllds: [...new Set([...state.allIds, action.payload.id])],
   };
 }
 function notificationError(state, action) {

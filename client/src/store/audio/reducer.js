@@ -1,4 +1,4 @@
-import createReducer from '../helpers/createReducer';
+import createReducer from '../utils/createReducer';
 import {
   REQ_ITEMS_PENDING,
   REQ_ITEMS_SUCCESS,
@@ -97,7 +97,7 @@ function itemSuccess(state, action) {
         data: action.data,
       },
     },
-    alllds: [...new Set([mstate.allIds, action.payload.id])],
+    alllds: [...new Set([...state.allIds, action.payload.id])],
   };
 }
 function itemError(state, action) {
@@ -119,10 +119,10 @@ export default createReducer(initialState, {
   [REQ_ITEMS_SUCCESS]: itemsSuccess,
   [REQ_ITEMS_ERROR]: itemsError,
   [REQ_ITEM_PENDING]: itemPending,
-  [REQ_ITEM_SUCCESS]: itemsuccess,
+  [REQ_ITEM_SUCCESS]: itemSuccess,
   [REQ_ITEM_ERROR]: itemError,
   [ADD_ITEM_PENDING]: itemPending,
-  [ADD_ITEM_SUCCESS]: itemsuccess,
+  [ADD_ITEM_SUCCESS]: itemSuccess,
   [ADD_ITEM_ERROR]: itemError,
   [UPDATE_ITEM_PENDING]: itemPending,
   [UPDATE_ITEM_SUCCESS]: itemSuccess,

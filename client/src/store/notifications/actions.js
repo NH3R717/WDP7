@@ -1,5 +1,5 @@
 import uuid from 'uuid/v4';
-import API from '../../../../API';
+import API from '../../API';
 
 import {
   REQ_NOTIFICATIONS_PENDING,
@@ -14,12 +14,12 @@ import {
   UPDATE_NOTIFICATION_PENDING,
   UPDATE_NOTIFICATION_SUCCESS,
   UPDATE_NOTIFICATION_ERROR,
-} from '../../actionTypes';
+} from '../actionTypes';
 
 // cache data for 5 minutes
 const CACHE_TIME = 1000 * 60 * 5;
 
-export const fetchItems = () => ({
+export const fetchNotifications = () => ({
   // types for this action - "request, success, error"
   types: [
     REQ_NOTIFICATIONS_PENDING,
@@ -39,21 +39,7 @@ export const fetchItems = () => ({
   },
 });
 
-export const createItem = (notification) => {
-  // create a uuid for this notification so that we can use it in the reducer for pending and loading
-  const id = uuid();
-  return {
-    types: [
-      ADD_NOTIFICATION_PENDING,
-      ADD_NOTIFICATION_SUCCESS,
-      ADD_NOTIFICATION_ERROR,
-    ],
-    callAPI: () => API.post('/notifications', { ...notification, id }),
-    payload: { id },
-  };
-};
-
-export const fetchItem = (id) => ({
+export const fetchNotification = (id) => ({
   //
   types: [
     REQ_NOTIFICATION_PENDING,
@@ -73,7 +59,21 @@ export const fetchItem = (id) => ({
   payload: { id },
 });
 
-export const updateItem = (notification) => ({
+export const createNotification = (notification) => {
+  // create a uuid for this notification so that we can use it in the reducer for pending and loading
+  const id = uuid();
+  return {
+    types: [
+      ADD_NOTIFICATION_PENDING,
+      ADD_NOTIFICATION_SUCCESS,
+      ADD_NOTIFICATION_ERROR,
+    ],
+    callAPI: () => API.post('/notifications', { ...notification, id }),
+    payload: { id },
+  };
+};
+
+export const updateNotification = (notification) => ({
   types: [
     UPDATE_NOTIFICATION_PENDING,
     UPDATE_NOTIFICATION_SUCCESS,
@@ -83,7 +83,7 @@ export const updateItem = (notification) => ({
   payload: { id: notification.id },
 });
 
-export const deleteItem = (id) => ({
+export const deleteNotification = (id) => ({
   types: [
     DELETE_NOTIFICATION_PENDING,
     DELETE_NOTIFICATION_SUCCESS,
