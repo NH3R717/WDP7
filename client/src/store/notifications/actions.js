@@ -2,18 +2,18 @@ import uuid from 'uuid/v4';
 import API from '../../../../API';
 
 import {
-  REQ_ITEMS_PENDING,
-  REQ_ITEMS_SUCCESS,
-  REQ_ITEMS_ERROR,
-  REQ_ITEM_PENDING,
-  REQ_ITEM_SUCCESS,
-  REQ_ITEM_ERROR,
-  ADD_ITEM_PENDING,
-  ADD_ITEM_SUCCESS,
-  ADD_ITEM_ERROR,
-  UPDATE_ITEM_PENDING,
-  UPDATE_ITEM_SUCCESS,
-  UPDATE_ITEM_ERROR,
+  REQ_NOTIFICATIONS_PENDING,
+  REQ_NOTIFICATIONS_SUCCESS,
+  REQ_NOTIFICATIONS_ERROR,
+  REQ_NOTIFICATION_PENDING,
+  REQ_NOTIFICATION_SUCCESS,
+  REQ_NOTIFICATION_ERROR,
+  ADD_NOTIFICATION_PENDING,
+  ADD_NOTIFICATION_SUCCESS,
+  ADD_NOTIFICATION_ERROR,
+  UPDATE_NOTIFICATION_PENDING,
+  UPDATE_NOTIFICATION_SUCCESS,
+  UPDATE_NOTIFICATION_ERROR,
 } from '../../actionTypes';
 
 // cache data for 5 minutes
@@ -21,54 +21,74 @@ const CACHE_TIME = 1000 * 60 * 5;
 
 export const fetchItems = () => ({
   // types for this action - "request, success, error"
-  types: [REQ_ITEMS_PENDING, REQ_ITEMS_SUCCESS, REQ_ITEMS_ERROR],
+  types: [
+    REQ_NOTIFICATIONS_PENDING,
+    REQ_NOTIFICATIONS_SUCCESS,
+    REQ_NOTIFICATIONS_ERROR,
+  ],
   //  a function used to call the api
-  callAPI: () => API.get('/items'),
+  callAPI: () => API.get('/notifications'),
   // receives the current app state and returns true if we should call the api
   shouldCallAPI: (state) => {
-    const { loadedAt, isLoading } = state.items;
-    // if item items are currently loading don't call again
+    const { loadedAt, isLoading } = state.notifications;
+    // if notification notifications are currently loading don't call again
     if (isLoading) return false;
     const isCached = Date.now() - loadedAt < CACHE_TIME;
-    // if we don't have the item item or it's beyond the cache timeout make the api call
+    // if we don't have the notification notification or it's beyond the cache timeout make the api call
     return !loadedAt || !isCached;
   },
 });
 
-export const createItem = (item) => {
-  // create a uuid for this item so that we can use it in the reducer for pending and loading
+export const createItem = (notification) => {
+  // create a uuid for this notification so that we can use it in the reducer for pending and loading
   const id = uuid();
   return {
-    types: [ADD_ITEM_PENDING, ADD_ITEM_SUCCESS, ADD_ITEM_ERROR],
-    callAPI: () => API.post('/items', { ...item, id }),
+    types: [
+      ADD_NOTIFICATION_PENDING,
+      ADD_NOTIFICATION_SUCCESS,
+      ADD_NOTIFICATION_ERROR,
+    ],
+    callAPI: () => API.post('/notifications', { ...notification, id }),
     payload: { id },
   };
 };
 
 export const fetchItem = (id) => ({
   //
-  types: [REQ_ITEM_PENDING, REQ_ITEM_SUCCESS, REQ_ITEM_ERROR],
+  types: [
+    REQ_NOTIFICATION_PENDING,
+    REQ_NOTIFICATION_SUCCESS,
+    REQ_NOTIFICATION_ERROR,
+  ],
   //
-  callAPI: () => API.get(`/items/${id}`),
+  callAPI: () => API.get(`/notifications/${id}`),
   //
   shouldCallAPI: (state) => {
-    const item = state.items.byId[id] || {};
-    const { loadedAt, isLoading } = item;
-    if (!item || isLoading) return false;
+    const notification = state.notifications.byId[id] || {};
+    const { loadedAt, isLoading } = notification;
+    if (!notification || isLoading) return false;
     const isCached = Date.now() - loadedAt < CACHE_TIME;
     return !loadedAt || !isCached;
   },
   payload: { id },
 });
 
-export const updateItem = (item) => ({
-  types: [UPDATE_ITEM_PENDING, UPDATE_ITEM_SUCCESS, UPDATE_ITEM_ERROR],
-  callAPI: () => API.put(`/items/${item.id}`, item),
-  payload: { id: item.id },
+export const updateItem = (notification) => ({
+  types: [
+    UPDATE_NOTIFICATION_PENDING,
+    UPDATE_NOTIFICATION_SUCCESS,
+    UPDATE_NOTIFICATION_ERROR,
+  ],
+  callAPI: () => API.put(`/notifications/${notification.id}`, notification),
+  payload: { id: notification.id },
 });
 
 export const deleteItem = (id) => ({
-  types: [DELETE_ITEM_PENDING, DELETE_ITEM_SUCCESS, DELETE_ITEM_ERROR],
-  callAPI: () => API.delete(`/items/${id}`),
+  types: [
+    DELETE_NOTIFICATION_PENDING,
+    DELETE_NOTIFICATION_SUCCESS,
+    DELETE_NOTIFICATION_ERROR,
+  ],
+  callAPI: () => API.delete(`/notifications/${id}`),
   payload: { id },
 });
