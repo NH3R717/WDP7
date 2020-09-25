@@ -5,15 +5,18 @@ import {
   REQ_NOTIFICATIONS_PENDING,
   REQ_NOTIFICATIONS_SUCCESS,
   REQ_NOTIFICATIONS_ERROR,
-  REQ_NOTIFICATION_PENDING,
-  REQ_NOTIFICATION_SUCCESS,
-  REQ_NOTIFICATION_ERROR,
+  // REQ_NOTIFICATION_PENDING,
+  // REQ_NOTIFICATION_SUCCESS,
+  // REQ_NOTIFICATION_ERROR,
   ADD_NOTIFICATION_PENDING,
   ADD_NOTIFICATION_SUCCESS,
   ADD_NOTIFICATION_ERROR,
   UPDATE_NOTIFICATION_PENDING,
   UPDATE_NOTIFICATION_SUCCESS,
   UPDATE_NOTIFICATION_ERROR,
+  DELETE_NOTIFICATION_PENDING,
+  DELETE_NOTIFICATION_SUCCESS,
+  DELETE_NOTIFICATION_ERROR,
 } from '../actionTypes';
 
 // cache data for 5 minutes
@@ -27,36 +30,20 @@ export const fetchNotifications = () => ({
     REQ_NOTIFICATIONS_ERROR,
   ],
   //  a function used to call the api
-  callAPI: () => API.get('/notifications'),
+  // callAPI: () => API.get(`/notifications/${id}`),
+  callAPI: () => API.get(`/notifications`),
   // receives the current app state and returns true if we should call the api
   shouldCallAPI: (state) => {
-    const { loadedAt, isLoading } = state.notifications;
+    const notification = state.notifications;
+    console.log('action.js notification ' + JSON.stringify(notification));
+    const { loadedAt, isLoading } = notification;
     // if notification notifications are currently loading don't call again
-    if (isLoading) return false;
+    if (!notification || isLoading) return false;
+
     const isCached = Date.now() - loadedAt < CACHE_TIME;
     // if we don't have the notification notification or it's beyond the cache timeout make the api call
     return !loadedAt || !isCached;
   },
-});
-
-export const fetchNotification = (id) => ({
-  //
-  types: [
-    REQ_NOTIFICATION_PENDING,
-    REQ_NOTIFICATION_SUCCESS,
-    REQ_NOTIFICATION_ERROR,
-  ],
-  //
-  callAPI: () => API.get(`/notifications/${id}`),
-  //
-  shouldCallAPI: (state) => {
-    const notification = state.notifications.byId[id] || {};
-    const { loadedAt, isLoading } = notification;
-    if (!notification || isLoading) return false;
-    const isCached = Date.now() - loadedAt < CACHE_TIME;
-    return !loadedAt || !isCached;
-  },
-  payload: { id },
 });
 
 export const createNotification = (notification) => {
@@ -83,7 +70,7 @@ export const updateNotification = (notification) => ({
   payload: { id: notification.id },
 });
 
-export const deleteNotification = (id) => ({
+export const deteteNotification = (id) => ({
   types: [
     DELETE_NOTIFICATION_PENDING,
     DELETE_NOTIFICATION_SUCCESS,

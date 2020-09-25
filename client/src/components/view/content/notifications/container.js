@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import {
   fetchNotifications,
-  fetchNotification,
+  // fetchNotification
   createNotification,
   updateNotification,
   deteteNotification,
@@ -15,15 +15,19 @@ function mapStateToProps(state, props) {
   } = props;
   const {
     notifications: {
-      byId: { [id]: { data: notifications } = {} },
+      byId: { [id]: { data: notification } = {} },
     },
   } = state;
-  return { notifications };
+  // turn the array of ids into an array of objects
+  return {
+    notification,
+  };
 }
+
 // set the actions we need in this component
 const mapDispatchToProps = {
   fetchNotifications,
-  fetchNotification,
+  // fetchNotification,
   createNotification,
   updateNotification,
   deteteNotification,
