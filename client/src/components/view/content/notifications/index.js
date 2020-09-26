@@ -1,60 +1,62 @@
 import React, { Component } from 'react';
-import {
-  Card,
-  CardBody,
-  CardTitle,
-  Container,
-  // CardSubtitle,
-  // CardText,
-  // CardLink,
-} from 'reactstrap';
+import { Card, CardBody, CardTitle, Container } from 'reactstrap';
 import PropTypes from 'prop-types';
 import styles from '../styles.module.css';
 import container from './container';
 
-const notificationClear = {
-  avatar: '',
-};
+// const notificationClear = {
+//   avatar: '',
+// };
 
 class NotificationsList extends Component {
   constructor(props) {
     super(props);
     const { fetchNotifications } = props;
-    this.state = { notification: notificationClear };
+    // this.state = { notification };
+    // this.state = { notification: notificationClear };
     fetchNotifications();
   }
 
   render() {
     // const { notifications } = this.props;
     // pull the data from state
-    const { notification } = this.state;
+    const { notifications } = this.props;
+    console.log(
+      'notifications index.js ' + 32 + ' ' + JSON.stringify(notifications),
+      'notifications index.js ' +
+        33 +
+        ' ' +
+        JSON.stringify(notifications.loadedAt)
+    );
     return (
       <section className={styles.card_container}>
         {/* notification */}
 
-        <Container>
-          {/* {notifications.map((notification) => ( */}
-          <Card>
-            <div>
-              <CardBody className={styles.card_head}>
-                <img
-                  className={styles.avatar_img}
-                  src={notification.avatar}
-                  alt="user avatar"
-                />
-                <CardTitle className={styles.notification_text}>
-                  {notification.notification_text}
-                </CardTitle>
-                <img
-                  className={styles.card_thumb}
-                  src={notification.thumbnail}
-                  alt="notification media thumbnail"
-                />
-              </CardBody>
-            </div>
-          </Card>
-          {/* ))} */}
-        </Container>
+        {/* <Container>
+          {this.props.notifications.loadedAt > 1
+            ? notifications.map((notification) => (
+                <Card>
+                  <div>
+                    <CardBody className={styles.card_head}>
+                      <img
+                        className={styles.avatar_img}
+                        src={notification.avatar}
+                        alt="user avatar"
+                      />
+                      <CardTitle className={styles.notification_text}>
+                        {notification.notification_text}
+                      </CardTitle>
+                      <img
+                        className={styles.card_thumb}
+                        src={notification.thumbnail}
+                        alt="notification media thumbnail"
+                      />
+                    </CardBody>
+                  </div>
+                </Card>
+              ))
+            : null}
+        </Container> */}
       </section>
     );
   }
