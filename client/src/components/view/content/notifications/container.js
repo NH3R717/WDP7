@@ -19,6 +19,7 @@ function mapStateToProps(state, props) {
     },
   } = state;
   // turn the array of ids into an array of objects
+  console.log('notifications container.js' + notification);
   return {
     notification,
   };

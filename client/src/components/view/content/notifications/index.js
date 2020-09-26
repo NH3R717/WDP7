@@ -12,57 +12,47 @@ import PropTypes from 'prop-types';
 import styles from '../styles.module.css';
 import container from './container';
 
+const notificationClear = {
+  avatar: '',
+};
+
 class NotificationsList extends Component {
-  componentDidMount() {
-    const { fetchNotifications } = this.props;
+  constructor(props) {
+    super(props);
+    const { fetchNotifications } = props;
+    this.state = { notification: notificationClear };
     fetchNotifications();
   }
 
   render() {
-    const { notifications } = this.props;
+    // const { notifications } = this.props;
+    // pull the data from state
+    const { notification } = this.state;
     return (
       <section className={styles.card_container}>
         {/* notification */}
 
         <Container>
-          {notifications.map((notification) => (
-            <Card>
-              <div>
-                <CardBody className={styles.card_head}>
-                  <img
-                    className={styles.avatar_img}
-                    src={notification.avatar}
-                    alt="user avatar"
-                  />
-                  <CardTitle className={styles.notification_text}>
-                    {notification.notification_text}
-                  </CardTitle>
-                  <img
-                    className={styles.card_thumb}
-                    src={notification.thumbnail}
-                    alt="notification media thumbnail"
-                  />
-                </CardBody>
-              </div>
-            </Card>
-          ))}
-
-          {/* <Card className={styles.card_container}>
-          {notifications.map((notification) => (
+          {/* {notifications.map((notification) => ( */}
+          <Card>
             <div>
               <CardBody className={styles.card_head}>
                 <img
                   className={styles.avatar_img}
-                  src={avatar}
+                  src={notification.avatar}
                   alt="user avatar"
                 />
                 <CardTitle className={styles.notification_text}>
-                  {notification_text}
+                  {notification.notification_text}
                 </CardTitle>
-                <div className={styles.card_thumb} />
+                <img
+                  className={styles.card_thumb}
+                  src={notification.thumbnail}
+                  alt="notification media thumbnail"
+                />
               </CardBody>
             </div>
-          </Card> */}
+          </Card>
           {/* ))} */}
         </Container>
       </section>
