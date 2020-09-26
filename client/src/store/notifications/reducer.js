@@ -59,7 +59,7 @@ function notificationsSuccess(state, action) {
         {}
       ),
     },
-    alllds: [
+    allIds: [
       ...new Set([
         state.allIds,
         ...action.data.map((notification) => notification.id),
@@ -102,7 +102,7 @@ function notificationSuccess(state, action) {
         data: action.data,
       },
     },
-    alllds: [...new Set([...state.allIds, action.payload.id])],
+    allIds: [...new Set([...state.allIds, action.payload.id])],
   };
 }
 function notificationError(state, action) {

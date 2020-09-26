@@ -59,7 +59,7 @@ function itemsSuccess(state, action) {
         {}
       ),
     },
-    alllds: [...new Set([state.allIds, ...action.data.map((item) => item.id)])],
+    allIds: [...new Set([state.allIds, ...action.data.map((item) => item.id)])],
   };
 }
 function itemsError(state, action) {
@@ -97,7 +97,7 @@ function itemSuccess(state, action) {
         data: action.data,
       },
     },
-    alllds: [...new Set([...state.allIds, action.payload.id])],
+    allIds: [...new Set([...state.allIds, action.payload.id])],
   };
 }
 function itemError(state, action) {
