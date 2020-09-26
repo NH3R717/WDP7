@@ -32,31 +32,33 @@ class NotificationsList extends Component {
       <section className={styles.card_container}>
         {/* notification */}
 
-        {/* <Container>
-          {this.props.notifications.loadedAt > 1
-            ? notifications.map((notification) => (
-                <Card>
-                  <div>
-                    <CardBody className={styles.card_head}>
-                      <img
-                        className={styles.avatar_img}
-                        src={notification.avatar}
-                        alt="user avatar"
-                      />
-                      <CardTitle className={styles.notification_text}>
-                        {notification.notification_text}
-                      </CardTitle>
-                      <img
-                        className={styles.card_thumb}
-                        src={notification.thumbnail}
-                        alt="notification media thumbnail"
-                      />
-                    </CardBody>
-                  </div>
-                </Card>
-              ))
-            : null}
-        </Container> */}
+        <Container>
+          {/* {this.props.notifications.loadedAt > 1
+            ? notifications.map((notification) => ( */}
+          {Object.keys(notifications).map((notification) => (
+            <Card>
+              <div>
+                <CardBody className={styles.card_head}>
+                  <img
+                    className={styles.avatar_img}
+                    src={notification.avatar}
+                    alt="user avatar"
+                  />
+                  <CardTitle className={styles.notification_text}>
+                    {notification.notification_text}
+                  </CardTitle>
+                  <img
+                    className={styles.card_thumb}
+                    src={notification.thumbnail}
+                    alt="notification media thumbnail"
+                  />
+                </CardBody>
+              </div>
+            </Card>
+          ))}
+
+          {/* : null} */}
+        </Container>
       </section>
     );
   }

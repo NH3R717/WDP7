@@ -104,7 +104,7 @@ function itemError(state, action) {
   // clear loading and set error
   return {
     ...state,
-    byld: {
+    byId: {
       ...state.byId,
       [action.payload.id]: {
         ...state.byId[action.payload.id],
