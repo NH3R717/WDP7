@@ -1,21 +1,21 @@
 import createReducer from '../utils/createReducer';
 import {
-  REQ_ITEMS_PENDING,
-  REQ_ITEMS_SUCCESS,
-  REQ_ITEMS_ERROR,
-  REQ_ITEM_PENDING,
-  REQ_ITEM_SUCCESS,
-  REQ_ITEM_ERROR,
-  ADD_ITEM_PENDING,
-  ADD_ITEM_SUCCESS,
-  ADD_ITEM_ERROR,
-  UPDATE_ITEM_PENDING,
-  UPDATE_ITEM_SUCCESS,
-  UPDATE_ITEM_ERROR,
+  REQ_USERS_PENDING,
+  REQ_USERS_SUCCESS,
+  REQ_USERS_ERROR,
+  REQ_USER_PENDING,
+  REQ_USER_SUCCESS,
+  REQ_USER_ERROR,
+  ADD_USER_PENDING,
+  ADD_USER_SUCCESS,
+  ADD_USER_ERROR,
+  UPDATE_USER_PENDING,
+  UPDATE_USER_SUCCESS,
+  UPDATE_USER_ERROR,
 } from '../actionTypes';
 
 const initialState = {
-  // will hold each item with ids as keys
+  // will hold each user with ids as keys
   byId: {},
   // an array of all the ids
   allIds: [],
@@ -27,7 +27,7 @@ const initialState = {
   error: null,
 };
 
-function itemsPending(state, action) {
+function usersPending(state, action) {
   // set loading state and clear error
   return {
     ...state,
@@ -36,8 +36,8 @@ function itemsPending(state, action) {
   };
 }
 
-function itemsSuccess(state, action) {
-  // clear loading and error, update cache time, add items
+function usersSuccess(state, action) {
+  // clear loading and error, update cache time, add users
   return {
     ...state,
     isLoading: false,
@@ -46,11 +46,11 @@ function itemsSuccess(state, action) {
     byId: {
       ...state.byId,
       ...action.data.reduce(
-        (items, item) => ({
+        (users, user) => ({
           // keep the current object
-          ...items, // add the item id as the key and an item object for loading
-          [item.id]: {
-            data: item,
+          ...users, // add the user id as the key and an user object for loading
+          [user.id]: {
+            data: user,
             isLoading: false,
             loadedAt: Date.now(),
             error: null,
@@ -59,10 +59,10 @@ function itemsSuccess(state, action) {
         {}
       ),
     },
-    allIds: [...new Set([state.allIds, ...action.data.map((item) => item.id)])],
+    allIds: [...new Set([state.allIds, ...action.data.map((user) => user.id)])],
   };
 }
-function itemsError(state, action) {
+function usersError(state, action) {
   // clear loading and set error
   return {
     ...state,
@@ -70,7 +70,7 @@ function itemsError(state, action) {
     error: action.err,
   };
 }
-function itemPending(state, action) {
+function userPending(state, action) {
   // set loading state and clear error
   return {
     ...state,
@@ -84,8 +84,8 @@ function itemPending(state, action) {
     },
   };
 }
-function itemSuccess(state, action) {
-  // clear loading and error, update cache time, add items
+function userSuccess(state, action) {
+  // clear loading and error, update cache time, add users
   return {
     ...state,
     byId: {
@@ -100,7 +100,7 @@ function itemSuccess(state, action) {
     allIds: [...new Set([...state.allIds, action.payload.id])],
   };
 }
-function itemError(state, action) {
+function userError(state, action) {
   // clear loading and set error
   return {
     ...state,
@@ -115,16 +115,16 @@ function itemError(state, action) {
   };
 }
 export default createReducer(initialState, {
-  [REQ_ITEMS_PENDING]: itemsPending,
-  [REQ_ITEMS_SUCCESS]: itemsSuccess,
-  [REQ_ITEMS_ERROR]: itemsError,
-  [REQ_ITEM_PENDING]: itemPending,
-  [REQ_ITEM_SUCCESS]: itemSuccess,
-  [REQ_ITEM_ERROR]: itemError,
-  [ADD_ITEM_PENDING]: itemPending,
-  [ADD_ITEM_SUCCESS]: itemSuccess,
-  [ADD_ITEM_ERROR]: itemError,
-  [UPDATE_ITEM_PENDING]: itemPending,
-  [UPDATE_ITEM_SUCCESS]: itemSuccess,
-  [UPDATE_ITEM_ERROR]: itemError,
+  [REQ_USERS_PENDING]: usersPending,
+  [REQ_USERS_SUCCESS]: usersSuccess,
+  [REQ_USERS_ERROR]: usersError,
+  [REQ_USER_PENDING]: userPending,
+  [REQ_USER_SUCCESS]: userSuccess,
+  [REQ_USER_ERROR]: userError,
+  [ADD_USER_PENDING]: userPending,
+  [ADD_USER_SUCCESS]: userSuccess,
+  [ADD_USER_ERROR]: userError,
+  [UPDATE_USER_PENDING]: userPending,
+  [UPDATE_USER_SUCCESS]: userSuccess,
+  [UPDATE_USER_ERROR]: userError,
 });

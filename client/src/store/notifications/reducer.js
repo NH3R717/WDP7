@@ -3,22 +3,22 @@
 import createReducer from '../utils/createReducer';
 
 import {
-  REQ_ITEMS_PENDING,
-  REQ_ITEMS_SUCCESS,
-  REQ_ITEMS_ERROR,
-  REQ_ITEM_PENDING,
-  REQ_ITEM_SUCCESS,
-  REQ_ITEM_ERROR,
-  ADD_ITEM_PENDING,
-  ADD_ITEM_SUCCESS,
-  ADD_ITEM_ERROR,
-  UPDATE_ITEM_PENDING,
-  UPDATE_ITEM_SUCCESS,
-  UPDATE_ITEM_ERROR,
+  REQ_NOTIFICATIONS_PENDING,
+  REQ_NOTIFICATIONS_SUCCESS,
+  REQ_NOTIFICATIONS_ERROR,
+  REQ_NOTIFICATION_PENDING,
+  REQ_NOTIFICATION_SUCCESS,
+  REQ_NOTIFICATION_ERROR,
+  ADD_NOTIFICATION_PENDING,
+  ADD_NOTIFICATION_SUCCESS,
+  ADD_NOTIFICATION_ERROR,
+  UPDATE_NOTIFICATION_PENDING,
+  UPDATE_NOTIFICATION_SUCCESS,
+  UPDATE_NOTIFICATION_ERROR,
 } from '../actionTypes';
 
 const initialState = {
-  // will hold each item with ids as keys
+  // will hold each notification with ids as keys
   byId: {},
   // an array of all the ids
   allIds: [],
@@ -32,7 +32,7 @@ const initialState = {
   demoString: 'Demo String Display',
 };
 
-function itemsPending(state, action) {
+function notificationsPending(state, action) {
   // set loading state and clear error
   return {
     ...state,
@@ -41,8 +41,8 @@ function itemsPending(state, action) {
   };
 }
 
-function itemsSuccess(state, action) {
-  // clear loading and error, update cache time, add items
+function notificationsSuccess(state, action) {
+  // clear loading and error, update cache time, add notifications
   return {
     ...state,
     isLoading: false,
@@ -51,11 +51,11 @@ function itemsSuccess(state, action) {
     byId: {
       ...state.byId,
       ...action.data.reduce(
-        (items, item) => ({
+        (notifications, notification) => ({
           // keep the current object
-          ...items, // add the item id as the key and an item object for loading
-          [item.id]: {
-            data: item,
+          ...notifications, // add the notification id as the key and an notification object for loading
+          [notification.id]: {
+            data: notification,
             isLoading: false,
             loadedAt: Date.now(),
             error: null,
@@ -64,10 +64,15 @@ function itemsSuccess(state, action) {
         {}
       ),
     },
-    alllds: [...new Set([state.allIds, ...action.data.map((item) => item.id)])],
+    allIds: [
+      ...new Set([
+        state.allIds,
+        ...action.data.map((notification) => notification.id),
+      ]),
+    ],
   };
 }
-function itemsError(state, action) {
+function notificationsError(state, action) {
   // clear loading and set error
   return {
     ...state,
@@ -75,7 +80,7 @@ function itemsError(state, action) {
     error: action.err,
   };
 }
-function itemPending(state, action) {
+function notificationPending(state, action) {
   // set loading state and clear error
   return {
     ...state,
@@ -89,11 +94,8 @@ function itemPending(state, action) {
     },
   };
 }
-function itemSuccess(state, action) {
-  // clear loading and error, update cache time, add items
-  // NOTE: This originally contained
-  // alllds: [...new Set([mstate.allIds, action.payload.id])],
-  // is mstate a typo?
+function notificationSuccess(state, action) {
+  // clear loading and error, update cache time, add notifications
   return {
     ...state,
     byId: {
@@ -105,14 +107,14 @@ function itemSuccess(state, action) {
         data: action.data,
       },
     },
-    alllds: [...new Set([state.allIds, action.payload.id])],
+    allIds: [...new Set([...state.allIds, action.payload.id])],
   };
 }
-function itemError(state, action) {
+function notificationError(state, action) {
   // clear loading and set error
   return {
     ...state,
-    byld: {
+    byId: {
       ...state.byId,
       [action.payload.id]: {
         ...state.byId[action.payload.id],
@@ -123,16 +125,16 @@ function itemError(state, action) {
   };
 }
 export default createReducer(initialState, {
-  [REQ_ITEMS_PENDING]: itemsPending,
-  [REQ_ITEMS_SUCCESS]: itemsSuccess,
-  [REQ_ITEMS_ERROR]: itemsError,
-  [REQ_ITEM_PENDING]: itemPending,
-  [REQ_ITEM_SUCCESS]: itemSuccess,
-  [REQ_ITEM_ERROR]: itemError,
-  [ADD_ITEM_PENDING]: itemPending,
-  [ADD_ITEM_SUCCESS]: itemSuccess,
-  [ADD_ITEM_ERROR]: itemError,
-  [UPDATE_ITEM_PENDING]: itemPending,
-  [UPDATE_ITEM_SUCCESS]: itemSuccess,
-  [UPDATE_ITEM_ERROR]: itemError,
+  [REQ_NOTIFICATIONS_PENDING]: notificationsPending,
+  [REQ_NOTIFICATIONS_SUCCESS]: notificationsSuccess,
+  [REQ_NOTIFICATIONS_ERROR]: notificationsError,
+  [REQ_NOTIFICATION_PENDING]: notificationPending,
+  [REQ_NOTIFICATION_SUCCESS]: notificationSuccess,
+  [REQ_NOTIFICATION_ERROR]: notificationError,
+  [ADD_NOTIFICATION_PENDING]: notificationPending,
+  [ADD_NOTIFICATION_SUCCESS]: notificationSuccess,
+  [ADD_NOTIFICATION_ERROR]: notificationError,
+  [UPDATE_NOTIFICATION_PENDING]: notificationPending,
+  [UPDATE_NOTIFICATION_SUCCESS]: notificationSuccess,
+  [UPDATE_NOTIFICATION_ERROR]: notificationError,
 });

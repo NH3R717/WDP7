@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import styles from './app.module.css';
-
 // Give app access to the store
 import { Provider } from 'react-redux';
 // Import the store to use
