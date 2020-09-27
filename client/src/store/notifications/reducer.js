@@ -1,4 +1,7 @@
-import createReducer from '../helpers/createReducer';
+// import createReducer from '../helpers/createReducer';
+// You have the wrong path here
+import createReducer from '../utils/createReducer';
+
 import {
   REQ_ITEMS_PENDING,
   REQ_ITEMS_SUCCESS,
@@ -25,6 +28,8 @@ const initialState = {
   isLoading: false,
   // any errors loading all the data
   error: null,
+  // Demo State for Reducer Connection
+  demoString: 'Demo String Display',
 };
 
 function itemsPending(state, action) {
@@ -86,6 +91,9 @@ function itemPending(state, action) {
 }
 function itemSuccess(state, action) {
   // clear loading and error, update cache time, add items
+  // NOTE: This originally contained
+  // alllds: [...new Set([mstate.allIds, action.payload.id])],
+  // is mstate a typo?
   return {
     ...state,
     byId: {
@@ -97,7 +105,7 @@ function itemSuccess(state, action) {
         data: action.data,
       },
     },
-    alllds: [...new Set([mstate.allIds, action.payload.id])],
+    alllds: [...new Set([state.allIds, action.payload.id])],
   };
 }
 function itemError(state, action) {
@@ -119,10 +127,10 @@ export default createReducer(initialState, {
   [REQ_ITEMS_SUCCESS]: itemsSuccess,
   [REQ_ITEMS_ERROR]: itemsError,
   [REQ_ITEM_PENDING]: itemPending,
-  [REQ_ITEM_SUCCESS]: itemsuccess,
+  [REQ_ITEM_SUCCESS]: itemSuccess,
   [REQ_ITEM_ERROR]: itemError,
   [ADD_ITEM_PENDING]: itemPending,
-  [ADD_ITEM_SUCCESS]: itemsuccess,
+  [ADD_ITEM_SUCCESS]: itemSuccess,
   [ADD_ITEM_ERROR]: itemError,
   [UPDATE_ITEM_PENDING]: itemPending,
   [UPDATE_ITEM_SUCCESS]: itemSuccess,

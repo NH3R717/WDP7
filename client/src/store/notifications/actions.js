@@ -1,5 +1,5 @@
 import uuid from 'uuid/v4';
-import API from '../../../../API';
+import API from '../../API';
 
 import {
   REQ_ITEMS_PENDING,
@@ -14,7 +14,7 @@ import {
   UPDATE_ITEM_PENDING,
   UPDATE_ITEM_SUCCESS,
   UPDATE_ITEM_ERROR,
-} from '../../actionTypes';
+} from '../actionTypes';
 
 // cache data for 5 minutes
 const CACHE_TIME = 1000 * 60 * 5;
@@ -67,8 +67,9 @@ export const updateItem = (item) => ({
   payload: { id: item.id },
 });
 
-export const deleteItem = (id) => ({
-  types: [DELETE_ITEM_PENDING, DELETE_ITEM_SUCCESS, DELETE_ITEM_ERROR],
-  callAPI: () => API.delete(`/items/${id}`),
-  payload: { id },
-});
+// Commented out to bypass errors
+// export const deleteItem = (id) => ({
+//   types: [DELETE_ITEM_PENDING, DELETE_ITEM_SUCCESS, DELETE_ITEM_ERROR],
+//   callAPI: () => API.delete(`/items/${id}`),
+//   payload: { id },
+// });
