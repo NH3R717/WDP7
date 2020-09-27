@@ -28,6 +28,7 @@ class NotificationsList extends Component {
         ' ' +
         JSON.stringify(notifications.loadedAt)
     );
+    console.log('Object Map ' + Object.keys(notifications));
     return (
       <section className={styles.card_container}>
         {/* notification */}
@@ -35,6 +36,9 @@ class NotificationsList extends Component {
         <Container>
           {/* {this.props.notifications.loadedAt > 1
             ? notifications.map((notification) => ( */}
+          {/* Object.keys(array).map((notifications) => array[notifications])
+          {Object.keys(array).map((notifications) => array[notifications])( */}
+          {/* Object.keys(this.state.messages).map((key) => ( */}
           {Object.keys(notifications).map((notification) => (
             <Card>
               <div>
@@ -46,6 +50,8 @@ class NotificationsList extends Component {
                   />
                   <CardTitle className={styles.notification_text}>
                     {notification.notification_text}
+                    {/* key={notification.notification_text} */}
+                    {/* key={message[".key"]}>{message.text} */}
                   </CardTitle>
                   <img
                     className={styles.card_thumb}
@@ -56,7 +62,6 @@ class NotificationsList extends Component {
               </div>
             </Card>
           ))}
-
           {/* : null} */}
         </Container>
       </section>

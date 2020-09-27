@@ -22,8 +22,10 @@ function mapStateToProps(state, props) {
   // console.log('id' + id);
   // turn the array of ids into an array of objects
   console.log('22 notifications container.js ' + JSON.stringify(state));
-  console.log('23 notifications container.js ' + JSON.stringify(notifications));
+  // console.log('23 notifications container.js ' + JSON.stringify(notifications));
+  // console.log('23 notifications container.js ' + JSON.stringify(notification));
   return {
+    // notification,
     notifications,
   };
 }
