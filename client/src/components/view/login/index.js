@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './styles.module.css';
 
+// Import the Container for this component
+import container from './container';
+
 class Login_Register extends Component {
   constructor(props) {
     super(props);
@@ -14,6 +17,10 @@ class Login_Register extends Component {
 
   render() {
     const { register } = this.state;
+    // state from redux will be on props. This is why our container function is called "MapStateToProps"
+    const { demoString } = this.props;
+    // Snapshot of value
+    console.log({ demoString });
     return (
       <section>
         {/* login */}
@@ -126,4 +133,6 @@ Login_Register.propTypes = {
 //   register: false,
 // };
 
-export default Login_Register;
+// export default Login_Register;
+// Wrap your component with the container
+export default container(Login_Register);

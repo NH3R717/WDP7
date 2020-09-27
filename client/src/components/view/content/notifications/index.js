@@ -4,23 +4,17 @@ import PropTypes from 'prop-types';
 import styles from '../styles.module.css';
 import container from './container';
 
-// const notificationClear = {
-//   avatar: '',
-// };
-
 class NotificationsList extends Component {
   constructor(props) {
     super(props);
     const { fetchNotifications } = props;
-    // this.state = { notification };
-    // this.state = { notification: notificationClear };
     fetchNotifications();
   }
 
   render() {
-    // const { notifications } = this.props;
+    const { notifications, notification } = this.props;
     // pull the data from state
-    const { notifications } = this.props;
+    // const { notifications } = this.props;
     console.log(
       'notifications index.js ' + 32 + ' ' + JSON.stringify(notifications),
       'notifications index.js ' +
@@ -36,10 +30,10 @@ class NotificationsList extends Component {
         <Container>
           {/* {this.props.notifications.loadedAt > 1
             ? notifications.map((notification) => ( */}
-          {/* Object.keys(array).map((notifications) => array[notifications])
-          {Object.keys(array).map((notifications) => array[notifications])( */}
+          {/* Object.keys(array).map((notifications) => array[notifications]) */}
           {/* Object.keys(this.state.messages).map((key) => ( */}
           {Object.keys(notifications).map((notification) => (
+            // {Object.keys(array).map((notifications) => array[notifications])(
             <Card>
               <div>
                 <CardBody className={styles.card_head}>

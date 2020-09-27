@@ -3,6 +3,11 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import styles from './app.module.css';
 
+// Give app access to the store
+import { Provider } from 'react-redux';
+// Import the store to use
+import store from './store';
+
 // route imports
 import Header from './components/sub/header';
 import Footer from './components/sub/buttons';
@@ -21,9 +26,10 @@ import Profile from './components/view/content/profile';
 import store from './store';
 
 function App() {
+  // Wrap entire application with Store Provider
   return (
-    <div className={styles.body}>
-      <Provider store={store}>
+    <Provider store={store}>
+      <div className={styles.body}>
         <Router>
           <Route path="/" component={Header} />
           <main>
@@ -70,8 +76,8 @@ function App() {
             component={Footer}
           />
         </Router>
-      </Provider>
-    </div>
+      </div>
+    </Provider>
   );
 }
 

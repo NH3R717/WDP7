@@ -1,4 +1,7 @@
+// import createReducer from '../helpers/createReducer';
+// You have the wrong path here
 import createReducer from '../utils/createReducer';
+
 import {
   REQ_NOTIFICATIONS_PENDING,
   REQ_NOTIFICATIONS_SUCCESS,
@@ -25,6 +28,8 @@ const initialState = {
   isLoading: false,
   // any errors loading all the data
   error: null,
+  // Demo State for Reducer Connection
+  demoString: 'Demo String Display',
 };
 
 function notificationsPending(state, action) {

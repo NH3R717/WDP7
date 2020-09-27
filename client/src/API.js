@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'; // added this dependency
 const API = axios.create({
   baseURL:
     process.env.API_URL ||
