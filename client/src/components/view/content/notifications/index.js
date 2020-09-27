@@ -1,96 +1,88 @@
 import React, { Component } from 'react';
-import {
-  Card,
-  CardBody,
-  CardTitle,
-  // CardSubtitle,
-  // CardText,
-  // CardLink,
-} from 'reactstrap';
+import { Card, CardBody, CardTitle, Container } from 'reactstrap';
 import PropTypes from 'prop-types';
 import styles from '../styles.module.css';
+import container from './container';
 
 class NotificationsList extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      '': '',
-    };
+    const { fetchNotifications } = props;
+    fetchNotifications();
   }
 
   render() {
-    const {
-      avatar_img_blue,
-      avatar_img_red,
-      notification_text,
-      sample_thumbnail,
-    } = this.props;
+    const { notifications, notification } = this.props;
+    // pull the data from state
+    // const { notifications } = this.props;
+    console.log(
+      'notifications index.js ' + 32 + ' ' + JSON.stringify(notifications),
+      'notifications index.js ' +
+        33 +
+        ' ' +
+        JSON.stringify(notifications.loadedAt)
+    );
+    console.log('Object Map ' + Object.keys(notifications));
     return (
       <section className={styles.card_container}>
         {/* notification */}
 
-        <Card Card className={styles.card_container}>
-          <div>
-            <CardBody className={styles.card_head}>
-              <img
-                className={styles.avatar_img}
-                src={avatar_img_blue}
-                alt="user avatar"
-              />
-              <CardTitle className={styles.notification_text}>
-                {notification_text}
-              </CardTitle>
-              <img
-                className={styles.card_thumb}
-                src={sample_thumbnail}
-                alt="notification media thumbnail"
-              />
-            </CardBody>
-          </div>
-        </Card>
-        <Card className={styles.card_container}>
-          <div>
-            <CardBody className={styles.card_head}>
-              <img
-                className={styles.avatar_img}
-                src={avatar_img_red}
-                alt="user avatar"
-              />
-              <CardTitle className={styles.notification_text}>
-                {notification_text}
-              </CardTitle>
-              <div
-                className={styles.card_thumb}
-                // src={sample_thumbnail}
-                // alt="notification media thumbnail"
-              />
-            </CardBody>
-          </div>
-        </Card>
+        <Container>
+          {/* {this.props.notifications.loadedAt > 1
+            ? notifications.map((notification) => ( */}
+          {/* Object.keys(array).map((notifications) => array[notifications]) */}
+          {/* Object.keys(this.state.messages).map((key) => ( */}
+          {Object.keys(notifications).map((notification) => (
+            // {Object.keys(array).map((notifications) => array[notifications])(
+            <Card>
+              <div>
+                <CardBody className={styles.card_head}>
+                  <img
+                    className={styles.avatar_img}
+                    src={notification.avatar}
+                    alt="user avatar"
+                  />
+                  <CardTitle className={styles.notification_text}>
+                    {notification.notification_text}
+                    {/* key={notification.notification_text} */}
+                    {/* key={message[".key"]}>{message.text} */}
+                  </CardTitle>
+                  <img
+                    className={styles.card_thumb}
+                    src={notification.thumbnail}
+                    alt="notification media thumbnail"
+                  />
+                </CardBody>
+              </div>
+            </Card>
+          ))}
+          {/* : null} */}
+        </Container>
       </section>
     );
   }
 }
 
 NotificationsList.propTypes = {
-  id: PropTypes.string,
-  name1: PropTypes.string,
-  name2: PropTypes.string,
-  direct_message: PropTypes.string,
-  avatar_img_blue: PropTypes.string,
-  avatar_img_red: PropTypes.string,
-  avatar_img_green: PropTypes.string,
-  sample_thumbnail: PropTypes.string,
+  // id: PropTypes.string,
+  notifications: PropTypes.arrayOf(PropTypes.object),
+  fetchNotifications: PropTypes.func.isRequired,
+  // createNotifications: PropTypes.func.isRequired,
+  // deleteNotifications: PropTypes.func.isRequired,
+  // notification_text: PropTypes.string,
+  // avatar: PropTypes.string,
+  // thumbnail: PropTypes.string,
   loggedIn: PropTypes.bool,
 };
 
 NotificationsList.defaultProps = {
   loggedIn: true,
-  notification_text: 'Here is a notification, now you know!',
-  avatar_img_blue: '/avatar_blue.png',
-  avatar_img_red: '/avatar_red.png',
-  avatar_img_green: '/avatar_green.png',
-  sample_thumbnail: '/sample_image.jpg',
+  // notification_text: 'Here is a notification, now you know!',
+  // avatar_img_blue: '/avatar_blue.png',
+  // avatar_img_red: '/avatar_red.png',
+  // avatar_img_green: '/avatar_green.png',
+  // sample_thumbnail: '/sample_image.jpg',
+  notifications: [],
 };
 
-export default NotificationsList;
+export default container(NotificationsList);
