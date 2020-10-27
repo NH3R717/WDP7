@@ -4,6 +4,8 @@ git subtree push --prefix reactapp capstone-project-2009-NH3R717 stage
 new packages –
 npm i --save-dev sequelize-cli && npm i sequelize && npm i pg && npm i express && npm i body-parser && npm i axios && npm i fs
 
+sequelize int
+
 - sequelize db:migrate:undo:all
 - npx sequelize-cli db:seed:all
 
