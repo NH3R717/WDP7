@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "db-update": "sequelize db:migrate",
+    "db-seed": "sequelize db:seed:all",
     "start": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"npm start\""
   },
