@@ -1,45 +1,53 @@
-'use strict';
+"use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Notifications', {
+    await queryInterface.createTable("Notifications", {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
+        unique: true,
       },
-      id: {
-        type: Sequelize.UUID
-      },
+      // id: {
+      //   type: Sequelize.UUID
+      // },
       posterId: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       flags: {
-        type: Sequelize.ENUM('office', 'shop', 'field', 'all')
+        type: Sequelize.ENUM("office", "shop", "field", "all"),
       },
       notificationTextId: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       imageId: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       audioId: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       videoId: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
+    Notifications.associate = function (models) {
+      // associations can be defined here
+      Task.belongsTo(models.Users, {
+        foreignKey: "username",
+        onDelete: "CASCADE",
+      });
+    };
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Notifications');
-  }
+    await queryInterface.dropTable("Notifications");
+  },
 };

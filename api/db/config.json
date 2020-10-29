@@ -2,15 +2,17 @@
   "development": {
     "username": "postgres",
     "password": null,
-    "database": "coms_management_develop",
+    "database": "CM_Dev",
     "host": "127.0.0.1",
+    "port": "5436",
     "dialect": "postgres"
   },
   "test": {
     "username": "postgres",
     "password": null,
-    "database": "coms_management_test",
+    "database": "CM_test",
     "host": "127.0.0.1",
+    "port": "5436",
     "dialect": "postgres"
   },
    "staging": {

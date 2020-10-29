@@ -1,36 +1,37 @@
-'use strict';
+"use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Images', {
+    await queryInterface.createTable("Images", {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
+        unique: true,
       },
-      id: {
-        type: Sequelize.UUID
-      },
+      // id: {
+      //   type: Sequelize.UUID,
+      // },
       imageLink1: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       imageLink2: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       imageLink3: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Images');
-  }
+    await queryInterface.dropTable("Images");
+  },
 };

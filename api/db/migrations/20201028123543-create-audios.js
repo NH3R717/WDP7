@@ -1,33 +1,33 @@
-'use strict';
+"use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Audios', {
+    await queryInterface.createTable("Audios", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
-      id: {
-        type: Sequelize.UUID
-      },
+      // id: {
+      //   type: Sequelize.UUID
+      // },
       audioLink1: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       audioLink2: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Audios');
-  }
+    await queryInterface.dropTable("Audios");
+  },
 };

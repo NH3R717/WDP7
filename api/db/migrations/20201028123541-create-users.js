@@ -1,45 +1,50 @@
-'use strict';
+"use strict";
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Users', {
+  up: async (queryInterface, Sequelize, Users) => {
+    await queryInterface.createTable("Users", {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
+        unique: true,
       },
-      id: {
-        type: Sequelize.UUID
-      },
+      // id: {
+      //   type: Sequelize.UUID,
+      // },
       username: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       password: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       position: {
-        type: Sequelize.ENUM('technician', 'management', 'admin')
+        type: Sequelize.ENUM("technician", "management", "admin"),
       },
       about: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       avatar: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
-      city: {
-        type: Sequelize.STRING
-      },
+
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      }
+        type: Sequelize.DATE,
+      },
     });
+    Users.associate = function (models) {
+      // associations can be defined here
+      Users.hasMany(models.Notifications, {
+        foreignKey: "username",
+      });
+    };
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Users');
-  }
+    await queryInterface.dropTable("Users");
+  },
 };

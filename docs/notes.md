@@ -8,14 +8,20 @@ npm i --save-dev sequelize-cli && npm i sequelize && npm i pg && npm i express &
 
 sequelize int
 
+- npx sequelize init --force
+- npx sequelize db:create
+- npx sequelize db:migrate
+
 - npx sequelize db:migrate:undo:all
 - npx sequelize-cli db:seed:all
 
 https://sequelize.org/master/manual/migrations.html
 
 /api \$ npx sequelize init --force
-
 /api \$ npx sequelize db:create
+
+- seed creations
+  npx sequelize-cli seed:generate --name Users && npx sequelize-cli seed:generate --name Notifications && npx sequelize-cli seed:generate --name NotificationsText && npx sequelize-cli seed:generate --name Images && npx sequelize-cli seed:generate --name Images && npx sequelize-cli seed:generate --name Users && npx sequelize-cli seed:generate --name Audios && npx sequelize-cli seed:generate --name Users
 
 - migration statements
 
