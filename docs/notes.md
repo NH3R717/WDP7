@@ -13,7 +13,9 @@ sequelize int
 - npx sequelize init --force
 - npx sequelize db:create
 - npx sequelize db:migrate
+
 - npx sequelize db:migrate:undo:all
+- npx sequelize db:migrate:undo --name 20201028123541-create-users && npx sequelize db:migrate:undo --name 20201028123542-create-notifications && npx sequelize db:migrate:undo:all
 
 - npx sequelize-cli db:seed:all
   npx sequelize-cli db:seed:undo:all

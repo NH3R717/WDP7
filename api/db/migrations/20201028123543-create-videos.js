@@ -8,6 +8,7 @@ module.exports = {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
         unique: true,
+        onDelete: "CASCADE",
       },
       // id: {
       //   type: Sequelize.UUID,
@@ -30,6 +31,7 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
+    await queryInterface.removeColumn("Notifications", "videosId");
     await queryInterface.dropTable("Videos");
   },
 };

@@ -32,6 +32,7 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
+    await queryInterface.removeColumn("Notifications", "imagesId");
     await queryInterface.dropTable("Images");
   },
 };
