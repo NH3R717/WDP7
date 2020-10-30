@@ -1,11 +1,12 @@
 "use strict";
-
+const uuidv4 = require("uuid/v4");
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert(
       "Users",
       [
         {
+          id: uuidv4(),
           username: "Star",
           password: "#aHashedPassword#",
           position: "admin",

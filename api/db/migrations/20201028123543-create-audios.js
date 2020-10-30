@@ -13,6 +13,7 @@ module.exports = {
       //   type: Sequelize.UUID
       // },
       audioLink1: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       audioLink2: {

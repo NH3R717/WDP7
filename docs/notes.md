@@ -13,9 +13,10 @@ sequelize int
 - npx sequelize init --force
 - npx sequelize db:create
 - npx sequelize db:migrate
-
 - npx sequelize db:migrate:undo:all
+
 - npx sequelize-cli db:seed:all
+  npx sequelize-cli db:seed:undo:all
 
 https://sequelize.org/master/manual/migrations.html
 
@@ -24,7 +25,9 @@ https://sequelize.org/master/manual/migrations.html
 
 ## migration – tables statements
 
-npx sequelize model:create --name Users --attributes id:uuid,username:string,password:string,position:enum:'{technician,management,admin}',about:string,avatar:string,city:string --force && npx sequelize model:create --name Notifications --attributes id:uuid,flags:enum:'{office,shop,field,all}' --force && npx sequelize model:create --name NotificationsTexts --attributes id:uuid,messageText:string --force && npx sequelize model:create --name Images --attributes id:uuid,imageLink1:string,imageLink2:string,imageLink3:string --force && npx sequelize model:create --name Audios --attributes id:uuid,audioLink1:string,audioLink2:string --force && npx sequelize model:create --name Videos --attributes id:uuid,videoLink1:string,videoLink2:string --force
+npx sequelize model:create --name Users --attributes id:uuid,username:string,password:string,position:enum:'{technician,management,admin}',about:string,avatar:string,city:string --force && npx sequelize model:create --name Notifications --attributes id:uuid,flags:enum:'{office,shop,field,all}',audiosIs:uuid,imagesId:uuid,notificationsTextsId:uuid,videosId:uuid, --force && npx sequelize model:create --name Audios --attributes id:uuid,audioLink1:string,audioLink2:string --force && npx sequelize model:create --name Images --attributes id:uuid,imageLink1:string,imageLink2:string,imageLink3:string --force && npx sequelize model:create --name NotificationsTexts --attributes id:uuid,messageText:string --force npx sequelize model:create --name Videos --attributes id:uuid,videoLink1:string,videoLink2:string --force
+
+- npx sequelize model:create --name Notifications --attributes id:uuid,flags:enum:'{office,shop,field,all}',audiosIs:uuid,imagesId:uuid,notificationsTextsId:uuid,videosId:uuid --force
 
 ## migration – relations statements
 

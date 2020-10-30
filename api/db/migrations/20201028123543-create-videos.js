@@ -13,6 +13,7 @@ module.exports = {
       //   type: Sequelize.UUID,
       // },
       videoLink1: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       videoLink2: {

@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) =>
-    queryInterface.addColumn("Users", "NotificationsId", {
+    queryInterface.addColumn("Users", "notificationsId", {
       type: Sequelize.UUID(),
       // type: Sequelize.STRING(),
       references: {
@@ -11,6 +11,6 @@ module.exports = {
       },
     }),
   down: async (queryInterface, Sequelize) => {
-    queryInterface.removeColumn("Users", "NotificationsId");
+    queryInterface.removeColumn("Users", "notificationsId");
   },
 };
