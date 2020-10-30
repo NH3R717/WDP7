@@ -12,24 +12,24 @@ module.exports = {
       // id: {
       //   type: Sequelize.UUID
       // },
-      posterId: {
+      usersId: {
         type: Sequelize.STRING,
       },
       flags: {
         type: Sequelize.ENUM("office", "shop", "field", "all"),
       },
-      notificationTextId: {
-        type: Sequelize.STRING,
-      },
-      imageId: {
-        type: Sequelize.STRING,
-      },
-      audioId: {
-        type: Sequelize.STRING,
-      },
-      videoId: {
-        type: Sequelize.STRING,
-      },
+      // notificationTextId: {
+      //   type: Sequelize.STRING,
+      // },
+      // imageId: {
+      //   type: Sequelize.STRING,
+      // },
+      // audioId: {
+      //   type: Sequelize.STRING,
+      // },
+      // videoId: {
+      //   type: Sequelize.STRING,
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -39,13 +39,13 @@ module.exports = {
         type: Sequelize.DATE,
       },
     });
-    Notifications.associate = function (models) {
-      // associations can be defined here
-      Task.belongsTo(models.Users, {
-        foreignKey: "username",
-        onDelete: "CASCADE",
-      });
-    };
+    // Notifications.associate = function (models) {
+    //   // associations can be defined here
+    //   Task.belongsTo(models.Users, {
+    //     foreignKey: "username",
+    //     onDelete: "CASCADE",
+    //   });
+    // };
   },
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable("Notifications");

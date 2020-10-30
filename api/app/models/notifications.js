@@ -15,12 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   Notifications.init({
     id: DataTypes.UUID,
-    posterId: DataTypes.STRING,
-    flags: DataTypes.ENUM('office', 'shop', 'field', 'all'),
-    notificationTextId: DataTypes.STRING,
-    imageId: DataTypes.STRING,
-    audioId: DataTypes.STRING,
-    videoId: DataTypes.STRING
+    flags: DataTypes.ENUM('office', 'shop', 'field', 'all')
   }, {
     sequelize,
     modelName: 'Notifications',

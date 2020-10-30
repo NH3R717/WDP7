@@ -27,7 +27,6 @@ module.exports = {
       avatar: {
         type: Sequelize.STRING,
       },
-
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -37,12 +36,12 @@ module.exports = {
         type: Sequelize.DATE,
       },
     });
-    Users.associate = function (models) {
-      // associations can be defined here
-      Users.hasMany(models.Notifications, {
-        foreignKey: "username",
-      });
-    };
+    // Users.associate = function (models) {
+    //   // associations can be defined here
+    //   Users.hasMany(models.Notifications, {
+    //     foreignKey: "username",
+    //   });
+    // };
   },
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable("Users");
