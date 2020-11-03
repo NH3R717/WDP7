@@ -24,7 +24,7 @@ class Profile extends Component {
   }
 
   render() {
-    const { avatar_img_blue, username, discription, bio } = this.props;
+    const { avatar_img_blue, username, description, bio } = this.props;
     return (
       <section className={styles.card_container}>
         {/* profile */}
@@ -43,7 +43,7 @@ class Profile extends Component {
                 src={sample_thumbnail}
                 alt="notification media thumbnail"
               /> */}
-              <CardSubtitle>{discription}</CardSubtitle>
+              <CardSubtitle>{description}</CardSubtitle>
             </CardBody>
           </div>
           <CardBody className={styles.user_bio_container}>
@@ -70,9 +70,9 @@ class Profile extends Component {
                 <Input
                   className={styles.input}
                   type="text"
-                  name="discription"
-                  id="discription"
-                  placeholder="Discription"
+                  name="description"
+                  id="description"
+                  placeholder="description"
                 />
               </FormGroup>
               <FormGroup>
@@ -111,7 +111,7 @@ Profile.defaultProps = {
   loggedIn: true,
   avatar_img_blue: '/avatar_blue.png',
   username: 'Yoshihide Suga',
-  discription: 'Pimeminister of Japan',
+  description: 'Pimeminister of Japan',
   bio:
     'Yoshihide Suga (菅 義偉, Suga Yoshihide, born 6 December 1948) is the current prime minister of Japan. He was the chief cabinet secretary under Prime Minister Shinzo Abe from 2012 to 2020 and minister for internal affairs and communications from 2006 to 2007. ',
   // sample_thumbnail: '/sample_image.jpg',

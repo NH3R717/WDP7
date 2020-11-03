@@ -34,8 +34,8 @@ function mapStateToProps(state, props) {
 const mapDispatchToProps = {
   fetchNotifications,
   // fetchNotification,
-  createNotification,
-  updateNotification,
-  deteteNotification,
+  // createNotification,
+  // updateNotification,
+  // deteteNotification,
 };
 export default connect(mapStateToProps, mapDispatchToProps);
