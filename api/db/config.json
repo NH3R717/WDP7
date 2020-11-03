@@ -1,0 +1,24 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": null,
+    "database": "CM_Dev",
+    "host": "127.0.0.1",
+    "port": "5436",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": null,
+    "database": "CM_test",
+    "host": "127.0.0.1",
+    "port": "5436",
+    "dialect": "postgres"
+  },
+   "staging": {
+    "use_env_variable": "DATABASE_URL"
+  },
+   "production": {
+    "use_env_variable": "DATABASE_URL"
+  }
+}
