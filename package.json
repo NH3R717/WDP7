@@ -10,7 +10,8 @@
     "install-client": "npm i --prefix client",
     "install-api": "npm i --prefix api",
     "build-client": "npm run build --prefix client",
-    "build-api": "npm run db-update --prefix api",
+    "build-api": "npm run build --prefix api",
+    "*build-api": "npm run db-update --prefix api",
     "heroku-postbuild": "concurrently \"npm:install-*\"; concurrently \"npm:build-*\"; "
   },
   "dependencies": {
@@ -19,6 +20,7 @@
     "nodemon": "^2.0.4"
   },
   "devDependencies": {
-    "concurrently": "^5.3.0"
+    "concurrently": "^5.3.0",
+    "dread": "^2.3.0"
   }
 }
