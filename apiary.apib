@@ -1,12 +1,154 @@
 – 3FORMAT: 1A
 
+
+
 # Coms Management
 
 Coms Management API allows for front-end developmet testing of the Coms Managment app.
 
+Notes:
+<!----> code fold cmd+opt+0
+<!----> code unfold cmd+opt+shif+0
+<!----> Cmd-Alt-H
+
+# Group Users
+## Users – w/o id [/users]
+
+### List All Users [GET]
+
++ Response 200 (application/json)
+
+        {
+        id: "92061fc4-690a-47ba-b3af-64cd6a8909da",
+        username: "Star",
+        password: "#aHashedPassword#",
+        position: "admin",
+        about: "Office Dispatch",
+        avatar: "https://avatar-url.net",
+        },
+        {
+        id: "a1679fd1-c7ab-41a3-a3cb-6019cbc35f0e",
+        username: "Sun",
+        password: "#aHashedPassword#",
+        position: "technician",
+        about: "Lead field technician.",
+        avatar: "https://avatar-url.net",
+        },
+        {
+        id: "c01d5d70-e837-4164-b62f-143e7a2a7bfa",
+        username: "Moon",
+        password: "#aHashedPassword#",
+        position: "management",
+        about: "Office manager.",
+        avatar: "https://avatar-url.net",
+        }
+    
++ Response 401 (application/json; charset=utf-8)
+
+        {
+        "error": "could not list users"
+        }
+
+### Create User [POST]
+
++ Request (application/json)
+
+        {
+        id: "92061fc4-690a-47ba-b3af-64cd6a8909da",
+        username: "Star",
+        password: "#aHashedPassword#",
+        position: "admin",
+        about: "Office Dispatch",
+        avatar: "https://avatar-url.net",
+        }
+
++ Request 201 (application/json)
+
+        {
+        id: "92061fc4-690a-47ba-b3af-64cd6a8909da",
+        username: "Star",
+        password: "#aHashedPassword#",
+        position: "admin",
+        about: "Office Dispatch",
+        avatar: "https://avatar-url.net",
+        }
+        
++ Response 401 (application/json; charset=utf-8)
+
+        {
+        "error": "could not create notification"
+        }
+
+## Users – w/ id [/users{?id}]
+
++ Parameters
+
+    + id (required, string, `92061fc4-690a-47ba-b3af-64cd6a8909da`)
+
+### List One User [GET]   
+
++ Response 200 (application/json)
+
+        {
+        id: "92061fc4-690a-47ba-b3af-64cd6a8909da",
+        username: "Star",
+        password: "#aHashedPassword#",
+        position: "admin",
+        about: "Office Dispatch",
+        avatar: "https://avatar-url.net",
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+        "error": "could not list notification"
+        }
+
+### Update User [PUT]
+
++ Request (application/json; charset=utf-8)
+
+        {
+        id: "92061fc4-690a-47ba-b3af-64cd6a8909da",
+        username: "Star",
+        password: "#aHashedPassword#",
+        position: "admin",
+        about: "Office Dispatch",
+        avatar: "https://avatar-url.net",
+        }
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+        id: "92061fc4-690a-47ba-b3af-64cd6a8909da",
+        username: "Star",
+        password: "#aHashedPassword#",
+        position: "admin",
+        about: "Office Dispatch & Front Desk",
+        avatar: "https://avatar-url.net",
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+        "error": "could not update notification"
+        }
+        
+### Delete User [DELETE]
+
++ Response 200
+
+        }
+        "comment": "user successfully deleted"
+        {
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+        "error": "could not delete notification"
+        }
 
 # Group Notifications
-
 
 ## Notifications – w/o id [/notifications]
 
@@ -14,25 +156,20 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 
 + Response 200 (application/json)
 
-        [
-                {
-                    "id": "93007e68-af28-47c2-b1b0-e11f317e1ac3",
-                    "text": "Some notification text less than 600 characters (GET). 1"
-                },
-                {
-                    "id": "3d80ddbb-40de-42fc-9c44-137ac6beddc0",
-                    "text": "Some notification text less than 600 characters (GET). 2"
-                },
-                {
-                    "id": "b1358b9a-739f-4de2-bc94-a3fcf0389135",
-                    "text": "Some notification text less than 600 characters (GET). 3"
-                }
-        ]
-
+        {
+        id: "f9700fa5-e3b2-4c5d-9fc3-10b883b84fcc",
+        flags: "office",
+        // TODO – to get new fk ids to populate
+        audiosId: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        imagesId: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        notificationsTextsId: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        videosId: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
+        }
+    
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not list  notifications"
+        "error": "could not list  notifications"
         }
 
 ### Create Notification [POST]
@@ -40,42 +177,57 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 + Request (application/json)
 
         {
-            "id": "7a9cf0bc-b017-4e90-80b3-bc1f1a588beb",
-            "text": "Some notification text less than 600 characters (POST). " 
+        id: "f9700fa5-e3b2-4c5d-9fc3-10b883b84fcc",
+        flags: "office",
+        // TODO – to get new fk ids to populate
+        audiosId: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        imagesId: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        notificationsTextsId: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        videosId: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
         }
         
-+ Response 201 (application/json)
++ Request (application/json)
 
         {
-            "id": "7a9cf0bc-b017-4e90-80b3-bc1f1a588beb",
-            "text": "Some notification text less than 600 characters (POST). " 
+        id: "f9700fa5-e3b2-4c5d-9fc3-10b883b84fcc",
+        flags: "office",
+        // TODO – to get new fk ids to populate
+        audiosId: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        imagesId: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        notificationsTextsId: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        videosId: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
         }
         
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not create notification"
+        "error": "could not create notification"
         }
 
 ## Notifications – w/ id [/notifications{?id}]
 
 + Parameters
 
-    + id (required, string, `93007e68-af28-47c2-b1b0-e11f317e1ac3`)
+    + id (required, string, `f9700fa5-e3b2-4c5d-9fc3-10b883b84fcc`)
 
 ### List One Notifications [GET]   
 
 + Response 200 (application/json)
 
         {
-            "id": "93007e68-af28-47c2-b1b0-e11f317e1ac3",
-            "text": "Some notification text less than 600 characters (GET). 1"
+        id: "f9700fa5-e3b2-4c5d-9fc3-10b883b84fcc",
+        flags: "office",
+        // TODO – to get new fk ids to populate
+        audiosId: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        imagesId: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        notificationsTextsId: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        videosId: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
         }
 
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not list notification"
+        "error": "could not list notification"
         }
 
 ### Update Notification [PUT]
@@ -83,142 +235,146 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 + Request (application/json; charset=utf-8)
 
         {
-            "id": "93007e68-af28-47c2-b1b0-e11f317e1ac3",
-            "text": "Some notification text less than 600 characters (PUT). 1",
+        id: "f9700fa5-e3b2-4c5d-9fc3-10b883b84fcc",
+        flags: "office",
+        // TODO – to get new fk ids to populate
+        audiosId: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        imagesId: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        notificationsTextsId: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        videosId: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
         }
-
-+ Response 200 (application/json; charset=utf-8)
+        
++ Request (application/json)
 
         {
-            "id": "93007e68-af28-47c2-b1b0-e11f317e1ac3",
-            "text": "Some notification text less than 600 characters (PUT). 1 Updated",
-            "comment": "notifications can not be uodated or deleted, switch response code to 403"
+        id: "f9700fa5-e3b2-4c5d-9fc3-10b883b84fcc",
+        flags: "all",
+        // TODO – to get new fk ids to populate
+        audiosId: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        imagesId: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        notificationsTextsId: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        videosId: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
         }
 
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not update notification"
+        "error": "could not update notification"
         }
         
 ### Delete Notification [DELETE]
 
-+ Response 204
++ Response 200
+
+        }
+        "comment": "notification successfully deleted"
+        {
 
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not delete notification"
-            "comment": "notifications can not be updated or deleted, switch to response code to 403"
+        "error": "could not delete notification"
         }
         
-        
-# Group Direct Messages
+# Group Notifications Texts
 
-## Direct Messages – w/o id [/directmessages]
+## Notifications Texts – w/o id [/notificationstexts]
 
-### List All Direct Messages [GET]
+### List All Notifications Texts [GET]
 
 + Response 200 (application/json)
 
-        ]
-                {
-                    "id": "f6b7001b-b996-4bd0-a96b-8d13b074cb35",
-                    "text": "Some direct message text less than 800 characters (GET). 1"
-                },
-                {
-                    "id": "79d1e9b1-84ea-40bc-b90d-88147a1c5604",
-                    "text": "Some direct message text less than 800 characters (GET). 2"
-                },
-                {
-                    "id": "6221ca8b-8401-48ec-a80b-d4ed445cf8b8",
-                    "text": "Some direct message text less than 800 characters (GET). 3"
-                }
-        [        
+        [
+        {
+        id: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        messageText: "Vis blandit percipitur disputationi te, mea prompta gubergren ad. Eu natum accusam consulatu vim, vim zril utamur admodum in, nulla iudico ei vis. Vix an purto instructior. In sea facilis vivendo tincidunt, ad mel vidisse eleifend, sed id causae signiferumque. Pro omnes primis democritum ex.",
+        },
+        ],        
 
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not list direct messages"
+        "error": "could not list images"
         }
 
-### Create Direct Message [POST]
+### Create Notifications Texts [POST]
 
 + Request (application/json)
 
         {
-            "id": "71faea1b-4a85-4739-a658-435c42710291",
-            "text": "Some direct message text less than 800 characters (POST). " 
+        id: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        messageText: "Vis blandit percipitur disputationi te, mea prompta gubergren ad. Eu natum accusam consulatu vim, vim zril utamur admodum in, nulla iudico ei vis. Vix an purto instructior. In sea facilis vivendo tincidunt, ad mel vidisse eleifend, sed id causae signiferumque. Pro omnes primis democritum ex.",
         }
         
 + Response 201 (application/json)
 
         {
-            "id": "7a9cf0bc-b017-4e90-80b3-bc1f1a588beb",
-            "text": "Some direct message text less than 800 characters (POST). " 
+        id: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        messageText: "Vis blandit percipitur disputationi te, mea prompta gubergren ad. Eu natum accusam consulatu vim, vim zril utamur admodum in, nulla iudico ei vis. Vix an purto instructior. In sea facilis vivendo tincidunt, ad mel vidisse eleifend, sed id causae signiferumque. Pro omnes primis democritum ex.",
         }
             
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not create direct message"
+        "error": "could not create image"
         }
 
-## Direct Messages – w/ id [/directmessages{?id}]
+## Notifications Texts – w/ id [/notificationstexts{?id}]
 
 + Parameters
 
-    + id (required, string, `f6b7001b-b996-4bd0-a96b-8d13b074cb35`)
+    + id (required, string, `7465fd03-27a0-49cc-bd0c-6692a1067bc6`)
 
-### List One Direct Message [GET]   
+### List One Notifications Texts [GET]   
 
 + Response 200 (application/json)
 
         {
-            "id": "f6b7001b-b996-4bd0-a96b-8d13b074cb35",
-            "text": "Some direct message text less than 800 characters (GET). 1"
+        id: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        messageText: "Vis blandit percipitur disputationi te, mea prompta gubergren ad. Eu natum accusam consulatu vim, vim zril utamur admodum in, nulla iudico ei vis. Vix an purto instructior. In sea facilis vivendo tincidunt, ad mel vidisse eleifend, sed id causae signiferumque. Pro omnes primis democritum ex.",
         }
 
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could get direct message"
+        "error": "could get image"
         }
 
-### Update Direct Message [PUT]
+### Update Notifications Texts [PUT]
 
 + Request (application/json; charset=utf-8)
 
         {
-            "id": "f6b7001b-b996-4bd0-a96b-8d13b074cb35",
-            "text": "Some direct message text less than 800 characters (PUT). 1",
+        id: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        messageText: "Vis blandit percipitur disputationi te, mea prompta gubergren ad. Eu natum accusam consulatu vim, vim zril utamur admodum in, nulla iudico ei vis. Vix an purto instructior. In sea facilis vivendo tincidunt, ad mel vidisse eleifend, sed id causae signiferumque. Pro omnes primis democritum ex.",
         }
 
 + Response 200 (application/json; charset=utf-8)
 
         {
-            "id": "93007e68-af28-47c2-b1b0-e11f317e1ac3",
-            "text": "Some notification text less than 600 characters (PUT). 1 Updated",
-            "comment": "direct messages can not be updated or deleted, switch response code to 403"
+        id: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        messageText: "New Text! Vis blandit percipitur disputationi te, mea prompta gubergren ad. Eu natum accusam consulatu vim, vim zril utamur admodum in, nulla iudico ei vis. Vix an purto instructior. In sea facilis vivendo tincidunt, ad mel vidisse eleifend, sed id causae signiferumque. Pro omnes primis democritum ex.",
         }
 
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not update direct message"
+        "error": "could not update image"
         }
         
-### Delete Direct Message [DELETE]
+### Delete Notifications Texts [DELETE]
 
-+ Response 204
++ Response 200
+
+        }
+        "comment": "notification text successfully deleted"
+        {
 
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not delete direct message"
-            "comment": "direct messages can not be updated or deleted, switch response code to 403"
+        "error": "could not delete notification text"
         }
-        
         
 # Group Images
 
@@ -228,28 +384,17 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 
 + Response 200 (application/json)
 
-        ]
-                {
-                    "id": "97833587-c80f-42e9-b9eb-807f5bebc5cc",
-                    "url": "https://picsum.photos/800/500",
-                    "get": 1
-                },{
-                    
-                    "id": "c052c6fb-557d-4e62-9533-e15a830441bc",
-                    "url": "https://picsum.photos/800/500",
-                    "get": 2
-                },{
-                    
-                    "id": "ddeb2327-2e4c-4103-9910-7ea111f0bcf5",
-                    "url": "https://picsum.photos/800/500",
-                    "get": 3
-                }
-        ]        
+        {
+        id: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        imageLink1: "https://live.staticflickr.com/2129/5785570987_9c617a047e_h.jpg",
+        imageLink2: "https://live.staticflickr.com/6105/6297421204_9cff672fa3_h.jpg",
+        imageLink3: "https://live.staticflickr.com/3511/3210747453_603f87a69a_c.jpg",
+        }        
 
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not list images"
+        "error": "could not list images"
         }
 
 ### Create Image [POST]
@@ -257,45 +402,48 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 + Request (application/json)
 
         {
-            "id": "71faea1b-4a85-4739-a658-435c42710291",
-            "url": "https://picsum.photos/800/500",
-            "post": 1
-        }
+        id: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        imageLink1: "https://live.staticflickr.com/2129/5785570987_9c617a047e_h.jpg",
+        imageLink2: "https://live.staticflickr.com/6105/6297421204_9cff672fa3_h.jpg",
+        imageLink3: "https://live.staticflickr.com/3511/3210747453_603f87a69a_c.jpg",
+        }     
         
 + Response 201 (application/json)
 
         {
-            "id": "7a9cf0bc-b017-4e90-80b3-bc1f1a588beb",
-            "url": "https://picsum.photos/800/500"
-            "post": 1
-        }
+        id: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        imageLink1: "https://live.staticflickr.com/2129/5785570987_9c617a047e_h.jpg",
+        imageLink2: "https://live.staticflickr.com/6105/6297421204_9cff672fa3_h.jpg",
+        imageLink3: "https://live.staticflickr.com/3511/3210747453_603f87a69a_c.jpg",
+        }     
             
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not create image"
+        "error": "could not create image"
         }
 
 ## Images – w/ id [/images{?id}]
 
 + Parameters
 
-    + id (required, string, `97833587-c80f-42e9-b9eb-807f5bebc5cc`)
+    + id (required, string, `96aef80b-5f7b-491d-a44d-1796989103a7`)
 
-### List One Image [GET]   
+### List One Images [GET]   
 
 + Response 200 (application/json)
 
         {
-            "id": "97833587-c80f-42e9-b9eb-807f5bebc5cc",
-            "url": "https://picsum.photos/800/500"
-            "get": 1
-        }
+        id: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        imageLink1: "https://live.staticflickr.com/2129/5785570987_9c617a047e_h.jpg",
+        imageLink2: "https://live.staticflickr.com/6105/6297421204_9cff672fa3_h.jpg",
+        imageLink3: "https://live.staticflickr.com/3511/3210747453_603f87a69a_c.jpg",
+        }  
 
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could get image"
+        "error": "could not get image"
         }
 
 ### Update Image [PUT]
@@ -303,23 +451,24 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 + Request (application/json; charset=utf-8)
 
         {
-            "id": "97833587-c80f-42e9-b9eb-807f5bebc5cc",
-            "url": "https://picsum.photos/800/500",
-        }
+        id: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        imageLink1: "https://live.staticflickr.com/2129/5785570987_9c617a047e_h.jpg",
+        imageLink2: "https://live.staticflickr.com/6105/6297421204_9cff672fa3_h.jpg",
+        imageLink3: "https://live.staticflickr.com/3511/3210747453_603f87a69a_c.jpg",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        }     
 
 + Response 200 (application/json; charset=utf-8)
 
         {
-            "id": "97833587-c80f-42e9-b9eb-807f5bebc5cc",
-            "url": "https://picsum.photos/800/500",
-            "put": 1
-            "comment": "Image can not be updated or deleted, switch response code to 403"
-        }
-
+        id: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        imageLink1: "https://live.staticflickr.com/2129/5785570987_9c617a047e_h.jpg",
+        }     
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not update image"
+        "error": "could not update image"
         }
         
 ### Delete Image [DELETE]
@@ -329,11 +478,11 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not delete image"
-            "comment": "Image can not be updated or deleted, switch response code to 403"
+        "error": "could not delete image"
+        "comment": "Image can not be updated or deleted, switch response code to 403"
         }
         
-        
+       
 # Group Audios
 
 ## Audio – w/o id [/audios]
@@ -342,28 +491,16 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 
 + Response 200 (application/json)
 
-        ]
-                {
-                    "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
-                    "url": "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
-                    "get": 1
-                },{
-                    
-                    "id": "d7a34a8e-d18e-4bc8-9893-7daf896d3035",
-                    "url": "http://amclassical.com/mp3/amclassical_joplin_the_entertainer_rag.mp3",
-                    "get": 2
-                },{
-                    
-                    "id": "71099a84-62b1-4b62-a400-dc8c224fe059",
-                    "url": "http://amclassical.com/mp3/amclassical_prelude_in_c_major_bwv_846a.mp3",
-                    "get": 3
-                }
-        ]        
+        {
+        id: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        audioLink1: "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
+        audioLink2: "http://amclassical.com/mp3/amclassical_joplin_the_entertainer_rag.mp3",
+        }
 
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not list audio files"
+        "error": "could not list audio files"
         }
 
 ### Create Audio [POST]
@@ -371,45 +508,45 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 + Request (application/json)
 
         {
-            "id": "e46e0365-c808-4291-9124-d3c4f7d3b245",
-            "url": "http://amclassical.com/mp3/amclassical_twopart_invention_in_e.mp3",
-            "post": 1
+        id: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        audioLink1: "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
+        audioLink2: "http://amclassical.com/mp3/amclassical_joplin_the_entertainer_rag.mp3",
         }
         
 + Response 201 (application/json)
 
         {
-            "id": "e46e0365-c808-4291-9124-d3c4f7d3b245",
-            "url": "http://amclassical.com/mp3/amclassical_twopart_invention_in_e.mp3",
-            "post": 1
+        id: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        audioLink1: "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
+        audioLink2: "http://amclassical.com/mp3/amclassical_joplin_the_entertainer_rag.mp3",
         }
             
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not create audio file"
+        "error": "could not create audio file"
         }
 
 ## Audio – w/ id [/audios{?id}]
 
 + Parameters
 
-    + id (required, string, `c2aacc85-2b88-47c0-ac5e-ff17af848281`)
+    + id (required, string, `755ccc52-4dbb-43e8-afbf-3e9dc82b7a65`)
 
 ### List One Audio [GET]   
 
 + Response 200 (application/json)
 
         {
-            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
-            "url": "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
-            "get": 1
+        id: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        audioLink1: "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
+        audioLink2: "http://amclassical.com/mp3/amclassical_joplin_the_entertainer_rag.mp3",
         }
 
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could get audio file"
+        "error": "could get audio file"
         }
 
 ### Update Audio [PUT]
@@ -417,24 +554,22 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 + Request (application/json; charset=utf-8)
 
         {
-            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
-            "url": "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
-            "put": 1
+        id: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        audioLink1: "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
+        audioLink2: "http://amclassical.com/mp3/amclassical_joplin_the_entertainer_rag.mp3",
         }
 
 + Response 200 (application/json; charset=utf-8)
 
-        {
-            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
-            "url": "http://amclassical.com/mp3/amclassical_piano_sonata_k_545_mvt_1.mp3",
-            "put": 1
-            "comment": "audio can not be updated or deleted, switch response code to 403"
+         {
+        id: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        audioLink1: "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
         }
 
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not update audio file"
+        "error": "could not update audio file"
         }
         
 ### Delete Audio [DELETE]
@@ -444,8 +579,8 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not delete audio file"
-            "comment": "audio can not be updated or deleted, switch response code to 403"
+        "error": "could not delete audio file"
+        "comment": "audio can not be updated or deleted, switch response code to 403"
         }
 
 
@@ -457,28 +592,16 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 
 + Response 200 (application/json)
 
-        ]
-                {
-                    "id": "e91d0220-08e9-4432-8e28-da7dd5078759",
-                    "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
-                    "get": 1
-                },{
-                    
-                    "id": "9a5db0b8-ee7d-4c2d-82f2-2cb71218fb4c",
-                    "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
-                    "get": 2
-                },{
-                    
-                    "id": "c297939a-5cf6-46f0-9abe-f5ce4456fdef",
-                    "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
-                    "get": 3
-                }
-        ]        
+        {
+        id: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
+        videoLink1: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+        videoLink2: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+        }        
 
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not list video files"
+        "error": "could not list video files"
         }
 
 ### Create Video [POST]
@@ -486,45 +609,45 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 + Request (application/json)
 
         {
-            "id": "e46e0365-c808-4291-9124-d3c4f7d3b245",
-            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
-            "post": 1
-        }
+        id: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
+        videoLink1: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+        videoLink2: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+        }  
         
 + Response 201 (application/json)
 
         {
-            "id": "e46e0365-c808-4291-9124-d3c4f7d3b245",
-            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
-            "post": 1
-        }
+        id: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
+        videoLink1: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+        videoLink2: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+        }  
             
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not create video file"
+        "error": "could not create video file"
         }
 
 ## Video – w/ id [/videos{?id}]
 
 + Parameters
 
-    + id (required, string, `c2aacc85-2b88-47c0-ac5e-ff17af848281`)
+    + id (required, string, `c3a79c9a-b6e6-4317-bf2c-adad52f8f310`)
 
 ### List One Video [GET]   
 
 + Response 200 (application/json)
 
         {
-            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
-            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
-            "get": 1
-        }
+        id: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
+        videoLink1: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+        videoLink2: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+        }  
 
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could get video file"
+        "error": "could get video file"
         }
 
 ### Update Video [PUT]
@@ -532,24 +655,22 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 + Request (application/json; charset=utf-8)
 
         {
-            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
-            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
-            "put": 1
-        }
+        id: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
+        videoLink1: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+        videoLink2: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+        }  
 
 + Response 200 (application/json; charset=utf-8)
 
         {
-            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
-            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
-            "put": 1
-            "comment": "video can not be updated or deleted, switch response code to 403"
-        }
+        id: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
+        videoLink1: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+        }  
 
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not update video file"
+        "error": "could not update video file"
         }
         
 ### Delete Video [DELETE]
@@ -559,6 +680,6 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not delete video file"
-            "comment": "video can not be updated or deleted, switch response code to 403"
+        "error": "could not delete video file"
+        "comment": "video can not be updated or deleted, switch response code to 403"
         }
