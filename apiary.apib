@@ -9,6 +9,7 @@ Coms Management API allows for front-end developmet testing of the Coms Managmen
 Notes:
 <!----> code fold cmd+opt+0
 <!----> code unfold cmd+opt+shif+0
+<!----> Cmd-Alt-H
 
 # Group Users
 ## Users – w/o id [/users]
@@ -17,7 +18,6 @@ Notes:
 
 + Response 200 (application/json)
 
-        [
         {
         id: "92061fc4-690a-47ba-b3af-64cd6a8909da",
         username: "Star",
@@ -25,10 +25,6 @@ Notes:
         position: "admin",
         about: "Office Dispatch",
         avatar: "https://avatar-url.net",
-        // createdAt: Sequelize.literal("NOW()"),
-        // updatedAt: Sequelize.literal("NOW()"),
-        createdAt: new Date(),
-        updatedAt: new Date(),
         },
         {
         id: "a1679fd1-c7ab-41a3-a3cb-6019cbc35f0e",
@@ -37,10 +33,6 @@ Notes:
         position: "technician",
         about: "Lead field technician.",
         avatar: "https://avatar-url.net",
-        // createdAt: Sequelize.literal("NOW()"),
-        // updatedAt: Sequelize.literal("NOW()"),
-        createdAt: new Date(),
-        updatedAt: new Date(),
         },
         {
         id: "c01d5d70-e837-4164-b62f-143e7a2a7bfa",
@@ -49,12 +41,7 @@ Notes:
         position: "management",
         about: "Office manager.",
         avatar: "https://avatar-url.net",
-        // createdAt: Sequelize.literal("NOW()"),
-        // updatedAt: Sequelize.literal("NOW()"),
-        createdAt: new Date(),
-        updatedAt: new Date(),
         }
-        ]
     
 + Response 401 (application/json; charset=utf-8)
 
@@ -63,6 +50,17 @@ Notes:
         }
 
 ### Create User [POST]
+
++ Request (application/json)
+
+        {
+        id: "92061fc4-690a-47ba-b3af-64cd6a8909da",
+        username: "Star",
+        password: "#aHashedPassword#",
+        position: "admin",
+        about: "Office Dispatch",
+        avatar: "https://avatar-url.net",
+        }
 
 + Request 201 (application/json)
 
@@ -73,10 +71,6 @@ Notes:
         position: "admin",
         about: "Office Dispatch",
         avatar: "https://avatar-url.net",
-        // createdAt: Sequelize.literal("NOW()"),
-        // updatedAt: Sequelize.literal("NOW()"),
-        createdAt: new Date(),
-        updatedAt: new Date(),
         }
         
 + Response 401 (application/json; charset=utf-8)
@@ -102,16 +96,12 @@ Notes:
         position: "admin",
         about: "Office Dispatch",
         avatar: "https://avatar-url.net",
-        // createdAt: Sequelize.literal("NOW()"),
-        // updatedAt: Sequelize.literal("NOW()"),
-        createdAt: new Date(),
-        updatedAt: new Date(),
         }
 
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not list notification"
+        "error": "could not list notification"
         }
 
 ### Update User [PUT]
@@ -123,22 +113,19 @@ Notes:
         username: "Star",
         password: "#aHashedPassword#",
         position: "admin",
-        about: "Office Dispatch & Front Desk",
+        about: "Office Dispatch",
         avatar: "https://avatar-url.net",
-        // createdAt: Sequelize.literal("NOW()"),
-        // updatedAt: Sequelize.literal("NOW()"),
-        createdAt: new Date(),
-        updatedAt: new Date(),
         }
 
 + Response 200 (application/json; charset=utf-8)
 
         {
-        "id": "93007e68-af28-47c2-b1b0-e11f317e1ac3",
-        "avatar": "/avatar_green.png",
-        "notification_text": "Some notification text less than 600 characters (PUT). 1 Updated",
-        "thumbnail": ""
-        "comment": "notifications can not be uodated or deleted, switch response code to 403"
+        id: "92061fc4-690a-47ba-b3af-64cd6a8909da",
+        username: "Star",
+        password: "#aHashedPassword#",
+        position: "admin",
+        about: "Office Dispatch & Front Desk",
+        avatar: "https://avatar-url.net",
         }
 
 + Response 401 (application/json; charset=utf-8)
@@ -169,7 +156,6 @@ Notes:
 
 + Response 200 (application/json)
 
-        [
         {
         id: "f9700fa5-e3b2-4c5d-9fc3-10b883b84fcc",
         flags: "office",
@@ -178,10 +164,7 @@ Notes:
         imagesId: "96aef80b-5f7b-491d-a44d-1796989103a7",
         notificationsTextsId: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
         videosId: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
-        createdAt: new Date(),
-        updatedAt: new Date(),
         }
-        ]
     
 + Response 401 (application/json; charset=utf-8)
 
@@ -194,17 +177,25 @@ Notes:
 + Request (application/json)
 
         {
-        "id": "7a9cf0bc-b017-4e90-80b3-bc1f1a588beb",
-        "avatar": "/avatar_green.png",
-        "notification_text": "Some notification text less than 600 characters (POST). " 
+        id: "f9700fa5-e3b2-4c5d-9fc3-10b883b84fcc",
+        flags: "office",
+        // TODO – to get new fk ids to populate
+        audiosId: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        imagesId: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        notificationsTextsId: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        videosId: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
         }
         
-+ Response 201 (application/json)
++ Request (application/json)
 
         {
-        "id": "7a9cf0bc-b017-4e90-80b3-bc1f1a588beb",
-        "avatar": "/avatar_green.png",
-        "notification_text": "Some notification text less than 600 characters (POST). " 
+        id: "f9700fa5-e3b2-4c5d-9fc3-10b883b84fcc",
+        flags: "office",
+        // TODO – to get new fk ids to populate
+        audiosId: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        imagesId: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        notificationsTextsId: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        videosId: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
         }
         
 + Response 401 (application/json; charset=utf-8)
@@ -217,17 +208,20 @@ Notes:
 
 + Parameters
 
-    + id (required, string, `93007e68-af28-47c2-b1b0-e11f317e1ac3`)
+    + id (required, string, `f9700fa5-e3b2-4c5d-9fc3-10b883b84fcc`)
 
 ### List One Notifications [GET]   
 
 + Response 200 (application/json)
 
         {
-        "id": "93007e68-af28-47c2-b1b0-e11f317e1ac3",
-        "avatar": "/avatar_green.png",
-        "notification_text": "Some notification text less than 600 characters (GET). 1",
-        "thumbnail": ""
+        id: "f9700fa5-e3b2-4c5d-9fc3-10b883b84fcc",
+        flags: "office",
+        // TODO – to get new fk ids to populate
+        audiosId: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        imagesId: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        notificationsTextsId: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        videosId: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
         }
 
 + Response 401 (application/json; charset=utf-8)
@@ -241,20 +235,25 @@ Notes:
 + Request (application/json; charset=utf-8)
 
         {
-        "id": "93007e68-af28-47c2-b1b0-e11f317e1ac3",
-        "avatar": "/avatar_green.png",
-        "notification_text": "Some notification text less than 600 characters (PUT). 1",
-        "thumbnail": "https://picsum.photos/450/300"
+        id: "f9700fa5-e3b2-4c5d-9fc3-10b883b84fcc",
+        flags: "office",
+        // TODO – to get new fk ids to populate
+        audiosId: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        imagesId: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        notificationsTextsId: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        videosId: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
         }
-
-+ Response 200 (application/json; charset=utf-8)
+        
++ Request (application/json)
 
         {
-        "id": "93007e68-af28-47c2-b1b0-e11f317e1ac3",
-        "avatar": "/avatar_green.png",
-        "notification_text": "Some notification text less than 600 characters (PUT). 1 Updated",
-        "thumbnail": ""
-        "comment": "notifications can not be uodated or deleted, switch response code to 403"
+        id: "f9700fa5-e3b2-4c5d-9fc3-10b883b84fcc",
+        flags: "all",
+        // TODO – to get new fk ids to populate
+        audiosId: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        imagesId: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        notificationsTextsId: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        videosId: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
         }
 
 + Response 401 (application/json; charset=utf-8)
@@ -265,15 +264,117 @@ Notes:
         
 ### Delete Notification [DELETE]
 
-+ Response 204
++ Response 200
+
+        }
+        "comment": "notification successfully deleted"
+        {
 
 + Response 401 (application/json; charset=utf-8)
 
         {
         "error": "could not delete notification"
-        "comment": "notifications can not be updated or deleted, switch to response code to 403"
         }
         
+# Group Notifications Texts
+
+## Notifications Texts – w/o id [/notificationstexts]
+
+### List All Notifications Texts [GET]
+
++ Response 200 (application/json)
+
+        [
+        {
+        id: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        messageText: "Vis blandit percipitur disputationi te, mea prompta gubergren ad. Eu natum accusam consulatu vim, vim zril utamur admodum in, nulla iudico ei vis. Vix an purto instructior. In sea facilis vivendo tincidunt, ad mel vidisse eleifend, sed id causae signiferumque. Pro omnes primis democritum ex.",
+        },
+        ],        
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+        "error": "could not list images"
+        }
+
+### Create Notifications Texts [POST]
+
++ Request (application/json)
+
+        {
+        id: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        messageText: "Vis blandit percipitur disputationi te, mea prompta gubergren ad. Eu natum accusam consulatu vim, vim zril utamur admodum in, nulla iudico ei vis. Vix an purto instructior. In sea facilis vivendo tincidunt, ad mel vidisse eleifend, sed id causae signiferumque. Pro omnes primis democritum ex.",
+        }
+        
++ Response 201 (application/json)
+
+        {
+        id: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        messageText: "Vis blandit percipitur disputationi te, mea prompta gubergren ad. Eu natum accusam consulatu vim, vim zril utamur admodum in, nulla iudico ei vis. Vix an purto instructior. In sea facilis vivendo tincidunt, ad mel vidisse eleifend, sed id causae signiferumque. Pro omnes primis democritum ex.",
+        }
+            
++ Response 401 (application/json; charset=utf-8)
+
+        {
+        "error": "could not create image"
+        }
+
+## Notifications Texts – w/ id [/notificationstexts{?id}]
+
++ Parameters
+
+    + id (required, string, `7465fd03-27a0-49cc-bd0c-6692a1067bc6`)
+
+### List One Notifications Texts [GET]   
+
++ Response 200 (application/json)
+
+        {
+        id: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        messageText: "Vis blandit percipitur disputationi te, mea prompta gubergren ad. Eu natum accusam consulatu vim, vim zril utamur admodum in, nulla iudico ei vis. Vix an purto instructior. In sea facilis vivendo tincidunt, ad mel vidisse eleifend, sed id causae signiferumque. Pro omnes primis democritum ex.",
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+        "error": "could get image"
+        }
+
+### Update Notifications Texts [PUT]
+
++ Request (application/json; charset=utf-8)
+
+        {
+        id: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        messageText: "Vis blandit percipitur disputationi te, mea prompta gubergren ad. Eu natum accusam consulatu vim, vim zril utamur admodum in, nulla iudico ei vis. Vix an purto instructior. In sea facilis vivendo tincidunt, ad mel vidisse eleifend, sed id causae signiferumque. Pro omnes primis democritum ex.",
+        }
+
++ Response 200 (application/json; charset=utf-8)
+
+        {
+        id: "7465fd03-27a0-49cc-bd0c-6692a1067bc6",
+        messageText: "New Text! Vis blandit percipitur disputationi te, mea prompta gubergren ad. Eu natum accusam consulatu vim, vim zril utamur admodum in, nulla iudico ei vis. Vix an purto instructior. In sea facilis vivendo tincidunt, ad mel vidisse eleifend, sed id causae signiferumque. Pro omnes primis democritum ex.",
+        }
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+        "error": "could not update image"
+        }
+        
+### Delete Notifications Texts [DELETE]
+
++ Response 200
+
+        }
+        "comment": "notification text successfully deleted"
+        {
+
++ Response 401 (application/json; charset=utf-8)
+
+        {
+        "error": "could not delete notification text"
+        }
         
 # Group Images
 
@@ -283,23 +384,12 @@ Notes:
 
 + Response 200 (application/json)
 
-        [
         {
-        "id": "97833587-c80f-42e9-b9eb-807f5bebc5cc",
-        "url": "https://picsum.photos/800/500",
-        "get": 1
-        },
-        {
-        "id": "c052c6fb-557d-4e62-9533-e15a830441bc",
-        "url": "https://picsum.photos/800/500",
-        "get": 2
-        },
-        {
-        "id": "ddeb2327-2e4c-4103-9910-7ea111f0bcf5",
-        "url": "https://picsum.photos/800/500",
-        "get": 3
-        }
-        ]        
+        id: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        imageLink1: "https://live.staticflickr.com/2129/5785570987_9c617a047e_h.jpg",
+        imageLink2: "https://live.staticflickr.com/6105/6297421204_9cff672fa3_h.jpg",
+        imageLink3: "https://live.staticflickr.com/3511/3210747453_603f87a69a_c.jpg",
+        }        
 
 + Response 401 (application/json; charset=utf-8)
 
@@ -312,18 +402,20 @@ Notes:
 + Request (application/json)
 
         {
-        "id": "71faea1b-4a85-4739-a658-435c42710291",
-        "url": "https://picsum.photos/800/500",
-        "post": 1
-        }
+        id: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        imageLink1: "https://live.staticflickr.com/2129/5785570987_9c617a047e_h.jpg",
+        imageLink2: "https://live.staticflickr.com/6105/6297421204_9cff672fa3_h.jpg",
+        imageLink3: "https://live.staticflickr.com/3511/3210747453_603f87a69a_c.jpg",
+        }     
         
 + Response 201 (application/json)
 
         {
-        "id": "7a9cf0bc-b017-4e90-80b3-bc1f1a588beb",
-        "url": "https://picsum.photos/800/500"
-        "post": 1
-        }
+        id: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        imageLink1: "https://live.staticflickr.com/2129/5785570987_9c617a047e_h.jpg",
+        imageLink2: "https://live.staticflickr.com/6105/6297421204_9cff672fa3_h.jpg",
+        imageLink3: "https://live.staticflickr.com/3511/3210747453_603f87a69a_c.jpg",
+        }     
             
 + Response 401 (application/json; charset=utf-8)
 
@@ -335,22 +427,23 @@ Notes:
 
 + Parameters
 
-    + id (required, string, `97833587-c80f-42e9-b9eb-807f5bebc5cc`)
+    + id (required, string, `96aef80b-5f7b-491d-a44d-1796989103a7`)
 
-### List One Image [GET]   
+### List One Images [GET]   
 
 + Response 200 (application/json)
 
         {
-        "id": "97833587-c80f-42e9-b9eb-807f5bebc5cc",
-        "url": "https://picsum.photos/800/500"
-        "get": 1
-        }
+        id: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        imageLink1: "https://live.staticflickr.com/2129/5785570987_9c617a047e_h.jpg",
+        imageLink2: "https://live.staticflickr.com/6105/6297421204_9cff672fa3_h.jpg",
+        imageLink3: "https://live.staticflickr.com/3511/3210747453_603f87a69a_c.jpg",
+        }  
 
 + Response 401 (application/json; charset=utf-8)
 
         {
-        "error": "could get image"
+        "error": "could not get image"
         }
 
 ### Update Image [PUT]
@@ -358,19 +451,20 @@ Notes:
 + Request (application/json; charset=utf-8)
 
         {
-        "id": "97833587-c80f-42e9-b9eb-807f5bebc5cc",
-        "url": "https://picsum.photos/800/500",
-        }
+        id: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        imageLink1: "https://live.staticflickr.com/2129/5785570987_9c617a047e_h.jpg",
+        imageLink2: "https://live.staticflickr.com/6105/6297421204_9cff672fa3_h.jpg",
+        imageLink3: "https://live.staticflickr.com/3511/3210747453_603f87a69a_c.jpg",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        }     
 
 + Response 200 (application/json; charset=utf-8)
 
         {
-        "id": "97833587-c80f-42e9-b9eb-807f5bebc5cc",
-        "url": "https://picsum.photos/800/500",
-        "put": 1
-        "comment": "Image can not be updated or deleted, switch response code to 403"
-        }
-
+        id: "96aef80b-5f7b-491d-a44d-1796989103a7",
+        imageLink1: "https://live.staticflickr.com/2129/5785570987_9c617a047e_h.jpg",
+        }     
 + Response 401 (application/json; charset=utf-8)
 
         {
@@ -397,23 +491,11 @@ Notes:
 
 + Response 200 (application/json)
 
-        [
         {
-        "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
-        "url": "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
-        "get": 1
-        },
-        {
-        "id": "d7a34a8e-d18e-4bc8-9893-7daf896d3035",
-        "url": "http://amclassical.com/mp3/amclassical_joplin_the_entertainer_rag.mp3",
-        "get": 2
-        },
-        {
-        "id": "71099a84-62b1-4b62-a400-dc8c224fe059",
-        "url": "http://amclassical.com/mp3/amclassical_prelude_in_c_major_bwv_846a.mp3",
-        "get": 3
+        id: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        audioLink1: "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
+        audioLink2: "http://amclassical.com/mp3/amclassical_joplin_the_entertainer_rag.mp3",
         }
-        ]        
 
 + Response 401 (application/json; charset=utf-8)
 
@@ -426,17 +508,17 @@ Notes:
 + Request (application/json)
 
         {
-        "id": "e46e0365-c808-4291-9124-d3c4f7d3b245",
-        "url": "http://amclassical.com/mp3/amclassical_twopart_invention_in_e.mp3",
-        "post": 1
+        id: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        audioLink1: "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
+        audioLink2: "http://amclassical.com/mp3/amclassical_joplin_the_entertainer_rag.mp3",
         }
         
 + Response 201 (application/json)
 
         {
-        "id": "e46e0365-c808-4291-9124-d3c4f7d3b245",
-        "url": "http://amclassical.com/mp3/amclassical_twopart_invention_in_e.mp3",
-        "post": 1
+        id: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        audioLink1: "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
+        audioLink2: "http://amclassical.com/mp3/amclassical_joplin_the_entertainer_rag.mp3",
         }
             
 + Response 401 (application/json; charset=utf-8)
@@ -449,16 +531,16 @@ Notes:
 
 + Parameters
 
-    + id (required, string, `c2aacc85-2b88-47c0-ac5e-ff17af848281`)
+    + id (required, string, `755ccc52-4dbb-43e8-afbf-3e9dc82b7a65`)
 
 ### List One Audio [GET]   
 
 + Response 200 (application/json)
 
         {
-        "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
-        "url": "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
-        "get": 1
+        id: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        audioLink1: "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
+        audioLink2: "http://amclassical.com/mp3/amclassical_joplin_the_entertainer_rag.mp3",
         }
 
 + Response 401 (application/json; charset=utf-8)
@@ -472,24 +554,22 @@ Notes:
 + Request (application/json; charset=utf-8)
 
         {
-            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
-            "url": "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
-            "put": 1
+        id: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        audioLink1: "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
+        audioLink2: "http://amclassical.com/mp3/amclassical_joplin_the_entertainer_rag.mp3",
         }
 
 + Response 200 (application/json; charset=utf-8)
 
-        {
-            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
-            "url": "http://amclassical.com/mp3/amclassical_piano_sonata_k_545_mvt_1.mp3",
-            "put": 1
-            "comment": "audio can not be updated or deleted, switch response code to 403"
+         {
+        id: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
+        audioLink1: "http://amclassical.com/mp3/amclassical_bon_sonata_in_g_minor_mvt_1.mp3",
         }
 
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not update audio file"
+        "error": "could not update audio file"
         }
         
 ### Delete Audio [DELETE]
@@ -499,8 +579,8 @@ Notes:
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not delete audio file"
-            "comment": "audio can not be updated or deleted, switch response code to 403"
+        "error": "could not delete audio file"
+        "comment": "audio can not be updated or deleted, switch response code to 403"
         }
 
 
@@ -512,30 +592,16 @@ Notes:
 
 + Response 200 (application/json)
 
-        [
         {
-            "id": "e91d0220-08e9-4432-8e28-da7dd5078759",
-            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
-            "get": 1
-        },
-        {
-            
-            "id": "9a5db0b8-ee7d-4c2d-82f2-2cb71218fb4c",
-            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
-            "get": 2
-        },
-        {
-            
-            "id": "c297939a-5cf6-46f0-9abe-f5ce4456fdef",
-            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
-            "get": 3
-        }
-        ]        
+        id: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
+        videoLink1: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+        videoLink2: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+        }        
 
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not list video files"
+        "error": "could not list video files"
         }
 
 ### Create Video [POST]
@@ -543,45 +609,45 @@ Notes:
 + Request (application/json)
 
         {
-            "id": "e46e0365-c808-4291-9124-d3c4f7d3b245",
-            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
-            "post": 1
-        }
+        id: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
+        videoLink1: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+        videoLink2: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+        }  
         
 + Response 201 (application/json)
 
         {
-            "id": "e46e0365-c808-4291-9124-d3c4f7d3b245",
-            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
-            "post": 1
-        }
+        id: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
+        videoLink1: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+        videoLink2: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+        }  
             
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not create video file"
+        "error": "could not create video file"
         }
 
 ## Video – w/ id [/videos{?id}]
 
 + Parameters
 
-    + id (required, string, `c2aacc85-2b88-47c0-ac5e-ff17af848281`)
+    + id (required, string, `c3a79c9a-b6e6-4317-bf2c-adad52f8f310`)
 
 ### List One Video [GET]   
 
 + Response 200 (application/json)
 
         {
-            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
-            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
-            "get": 1
-        }
+        id: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
+        videoLink1: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+        videoLink2: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+        }  
 
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could get video file"
+        "error": "could get video file"
         }
 
 ### Update Video [PUT]
@@ -589,24 +655,22 @@ Notes:
 + Request (application/json; charset=utf-8)
 
         {
-            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
-            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
-            "put": 1
-        }
+        id: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
+        videoLink1: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+        videoLink2: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+        }  
 
 + Response 200 (application/json; charset=utf-8)
 
         {
-            "id": "c2aacc85-2b88-47c0-ac5e-ff17af848281",
-            "url": "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
-            "put": 1
-            "comment": "video can not be updated or deleted, switch response code to 403"
-        }
+        id: "c3a79c9a-b6e6-4317-bf2c-adad52f8f310",
+        videoLink1: "https://file-examples-com.github.io/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+        }  
 
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not update video file"
+        "error": "could not update video file"
         }
         
 ### Delete Video [DELETE]
@@ -616,6 +680,6 @@ Notes:
 + Response 401 (application/json; charset=utf-8)
 
         {
-            "error": "could not delete video file"
-            "comment": "video can not be updated or deleted, switch response code to 403"
+        "error": "could not delete video file"
+        "comment": "video can not be updated or deleted, switch response code to 403"
         }
