@@ -32,7 +32,7 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.removeColumn("Notifications", "notificationsTextsId");
+    // await queryInterface.removeColumn("Notifications", "notificationsTextsId");
     await queryInterface.dropTable("NotificationsTexts");
   },
 };

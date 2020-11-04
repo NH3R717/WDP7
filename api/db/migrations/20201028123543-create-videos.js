@@ -36,7 +36,7 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.removeColumn("Notifications", "videosId");
+    // await queryInterface.removeColumn("Notifications", "videosId");
     await queryInterface.dropTable("Videos");
   },
 };

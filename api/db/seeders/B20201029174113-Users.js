@@ -7,6 +7,7 @@ module.exports = {
         {
           id: "92061fc4-690a-47ba-b3af-64cd6a8909da",
           username: "Star",
+          email: "star@sc.com",
           password: "#aHashedPassword#",
           position: "admin",
           about: "Office Dispatch",
@@ -17,6 +18,7 @@ module.exports = {
         {
           id: "a1679fd1-c7ab-41a3-a3cb-6019cbc35f0e",
           username: "Sun",
+          email: "sun@sc.com",
           password: "#aHashedPassword#",
           position: "technician",
           about: "Lead field technician.",
@@ -27,6 +29,7 @@ module.exports = {
         {
           id: "c01d5d70-e837-4164-b62f-143e7a2a7bfa",
           username: "Moon",
+          email: "moon@sc.com",
           password: "#aHashedPassword#",
           position: "management",
           about: "Office manager.",
@@ -38,6 +41,7 @@ module.exports = {
       {
         updateOnDuplicate: [
           "username",
+          "email",
           "password",
           "position",
           "about",

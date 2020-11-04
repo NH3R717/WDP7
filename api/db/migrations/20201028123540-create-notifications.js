@@ -61,7 +61,7 @@ module.exports = {
     // };
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.removeColumn("Users", "notificationsId");
+    // await queryInterface.removeColumn("Users", "notificationsId");
     await queryInterface.dropTable("Notifications");
   },
 };
