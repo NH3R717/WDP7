@@ -1,5 +1,4 @@
 "use strict";
-// const uuidv4 = require("uuid/v4");
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert(
@@ -12,8 +11,6 @@ module.exports = {
           position: "admin",
           about: "Office Dispatch",
           avatar: "https://avatar-url.net",
-          // createdAt: Sequelize.literal("NOW()"),
-          // updatedAt: Sequelize.literal("NOW()"),
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -24,8 +21,6 @@ module.exports = {
           position: "technician",
           about: "Lead field technician.",
           avatar: "https://avatar-url.net",
-          // createdAt: Sequelize.literal("NOW()"),
-          // updatedAt: Sequelize.literal("NOW()"),
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -36,8 +31,6 @@ module.exports = {
           position: "management",
           about: "Office manager.",
           avatar: "https://avatar-url.net",
-          // createdAt: Sequelize.literal("NOW()"),
-          // updatedAt: Sequelize.literal("NOW()"),
           createdAt: new Date(),
           updatedAt: new Date(),
         },

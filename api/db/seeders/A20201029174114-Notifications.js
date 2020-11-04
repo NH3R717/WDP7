@@ -14,13 +14,7 @@ module.exports = {
         },
       ],
       {
-        updateOnDuplicate: [
-          "flags",
-          "audiosId",
-          "imagesId",
-          "notificationsTextsId",
-          "videosId",
-        ],
+        updateOnDuplicate: ["id", "flags"],
         upsertKeys: ["id"],
       }
     );
