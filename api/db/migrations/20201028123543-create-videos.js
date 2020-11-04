@@ -10,9 +10,14 @@ module.exports = {
         unique: true,
         onDelete: "CASCADE",
       },
-      // id: {
-      //   type: Sequelize.UUID,
-      // },
+      notificationId: {
+        type: Sequelize.UUID,
+        onDelete: "CASCADE",
+        references: {
+          model: "Notifications",
+          key: "id",
+        },
+      },
       videoLink1: {
         allowNull: false,
         type: Sequelize.STRING,
