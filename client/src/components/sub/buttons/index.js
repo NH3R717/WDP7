@@ -19,7 +19,7 @@ class Buttons extends Component {
             <Button className={styles.buttons}>NC</Button>
           </Link>
           <Link to="/direct-message-contacts">
-            <Button className={styles.buttons}>DM</Button>
+            <Button className={styles.buttons}>MM</Button>
           </Link>
         </section>
       </Container>
