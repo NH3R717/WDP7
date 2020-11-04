@@ -11,6 +11,10 @@
     "install-api": "npm i --prefix api",
     "build-client": "npm run build --prefix client",
     "build-api": "npm run build --prefix api",
+<<<<<<< Updated upstream
+=======
+    "*(updated)build-api": "npm run db-update --prefix api",
+>>>>>>> Stashed changes
     "heroku-postbuild": "concurrently \"npm:install-*\"; concurrently \"npm:build-*\"; "
   },
   "dependencies": {
