@@ -1,12 +1,12 @@
 "use strict";
-const uuidv4 = require("uuid/v4");
+// const uuidv4 = require("uuid/v4");
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert(
       "Notifications",
       [
         {
-          id: uuidv4(),
+          id: "f9700fa5-e3b2-4c5d-9fc3-10b883b84fcc",
           flags: "office",
           // TODO – to get new fk ids to populate
           audiosId: "755ccc52-4dbb-43e8-afbf-3e9dc82b7a65",
