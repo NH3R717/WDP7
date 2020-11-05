@@ -1,48 +1,50 @@
-const { flips } = require("../models");
+const axios = require("axios");
+const { Notifications, Sequelize } = require("../models");
+const { throwIf, throwError, sendError } = require("../utils/errorHandeling");
 
-// Why?
-exports.getAllUsersflips = async (req, res) => {
-  console.log("/controllers/flips.js getAllUsersflips()");
-  const flips = await flips.findAll({
+// const { Notifications } = require("../models");
+
+exports.createNotification = async (req, res) => {
+  Object.keys(req.body).forEach((key) => {
+    if (req.body[key] === "") delete req.body[key];
+  });
+  const { id, flag } = req.body;
+  try {
+    const newNotification = await Notifications.create({
+      id,
+      flag,
+      userId: req.token.id,
+    });
+    console.log(
+      "/controllers/Notifications.js creatflop() newNotification – below"
+    );
+    console.log(newNotification.id);
+    // res.json({ id: newNotification.id });
+    res.status(200).json(newNotification);
+  } catch (e) {
+    sendError(res)(e);
+  }
+};
+
+exports.readNotifications = async (req, res) => {
+  console.log("/controllers/notifications.js getAllNotifications()");
+  const Notifications = await Notifications.findAll({
     where: {
       userId: req.userId,
     },
   });
-  res.json(flips);
+  res.json(Notifications);
 };
 
-exports.getUserflips = async (req, res) => {
-  const userflips = await flips.findAll({ where: { userId: req.userId } });
-  res.json(userflips);
-};
-
-exports.getPublic = async (req, res) => {
-  console.log("/controllers/flips.js getPublic()");
-  const publicflips = await flips.findAll({
-    where: {
-      type: "public",
-    },
-  });
-
-  res.json(publicflips);
-};
-
-exports.getPrivate = async (req, res) => {
-  console.log("/controllers/flips.js getPrivate()");
-  const publicflips = await flips.findAll({
-    where: {
-      type: "private",
-    },
-  });
-
-  res.json(publicflips);
-};
+exports.readUserNotifications = async (req, res) => {};
+exports.updateNotification = async (req, res) => {};
+exports.deleteNotifications = async (req, res) => {};
 
 exports.getOneById = async (req, res) => {
-  console.log("/controllers/flips.js getOneById()");
+  console.log("/controllers/Notifications.js getOneById()");
   const { id } = req.params;
 
-  const flop = await flips.findByPk(id);
+  const flop = await Notifications.findByPk(id);
 
   if (!flop) {
     res.sendStatus(404);
@@ -51,30 +53,18 @@ exports.getOneById = async (req, res) => {
   res.json(flop);
 };
 
-exports.createflop = async (req, res) => {
-  console.log("/controllers/flips.js creatflop()");
-  const { name, type } = req.body;
-
-  try {
-    const newflop = await flips.create({
-      name,
-      type,
-      userId: req.userId,
-    });
-    console.log("/controllers/flips.js creatflop() newflop – below");
-    console.log(newflop.id);
-    res.json({ id: newflop.id });
-  } catch (e) {
-    const errors = e.errors.map((err) => err.message);
-    res.status(400).json({ errors });
-  }
+exports.getUserflips = async (req, res) => {
+  const userflips = await Notifications.findAll({
+    where: { userId: req.userId },
+  });
+  res.json(userflips);
 };
 
 exports.updateflop = async (req, res) => {
   const { id } = req.params;
-  console.log("/controllers/flips.js updateflop()");
+  console.log("/controllers/Notifications.js updateflop()");
   try {
-    const [, [updatedflop]] = await flips.update(req.body, {
+    const [, [updatedflop]] = await Notifications.update(req.body, {
       where: { id },
       returning: true,
     });
@@ -86,8 +76,8 @@ exports.updateflop = async (req, res) => {
 };
 
 exports.deleteflop = async (req, res) => {
-  console.log("/controllers/flips.js deleteflop()");
+  console.log("/controllers/Notifications.js deleteflop()");
   const { id } = req.params;
-  await flips.destroy({ where: { id } });
+  await Notifications.destroy({ where: { id } });
   res.sendStatus(200);
 };

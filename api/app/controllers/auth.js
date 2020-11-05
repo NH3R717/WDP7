@@ -58,4 +58,8 @@ exports.login = async (req, res) => {
   const token = jwt.sign({ id: user.id }, process.env.SECRET);
   res.json({ token, loggedIn: true });
 };
+
+exports.forgotPassword = async (req, res) => {};
+
+exports.resetPassword = async (req, res) => {};
 //
