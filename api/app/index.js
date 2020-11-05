@@ -33,6 +33,7 @@ app.use(morganDebug("api:request", "dev"));
 app.use(cors());
 
 // ! routes use
+// (was with "api") app.use("api/auth", authRouter);
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
 app.use("/notifications", notificationsRouter);
