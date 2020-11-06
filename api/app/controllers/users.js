@@ -28,11 +28,9 @@ exports.createUser = async (req, res, next) => {
 exports.readUsers = async (req, res, next) => {
   console.log("® controller users.js getAllUsers ");
   try {
-    // const { username } = req.query;
-    // console.log("® controller users.js " + username)
-    const usersAll = await users
-      .findAll()
-      .catch(throwError(500, "A database error has ocurred, try again."));
+    const usersAll = await Users.findAll().catch(
+      throwError(500, "A database error has ocurred, try again.")
+    );
     res.json(usersAll);
     console.log("® controller users.js getAllUsers " + usersAll);
   } catch (e) {

@@ -1,39 +1,67 @@
 const axios = require("axios");
-const { Notifications, Sequelize } = require("../models");
+const { v4: uuidv4 } = require("uuid");
+const { Notifications, NotificationsTexts, Sequelize } = require("../models");
 const { throwIf, throwError, sendError } = require("../utils/errorHandeling");
 
 // const { Notifications } = require("../models");
 
+// exports.createNotification = async (req, res) => {
+//   Object.keys(req.body).forEach((key) => {
+//     if (req.body[key] === "") delete req.body[key];
+//   });
+//   const { flag } = req.body;
+//   try {
+//     const newNotification = await Notifications.create({
+//       flag,
+//       userId: req.token.id,
+//     });
+//     console.log(
+//       "/controllers/Notifications.js creatNotification() newNotification – below"
+//     );
+//     console.log(newNotification);
+//     // res.json({ id: newNotification.id });
+//     res.status(200).json(newNotification);
+//   } catch (e) {
+//     sendError(res)(e);
+//   }
+// };
+
 exports.createNotification = async (req, res) => {
-  Object.keys(req.body).forEach((key) => {
-    if (req.body[key] === "") delete req.body[key];
-  });
-  const { id, flag } = req.body;
+  console.log("api/controllers/notifications.js – createNotification()");
+  const { flags, messageText } = req.body;
+  // const notificationId = uuidv4();
+  // console.log("£ UUID " + notificationId);
   try {
-    const newNotification = await Notifications.create({
-      id,
-      flag,
-      userId: req.token.id,
+    const newNotifications = await Notifications.create({
+      flags,
+      // usersId: req.token.id,
     });
     console.log(
-      "/controllers/Notifications.js creatflop() newNotification – below"
+      "api/controllers/notifications.js – createNotification() – newNotification ",
+      newNotifications
     );
-    console.log(newNotification.id);
-    // res.json({ id: newNotification.id });
-    res.status(200).json(newNotification);
+    // .catch(Sequelize.ValidationError, throwError(422, "Validation Error"))
+    // .catch(throwError(500, "sequelize error"));
+    res.status(200).json(newNotifications);
   } catch (e) {
+    console.log(
+      "api/controllers/notifications.js – createNotification() – !error"
+    );
     sendError(res)(e);
   }
 };
 
-exports.readNotifications = async (req, res) => {
-  console.log("/controllers/notifications.js getAllNotifications()");
-  const Notifications = await Notifications.findAll({
-    where: {
-      userId: req.userId,
-    },
-  });
-  res.json(Notifications);
+// ! √
+exports.readNotifications = async (req, res, next) => {
+  try {
+    const notificationsAll = await Notifications.findAll().catch(
+      throwError(500, "A database error has ocurred, try again.")
+    );
+    res.json(notificationsAll);
+    console.log("® controller users.js readNotifications " + notificationsAll);
+  } catch (e) {
+    next(e);
+  }
 };
 
 exports.readUserNotifications = async (req, res) => {};

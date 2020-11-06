@@ -11,24 +11,21 @@ const salt = 10;
 //   res.json({ test: true });
 // });
 
+// ! data to db
 // in-app signup
 exports.signup = async (req, res) => {
   console.log("api/controllers/auth.js – signup()");
   // needs to be let
-  let { username, email, password, position, about, avatar } = req.body;
+  let { username, email, password } = req.body;
   try {
     console.log("password before hash – ", password);
     password = await bcrypt.hash(password, salt);
     // username = username.toLowerCase();
     console.log("password after hash – ", password);
-    const type = "regular";
     const user = await Users.create({
       username,
       email,
       password,
-      position,
-      about,
-      avatar,
     });
     console.log("api/controllers/auth.js – signup() – users ", user);
     const token = jwt.sign({ id: user.id }, process.env.SECRET);

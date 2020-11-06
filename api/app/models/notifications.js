@@ -19,6 +19,12 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
       },
+      notificationId: DataTypes.STRING,
+      //   allowNull: false,
+      //   primaryKey: false,
+      //   type: DataTypes.UUID,
+      //   defaultValue: DataTypes.UUIDV4,
+      // },
       flags: DataTypes.ENUM("office", "shop", "field", "all"),
     },
     {
