@@ -13,7 +13,12 @@ module.exports = (sequelize, DataTypes) => {
   }
   Notifications.init(
     {
-      id: DataTypes.UUID,
+      id: {
+        allowNull: false,
+        primaryKey: true,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+      },
       flags: DataTypes.ENUM("office", "shop", "field", "all"),
     },
     {

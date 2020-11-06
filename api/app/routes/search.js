@@ -12,7 +12,7 @@ const protectedRoute = require("../utils/protectedRoute");
 // ! ROUTES
 
 // GET /search
-router.get("/", protectedRoute, searchCtrl.readSearch);
+// router.get("/", protectedRoute, searchCtrl.readSearch);
 
 // ! EXPORT
 

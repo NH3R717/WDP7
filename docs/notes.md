@@ -43,6 +43,6 @@ npx sequelize migration:generate --name Users-Notifications-relationship && npx 
 
 npx sequelize-cli seed:generate --name Users && npx sequelize-cli seed:generate --name Notifications && npx sequelize-cli seed:generate --name NotificationsTexts && npx sequelize-cli seed:generate --name Images && npx sequelize-cli seed:generate --name Audios && npx sequelize-cli seed:generate --name Videos
 
-## Install eslint/air-bnb
+## NPM Install eslint/air-bnb
 
 npm i eslint --save-dev && npm i eslint-config-airbnb --save-dev && npm i eslint-config-airbnb-base --save-dev && npm i eslint-config-prettier --save-dev && npm i eslint-plugin-import --save-dev && npm i eslint-plugin-jsx-a11y --save-dev && npm i eslint-plugin-prettier --save-dev && npm i eslint-plugin-react --save-dev && npm i lint-staged --save-dev && npm i husky --save-dev && npm i prettier --save-dev

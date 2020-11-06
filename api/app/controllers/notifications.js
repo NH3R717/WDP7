@@ -38,7 +38,9 @@ exports.readNotifications = async (req, res) => {
 
 exports.readUserNotifications = async (req, res) => {};
 exports.updateNotification = async (req, res) => {};
-exports.deleteNotifications = async (req, res) => {};
+exports.deleteNotification = async (req, res) => {
+  console.log("controller/notifictions.js — deleteNotifications()");
+};
 
 exports.getOneById = async (req, res) => {
   console.log("/controllers/Notifications.js getOneById()");

@@ -5,11 +5,17 @@ const bcrypt = require("bcrypt");
 const { Users } = require("../models");
 const salt = 10;
 
+// route test
+// router.get("/test", async (req, res) => {
+//   console.log("testing api...");
+//   res.json({ test: true });
+// });
+
 // in-app signup
 exports.signup = async (req, res) => {
   console.log("api/controllers/auth.js – signup()");
   // needs to be let
-  let { username, password } = req.body;
+  let { username, email, password, position, about, avatar } = req.body;
   try {
     console.log("password before hash – ", password);
     password = await bcrypt.hash(password, salt);
@@ -18,8 +24,11 @@ exports.signup = async (req, res) => {
     const type = "regular";
     const user = await Users.create({
       username,
+      email,
       password,
-      type,
+      position,
+      about,
+      avatar,
     });
     console.log("api/controllers/auth.js – signup() – users ", user);
     const token = jwt.sign({ id: user.id }, process.env.SECRET);
