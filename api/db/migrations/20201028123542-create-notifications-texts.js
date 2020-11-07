@@ -9,9 +9,14 @@ module.exports = {
         defaultValue: Sequelize.UUIDV4,
         unique: true,
       },
-      // id: {
-      //   type: Sequelize.UUID,
-      // },
+      notificationId: {
+        type: Sequelize.UUID,
+        onDelete: "CASCADE",
+        references: {
+          model: "Notifications",
+          key: "id",
+        },
+      },
       messageText: {
         allowNull: false,
         type: Sequelize.TEXT,
@@ -27,7 +32,7 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.removeColumn("Notifications", "notificationsTextsId");
+    // await queryInterface.removeColumn("Notifications", "notificationsTextsId");
     await queryInterface.dropTable("NotificationsTexts");
   },
 };
