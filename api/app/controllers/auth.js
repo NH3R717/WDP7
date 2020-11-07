@@ -66,7 +66,7 @@ exports.login = async (req, res) => {
 };
 
 exports.forgotPassword = async (req, res) => {
-  waterfall([
+  async.waterfall([
   function(done) {
     User.findOne({
       email: req.body.email
@@ -95,7 +95,7 @@ exports.forgotPassword = async (req, res) => {
     let data = {
       to: user.email,
       from: email,
-      template: 'forgot-password-email',
+      template: 'forgot',
       subject: 'Setup a new password!',
       context: {
         url: 'http://localhost:3000/auth/reset_password?token=' + token,
@@ -135,7 +135,7 @@ exports.resetPassword = async (req, res) => {User.findOne({
           let data = {
             to: user.email,
             from: email,
-            template: 'reset-password-email',
+            template: 'reset',
             subject: 'password Reset Confirmation',
             context: {
               name: user.fullName.split(' ')[0]
@@ -162,4 +162,3 @@ exports.resetPassword = async (req, res) => {User.findOne({
     });
   }
 });};
-//
