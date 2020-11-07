@@ -12,9 +12,13 @@
   },
   "dependencies": {
     "axios": "^0.21.0",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
+    "concurrently": "^4.0.1",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
+    "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.4",
     "path": "^0.12.7",
     "pg": "^8.4.2",
@@ -23,11 +27,7 @@
     "uuidv4": "^6.2.4"
   },
   "devDependencies": {
-    "bcrypt": "^5.0.0",
-    "concurrently": "^4.0.1",
-    "cors": "^2.8.5",
-    "dread": "^2.3.0",
-    "jsonwebtoken": "^8.5.1",
+    "dredd": "^13.1.2",
     "morgan": "^1.10.0",
     "morgan-debug": "^2.0.0",
     "sequelize-cli": "^6.2.0"
