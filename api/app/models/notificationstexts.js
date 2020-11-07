@@ -19,7 +19,16 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
       },
-      messageText: DataTypes.STRING,
+      messageText: {
+        type: DataTypes.STRING,
+        validate: {
+          len: {
+            args: [1, 300],
+            msg:
+              'Message is to long, make it less than 300 characters (that\'s 2 "Tweets")',
+          },
+        },
+      },
     },
     {
       sequelize,

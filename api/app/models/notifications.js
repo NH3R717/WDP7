@@ -25,7 +25,16 @@ module.exports = (sequelize, DataTypes) => {
       //   type: DataTypes.UUID,
       //   defaultValue: DataTypes.UUIDV4,
       // },
-      flags: DataTypes.ENUM("office", "shop", "field", "all"),
+      // flags: DataTypes.ENUM("office", "shop", "field", "all"),
+      flags: {
+        type: DataTypes.ENUM("office", "shop", "field", "all"),
+        validate: {
+          isIn: {
+            args: ["office", "shop", "field", "all"],
+            msg: "Flag your message, who's it for?",
+          },
+        },
+      },
     },
     {
       sequelize,
