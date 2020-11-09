@@ -1,18 +1,29 @@
-// tcp data port data pipeline setup
+const express = require("express");
+const bodyParser = require("body-parser");
+const path = require("path");
+const app = express();
+const port = process.env.PORT || 5000;
 
-// setting up logger
-const log = require("debug")("api:logging");
+// Serve any static files
+app.use(express.static(path.join(__dirname, "../client/build")));
 
-// get express app
-const app = require("./app");
+// Handle React routing, return all requests to React app
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+});
 
-// set port to either one passed from environment var or 4000
-const port = process.env.PORT || 4000;
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// ! basic server test
 app.get("/api/hello", (req, res) => {
   res.send({ express: "Hello From Express" });
 });
 
-// start server and log running port
-app.listen(port, () => console.log(`API listening on port ${port}!`));
+// app.post("/api/world", (req, res) => {
+//   console.log(req.body);
+//   res.send(
+//     `I received your POST request. This is what you sent me: ${req.body.post}`
+//   );
+// });
+
+app.listen(port, () => console.log(`Listening on port ${port}`));

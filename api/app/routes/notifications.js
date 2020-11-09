@@ -11,11 +11,11 @@ const protectedRoute = require("../utils/protectedRoute");
 
 // ! Basic Test
 
-// router.get("/", async (req, res) => {
-//   console.log("testing api (notifications)...");
-//   // res.send({ express: "Hello From Express" });
-//   res.json({ test: true });
-// });
+router.get("/", async (req, res) => {
+  console.log("testing api (notifications)...");
+  // res.send({ express: "Hello From Express" });
+  res.json({ test: true });
+});
 
 // ! Another Test
 
