@@ -12,7 +12,8 @@ module.exports = {
       },
       notificationId: {
         type: Sequelize.UUID,
-        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
+        onDelete: 'SET NULL',
         references: {
           model: "Notifications",
           key: "id",
