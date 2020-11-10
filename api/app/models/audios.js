@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Audios extends Model {
     /**
@@ -12,14 +10,22 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
-  };
-  Audios.init({
-    id: DataTypes.UUID,
-    audioLink1: DataTypes.STRING,
-    audioLink2: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Audios',
-  });
+  }
+  Audios.init(
+    {
+      id: {
+        allowNull: false,
+        primaryKey: true,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+      },
+      audioLink1: DataTypes.STRING,
+      audioLink2: DataTypes.STRING,
+    },
+    {
+      sequelize,
+      modelName: "Audios",
+    }
+  );
   return Audios;
 };

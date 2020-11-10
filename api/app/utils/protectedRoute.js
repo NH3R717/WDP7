@@ -1,15 +1,30 @@
-// creating a middleware
-const protectedRoute = (req, res, next) => {
-    // pull the loggedIn variable out of the session (default to false)
-    // const { loggedIn = false } = req.session;
-    // const loggedIn = req.session;
-    const loggedIn = "false";
-    // if the user isn't logged in redirect them home
-    // if (!loggedIn) return res.redirect('/');
-    if (!loggedIn) return res.redirect("/");
-    // if the user is logged in go to the next middleware
-    return next();
-};
+const jwt = require('jsonwebtoken');
+const { Users } = require('../models');
 
-// export the middleware function
-module.exports = protectedRoute;
+module.exports = (req, res, next) => {
+  console.log('Auth protection...')
+  const { authorization } = req.headers;
+  if (!authorization) {
+    return res.status(401).send({ error: 'You must be logged in.' });
+  }
+
+  const token = authorization.replace('Bearer ', '');
+  console.log('JWT token...', token);
+  // args(token,secret,callback)
+  jwt.verify(token, process.env.SECRET, async (err, payload) => {
+    if (err) {
+      return res.status(401).send({ error: 'You must be logged in.' });
+    }
+
+    const { id } = payload;
+    console.log('trying to verify', id);
+    const user = await Users.findByPk(id);
+
+    if (!user) {
+      return res.status(401).send({ error: 'Account deactivated.' });
+    }
+
+    req.user = user;
+    next();
+  });
+};

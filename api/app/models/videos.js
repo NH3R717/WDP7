@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Videos extends Model {
     /**
@@ -12,14 +10,22 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
-  };
-  Videos.init({
-    id: DataTypes.UUID,
-    videoLink1: DataTypes.STRING,
-    videoLink2: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'Videos',
-  });
+  }
+  Videos.init(
+    {
+      id: {
+        allowNull: false,
+        primaryKey: true,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+      },
+      videoLink1: DataTypes.STRING,
+      videoLink2: DataTypes.STRING,
+    },
+    {
+      sequelize,
+      modelName: "Videos",
+    }
+  );
   return Videos;
 };

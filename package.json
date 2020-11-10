@@ -11,7 +11,6 @@
     "install-api": "npm i --prefix api",
     "build-client": "npm run build --prefix client",
     "build-api": "npm run build --prefix api",
-
     "*(updated)build-api": "npm run db-update --prefix api",
     "heroku-postbuild": "concurrently \"npm:install-*\"; concurrently \"npm:build-*\"; "
   },
@@ -22,6 +21,17 @@
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
-    "dread": "^2.3.0"
+    "dread": "^2.3.0",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.1",
+    "prettier": "^2.1.2"
   }
 }

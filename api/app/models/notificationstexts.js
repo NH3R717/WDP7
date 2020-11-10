@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class NotificationsTexts extends Model {
     /**
@@ -12,13 +10,30 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
-  };
-  NotificationsTexts.init({
-    id: DataTypes.UUID,
-    messageText: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'NotificationsTexts',
-  });
+  }
+  NotificationsTexts.init(
+    {
+      id: {
+        allowNull: false,
+        primaryKey: true,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+      },
+      messageText: {
+        type: DataTypes.STRING,
+        validate: {
+          len: {
+            args: [1, 300],
+            msg:
+              'Message is to long, make it less than 300 characters (that\'s 2 "Tweets")',
+          },
+        },
+      },
+    },
+    {
+      sequelize,
+      modelName: "NotificationsTexts",
+    }
+  );
   return NotificationsTexts;
 };

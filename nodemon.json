@@ -1,0 +1,8 @@
+{
+    "env": {
+        "DEBUG": "api:*",
+        "SECRET": "18648972-7d07-497a-9a11-75510x63dda3",
+        "CLIENT_ID": "2228117327.1330302760417",
+        "CLIENT_SECRET": "e446e6ec8ae2d097ef858e43ac094cb9"
+    }
+}
