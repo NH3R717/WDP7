@@ -7,11 +7,9 @@
 
 const error = require("debug")("api:error");
 const express = require("express");
-// const morgan = require("morgan");
 const morganDebug = require("morgan-debug");
-
 const cors = require("cors");
-const path = require("path");
+const path = require("path")
 
 // ! ROUTES IMPORT
 
