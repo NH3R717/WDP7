@@ -3,20 +3,18 @@ const error = require("debug")("api:error");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const { Users } = require("../models");
-const salt = 10;
 
-// route test
-// router.get("/test", async (req, res) => {
-//   console.log("testing api...");
-//   res.json({ test: true });
-// });
+const salt = 10;
 
 // ! data to db
 // in-app signup
 exports.signup = async (req, res) => {
-  console.log("api/controllers/auth.js – signup()");
+  // console.log("api/controllers/auth.js – signup()");
+  
+  // console.log("api/controllers/auth.js – signup() " + req.body)
   // needs to be let
   let { username, email, password } = req.body;
+  console.log("api/controllers/auth.js – signup() ", username, email, password)
   try {
     console.log("password before hash – ", password);
     password = await bcrypt.hash(password, salt);
@@ -40,14 +38,15 @@ exports.signup = async (req, res) => {
 };
 // login
 exports.login = async (req, res) => {
-  console.log("api/controllers/auth.js – !");
-  const { username, password } = req.body;
-  console.log("api/controllers/auth.js – ", username);
+  console.log("api/controllers/auth.js – login()!");
+  console.log("api/controllers/auth.js – login() res.body! " + req.body)
+  let { email, password } = req.body;
+  console.log("api/controllers/auth.js – email", email);
   // ! it works
-  const [user] = await Users.findAll({ where: { username } });
-  console.log("api/controllers/auth.js – auth() – ", user);
+  let [user] = await Users.findAll({ where: { email } });
+  console.log("api/controllers/auth.js – auth() – email", email);
   if (!user) {
-    console.log("api/controllers/auth.js – !user");
+    console.log("api/controllers/auth.js – !email");
     res.status(403).json({ loggedIn: false });
     // res.redirect("/login");
     return;

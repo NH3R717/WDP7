@@ -20,6 +20,7 @@ const protectedRoute = require("../utils/protectedRoute");
 // ! Another Test
 
 // GET  /notification
+router.get("/", protectedRoute, notificationsCtrl.readNotifications);
 // router.get("/", notificationsCtrl.readNotifications);
 
 // ! ROUTES

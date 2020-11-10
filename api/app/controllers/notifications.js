@@ -86,6 +86,7 @@ exports.createNotification = async (req, res) => {
 
 // ! √
 exports.readNotifications = async (req, res, next) => {
+  console.log('Current User ', req.user)
   try {
     const notificationsAll = await Notifications.findAll().catch(
       throwError(500, "A database error has ocurred, try again.")

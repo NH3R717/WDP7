@@ -1,11 +1,12 @@
 const router = require("express").Router();
 const authCtrl = require("../controllers/auth");
+const bodyParser = require("body-parser");
 
-// router.get("/", async (req, res) => {
-//   console.log("testing api...");
-//   // res.send({ express: "Hello From Express" });
-//   res.json({ test: true });
-// });
+router.get("/test", async (req, res) => {
+  console.log("testing api...");
+  // res.send({ express: "Hello From Express" });
+  res.json({ test: true });
+});
 
 // router.get("/", authCtrl.test);
 
