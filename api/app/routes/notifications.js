@@ -26,7 +26,7 @@ router.get("/", protectedRoute, notificationsCtrl.readNotifications);
 // ! ROUTES
 
 // POST /notification
-// router.post("/", protectedRoute, notificationsCtrl.createNotification);
+router.post("/", protectedRoute, notificationsCtrl.createNotification);
 router.post("/", notificationsCtrl.createNotification);
 
 // GET /notification

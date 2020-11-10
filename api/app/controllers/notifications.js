@@ -1,8 +1,7 @@
 const axios = require("axios");
-const { v4: uuidv4 } = require("uuid");
+// const { v4: uuidv4 } = require("uuid");
 const { Notifications, NotificationsTexts, Sequelize } = require("../models");
 const { throwIf, throwError, sendError } = require("../utils/errorHandeling");
-
 // const { Notifications } = require("../models");
 
 // exports.createNotification = async (req, res) => {

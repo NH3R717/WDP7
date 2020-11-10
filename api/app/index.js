@@ -15,6 +15,7 @@ const path = require("path")
 // ! ROUTES IMPORT
 
 // const authRouter = require("./routes/auth");
+const authRouter = require("./routes/auth");
 const userRouter = require("./routes/users");
 const notificationsRouter = require("./routes/notifications");
 const searchRouter = require("./routes/search");

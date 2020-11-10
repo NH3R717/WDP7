@@ -6,24 +6,22 @@ const { Users } = require("../models");
 
 const salt = 10;
 
-// ! data to db
+// ! √
 // in-app signup
 exports.signup = async (req, res) => {
   // console.log("api/controllers/auth.js – signup()");
-  
   // console.log("api/controllers/auth.js – signup() " + req.body)
   // needs to be let
   let { username, email, password } = req.body;
-  console.log("api/controllers/auth.js – signup() ", username, email, password)
+  console.log("api/controllers/auth.js – signup() res.body! " + req.body)
+  console.log("api/controllers/auth.js – signup() ", username, email, password )
   try {
     console.log("password before hash – ", password);
     password = await bcrypt.hash(password, salt);
     // username = username.toLowerCase();
     console.log("password after hash – ", password);
     const user = await Users.create({
-      username,
-      email,
-      password,
+      username, email, password
     });
     console.log("api/controllers/auth.js – signup() – users ", user);
     const token = jwt.sign({ id: user.id }, process.env.SECRET);
@@ -36,11 +34,12 @@ exports.signup = async (req, res) => {
     res.status(401).json({ errors, loggedIn: false });
   }
 };
+// ! √
 // login
 exports.login = async (req, res) => {
+  let { email, password } = req.body;
   console.log("api/controllers/auth.js – login()!");
   console.log("api/controllers/auth.js – login() res.body! " + req.body)
-  let { email, password } = req.body;
   console.log("api/controllers/auth.js – email", email);
   // ! it works
   let [user] = await Users.findAll({ where: { email } });
