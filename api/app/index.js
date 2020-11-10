@@ -7,8 +7,9 @@
 
 const error = require("debug")("api:error");
 const express = require("express");
-const morgan = require("morgan");
+// const morgan = require("morgan");
 const morganDebug = require("morgan-debug");
+
 const cors = require("cors");
 const path = require("path");
 
@@ -29,7 +30,6 @@ const app = express();
 
 app.use(express.json());
 // app.use(bodyParser.json());
-
 app.use(morganDebug("api:request", "dev"));
 app.use(cors());
 
@@ -45,13 +45,13 @@ app.use("/api/search", searchRouter);
 // ! keep commented
 // eslint-disable-next-line no-unsaved-vars
 
-// app.use((err, req, res, next) => {
-//   error("ERROR FOUND:", err);
-//   res.status(err.code || 500).json({
-//     message: error.message,
-//     error,
-//   });
-// });
+app.use((err, req, res, next) => {
+  error("ERROR FOUND:", err);
+  res.status(err.code || 500).json({
+    message: error.message,
+    error,
+  });
+});
 
 // ! something for react
 // app.get("/*", (req, res) => {
