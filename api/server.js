@@ -15,6 +15,8 @@ app.use(express.static(path.join(__dirname, "../client/build")));
 // ! routes for debugging
 app.use("/api/notifications", notificationsRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/auth", authRoutes);
 
 // Handle React routing, return all requests to React app
 
