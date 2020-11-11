@@ -20,7 +20,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       position: {
-        type: Sequelize.ENUM("technician", "management", "admin"),
+        type: Sequelize.STRING,
       },
       about: {
         type: Sequelize.STRING,

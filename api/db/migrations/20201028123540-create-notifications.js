@@ -10,7 +10,7 @@ module.exports = {
         unique: true,
       },
       notificationId: {
-        type: Sequelize.UUID,
+        type: Sequelize.STRING,
         onUpdate: "CASCADE",
         onDelete: 'SET NULL',
         references: {
@@ -22,26 +22,26 @@ module.exports = {
         type: Sequelize.STRING,
       },
       flags: {
-        type: Sequelize.ENUM("office", "shop", "field", "all"),
+        type: Sequelize.STRING("office", "shop", "field", "all"),
       },
       notificationsTextsId: {
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
+        type: Sequelize.STRING,
+        // defaultValue: Sequelize.UUIDV4,
         unique: true,
       },
       imagesId: {
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
+        type: Sequelize.STRING,
+        // defaultValue: Sequelize.UUIDV4,
         unique: true,
       },
       audiosId: {
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
+        type: Sequelize.STRING,
+        // defaultValue: Sequelize.UUIDV4,
         unique: true,
       },
       videosId: {
-        type: Sequelize.UUID,
-        defaultValue: Sequelize.UUIDV4,
+        type: Sequelize.STRING,
+        // defaultValue: Sequelize.UUIDV4,
         unique: true,
       },
       createdAt: {

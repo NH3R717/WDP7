@@ -11,7 +11,7 @@ module.exports = {
         onDelete: "CASCADE",
       },
       notificationId: {
-        type: Sequelize.UUID,
+        type: Sequelize.STRING,
         onUpdate: "CASCADE",
         onDelete: 'SET NULL',
         references: {

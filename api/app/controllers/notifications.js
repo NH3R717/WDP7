@@ -18,11 +18,10 @@ let notificationId = uuidv4();
   console.log("api/controllers/notifications.js – createNotification() – notificationId " + notificationId);
   try {
     const newNotifications = await Notifications.create({
-      flags,
       usersId,
-      notificationId
+      notificationId,
+      flags
     })
-
     .catch(Sequelize.ValidationError, throwError(422, "Validation Error"))
     .catch(throwError(500, "sequelize error"));
     res.status(200).json(newNotifications);
