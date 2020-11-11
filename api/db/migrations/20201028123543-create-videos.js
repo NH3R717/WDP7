@@ -18,10 +18,10 @@ module.exports = {
         type: Sequelize.STRING,
         onUpdate: "CASCADE",
         onDelete: 'SET NULL',
-        references: {
-          model: "Notifications",
-          key: "notificationId",
-        },
+        // references: {
+        //   model: "Notifications",
+        //   key: "notificationId",
+        // },
       },
       videoLink1: {
         allowNull: false,
