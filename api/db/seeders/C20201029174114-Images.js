@@ -6,7 +6,7 @@ module.exports = {
       [
         {
           id: "96aef80b-5f7b-491d-a44d-1796989103a7",
-          notificationId: "f9700fa5-e3b2-4c5d-9fc3-10b883b84fcc",
+          // notificationId: "f9700fa5-e3b2-4c5d-9fc3-10b883b84fcc",
           imageLink1:
             "https://live.staticflickr.com/2129/5785570987_9c617a047e_h.jpg",
           imageLink2:

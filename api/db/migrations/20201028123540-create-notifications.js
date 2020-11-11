@@ -9,20 +9,17 @@ module.exports = {
         defaultValue: Sequelize.UUIDV4,
         unique: true,
       },
+      // notificationId: Sequelize.STRING,
       notificationId: {
         type: Sequelize.STRING,
-        onUpdate: "CASCADE",
-        onDelete: 'SET NULL',
-        references: {
-          model: "Notifications",
-          key: "id",
-        },
+        // defaultValue: Sequelize.UUIDV4,
+        unique: true,
       },
       usersId: {
         type: Sequelize.STRING,
       },
       flags: {
-        type: Sequelize.STRING("office", "shop", "field", "all"),
+        type: Sequelize.STRING,
       },
       notificationsTextsId: {
         type: Sequelize.STRING,

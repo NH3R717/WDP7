@@ -15,7 +15,7 @@ module.exports = {
         onDelete: 'SET NULL',
         references: {
           model: "Notifications",
-          key: "id",
+          key: "notificationId",
         },
       },
       messageText: {
