@@ -97,29 +97,6 @@ exports.deleteflop = async (req, res) => {
 
 // ! Hold
 
-// const { Notifications } = require("../models");
-
-// exports.createNotification = async (req, res) => {
-//   Object.keys(req.body).forEach((key) => {
-//     if (req.body[key] === "") delete req.body[key];
-//   });
-//   const { flag } = req.body;
-//   try {
-//     const newNotification = await Notifications.create({
-//       flag,
-//       userId: req.token.id,
-//     });
-//     console.log(
-//       "/controllers/Notifications.js creatNotification() newNotification – below"
-//     );
-//     console.log(newNotification);
-//     // res.json({ id: newNotification.id });
-//     res.status(200).json(newNotification);
-//   } catch (e) {
-//     // sendError(res)(e);
-//   }
-// };
-
 //   // no id: "" database makes the id
 
 //   // {
