@@ -3,6 +3,7 @@ const error = require("debug")("api:error");
 // const { v4: uuidv4 } = require("uuid");
 const { Notifications, NotificationsTexts, Sequelize } = require("../models");
 const { throwIf, throwError, sendError } = require("../utils/errorHandeling");
+
 // const { Notifications } = require("../models");
 
 // exports.createNotification = async (req, res) => {
@@ -32,47 +33,12 @@ exports.createNotification = async (req, res) => {
   console.log("api/controllers/notifications.js – createNotification() – body " + flags);
   console.log("api/controllers/notifications.js – createNotification() – token " + req.user.id,);
 
-//   // no id: "" database makes the id
-
-//   // {
-//   //   userId,
-//   //   flags: "office",
-//   //   messageText: "Meeting at 3pm",
-//   //   imageLink1:"url1.com",
-//   //   imageLink2:"url2.com",
-//   //   imageLink3:"url3.com",
-//   // }
-  
   try {
     const newNotifications = await Notifications.create({
       flags,
-      userId: req.user.id,
+      usersId: req.user.id,
     })
-//     console.log(">>> Notifications", newNotifications.id);
-//     const newTextsforNotifications = await NotificationsTexts.create({
-//       messageText,
-//       notificationsId: newNotifications.id,
-//     })
-//     const newImagesforNotifications = await NotificationsImages.create({
-//       imageLink1,
-//       imageLink2,
-//       imageLink3,
-//     })
-
-//     await Notifications.destory({
-//       id: Notifications,
-//     });
-//     await Notifications.destory({
-//       id: Notifications,
-//     });
-//     await Notifications.destory({
-//       id: Notifications,
-//     })
-
-    console.log(
-      "api/controllers/notifications.js – createNotification() – newNotification ",
-      newNotifications
-    )
+    
     .catch(Sequelize.ValidationError, throwError(422, "Validation Error"))
     .catch(throwError(500, "sequelize error"));
     res.status(200).json(newNotifications);
@@ -145,3 +111,43 @@ exports.deleteflop = async (req, res) => {
   await Notifications.destroy({ where: { id } });
   res.sendStatus(200);
 };
+
+// ! Hold
+
+//   // no id: "" database makes the id
+
+//   // {
+//   //   userId,
+//   //   flags: "office",
+//   //   messageText: "Meeting at 3pm",
+//   //   imageLink1:"url1.com",
+//   //   imageLink2:"url2.com",
+//   //   imageLink3:"url3.com",
+//   // }
+  
+
+// console.log(">>> Notifications", newNotifications.flags)
+//     const newTextsforNotifications = await NotificationsTexts.create({
+//       messageText,
+//       notificationsId: newNotifications.id,
+//     })
+//     const newImagesforNotifications = await NotificationsImages.create({
+//       imageLink1,
+//       imageLink2,
+//       imageLink3,
+//     })
+
+//     await Notifications.destory({
+//       id: Notifications,
+//     });
+//     await Notifications.destory({
+//       id: Notifications,
+//     });
+//     await Notifications.destory({
+//       id: Notifications,
+//     })
+
+//   console.log(
+//     "api/controllers/notifications.js – createNotification() – newNotification ",
+//     newNotifications
+//   )
