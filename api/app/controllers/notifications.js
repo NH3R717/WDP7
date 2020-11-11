@@ -1,43 +1,26 @@
 const axios = require("axios");
 const error = require("debug")("api:error");
-// const { v4: uuidv4 } = require("uuid");
+const { v4: uuidv4 } = require("uuid");
 const { Notifications, NotificationsTexts, Sequelize } = require("../models");
 const { throwIf, throwError, sendError } = require("../utils/errorHandeling");
 
-// const { Notifications } = require("../models");
-
-// exports.createNotification = async (req, res) => {
-//   Object.keys(req.body).forEach((key) => {
-//     if (req.body[key] === "") delete req.body[key];
-//   });
-//   const { flag } = req.body;
-//   try {
-//     const newNotification = await Notifications.create({
-//       flag,
-//       userId: req.token.id,
-//     });
-//     console.log(
-//       "/controllers/Notifications.js creatNotification() newNotification – below"
-//     );
-//     console.log(newNotification);
-//     // res.json({ id: newNotification.id });
-//     res.status(200).json(newNotification);
-//   } catch (e) {
-//     // sendError(res)(e);
-//   }
-// };
-
 exports.createNotification = async (req, res) => {
+  
   console.log("api/controllers/notifications.js – createNotification()");
+  
   let { flags } = req.body;
+  let { notificationId } = uuidv4;
+  
   console.log("api/controllers/notifications.js – createNotification() – body " + flags);
   console.log("api/controllers/notifications.js – createNotification() – token " + req.user.id);
-  let notificationId = req.user.id;
-  console.log("api/controllers/notifications.js – createNotification() – id " + notificationId);
+  let usersId = req.user.id;
+  console.log("api/controllers/notifications.js – createNotification() – usersId " + usersId);
+  console.log("api/controllers/notifications.js – createNotification() – notificationId " + notificationId);
   try {
     const newNotifications = await Notifications.create({
       flags,
-      notificationId,
+      usersId,
+      notificationId
     })
 
     .catch(Sequelize.ValidationError, throwError(422, "Validation Error"))
@@ -114,6 +97,29 @@ exports.deleteflop = async (req, res) => {
 };
 
 // ! Hold
+
+// const { Notifications } = require("../models");
+
+// exports.createNotification = async (req, res) => {
+//   Object.keys(req.body).forEach((key) => {
+//     if (req.body[key] === "") delete req.body[key];
+//   });
+//   const { flag } = req.body;
+//   try {
+//     const newNotification = await Notifications.create({
+//       flag,
+//       userId: req.token.id,
+//     });
+//     console.log(
+//       "/controllers/Notifications.js creatNotification() newNotification – below"
+//     );
+//     console.log(newNotification);
+//     // res.json({ id: newNotification.id });
+//     res.status(200).json(newNotification);
+//   } catch (e) {
+//     // sendError(res)(e);
+//   }
+// };
 
 //   // no id: "" database makes the id
 
