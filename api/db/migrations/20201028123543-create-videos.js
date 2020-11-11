@@ -11,11 +11,12 @@ module.exports = {
         onDelete: "CASCADE",
       },
       notificationId: {
-        type: Sequelize.UUID,
-        onDelete: "CASCADE",
+        type: Sequelize.STRING,
+        onUpdate: "CASCADE",
+        onDelete: 'SET NULL',
         references: {
           model: "Notifications",
-          key: "id",
+          key: "notificationId",
         },
       },
       videoLink1: {

@@ -9,40 +9,38 @@ module.exports = {
         defaultValue: Sequelize.UUIDV4,
         unique: true,
       },
+      // notificationId: Sequelize.STRING,
       notificationId: {
-        type: Sequelize.UUID,
-        onDelete: "CASCADE",
-        references: {
-          model: "Notifications",
-          key: "id",
-        },
+        type: Sequelize.STRING,
+        // defaultValue: Sequelize.UUIDV4,
+        unique: true,
       },
       usersId: {
         type: Sequelize.STRING,
       },
       flags: {
-        type: Sequelize.ENUM("office", "shop", "field", "all"),
+        type: Sequelize.STRING,
       },
-      // notificationsTextsId: {
-      //   type: Sequelize.UUID,
-      //   defaultValue: Sequelize.UUIDV4,
-      //   unique: true,
-      // },
-      // imagesId: {
-      //   type: Sequelize.UUID,
-      //   defaultValue: Sequelize.UUIDV4,
-      //   unique: true,
-      // },
-      // audiosId: {
-      //   type: Sequelize.UUID,
-      //   defaultValue: Sequelize.UUIDV4,
-      //   unique: true,
-      // },
-      // videosId: {
-      //   type: Sequelize.UUID,
-      //   defaultValue: Sequelize.UUIDV4,
-      //   unique: true,
-      // },
+      notificationsTextsId: {
+        type: Sequelize.STRING,
+        // defaultValue: Sequelize.UUIDV4,
+        unique: true,
+      },
+      imagesId: {
+        type: Sequelize.STRING,
+        // defaultValue: Sequelize.UUIDV4,
+        unique: true,
+      },
+      audiosId: {
+        type: Sequelize.STRING,
+        // defaultValue: Sequelize.UUIDV4,
+        unique: true,
+      },
+      videosId: {
+        type: Sequelize.STRING,
+        // defaultValue: Sequelize.UUIDV4,
+        unique: true,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
