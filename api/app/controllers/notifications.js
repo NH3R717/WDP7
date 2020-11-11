@@ -8,8 +8,8 @@ exports.createNotification = async (req, res) => {
   
   console.log("api/controllers/notifications.js – createNotification()");
   
-  let { flags } = req.body;
-  let { notificationId } = uuidv4;
+let { flags } = req.body;
+let notificationId = uuidv4();
   
   console.log("api/controllers/notifications.js – createNotification() – body " + flags);
   console.log("api/controllers/notifications.js – createNotification() – token " + req.user.id);
