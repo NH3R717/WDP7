@@ -27,13 +27,13 @@ module.exports = (sequelize, DataTypes) => {
       // },
       // flags: DataTypes.ENUM("office", "shop", "field", "all"),
       flags: {
-        type: DataTypes.ENUM("office", "shop", "field", "all"),
-        validate: {
-          isIn: {
-            args: ["office", "shop", "field", "all"],
-            msg: "Flag your message, who's it for?",
-          },
-        },
+        type: DataTypes.STRING("office", "shop", "field", "all"),
+        // validate: {
+        //   isIn: {
+        //     args: ["office", "shop", "field", "all"],
+        //     msg: "Flag your message, who's it for?",
+        //   },
+        // },
       },
     },
     {

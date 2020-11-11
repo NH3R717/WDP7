@@ -31,14 +31,15 @@ exports.createNotification = async (req, res) => {
   console.log("api/controllers/notifications.js – createNotification()");
   let { flags } = req.body;
   console.log("api/controllers/notifications.js – createNotification() – body " + flags);
-  console.log("api/controllers/notifications.js – createNotification() – token " + req.user.id,);
-
+  console.log("api/controllers/notifications.js – createNotification() – token " + req.user.id);
+  let { notificationsId } = req.user.id;
+  console.log("api/controllers/notifications.js – createNotification() – id " + id);
   try {
     const newNotifications = await Notifications.create({
       flags,
-      usersId: req.user.id,
+      notificationsId,
     })
-    
+
     .catch(Sequelize.ValidationError, throwError(422, "Validation Error"))
     .catch(throwError(500, "sequelize error"));
     res.status(200).json(newNotifications);
