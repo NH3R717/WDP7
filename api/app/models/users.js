@@ -32,15 +32,15 @@ module.exports = (sequelize, DataTypes) => {
       password: {
         type: DataTypes.STRING,
         validate: {
-          is: {
-            args: ["^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$"],
-            msg:
-              "Password must be at least 8 characters and at least one letter and one number.",
-          },
-          len: {
-            args: [8, 20],
-            msg: "Password must be between 6-20 characters.",
-          },
+          // is: {
+          //   args: ["^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$"],
+          //   msg:
+          //     "Password must be at least 8 characters and at least one letter and one number.",
+          // },
+          // len: {
+          //   args: [8, 20],
+          //   msg: "Password must be between 6-20 characters.",
+          // },
         },
       },
       position: DataTypes.ENUM("technician", "management", "admin"),
