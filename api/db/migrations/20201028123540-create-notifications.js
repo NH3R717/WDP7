@@ -21,46 +21,46 @@ module.exports = {
       flags: {
         type: Sequelize.STRING,
       },
-      notificationsTextsId: {
-        type: Sequelize.STRING,
-        unique: true,
-        onUpdate: "CASCADE",
-        onDelete: 'SET NULL',
-        references: {
-          model: "notificationsTexts",
-          key: "notificationsTextsId",
-        },
-      },
-      imagesId: {
-        type: Sequelize.STRING,
-        unique: true,
-        onUpdate: "CASCADE",
-        onDelete: 'SET NULL',
-        references: {
-          model: "images",
-          key: "imagesId",
-        },
-      },
-      audiosId: {
-        type: Sequelize.STRING,
-        unique: true,
-        onUpdate: "CASCADE",
-        onDelete: 'SET NULL',
-        references: {
-          model: "audios",
-          key: "audiosId",
-        },
-      },
-      videosId: {
-        type: Sequelize.STRING,
-        unique: true,
-        onUpdate: "CASCADE",
-        onDelete: 'SET NULL',
-        references: {
-          model: "videos",
-          key: "videosId",
-        },
-      },
+      // notificationsTextsId: {
+      //   type: Sequelize.UUID,
+      //   unique: true,
+      //   onUpdate: "CASCADE",
+      //   onDelete: 'SET NULL',
+      //   references: {
+      //     model: "NotificationsTexts",
+      //     key: "id",
+      //   },
+      // },
+      // imagesId: {
+      //   type: Sequelize.UUID,
+      //   unique: true,
+      //   onUpdate: "CASCADE",
+      //   onDelete: 'SET NULL',
+      //   references: {
+      //     model: "images",
+      //     key: "id",
+      //   },
+      // },
+      // audiosId: {
+      //   type: Sequelize.UUID,
+      //   unique: true,
+      //   onUpdate: "CASCADE",
+      //   onDelete: 'SET NULL',
+      //   references: {
+      //     model: "audios",
+      //     key: "id",
+      //   },
+      // },
+      // videosId: {
+      //   type: Sequelize.UUID,
+      //   unique: true,
+      //   onUpdate: "CASCADE",
+      //   onDelete: 'SET NULL',
+      //   references: {
+      //     model: "videos",
+      //     key: "id",
+      //   },
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

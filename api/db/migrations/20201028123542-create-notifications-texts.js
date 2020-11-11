@@ -8,6 +8,10 @@ module.exports = {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
         unique: true,
+        references: {
+          model: "Notifications",
+          key: "notificationsTextsId",
+        },
       },
       notificationId: {
         type: Sequelize.STRING,
