@@ -9,10 +9,10 @@ module.exports = {
         defaultValue: Sequelize.UUIDV4,
         unique: true,
         onDelete: "CASCADE",
-        references: {
-          model: "Notifications",
-          key: "videosId",
-        },
+        // references: {
+        //   model: "Notifications",
+        //   key: "videosId",
+        // },
       },
       notificationId: {
         type: Sequelize.STRING,
