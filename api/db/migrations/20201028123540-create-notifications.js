@@ -23,23 +23,43 @@ module.exports = {
       },
       notificationsTextsId: {
         type: Sequelize.STRING,
-        // defaultValue: Sequelize.UUIDV4,
         unique: true,
+        onUpdate: "CASCADE",
+        onDelete: 'SET NULL',
+        references: {
+          model: "notificationsTexts",
+          key: "notificationsTextsId",
+        },
       },
       imagesId: {
         type: Sequelize.STRING,
-        // defaultValue: Sequelize.UUIDV4,
         unique: true,
+        onUpdate: "CASCADE",
+        onDelete: 'SET NULL',
+        references: {
+          model: "images",
+          key: "imagesId",
+        },
       },
       audiosId: {
         type: Sequelize.STRING,
-        // defaultValue: Sequelize.UUIDV4,
         unique: true,
+        onUpdate: "CASCADE",
+        onDelete: 'SET NULL',
+        references: {
+          model: "audios",
+          key: "audiosId",
+        },
       },
       videosId: {
         type: Sequelize.STRING,
-        // defaultValue: Sequelize.UUIDV4,
         unique: true,
+        onUpdate: "CASCADE",
+        onDelete: 'SET NULL',
+        references: {
+          model: "videos",
+          key: "videosId",
+        },
       },
       createdAt: {
         allowNull: false,
