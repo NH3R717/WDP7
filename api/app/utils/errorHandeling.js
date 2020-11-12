@@ -3,9 +3,6 @@ exports.throwError = (code, errorMessage) => err => {
     error.code = code;
     if (err.errors) {
         error.message = err.errors.map(e => e.message).join('\n');
-        // "'content is required', content text to long, etc. "
-        // from the model
-    }
     throw error;
 }
 
@@ -15,3 +12,10 @@ exports.throwIf = (fn, code, errorMessage) => results => {
     }
     return results;
 }
+
+exports.SendError = (res, error) => {
+    res.status(error.code || 500).json({
+      message: error.message,
+      error,
+    });
+  };
