@@ -28,5 +28,10 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "Images",
     }
   );
+
+  Images.associate = (models) => {
+    Images.belongsTo(models.Notifications, {foreignKeys: 'notificationsId'})
+  }
+
   return Images;
 };

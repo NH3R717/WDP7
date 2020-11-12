@@ -43,5 +43,13 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "Notifications",
     }
   );
+
+  Notifications.associations = (models) => { 
+    Notifications.hasOne(models.Audios, {foreignKey: id})
+    Notifications.hasOne(models.Images, {foreignKey: id})
+    Notifications.hasOne(models.NotificationsText, {foreignKey: id})
+    Notifications.hasOne(models.Videos, {foreignKey: id})
+  };
+ 
   return Notifications;
 };

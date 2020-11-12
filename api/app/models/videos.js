@@ -27,5 +27,9 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "Videos",
     }
   );
+Videos.associate = (models) => {
+Videos.belongsTo(models.Notifications, {foreignKey: 'notificationsId'})
+}
+
   return Videos;
 };
