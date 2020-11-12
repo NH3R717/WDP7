@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      NotificationsTexts.belongsTo(models.Notifications, {foreignKey: 'notificationsId'})
     }
   }
   NotificationsTexts.init(
@@ -36,9 +36,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  NotificationsTexts.associate = (models) => {
-    NotificationsTexts.belongsTo(models.Notifications, {foreignKey: 'notificationsId'})
-  }
+  // NotificationsTexts.associate = (models) => {
+  //   NotificationsTexts.belongsTo(models.Notifications, {foreignKey: 'notificationsId'})
+  // }
 
   return NotificationsTexts;
 };

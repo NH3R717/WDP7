@@ -8,7 +8,10 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Notifications.hasOne(models.Audios, {foreignKey: "id"})
+      Notifications.hasOne(models.Images, {foreignKey: "id"})
+      Notifications.hasOne(models.NotificationsTexts, {foreignKey: "id"})
+      Notifications.hasOne(models.Videos, {foreignKey: "id"})
     }
   }
   Notifications.init(
@@ -44,12 +47,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  Notifications.associations = (models) => { 
-    Notifications.hasOne(models.Audios, {foreignKey: id})
-    Notifications.hasOne(models.Images, {foreignKey: id})
-    Notifications.hasOne(models.NotificationsText, {foreignKey: id})
-    Notifications.hasOne(models.Videos, {foreignKey: id})
-  };
+  // Notifications.associations = (models) => { 
+  //   Notifications.hasOne(models.Audios, {foreignKey: id})
+  //   Notifications.hasOne(models.Images, {foreignKey: id})
+  //   Notifications.hasOne(models.NotificationsTexts, {foreignKey: id})
+  //   Notifications.hasOne(models.Videos, {foreignKey: id})
+  // };
  
   return Notifications;
 };
