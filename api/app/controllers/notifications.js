@@ -84,44 +84,6 @@ exports.deleteNotification = async (req, res) => {
 
 // ! Hold
 
-//   // no id: "" database makes the id
-
-//   // {
-//   //   userId,
-//   //   flags: "office",
-//   //   messageText: "Meeting at 3pm",
-//   //   imageLink1:"url1.com",
-//   //   imageLink2:"url2.com",
-//   //   imageLink3:"url3.com",
-//   // }
-  
-
-// console.log(">>> Notifications", newNotifications.flags)
-//     const newTextsforNotifications = await NotificationsTexts.create({
-//       messageText,
-//       notificationsId: newNotifications.id,
-//     })
-//     const newImagesforNotifications = await NotificationsImages.create({
-//       imageLink1,
-//       imageLink2,
-//       imageLink3,
-//     })
-
-//     await Notifications.destory({
-//       id: Notifications,
-//     });
-//     await Notifications.destory({
-//       id: Notifications,
-//     });
-//     await Notifications.destory({
-//       id: Notifications,
-//     })
-
-//   console.log(
-//     "api/controllers/notifications.js – createNotification() – newNotification ",
-//     newNotifications
-//   )
-
 exports.getOneById = async (req, res) => {
   console.log("/controllers/Notifications.js getOneById()");
   const { id } = req.user.id
