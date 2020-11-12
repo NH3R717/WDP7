@@ -5,7 +5,7 @@ const { Notifications, NotificationsTexts, Sequelize } = require("../models");
 const { throwIf, throwError, sendError } = require("../utils/errorHandeling");
 
 exports.createNotification = async (req, res) => {
-  
+  console.log({req})
   console.log("api/controllers/notifications.js – createNotification()");
   
 let { flags, messageText } = req.body;

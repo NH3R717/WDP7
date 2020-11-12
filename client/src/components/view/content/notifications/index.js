@@ -12,17 +12,17 @@ class NotificationsList extends Component {
   }
 
   render() {
-    const { notifications, notification } = this.props;
+    const { notifications } = this.props;
     // pull the data from state
     // const { notifications } = this.props;
-    console.log(
-      'notifications index.js ' + 32 + ' ' + JSON.stringify(notifications),
-      'notifications index.js ' +
-        33 +
-        ' ' +
-        JSON.stringify(notifications.loadedAt)
-    );
-    console.log('Object Map ' + Object.keys(notifications));
+    // console.log(
+    //   'notifications index.js ' + 32 + ' ' + JSON.stringify(notifications),
+    //   'notifications index.js ' +
+    //     33 +
+    //     ' ' +
+    //     JSON.stringify(notifications.loadedAt)
+    // );
+    // console.log('Object Map ' + Object.keys(notifications));
     return (
       <section className={styles.card_container}>
         {/* notification */}
@@ -32,9 +32,9 @@ class NotificationsList extends Component {
             ? notifications.map((notification) => ( */}
           {/* Object.keys(array).map((notifications) => array[notifications]) */}
           {/* Object.keys(this.state.messages).map((key) => ( */}
-          {Object.keys(notifications).map((notification) => (
+          {Object.keys(notifications).map((notification, i) => (
             // {Object.keys(array).map((notifications) => array[notifications])(
-            <Card>
+            <Card key={i}>
               <div>
                 <CardBody className={styles.card_head}>
                   <img

@@ -4,7 +4,7 @@ const API = axios.create({
   // baseURL:
   // process.env.API_URL ||
   // 'http://private-0e1363-comsmanagement.apiary-mock.com',
-  baseURL: process.env.API_URL || 4000,
+  baseURL: process.env.API_URL || 'http://localhost:5000/api/',
 });
 
 export default API;

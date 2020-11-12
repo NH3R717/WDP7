@@ -1,4 +1,4 @@
-import uuid from 'uuid/v4';
+import { v4 as uuid } from 'uuid';
 import API from '../../API';
 
 import {
@@ -35,7 +35,7 @@ export const fetchNotifications = () => ({
   // receives the current app state and returns true if we should call the api
   shouldCallAPI: (state) => {
     const notification = state.notifications;
-    console.log('38 action.js notification ' + JSON.stringify(notification));
+    // console.log('38 action.js notification ' + JSON.stringify(notification));
     const { loadedAt, isLoading } = notification;
     // if notification notifications are currently loading don't call again
     if (!notification || isLoading) return false;
@@ -48,7 +48,9 @@ export const fetchNotifications = () => ({
 
 export const createNotification = (notification) => {
   // create a uuid for this notification so that we can use it in the reducer for pending and loading
+  console.log({notification})
   const id = uuid();
+  console.log({id})
   return {
     types: [
       ADD_NOTIFICATION_PENDING,
