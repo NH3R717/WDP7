@@ -8,7 +8,7 @@ exports.createNotification = async (req, res) => {
   
   console.log("api/controllers/notifications.js – createNotification()");
   
-let { flags } = req.body;
+let { flags, messageText } = req.body;
 let notificationId = uuidv4();
   
   console.log("api/controllers/notifications.js – createNotification() – body " + flags);
@@ -17,14 +17,26 @@ let notificationId = uuidv4();
   console.log("api/controllers/notifications.js – createNotification() – usersId " + usersId);
   console.log("api/controllers/notifications.js – createNotification() – notificationId " + notificationId);
   try {
+    // if audio not null 
+    // add "belongsTo" to model
+    // update models
+
+    const newTextsforNotifications = await NotificationsTexts.create({
+            messageText,
+            notificationId
+          })
+    .catch(Sequelize.ValidationError, throwError(422, "Validation Error"))
+    .catch(throwError(500, "sequelize error"));
     const newNotifications = await Notifications.create({
       usersId,
       notificationId,
-      flags
+      flags,
+      notificationsTextsId: newTextsforNotifications.id
     })
     .catch(Sequelize.ValidationError, throwError(422, "Validation Error"))
     .catch(throwError(500, "sequelize error"));
-    res.status(200).json(newNotifications);
+    res.status(200).json({newNotifications, newTextsforNotifications});
+    // res.status(200).json({newNotifications, messageText: newTextsforNotifications.messageText});
   } catch (e) {
     console.log(
       "api/controllers/notifications.js – createNotification() – !error"
