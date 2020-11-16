@@ -2,10 +2,10 @@ const axios = require("axios");
 const error = require("debug")("api:error");
 const { v4: uuidv4 } = require("uuid");
 const { Notifications, NotificationsTexts, Sequelize } = require("../models");
-const { throwIf, throwError, SendError } = require("../utils/errorHandeling");
+const { throwIf, throwError, sendError } = require("../utils/errorHandeling");
 
 exports.createNotification = async (req, res) => {
-  
+  console.log({req})
   console.log("api/controllers/notifications.js – createNotification()");
   
 let { flags, messageText } = req.body;
@@ -26,8 +26,7 @@ let notificationId = uuidv4();
             notificationId
           })
     .catch(Sequelize.ValidationError, throwError(422, "Validation Error"))
-    .catch(throwIf(row => !row, 404, 'Not Found', 'Message Not Found'),)
-    .catch(throwError(500, "Sequelize Error"));
+    .catch(throwError(500, "sequelize error"));
     const newNotifications = await Notifications.create({
       usersId,
       notificationId,
@@ -35,15 +34,14 @@ let notificationId = uuidv4();
       notificationsTextsId: newTextsforNotifications.id
     })
     .catch(Sequelize.ValidationError, throwError(422, "Validation Error"))
-    .catch(throwIf(row => !row, 404, 'Not Found', 'Notification Not Found'),)
-    .catch(throwError(500, "Sequelize Error"));
+    .catch(throwError(500, "sequelize error"));
     res.status(200).json({newNotifications, newTextsforNotifications});
     // res.status(200).json({newNotifications, messageText: newTextsforNotifications.messageText});
   } catch (e) {
     console.log(
       "api/controllers/notifications.js – createNotification() – !error"
     );
-    SendError(res, e);
+    sendError(res)(e);
   }
 };
 
