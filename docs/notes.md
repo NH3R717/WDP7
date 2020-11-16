@@ -38,6 +38,8 @@ npx sequelize model:create --name Users --attributes id:uuid,username:string,pas
 
 ## migration – relations statements
 
+npx sequelize migration:generate --name Notifications-relationships
+
 npx sequelize migration:generate --name Users-Notifications-relationship && npx sequelize migration:generate --name Notifications-NotificationsTexts-relationship && npx sequelize migration:generate --name Notifications-Images-relationship && npx sequelize migration:generate --name Notifications-Audios-relationship && npx sequelize migration:generate --name Notifications-Video-relationship
 
 ## seed creations statements
