@@ -1,5 +1,15 @@
 import React, { Component } from 'react';
-import { Card, CardBody, CardTitle, Container } from 'reactstrap';
+import {
+  Button,
+  Form,
+  FormGroup,
+  Input,
+  Card,
+  CardBody,
+  CardTitle,
+  Container,
+} from 'reactstrap';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from '../styles.module.css';
 import container from './container';
@@ -37,36 +47,45 @@ class NotificationsList extends Component {
             <Card>
               <div>
                 <CardBody className={styles.card_head}>
-                  {/* <img
-                    className={styles.avatar_img}
-                    src={notification.avatar}
-                    alt="user avatar"
-                  /> */}
-
-
+                    <Link to="/notifications">
+                      <Button
+                        className={styles.direct_message_button}
+                        onClick={this.newNotification}
+                      >
+                        Delete
+                      </Button>
+                    </Link>
                   <CardTitle className={styles.notification_text}>
                     {notification.notification_text}
-            
-            
+                    <Link to="/notifications">
+                      <Button
+                        className={styles.direct_message_button}
+                        onClick={this.newNotification}
+                      >
+                        Update
+                      </Button>
+                    </Link>
                     {/* key={notification.notification_text} */}
                     {/* key={message[".key"]}>{message.text} */}
                   </CardTitle>
-                  {/* <img
-                    className={styles.card_thumb}
-                    src={notification.thumbnail}
-                    alt="notification media thumbnail"
-                  /> */}
                 </CardBody>
               </div>
             </Card>
           ))}
+          <Input
+          className={styles.direct_message_input}
+          type="text"
+          name="direct_message_input"
+          id="direct_message_input"
+          onChange={this.handeInputChange}
+          // placeholder=""
+        />
           {/* : null} */}
         </Container>
       </section>
     );
   }
 }
-
 NotificationsList.propTypes = {
   // id: PropTypes.string,
   notifications: PropTypes.arrayOf(PropTypes.object),

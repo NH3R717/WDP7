@@ -29,6 +29,14 @@ class Notifications_Compose extends Component {
     console.log('this.state.notificationValue: ', this.state.notificationValue)
     this.props.createNotification(this.state.notificationValue);
   }
+  updateNotification(){
+    console.log('this.state.notificationValue: ', this.state.notificationValue)
+    this.props.createNotification(this.state.notificationValue);
+  }
+  deleteNotification(){
+    console.log('this.state.notificationValue: ', this.state.notificationValue)
+    this.props.createNotification(this.state.notificationValue);
+  }
 
   render() {
     // const {} = this.props;
