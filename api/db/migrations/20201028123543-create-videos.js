@@ -9,14 +9,19 @@ module.exports = {
         defaultValue: Sequelize.UUIDV4,
         unique: true,
         onDelete: "CASCADE",
+        // references: {
+        //   model: "Notifications",
+        //   key: "videosId",
+        // },
       },
       notificationId: {
-        type: Sequelize.UUID,
-        onDelete: "CASCADE",
-        references: {
-          model: "Notifications",
-          key: "id",
-        },
+        type: Sequelize.STRING,
+        onUpdate: "CASCADE",
+        onDelete: 'SET NULL',
+        // references: {
+        //   model: "Notifications",
+        //   key: "notificationId",
+        // },
       },
       videoLink1: {
         allowNull: false,

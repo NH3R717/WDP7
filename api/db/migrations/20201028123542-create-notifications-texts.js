@@ -8,13 +8,18 @@ module.exports = {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
         unique: true,
+        // references: {
+        //   model: "Notifications",
+        //   key: "notificationsTextsId",
+        // },
       },
       notificationId: {
-        type: Sequelize.UUID,
-        onDelete: "CASCADE",
+        type: Sequelize.STRING,
+        onUpdate: "CASCADE",
+        onDelete: 'SET NULL',
         references: {
           model: "Notifications",
-          key: "id",
+          key: "notificationId",
         },
       },
       messageText: {

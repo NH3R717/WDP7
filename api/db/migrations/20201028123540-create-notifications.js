@@ -9,39 +9,57 @@ module.exports = {
         defaultValue: Sequelize.UUIDV4,
         unique: true,
       },
+      // notificationId: Sequelize.STRING,
       notificationId: {
-        type: Sequelize.UUID,
-        onDelete: "CASCADE",
-        references: {
-          model: "Notifications",
-          key: "id",
-        },
+        type: Sequelize.STRING,
+        // defaultValue: Sequelize.UUIDV4,
+        unique: true,
       },
       usersId: {
         type: Sequelize.STRING,
       },
       flags: {
-        type: Sequelize.ENUM("office", "shop", "field", "all"),
+        type: Sequelize.STRING,
       },
       // notificationsTextsId: {
       //   type: Sequelize.UUID,
-      //   defaultValue: Sequelize.UUIDV4,
       //   unique: true,
+      //   onUpdate: "CASCADE",
+      //   onDelete: 'SET NULL',
+      //   // references: {
+      //   //   model: "NotificationsTexts",
+      //   //   key: "id",
+      //   // },
       // },
       // imagesId: {
       //   type: Sequelize.UUID,
-      //   defaultValue: Sequelize.UUIDV4,
       //   unique: true,
+      //   onUpdate: "CASCADE",
+      //   onDelete: 'SET NULL',
+      //   // references: {
+      //   //   model: "images",
+      //   //   key: "id",
+      //   // },
       // },
       // audiosId: {
       //   type: Sequelize.UUID,
-      //   defaultValue: Sequelize.UUIDV4,
       //   unique: true,
+      //   onUpdate: "CASCADE",
+      //   onDelete: 'SET NULL',
+      //   // references: {
+      //   //   model: "audios",
+      //   //   key: "id",
+      //   // },
       // },
       // videosId: {
       //   type: Sequelize.UUID,
-      //   defaultValue: Sequelize.UUIDV4,
       //   unique: true,
+      //   onUpdate: "CASCADE",
+      //   onDelete: 'SET NULL',
+      //   // references: {
+      //   //   model: "videos",
+      //   //   key: "id",
+      //   // },
       // },
       createdAt: {
         allowNull: false,
