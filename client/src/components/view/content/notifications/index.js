@@ -37,21 +37,25 @@ class NotificationsList extends Component {
             <Card>
               <div>
                 <CardBody className={styles.card_head}>
-                  <img
+                  {/* <img
                     className={styles.avatar_img}
                     src={notification.avatar}
                     alt="user avatar"
-                  />
+                  /> */}
+
+
                   <CardTitle className={styles.notification_text}>
                     {notification.notification_text}
+            
+            
                     {/* key={notification.notification_text} */}
                     {/* key={message[".key"]}>{message.text} */}
                   </CardTitle>
-                  <img
+                  {/* <img
                     className={styles.card_thumb}
                     src={notification.thumbnail}
                     alt="notification media thumbnail"
-                  />
+                  /> */}
                 </CardBody>
               </div>
             </Card>

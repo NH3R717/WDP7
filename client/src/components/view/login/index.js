@@ -11,7 +11,7 @@ class Login_Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      register: true,
+      register: false,
     };
   }
 
