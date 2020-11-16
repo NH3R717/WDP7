@@ -1,5 +1,3 @@
-client/src/component/view/content/notifications/container.js
-
 import { connect } from 'react-redux';
 import {
   fetchNotifications,

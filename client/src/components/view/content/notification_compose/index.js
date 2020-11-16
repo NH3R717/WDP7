@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import styles from '../styles.module.css';
 
 // Import the Container for this component
-import container from './container';
+import container from './compose_container';
 
 class Notifications_Compose extends Component {
   constructor(props) {
