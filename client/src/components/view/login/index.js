@@ -15,6 +15,21 @@ class Login_Register extends Component {
     };
   }
 
+  handleInputChange = (event) => {
+    const { target: { name, value } } = event;
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  login = async (event) => {
+    event.preventDefault();
+    const { email, password } = this.state;
+    const { loginUser } = this.props;
+    console.log(email, password);
+    await loginUser({email, password});
+  }
+
   render() {
     const { register } = this.state;
     // state from redux will be on props. This is why our container function is called "MapStateToProps"
@@ -32,6 +47,7 @@ class Login_Register extends Component {
                 <Form>
                   <FormGroup>
                     <Input
+                      onChange={this.handleInputChange} 
                       className={styles.input}
                       // type="email"
                       name="email"
@@ -41,6 +57,7 @@ class Login_Register extends Component {
                   </FormGroup>
                   <FormGroup>
                     <Input
+                      onChange={this.handleInputChange} 
                       className={styles.input}
                       // type="password"
                       name="password"
@@ -57,11 +74,19 @@ class Login_Register extends Component {
                   </Link>
                   <Link to="/notifications">
                     <Button
+                      className={styles.center_button}
+                    >
+                      Rest
+                    </Button>
+                  </Link>
+                  {/* <Link to="/notifications"> */}
+                    <Button
                       className={styles.right_button + ' ' + styles.button}
+                      onClick={this.login}
                     >
                       Login
                     </Button>
-                  </Link>
+                  {/* </Link> */}
                 </Form>
               </section>
             </>
