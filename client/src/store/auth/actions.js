@@ -10,9 +10,9 @@ export const logout = () => {
 // ! Hook up this function
 export const loginUser = ({ email, password }) => async (dispatch) => {
   console.log('loginUser()', email, password);
-  const { pass, loggedIn } = await API.post('/auth/login', { email, password });
-  console.log('API data ', loggedIn);
-  localStorage.setItem('token', pass);
+  const { token, loggedIn } = await API.post('/auth/login', { email, password });
+  console.log('API data ', loggedIn, token);
+  localStorage.setItem('token', token);
   dispatch({ type: SET_LOGGED_IN, loggedIn });
 };
 

@@ -4,6 +4,7 @@ const { Users } = require('../models');
 module.exports = (req, res, next) => {
   console.log('Auth protection...')
   const { authorization } = req.headers;
+  console.log ("protectedRoutes req.headers", req.headers)
   if (!authorization) {
     return res.status(401).send({ error: 'You must be logged in.' });
   }

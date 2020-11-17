@@ -39,12 +39,12 @@ export default function callAPIMiddleware({ dispatch, getState }) {
       type: requestType,
     });
     try {
-      const resp = await callAPI();
+      const res = await callAPI();
       // success, dispatch `REQ_ITEM_SUCCESS`
       dispatch({
         ...props,
         type: successType,
-        data: resp.data,
+        data: res.data,
       });
     } catch (err) {
       // there was an error, dispatch `REQ_ITEM_ERROR`
