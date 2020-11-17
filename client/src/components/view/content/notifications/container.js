@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import {
   fetchNotifications,
   updateNotification,
-  deteteNotification,
+  deleteNotification,
 } from '../../../../store/notifications/actions';
 
 function mapStateToProps(state, props) {
@@ -23,7 +23,6 @@ function mapStateToProps(state, props) {
   // console.log('23 notifications container.js ' + JSON.stringify(notifications));
   // console.log('23 notifications container.js ' + JSON.stringify(notification));
   return {
-    // notification,
     notifications,
   };
 }
@@ -31,9 +30,7 @@ function mapStateToProps(state, props) {
 // set the actions we need in this component
 const mapDispatchToProps = {
   fetchNotifications,
-  // fetchNotification,
-  // createNotification,
   updateNotification,
-  deteteNotification,
+  deleteNotification,
 };
 export default connect(mapStateToProps, mapDispatchToProps);

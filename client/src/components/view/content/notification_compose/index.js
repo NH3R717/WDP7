@@ -11,32 +11,23 @@ class Notifications_Compose extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      'notificationValue': '',
+      notificationValue: '',
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.newNotification = this.newNotification.bind(this);
+    // this.newNotification = this.newNotification.bind(this);
   }
 
   handleInputChange(event) {
-    console.log(event.target.value)
+    console.log(event.target.value);
     this.setState({
-      'notificationValue' : event.target.value
+      notificationValue: event.target.value,
     });
   }
 
-  newNotification(){
-    console.log('this.state.notificationValue: ', this.state.notificationValue)
+  newNotification = () => {
     this.props.createNotification(this.state.notificationValue);
-  }
-  updateNotification(){
-    console.log('this.state.notificationValue: ', this.state.notificationValue)
-    this.props.createNotification(this.state.notificationValue);
-  }
-  deleteNotification(){
-    console.log('this.state.notificationValue: ', this.state.notificationValue)
-    this.props.createNotification(this.state.notificationValue);
-  }
+  };
 
   render() {
     // const {} = this.props;
@@ -54,7 +45,12 @@ class Notifications_Compose extends Component {
               // placeholder=""
             />
             <Link to="/notifications">
-              <Button className={styles.direct_message_button} onClick={this.newNotification}>Send</Button>
+              <Button
+                className={styles.direct_message_button}
+                onClick={this.newNotification}
+              >
+                Send
+              </Button>
             </Link>
           </FormGroup>
         </Form>

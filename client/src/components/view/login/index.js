@@ -31,7 +31,7 @@ class Login_Register extends Component {
     const { email, password } = this.state;
     const { loginUser } = this.props;
     console.log(email, password);
-    await loginUser({email, password});
+    await loginUser({ email, password });
   };
 
   // ! switch view to register

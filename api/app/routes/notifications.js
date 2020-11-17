@@ -8,7 +8,7 @@ const notificationsCtrl = require("../controllers/notifications");
 
 // import the protected route – middleware
 // TEMP!
-// const protectedRoute = require("../utils/protectedRoute");
+const protectedRoute = require("../utils/protectedRoute");
 
 // ! Basic Test
 
@@ -30,7 +30,7 @@ router.get("/", notificationsCtrl.readNotifications);
 // POST /notification
 // TEMP!
 // router.post("/", protectedRoute, notificationsCtrl.createNotification);
-router.post("/", notificationsCtrl.createNotification);
+router.post("/", protectedRoute, notificationsCtrl.createNotification);
 
 // GET /notification
 // router.get("/", protectedRoute, notificationsCtrl.readNotifications);

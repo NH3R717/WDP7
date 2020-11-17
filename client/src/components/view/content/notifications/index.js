@@ -43,13 +43,13 @@ class NotificationsList extends Component {
     const { notifications } = this.props;
     // pull the data from state
     // const { notifications } = this.props;
-    console.log(
-      'notifications index.js ' + 32 + ' ' + JSON.stringify(notifications),
-      'notifications index.js ' +
-        33 +
-        ' ' +
-        JSON.stringify(notifications.loadedAt)
-    );
+    // console.log(
+    //   'notifications index.js ' + 32 + ' ' + JSON.stringify(notifications),
+    //   'notifications index.js ' +
+    //     33 +
+    //     ' ' +
+    //     JSON.stringify(notifications.loadedAt)
+    // );
     // ! map all notifications
     console.log('Object Map ' + Object.keys(notifications));
     return (

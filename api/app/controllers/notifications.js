@@ -5,17 +5,17 @@ const { Notifications, NotificationsTexts, Sequelize } = require("../models");
 const { throwIf, throwError, sendError } = require("../utils/errorHandeling");
 
 exports.createNotification = async (req, res) => {
-  console.log({req})
   console.log("api/controllers/notifications.js – createNotification()");
   
-let { flags, messageText } = req.body;
-let notificationId = uuidv4();
+  const { notificationText } = req.body;
+  console.log("incoming data: ", req.user.id, notificationText)
+
   
-  console.log("api/controllers/notifications.js – createNotification() – body " + flags);
-  console.log("api/controllers/notifications.js – createNotification() – token " + req.user.id);
-  let usersId = req.user.id;
-  console.log("api/controllers/notifications.js – createNotification() – usersId " + usersId);
-  console.log("api/controllers/notifications.js – createNotification() – notificationId " + notificationId);
+  // console.log("api/controllers/notifications.js – createNotification() – body " + flags);
+  // console.log("api/controllers/notifications.js – createNotification() – token " + req.user.id);
+  // let usersId = req.user.id;
+  // console.log("api/controllers/notifications.js – createNotification() – usersId " + usersId);
+  // console.log("api/controllers/notifications.js – createNotification() – notificationId " + notificationId);
   try {
     // if audio not null 
     // add "belongsTo" to model
