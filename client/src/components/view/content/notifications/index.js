@@ -18,7 +18,7 @@ class NotificationsList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      'notificationValue': '',
+      notificationValue: '',
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -27,18 +27,18 @@ class NotificationsList extends Component {
   }
 
   handleInputChange(event) {
-    console.log(event.target.value)
+    console.log(event.target.value);
     this.setState({
-      'notificationValue' : event.target.value
+      notificationValue: event.target.value,
     });
   }
 
-  updateNotification(){
-    console.log('this.state.notificationValue: ', this.state.notificationValue)
+  updateNotification() {
+    console.log('this.state.notificationValue: ', this.state.notificationValue);
     this.props.createNotification(this.state.notificationValue);
   }
-  deleteNotification(){
-    console.log('this.state.notificationValue: ', this.state.notificationValue)
+  deleteNotification() {
+    console.log('this.state.notificationValue: ', this.state.notificationValue);
     this.props.createNotification(this.state.notificationValue);
   }
 
@@ -68,24 +68,20 @@ class NotificationsList extends Component {
             <Card>
               <div>
                 <CardBody className={styles.card_head}>
-                    <Link to="/notifications">
-                      <Button
-                        className={styles.direct_message_button}
-                        onClick={this.newNotification}
-                      >
-                        Delete
-                      </Button>
-                    </Link>
+                  <Button
+                    className={styles.direct_message_button}
+                    onClick={this.deleteNotification}
+                  >
+                    Delete
+                  </Button>
                   <CardTitle className={styles.notification_text}>
                     {notification.notification_text}
-                    <Link to="/notifications">
-                      <Button
-                        className={styles.direct_message_button}
-                        onClick={this.newNotification}
-                      >
-                        Update
-                      </Button>
-                    </Link>
+                    <Button
+                      className={styles.direct_message_button}
+                      onClick={this.updateNotification}
+                    >
+                      Update
+                    </Button>
                     {/* key={notification.notification_text} */}
                     {/* key={message[".key"]}>{message.text} */}
                   </CardTitle>
@@ -94,13 +90,13 @@ class NotificationsList extends Component {
             </Card>
           ))}
           <Input
-          className={styles.direct_message_input}
-          type="text"
-          name="direct_message_input"
-          id="direct_message_input"
-          onChange={this.handeInputChange}
-          // placeholder=""
-        />
+            className={styles.direct_message_input}
+            type="text"
+            name="direct_message_input"
+            id="direct_message_input"
+            onChange={this.handeInputChange}
+            // placeholder=""
+          />
           {/* : null} */}
         </Container>
       </section>
