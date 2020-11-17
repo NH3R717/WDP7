@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import {
   Button,
-  Form,
-  FormGroup,
   Input,
   Card,
   CardBody,
   CardTitle,
   Container,
 } from 'reactstrap';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from '../styles.module.css';
 import container from './container';
@@ -92,9 +89,9 @@ class NotificationsList extends Component {
           <Input
             className={styles.direct_message_input}
             type="text"
-            name="direct_message_input"
-            id="direct_message_input"
-            onChange={this.handeInputChange}
+            name="notification_update"
+            id="notification_update"
+            onChange={this.handleInputChange}
             // placeholder=""
           />
           {/* : null} */}
