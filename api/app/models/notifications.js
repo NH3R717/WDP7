@@ -7,12 +7,12 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
-      Notifications.hasOne(models.Audios, {foreignKey: "id"})
-      Notifications.hasOne(models.Images, {foreignKey: "id"})
-      Notifications.hasOne(models.NotificationsTexts, {foreignKey: "id"})
-      Notifications.hasOne(models.Videos, {foreignKey: "id"})
-    }
+    // static associate(models) {
+    //   Notifications.hasOne(models.Audios, { foreignKey: "id" });
+    //   Notifications.hasOne(models.Images, { foreignKey: "id" });
+    //   Notifications.hasOne(models.NotificationsTexts, { foreignKey: "id" });
+    //   Notifications.hasOne(models.Videos, { foreignKey: "id" });
+    // }
   }
   Notifications.init(
     {
@@ -23,16 +23,16 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: DataTypes.UUIDV4,
       },
       usersId: DataTypes.STRING,
-      notificationId: DataTypes.STRING,
-      // notificationId: { 
-      //   allowNull: false,
-      //   primaryKey: false,
-      //   type: DataTypes.UUID,
-      //   defaultValue: DataTypes.UUIDV4,
-      // },
+      // notificationId: DataTypes.STRING,
+      notificationId: {
+        allowNull: false,
+        primaryKey: false,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4,
+      },
       // flags: DataTypes.ENUM("office", "shop", "field", "all"),
       flags: {
-        type: DataTypes.STRING("office", "shop", "field", "all"),
+        type: DataTypes.STRING,
         // validate: {
         //   isIn: {
         //     args: ["office", "shop", "field", "all"],
@@ -47,12 +47,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  // Notifications.associations = (models) => { 
-  //   Notifications.hasOne(models.Audios, {foreignKey: id})
-  //   Notifications.hasOne(models.Images, {foreignKey: id})
-  //   Notifications.hasOne(models.NotificationsTexts, {foreignKey: id})
-  //   Notifications.hasOne(models.Videos, {foreignKey: id})
-  // };
- 
+  Notifications.associations = (models) => {
+    Notifications.hasOne(models.Audios, { foreignKey: notificationId });
+    Notifications.hasOne(models.Images, { foreignKey: notificationId });
+    Notifications.hasOne(models.NotificationsTexts, {
+      foreignKey: notificationId,
+    });
+    Notifications.hasOne(models.Videos, { foreignKey: notificationId });
+  };
+
   return Notifications;
 };

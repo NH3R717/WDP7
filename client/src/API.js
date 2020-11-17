@@ -8,12 +8,11 @@ const API = axios.create({
 });
 
 API.interceptors.response.use(
-  response => (response ? response.data : {}),
+  (response) => (response ? response.data : {}),
   (error) => {
     console.log(error);
-  },
+  }
 );
-
 
 // for each api request going out
 API.interceptors.request.use(async (config) => {
@@ -24,9 +23,8 @@ API.interceptors.request.use(async (config) => {
   // if there is a token, set a header for any request that contains the token
   return {
     ...config,
-    headers: { common: { token } },
+    headers: { Authorization: `Bearer ${token}` },
   };
 });
 
 export default API;
-

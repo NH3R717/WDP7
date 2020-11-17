@@ -10,28 +10,27 @@ exports.createNotification = async (req, res) => {
   const { notificationText, id } = req.body;
   console.log("incoming data: ", req.user.id, notificationText, id);
   try {
-    // ! create row in Text
-    const newTextsforNotifications = await NotificationsTexts.create({
-      messageText: notificationText,
+    const newNotifications = await Notifications.create({
+      usersId: req.user.id,
       notificationId: id,
     })
       .catch(Sequelize.ValidationError, throwError(422, "Validation Error"))
       .catch(throwError(500, "sequelize error"));
-    // ! create row in Notification with Text
-    // const newNotifications = await Notifications.create({
-    //   usersId: req.user.id,
-    //   notificationId: id,
-    //   notificationsTextsId: newTextsforNotifications.id,
-    // })
-    //   .catch(Sequelize.ValidationError, throwError(422, "Validation Error"))
-    //   .catch(throwError(500, "sequelize error"));
-    // res.status(200).json({ newNotifications, newTextsforNotifications });
+
+    const newTextsforNotifications = await NotificationsTexts.create({
+      messageText: notificationText,
+      // notificationId: id,
+    })
+      .catch(Sequelize.ValidationError, throwError(422, "Validation Error"))
+      .catch(throwError(500, "sequelize error"));
+
+    res.status(200).json({ newNotifications });
     // res.status(200).json({newNotifications, messageText: newTextsforNotifications.messageText});
   } catch (e) {
     console.log(
       "api/controllers/notifications.js – createNotification() – !error"
     );
-    console.log('ERROR>>> ' ,e)
+    console.log("ERROR>>> ", e);
     // sendError(res)(e);
   }
 };

@@ -21,13 +21,13 @@ module.exports = (sequelize, DataTypes) => {
       },
       messageText: {
         type: DataTypes.STRING,
-        validate: {
-          len: {
-            args: [1, 300],
-            msg:
-              'Message is to long, make it less than 300 characters (that\'s 2 "Tweets")',
-          },
-        },
+        // validate: {
+        //   len: {
+        //     args: [1, 300],
+        //     msg:
+        //       'Message is to long, make it less than 300 characters (that\'s 2 "Tweets")',
+        //   },
+        // },
       },
     },
     {
