@@ -1,8 +1,6 @@
 import { connect } from 'react-redux';
 import {
   fetchNotifications,
-  // fetchNotification
-  createNotification,
   updateNotification,
   deteteNotification,
 } from '../../../../store/notifications/actions';
@@ -35,7 +33,7 @@ const mapDispatchToProps = {
   fetchNotifications,
   // fetchNotification,
   // createNotification,
-  // updateNotification,
-  // deteteNotification,
+  updateNotification,
+  deteteNotification,
 };
 export default connect(mapStateToProps, mapDispatchToProps);

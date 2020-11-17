@@ -1,4 +1,4 @@
-import { SET_LOGGED_IN, REQ_REGISTER } from '../actionTypes';
+import { SET_LOGGED_IN } from '../actionTypes';
 
 const startState = {
   loggedIn: !!localStorage.getItem('token'),

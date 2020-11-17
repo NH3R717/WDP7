@@ -22,7 +22,8 @@ class NotificationsList extends Component {
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
-    this.newNotification = this.newNotification.bind(this);
+    this.updateNotification = this.updateNotification.bind(this);
+    this.deleteNotification = this.deleteNotification.bind(this);
   }
 
   handleInputChange(event) {
@@ -42,7 +43,7 @@ class NotificationsList extends Component {
   }
 
   render() {
-    const { notifications, notification } = this.props;
+    const { notifications } = this.props;
     // pull the data from state
     // const { notifications } = this.props;
     console.log(
@@ -52,11 +53,11 @@ class NotificationsList extends Component {
         ' ' +
         JSON.stringify(notifications.loadedAt)
     );
+    // ! map all notifications
     console.log('Object Map ' + Object.keys(notifications));
     return (
       <section className={styles.card_container}>
         {/* notification */}
-
         <Container>
           {/* {this.props.notifications.loadedAt > 1
             ? notifications.map((notification) => ( */}
