@@ -17,8 +17,28 @@ import container from './container';
 class NotificationsList extends Component {
   constructor(props) {
     super(props);
-    const { fetchNotifications } = props;
-    fetchNotifications();
+    this.state = {
+      'notificationValue': '',
+    };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.newNotification = this.newNotification.bind(this);
+  }
+
+  handleInputChange(event) {
+    console.log(event.target.value)
+    this.setState({
+      'notificationValue' : event.target.value
+    });
+  }
+
+  updateNotification(){
+    console.log('this.state.notificationValue: ', this.state.notificationValue)
+    this.props.createNotification(this.state.notificationValue);
+  }
+  deleteNotification(){
+    console.log('this.state.notificationValue: ', this.state.notificationValue)
+    this.props.createNotification(this.state.notificationValue);
   }
 
   render() {

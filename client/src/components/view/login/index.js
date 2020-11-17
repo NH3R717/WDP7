@@ -11,6 +11,7 @@ class Login_Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      // ! make this dynamic
       register: false,
     };
   }
@@ -27,10 +28,10 @@ class Login_Register extends Component {
   // ! it logs in set so that acceptable error when incorrect info used
   loginButton = async (event) => {
     event.preventDefault();
-    // const { email, password } = this.state;
-    // const { loginUser } = this.props;
-    // console.log(email, password);
-    // await loginUser({email, password});
+    const { email, password } = this.state;
+    const { loginUser } = this.props;
+    console.log(email, password);
+    await loginUser({email, password});
   };
 
   // ! switch view to register
@@ -158,7 +159,7 @@ class Login_Register extends Component {
                       // type="username"
                       name="username"
                       id="examplePassword"
-                      placeholder="Password"
+                      placeholder="Username"
                     />
                   </FormGroup>
                   <FormGroup>
@@ -167,11 +168,13 @@ class Login_Register extends Component {
                       // type="password"
                       name="password"
                       id="examplePassword"
-                      placeholder="Reenter Password"
+                      placeholder="Password"
                     />
                   </FormGroup>
-                  <Button className={styles.right_button + ' ' + styles.button}>
-                  onClick={this.backToLoginButton}
+                  <Button
+                    className={styles.right_button + ' ' + styles.button}
+                    onClick={this.backToLoginButton}
+                  >
                     Cancel
                   </Button>
                   <Button

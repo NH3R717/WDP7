@@ -1,10 +1,10 @@
-import {
-  SET_LOGGED_IN,
-} from '../actionTypes';
+import { SET_LOGGED_IN, REQ_REGISTER } from '../actionTypes';
 
 const startState = {
   loggedIn: !!localStorage.getItem('token'),
 };
+
+// ! handle incorrect login
 
 export default function authReducer(state = startState, action) {
   const { type, ...payload } = action;
@@ -15,8 +15,8 @@ export default function authReducer(state = startState, action) {
         ...state,
         loggedIn,
       };
-      }
-          
-    default: return state;
+    }
+    default:
+      return state;
   }
 }

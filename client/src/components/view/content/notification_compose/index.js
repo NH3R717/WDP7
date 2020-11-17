@@ -14,11 +14,11 @@ class Notifications_Compose extends Component {
       'notificationValue': '',
     };
 
-    this.handeInputChange = this.handeInputChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.newNotification = this.newNotification.bind(this);
   }
 
-  handeInputChange(event) {
+  handleInputChange(event) {
     console.log(event.target.value)
     this.setState({
       'notificationValue' : event.target.value
@@ -50,7 +50,7 @@ class Notifications_Compose extends Component {
               type="text"
               name="direct_message_input"
               id="direct_message_input"
-              onChange={this.handeInputChange}
+              onChange={this.handleInputChange}
               // placeholder=""
             />
             <Link to="/notifications">
@@ -68,6 +68,7 @@ Notifications_Compose.propTypes = {
   loggedIn: PropTypes.bool,
 };
 
+// ! update
 Notifications_Compose.defaultProps = {
   loggedIn: true,
 };
