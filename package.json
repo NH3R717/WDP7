@@ -4,13 +4,13 @@
   "scripts": {
     "heroku-postbuild": "concurrently \"npm:install-*\"; concurrently \"npm:build-*\"; ",
     "install-api": "npm i --prefix api",
-    "build-api": "npm run build --prefix api",
+    "build-api": "npm run migrate --prefix api",
     "install-client": "npm i --prefix client",
     "build-client": "npm run build --prefix client",
     "api": "cd api && npm start",
     "dev": "concurrently --kill-others-on-fail \"npm run api\" \"npm run client\"",
     "start2": "nodemon api/server.js",
-    "start": "npm install --prefix api",
+    "start": "npm start --prefix api",
     "*(updated)build-api": "npm run db-update --prefix api",
     "client": "cd client && npm start"
   },
