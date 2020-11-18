@@ -29,12 +29,12 @@
     "pg": "^8.4.2",
     "sequelize": "^6.3.5",
     "uuid": "^8.3.1",
-    "uuidv4": "^6.2.4"
+    "uuidv4": "^6.2.4",
+    "cross-env": "^7.0.2",
+    "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
-    "cross-env": "^7.0.2",
     "dredd": "^13.1.2",
-    "sequelize-cli": "^6.2.0"
   },
   "keywords": [],
   "author": "",
