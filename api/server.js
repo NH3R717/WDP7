@@ -29,9 +29,9 @@ const notificationsRoutes = require("./app/routes/notifications");
 
 // ! keep as last route
 // ToDo uncomment code below after verifying protected routes
-// app.get("*", function (req, res) {
-//   res.sendFile(path.join(__dirname, "../client/build", "index.html"));
-// });
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+});
 
 // app.post("/api/world", (req, res) => {
 //   console.log(req.body);
