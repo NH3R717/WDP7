@@ -51,9 +51,9 @@ app.use((err, req, res, next) => {
 });
 
 // ! something for react
-// app.get("/*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../../reactjs/build", index.html));
-// });
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../../reactjs/build", index.html));
+});
 
 // ! EXPORT
 
