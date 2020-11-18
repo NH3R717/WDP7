@@ -29,9 +29,18 @@ const notificationsRoutes = require("./app/routes/notifications");
 
 // ! keep as last route
 // ToDo uncomment code below after verifying protected routes
-app.get("*", function (req, res) {
-  res.sendFile(path.join(__dirname, "../client/build", "index.html"));
-});
+
+// Heroku
+if (
+  process.env.NODE_ENV === 'production' ||
+  process.env.NODE_ENV === 'staging'
+) {
+  app.use(express.static('../reactjs/build'));
+  app.get("*", function (req, res) {
+    res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+  });
+}
+
 
 // app.post("/api/world", (req, res) => {
 //   console.log(req.body);
