@@ -17,7 +17,7 @@ class Notifications_Compose extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     // this.newNotification = this.newNotification.bind(this);
   }
-
+// ! two ways, same result
   handleInputChange(event) {
     console.log(event.target.value);
     this.setState({
