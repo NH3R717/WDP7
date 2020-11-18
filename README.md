@@ -23,7 +23,7 @@ This is a capstone project for Full Sail University's online Web Design and Deve
 * nodemon – task running
 ### Used in Both/Deployment
 * ESLint – code linting
-* Heroku – deployment
+* Heroku – deployment [App URL](https://comsmanagement.herokuapp.com/)
 * CircleCI – continuous deployment integration
 
 ## Setup
