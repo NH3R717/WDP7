@@ -7,9 +7,9 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
-      NotificationsTexts.belongsTo(models.Notifications, {foreignKey: 'notificationsId'})
-    }
+    // static associate(models) {
+    //   NotificationsTexts.belongsTo(models.Notifications, {foreignKey: 'notificationsId'})
+    // }
   }
   NotificationsTexts.init(
     {
@@ -36,9 +36,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  // NotificationsTexts.associate = (models) => {
-  //   NotificationsTexts.belongsTo(models.Notifications, {foreignKey: 'notificationsId'})
-  // }
+  NotificationsTexts.associate = (models) => {
+    NotificationsTexts.belongsTo(models.Notifications, {foreignKey: 'notificationId'})
+  }
 
   return NotificationsTexts;
 };
