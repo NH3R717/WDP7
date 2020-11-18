@@ -1,6 +1,9 @@
 {
   "name": "comsmanagement",
   "version": "1.0.0",
+  "engines": {
+    "node": "14.0.0"
+  },
   "scripts": {
     "heroku-postbuild": "concurrently \"npm:install-*\"; concurrently \"npm:build-*\"; ",
     "install-api": "npm i --prefix api",
