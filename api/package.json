@@ -34,7 +34,7 @@
     "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
-    "dredd": "^13.1.2",
+    "dredd": "^13.1.2"
   },
   "keywords": [],
   "author": "",
