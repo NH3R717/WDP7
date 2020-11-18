@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Button, Form, FormGroup, Input } from 'reactstrap';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './styles.module.css';
 
@@ -114,12 +114,15 @@ class Login_Register extends Component {
                       placeholder="Password"
                     />
                   </FormGroup>
+                  <Link to="/notifications">
                   <Button
                     className={styles.left_button + ' ' + styles.button}
-                    onClick={this.toRegisterButton}
+                    onClick={this.loginButton}
+                    
                   >
-                    Register
+                    Login
                   </Button>
+                  </Link>
                   <Button
                     className={styles.center_button}
                     onClick={this.resetButton}
@@ -128,9 +131,9 @@ class Login_Register extends Component {
                   </Button>
                   <Button
                     className={styles.right_button + ' ' + styles.button}
-                    onClick={this.loginButton}
+                    onClick={this.toRegisterButton}
                   >
-                    Login
+                    Register
                   </Button>
                 </Form>
               </section>
