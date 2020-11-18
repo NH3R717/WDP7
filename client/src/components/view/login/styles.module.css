@@ -42,6 +42,15 @@ h2 {
   float: left;
 }
 
+.center_button {
+  text-align: center;
+  color: var(--brand-blue-dark);
+  background-color: var(--brand-green-lite);
+  margin: 1.5em 0 0 .1em;
+  padding: 0.3em 1em;
+  width: 7.25em;
+}
+
 .right_button {
   float: right;
 }

@@ -21,6 +21,15 @@ class Header extends Component {
                 <NavLink className={styles.nav_link} href="/logout">
                   logout
                 </NavLink>
+                <NavLink className={styles.nav_link} href="https://superscafe.com/pages/profile.html">
+                  portfolio
+                </NavLink>
+                <NavLink className={styles.nav_link} href="https://superscafe.com/pages/about.html">
+                  about
+                </NavLink>
+                <NavLink className={styles.nav_link} href="https://superscafe.com/pages/contact.html">
+                  contact
+                </NavLink>
               </Navbar>
             </>
           )}

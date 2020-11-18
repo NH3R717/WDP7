@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Button, Form, FormGroup, Input } from 'reactstrap';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './styles.module.css';
 
@@ -11,9 +11,73 @@ class Login_Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      register: true,
+      // ! make this dynamic
+      register: false,
     };
   }
+
+  handleInputChange = (event) => {
+    const {
+      target: { name, value },
+    } = event;
+    this.setState({
+      [name]: value,
+    });
+  };
+
+  // ! it logs in set so that acceptable error when incorrect info used
+  loginButton = async (event) => {
+    event.preventDefault();
+    const { email, password } = this.state;
+    const { loginUser } = this.props;
+    console.log(email, password);
+    await loginUser({ email, password });
+  };
+
+  // ! switch view to register
+  toRegisterButton = async (event) => {
+    event.preventDefault();
+    // const { email, password } = this.state;
+    // const { loginUser } = this.props;
+    // console.log(email, password);
+    // await loginUser({email, password});
+  };
+
+  // ! switch view to register
+  registerButton = async (event) => {
+    event.preventDefault();
+    // const { email, password } = this.state;
+    // const { loginUser } = this.props;
+    // console.log(email, password);
+    // await loginUser({email, password});
+  };
+
+  // ! open view for sending user to password reset
+  resetPassButton = async (event) => {
+    event.preventDefault();
+    // const { email, password } = this.state;
+    // const { loginUser } = this.props;
+    // console.log(email, password);
+    // await loginUser({email, password});
+  };
+
+  // ! set view back to login
+  backToLoginButton = async (event) => {
+    event.preventDefault();
+    // const { email, password } = this.state;
+    // const { loginUser } = this.props;
+    // console.log(email, password);
+    // await loginUser({email, password});
+  };
+
+  // ! open view for sending user to password reset
+  resetPassButton = async (event) => {
+    event.preventDefault();
+    // const { email, password } = this.state;
+    // const { loginUser } = this.props;
+    // console.log(email, password);
+    // await loginUser({email, password});
+  };
 
   render() {
     const { register } = this.state;
@@ -32,6 +96,7 @@ class Login_Register extends Component {
                 <Form>
                   <FormGroup>
                     <Input
+                      onChange={this.handleInputChange}
                       className={styles.input}
                       // type="email"
                       name="email"
@@ -41,6 +106,7 @@ class Login_Register extends Component {
                   </FormGroup>
                   <FormGroup>
                     <Input
+                      onChange={this.handleInputChange}
                       className={styles.input}
                       // type="password"
                       name="password"
@@ -48,20 +114,24 @@ class Login_Register extends Component {
                       placeholder="Password"
                     />
                   </FormGroup>
-                  <Link to="/notifications">
-                    <Button
-                      className={styles.left_button + ' ' + styles.button}
-                    >
-                      Register
-                    </Button>
-                  </Link>
-                  <Link to="/notifications">
-                    <Button
-                      className={styles.right_button + ' ' + styles.button}
-                    >
-                      Login
-                    </Button>
-                  </Link>
+                  <Button
+                    className={styles.left_button + ' ' + styles.button}
+                    onClick={this.toRegisterButton}
+                  >
+                    Register
+                  </Button>
+                  <Button
+                    className={styles.center_button}
+                    onClick={this.resetButton}
+                  >
+                    Rest
+                  </Button>
+                  <Button
+                    className={styles.right_button + ' ' + styles.button}
+                    onClick={this.loginButton}
+                  >
+                    Login
+                  </Button>
                 </Form>
               </section>
             </>
@@ -86,10 +156,10 @@ class Login_Register extends Component {
                   <FormGroup>
                     <Input
                       className={styles.input}
-                      // type="password"
-                      name="password"
+                      // type="username"
+                      name="username"
                       id="examplePassword"
-                      placeholder="Password"
+                      placeholder="Username"
                     />
                   </FormGroup>
                   <FormGroup>
@@ -98,23 +168,21 @@ class Login_Register extends Component {
                       // type="password"
                       name="password"
                       id="examplePassword"
-                      placeholder="Reenter Password"
+                      placeholder="Password"
                     />
                   </FormGroup>
-                  <Link to="/">
-                    <Button
-                      className={styles.right_button + ' ' + styles.button}
-                    >
-                      Cancel
-                    </Button>
-                  </Link>
-                  <Link to="/notifications">
-                    <Button
-                      className={styles.left_button + ' ' + styles.button}
-                    >
-                      Register
-                    </Button>
-                  </Link>
+                  <Button
+                    className={styles.right_button + ' ' + styles.button}
+                    onClick={this.backToLoginButton}
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    className={styles.left_button + ' ' + styles.button}
+                    onClick={this.registerButton}
+                  >
+                    Register
+                  </Button>
                 </Form>
               </section>
             </>

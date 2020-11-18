@@ -1,4 +1,4 @@
-import uuid from 'uuid/v4';
+import { v4 as uuid } from 'uuid';
 import API from '../../API';
 
 import {
@@ -34,8 +34,8 @@ export const fetchNotifications = () => ({
   callAPI: () => API.get(`/notifications`),
   // receives the current app state and returns true if we should call the api
   shouldCallAPI: (state) => {
-    const notification = state.notifications;
-    console.log('38 action.js notification ' + JSON.stringify(notification));
+    const notification = state.notificationsText;
+    // console.log('38 action.js notification ' + JSON.stringify(notification));
     const { loadedAt, isLoading } = notification;
     // if notification notifications are currently loading don't call again
     if (!notification || isLoading) return false;
@@ -46,16 +46,19 @@ export const fetchNotifications = () => ({
   },
 });
 
-export const createNotification = (notification) => {
+export const createNotification = (notificationText) => {
   // create a uuid for this notification so that we can use it in the reducer for pending and loading
+  console.log("action>>> ",{notificationText})
   const id = uuid();
+  console.log({id})
   return {
     types: [
       ADD_NOTIFICATION_PENDING,
       ADD_NOTIFICATION_SUCCESS,
       ADD_NOTIFICATION_ERROR,
     ],
-    callAPI: () => API.post('/notifications', { ...notification, id }),
+    // ! 
+    callAPI: () => API.post('/notifications', { ...notificationText, id }),
     payload: { id },
   };
 };
@@ -70,7 +73,7 @@ export const updateNotification = (notification) => ({
   payload: { id: notification.id },
 });
 
-export const deteteNotification = (id) => ({
+export const deleteNotification = (id) => ({
   types: [
     DELETE_NOTIFICATION_PENDING,
     DELETE_NOTIFICATION_SUCCESS,

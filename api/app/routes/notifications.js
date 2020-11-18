@@ -7,6 +7,7 @@ const router = require("express").Router();
 const notificationsCtrl = require("../controllers/notifications");
 
 // import the protected route – middleware
+// TEMP!
 const protectedRoute = require("../utils/protectedRoute");
 
 // ! Basic Test
@@ -20,14 +21,16 @@ const protectedRoute = require("../utils/protectedRoute");
 // ! Another Test
 
 // GET  /notification
-router.get("/", protectedRoute, notificationsCtrl.readNotifications);
-// router.get("/", notificationsCtrl.readNotifications);
+// TEMP!
+// router.get("/", protectedRoute, notificationsCtrl.readNotifications);
+router.get("/", notificationsCtrl.readNotifications);
 
 // ! ROUTES
 
 // POST /notification
+// TEMP!
+// router.post("/", protectedRoute, notificationsCtrl.createNotification);
 router.post("/", protectedRoute, notificationsCtrl.createNotification);
-router.post("/", notificationsCtrl.createNotification);
 
 // GET /notification
 // router.get("/", protectedRoute, notificationsCtrl.readNotifications);

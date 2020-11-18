@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { Card, CardBody, CardTitle, Container } from 'reactstrap';
+import {
+  Button,
+  Input,
+  Card,
+  CardBody,
+  CardTitle,
+  Container,
+} from 'reactstrap';
 import PropTypes from 'prop-types';
 import styles from '../styles.module.css';
 import container from './container';
@@ -7,26 +14,47 @@ import container from './container';
 class NotificationsList extends Component {
   constructor(props) {
     super(props);
-    const { fetchNotifications } = props;
-    fetchNotifications();
+    this.state = {
+      notificationValue: '',
+    };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.updateNotification = this.updateNotification.bind(this);
+    this.deleteNotification = this.deleteNotification.bind(this);
+  }
+
+  handleInputChange(event) {
+    console.log(event.target.value);
+    this.setState({
+      notificationValue: event.target.value,
+    });
+  }
+
+  updateNotification() {
+    console.log('this.state.notificationValue: ', this.state.notificationValue);
+    this.props.createNotification(this.state.notificationValue);
+  }
+  deleteNotification() {
+    console.log('this.state.notificationValue: ', this.state.notificationValue);
+    this.props.createNotification(this.state.notificationValue);
   }
 
   render() {
-    const { notifications, notification } = this.props;
+    const { notifications } = this.props;
     // pull the data from state
     // const { notifications } = this.props;
-    console.log(
-      'notifications index.js ' + 32 + ' ' + JSON.stringify(notifications),
-      'notifications index.js ' +
-        33 +
-        ' ' +
-        JSON.stringify(notifications.loadedAt)
-    );
+    // console.log(
+    //   'notifications index.js ' + 32 + ' ' + JSON.stringify(notifications),
+    //   'notifications index.js ' +
+    //     33 +
+    //     ' ' +
+    //     JSON.stringify(notifications.loadedAt)
+    // );
+    // ! map all notifications
     console.log('Object Map ' + Object.keys(notifications));
     return (
       <section className={styles.card_container}>
         {/* notification */}
-
         <Container>
           {/* {this.props.notifications.loadedAt > 1
             ? notifications.map((notification) => ( */}
@@ -37,32 +65,41 @@ class NotificationsList extends Component {
             <Card>
               <div>
                 <CardBody className={styles.card_head}>
-                  <img
-                    className={styles.avatar_img}
-                    src={notification.avatar}
-                    alt="user avatar"
-                  />
+                  <Button
+                    className={styles.direct_message_button}
+                    onClick={this.deleteNotification}
+                  >
+                    Delete
+                  </Button>
                   <CardTitle className={styles.notification_text}>
                     {notification.notification_text}
+                    <Button
+                      className={styles.direct_message_button}
+                      onClick={this.updateNotification}
+                    >
+                      Update
+                    </Button>
                     {/* key={notification.notification_text} */}
                     {/* key={message[".key"]}>{message.text} */}
                   </CardTitle>
-                  <img
-                    className={styles.card_thumb}
-                    src={notification.thumbnail}
-                    alt="notification media thumbnail"
-                  />
                 </CardBody>
               </div>
             </Card>
           ))}
+          <Input
+            className={styles.direct_message_input}
+            type="text"
+            name="notification_update"
+            id="notification_update"
+            onChange={this.handleInputChange}
+            // placeholder=""
+          />
           {/* : null} */}
         </Container>
       </section>
     );
   }
 }
-
 NotificationsList.propTypes = {
   // id: PropTypes.string,
   notifications: PropTypes.arrayOf(PropTypes.object),

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'; // added this dependency
 // For Demo Only. Import the necessary actions your components will need access to.
-import { loginUser } from '../../../store/auth/actions';
+import { createNotification } from '../../../../store/notifications/actions';
 
 // This is how you bring state into your component. @state is global state.
 function mapStateToProps(state) {
@@ -16,7 +16,7 @@ function mapStateToProps(state) {
 
 // This is how we give components access to Actions
 const mapDispatchToProps = {
-  loginUser,
+    createNotification,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps);

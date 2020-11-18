@@ -1,3 +1,7 @@
+// auth
+
+export const SET_LOGGED_IN = 'SET_LOGGED_IN';
+
 //login
 
 export const LOGIN_PENDING = 'LOGIN_PENDING';

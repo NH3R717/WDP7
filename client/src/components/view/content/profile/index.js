@@ -110,10 +110,10 @@ Profile.propTypes = {
 Profile.defaultProps = {
   loggedIn: true,
   avatar_img_blue: '/avatar_blue.png',
-  username: 'Yoshihide Suga',
-  description: 'Pimeminister of Japan',
+  username: 'Jimmy Suga',
+  description: 'Company Owner',
   bio:
-    'Yoshihide Suga (菅 義偉, Suga Yoshihide, born 6 December 1948) is the current prime minister of Japan. He was the chief cabinet secretary under Prime Minister Shinzo Abe from 2012 to 2020 and minister for internal affairs and communications from 2006 to 2007. ',
+    'Cu vero semper sed, tempor definitionem vel ut. Velit fierent facilisis ex sea, at his option nusquam maiestatis, sint nullam consectetuer ne vix. Ut iuvaret deterruisset cum, nemore causae ei pro. In qui quod nemore bonorum, nam offendit qualisque adolescens eu, vix et utroque senserit referrentur. Cum eros ferri ut, eum causae veritus in, quo et ignota blandit.',
   // sample_thumbnail: '/sample_image.jpg',
 };
 

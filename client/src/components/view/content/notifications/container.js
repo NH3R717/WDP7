@@ -1,10 +1,8 @@
 import { connect } from 'react-redux';
 import {
   fetchNotifications,
-  // fetchNotification
-  createNotification,
   updateNotification,
-  deteteNotification,
+  deleteNotification,
 } from '../../../../store/notifications/actions';
 
 function mapStateToProps(state, props) {
@@ -21,11 +19,10 @@ function mapStateToProps(state, props) {
   const { notifications } = state;
   // console.log('id' + id);
   // turn the array of ids into an array of objects
-  console.log('22 notifications container.js ' + JSON.stringify(state));
+  // console.log('22 notifications container.js ' + JSON.stringify(state));
   // console.log('23 notifications container.js ' + JSON.stringify(notifications));
   // console.log('23 notifications container.js ' + JSON.stringify(notification));
   return {
-    // notification,
     notifications,
   };
 }
@@ -33,9 +30,7 @@ function mapStateToProps(state, props) {
 // set the actions we need in this component
 const mapDispatchToProps = {
   fetchNotifications,
-  // fetchNotification,
-  // createNotification,
-  // updateNotification,
-  // deteteNotification,
+  updateNotification,
+  deleteNotification,
 };
 export default connect(mapStateToProps, mapDispatchToProps);

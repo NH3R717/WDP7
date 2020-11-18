@@ -1,3 +1,5 @@
+// ! kind of broken
+
 exports.throwError = (code, errorMessage) => (err) => {
   const error = new Error(errorMessage || "It's busted.");
   error.code = code;
@@ -14,7 +16,7 @@ exports.throwIf = (fn, code, errorMessage) => (results) => {
   return results;
 };
 
-exports.SendError = (res, error) => {
+exports.sendError = (res, error) => {
   res.status(error.code || 500).json({
     message: error.message,
     error,

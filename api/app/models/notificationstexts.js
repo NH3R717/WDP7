@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      NotificationsTexts.belongsTo(models.Notifications, {foreignKey: 'notificationsId'})
     }
   }
   NotificationsTexts.init(
@@ -21,13 +21,13 @@ module.exports = (sequelize, DataTypes) => {
       },
       messageText: {
         type: DataTypes.STRING,
-        validate: {
-          len: {
-            args: [1, 300],
-            msg:
-              'Message is to long, make it less than 300 characters (that\'s 2 "Tweets")',
-          },
-        },
+        // validate: {
+        //   len: {
+        //     args: [1, 300],
+        //     msg:
+        //       'Message is to long, make it less than 300 characters (that\'s 2 "Tweets")',
+        //   },
+        // },
       },
     },
     {
@@ -35,5 +35,10 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "NotificationsTexts",
     }
   );
+
+  // NotificationsTexts.associate = (models) => {
+  //   NotificationsTexts.belongsTo(models.Notifications, {foreignKey: 'notificationsId'})
+  // }
+
   return NotificationsTexts;
 };

@@ -10,7 +10,7 @@ router.get("/test", async (req, res) => {
 
 // router.get("/", authCtrl.test);
 
-router.post("/", authCtrl.login);
+router.post("/login", authCtrl.login);
 
 router.post("/signup", authCtrl.signup);
 
