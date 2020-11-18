@@ -2,7 +2,7 @@
   "name": "comsmanagement",
   "version": "1.0.0",
   "engines": {
-    "node": "14.0.0"
+    "node": "12.14.1"
   },
   "scripts": {
     "heroku-postbuild": "concurrently \"npm:install-*\"; concurrently \"npm:build-*\"; ",
