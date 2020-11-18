@@ -11,9 +11,10 @@ class Login_Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // ! make this dynamic
+      // ! make this dynamic – 
       register: false,
     };
+    console.log("login props ", props)
   }
 
   handleInputChange = (event) => {
@@ -32,6 +33,8 @@ class Login_Register extends Component {
     const { loginUser } = this.props;
     console.log(email, password);
     await loginUser({ email, password });
+    this.props.history.push("/notifications")
+    // ! a programatic routing – https://dev.to/projectescape/programmatic-navigation-in-react-3p1l
   };
 
   // ! switch view to register
