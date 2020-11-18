@@ -37,7 +37,7 @@ app.use("/api/notifications", notificationsRouter);
 app.use("/api/search", searchRouter);
 
 // ! look in react build folder for static assets
-app.use(express.static(path.join(__dirname, "../../reactjs/build")));
+app.use(express.static(path.join(__dirname, "../../client/build")));
 
 // ! keep commented
 // eslint-disable-next-line no-unsaved-vars
