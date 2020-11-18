@@ -7,7 +7,7 @@
   "scripts": {
     "heroku-postbuild": "concurrently \"npm:install-*\"; concurrently \"npm:build-*\"; ",
     "install-api": "npm i --prefix api",
-    "build-api": "npm run migrate --prefix api",
+    "build-api": "npm run build --prefix api",
     "install-client": "npm i --prefix client",
     "build-client": "npm run build --prefix client",
     "api": "cd api && npm start",

@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "db-update": "sequelize db:migrate",
     "db-seed": "sequelize db:seed:all",
+    "build": "sequelize db:migrate && sequelize db:seed:all",
     "migrate": "npx sequelize-cli db:migrate",
     "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
     "start": "nodemon server.js",
