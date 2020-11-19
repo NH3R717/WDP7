@@ -12,20 +12,20 @@ exports.createNotification = async (req, res) => {
   try {
     const newNotifications = await Notifications.create({
       usersId: req.user.id,
-      notificationId: id,
+      // notificationId: id,
     })
       .catch(Sequelize.ValidationError, throwError(422, "Validation Error"))
-      .catch(throwError(500, "sequelize error"));
+      .catch(throwError(500, "sequelize error for notification"));
 
     const newTextsforNotifications = await NotificationsTexts.create({
       messageText: notificationText,
       // notificationId: id,
     })
       .catch(Sequelize.ValidationError, throwError(422, "Validation Error"))
-      .catch(throwError(500, "sequelize error"));
+      .catch(throwError(500, "sequelize error for text"));
 
-    res.status(200).json({ newNotifications });
-    // res.status(200).json({newNotifications, messageText: newTextsforNotifications.messageText});
+    // res.status(200).json({ newNotifications });
+    res.status(200).json({newNotifications, messageText: newTextsforNotifications.messageText});
   } catch (e) {
     console.log(
       "api/controllers/notifications.js – createNotification() – !error"
