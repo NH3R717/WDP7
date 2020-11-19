@@ -44,16 +44,16 @@ class NotificationsList extends Component {
   }
 
   render() {
-    const { notifications } = this.props;
-    // pull the data from state
     // const { notifications } = this.props;
-    // console.log(
-    //   'notifications index.js ' + 32 + ' ' + JSON.stringify(notifications),
-    //   'notifications index.js ' +
-    //     33 +
-    //     ' ' +
-    //     JSON.stringify(notifications.loadedAt)
-    // );
+    // pull the data from state
+    const { notifications } = this.props;
+    console.log(
+      'notifications index.js ' + 32 + ' ' + JSON.stringify(notifications),
+      'notifications index.js ' +
+        33 +
+        ' Stringify ' +
+        JSON.stringify(notifications.loadedAt)
+    );
     // ! map all notifications
     console.log('Redux State Notifications ', notifications );
     return (

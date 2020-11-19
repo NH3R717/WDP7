@@ -35,9 +35,11 @@ export const fetchNotifications = () => ({
   callAPI: () => API.get(`/notifications`),
   // receives the current app state and returns true if we should call the api
   shouldCallAPI: (state) => {
-    console.log('redux state >>>>', state)
+    console.log('38 action.js notification ', JSON.stringify(state.notifications));
+    console.log('redux state >>>®', state, '39 action.js notification ', JSON.stringify(state.notifications))
     const notification = state.notifications;
-    console.log('38 action.js notification ' + JSON.stringify(notification));
+    // ! why won't the console log show up?
+    console.log(notification)
     const { loadedAt, isLoading } = notification;
     // if notification notifications are currently loading don't call again
     if (!notification || isLoading) return false;
