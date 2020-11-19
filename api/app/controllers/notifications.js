@@ -43,7 +43,8 @@ exports.readNotifications = async (req, res, next) => {
     const notificationsAll = await Notifications.findAll().catch(
       throwError(500, "A database error has ocurred, try again.")
     );
-    res.json({notificationsAll: "test"});
+    // ! added "data"
+    res.json({data:notificationsAll});
     console.log("® controller users.js readNotifications " + notificationsAll);
   } catch (e) {
     next(e);

@@ -7,10 +7,11 @@ const API = axios.create({
   baseURL: process.env.API_URL || 'http://localhost:5000/api/',
 });
 
+  // ! debug res.data
 API.interceptors.response.use(
   (response) => (response ? response.data : {}),
   (error) => {
-    console.log(error);
+    console.log("API.interceptors.response.use", error);
   }
 );
 
