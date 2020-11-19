@@ -25,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
       usersId: DataTypes.STRING,
       // notificationId: DataTypes.STRING,
       notificationId: {
+        // type: DataTypes.STRING,
         allowNull: false,
         primaryKey: false,
         type: DataTypes.UUID,
