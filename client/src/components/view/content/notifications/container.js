@@ -34,3 +34,34 @@ const mapDispatchToProps = {
   deleteNotification,
 };
 export default connect(mapStateToProps, mapDispatchToProps);
+
+// export default function container(Component) {
+//   return class NotificationsContainer extends React.Component {
+//     state= {
+//       notifications: {},
+//     }
+
+//     fetchNotifications = async (id) => {
+//       const notification = await API.get(`notifications`);
+//       this.setState({ notifications });
+//     }
+
+//     deleteNotifications = async (id) => {
+//       await API.delete(`/notifications/${id}`);
+//     }
+
+
+//     render() {
+//       const { notifications } = this.state;
+//       return (
+//         <Component
+//           {...this.props}
+//           notification={notification}
+//           fetchNotifications={this.fetchNotifications}
+//           updateNotification={this.updateNotification}
+//           deleteNotification={this.deleteNotification}
+//         />
+//       );
+//     }
+//   };
+// }
