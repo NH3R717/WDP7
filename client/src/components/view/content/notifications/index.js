@@ -7,7 +7,7 @@ import {
   CardTitle,
   Container,
 } from 'reactstrap';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from '../styles.module.css';
 import container from './container';
@@ -23,7 +23,7 @@ class NotificationsList extends Component {
     this.updateNotification = this.updateNotification.bind(this);
     this.deleteNotification = this.deleteNotification.bind(this);
   }
-
+testArray = [1, 2, 3]
   componentDidMount() {
     this.props.fetchNotifications();
   }
@@ -47,7 +47,9 @@ class NotificationsList extends Component {
   render() {
     // const { notifications } = this.props;
     // pull the data from state
+    testArray = [1, 2, 3]
     const { notifications } = this.props;
+    const { notifications } = this.testArray;
     console.log(
       'notifications index.js ' + 32 + ' ' + JSON.stringify(notifications),
       'notifications index.js ' +
@@ -72,15 +74,15 @@ class NotificationsList extends Component {
                   </Button>
                   <div className={styles.list}>
                     {notifications.map((notification) => (
-                      <div key={notification.id}>
-                        <h1 key={notification.id}>
+                      <div>
+                        <h1 key={notification}>
                   
                         </h1>
                         
                       </div>
                     ))}
                   </div>
-                  {/* <div className={styles.list}></div> */}
+                  <div className={styles.list}></div>
                   <Button
                     className={styles.direct_message_button}
                     onClick={this.updateNotification}

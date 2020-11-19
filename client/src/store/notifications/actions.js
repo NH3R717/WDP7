@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid';
 import API from '../../API';
-import { shouldLoad } from '../utils';
+// import { shouldLoad } from '../utils';
 
 import {
   REQ_NOTIFICATIONS_PENDING,
