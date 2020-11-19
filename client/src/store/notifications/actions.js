@@ -58,7 +58,7 @@ export const createNotification = (notificationText) => {
       ADD_NOTIFICATION_ERROR,
     ],
     // ! 
-    callAPI: () => API.post('/notifications', { ...notificationText, id }),
+    callAPI: () => API.post('/notifications', { notificationText, id }),
     payload: { id },
   };
 };
