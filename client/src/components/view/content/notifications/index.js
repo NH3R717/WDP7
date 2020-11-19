@@ -71,12 +71,15 @@ class NotificationsList extends Component {
                     Delete
                   </Button>
                   <div className={styles.list}>
-      {notifications.map((notification) => (
-        <div className={styles.post} key={notifications†.id}>
-
-        </div>
-      ))}
-    </div>
+                    {notifications.map((notification) => (
+                      <div key={notification.id}>
+                        <h1 key={notification.id}>
+                  
+                        </h1>
+                        
+                      </div>
+                    ))}
+                  </div>
                   {/* <div className={styles.list}></div> */}
                   <Button
                     className={styles.direct_message_button}
