@@ -117,7 +117,7 @@ NotificationsList.propTypes = {
       flags: PropTypes.string,
       createdAt: PropTypes.string,
       updatedAt: PropTypes.string,
-      textNotifcations: PropTypes.arrayOf(
+      textNotifications: PropTypes.arrayOf(
         PropTypes.shape({
           id: PropTypes.string,
           notificationId: PropTypes.string,
