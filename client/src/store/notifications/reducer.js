@@ -21,7 +21,9 @@ const initialState = {
   // will hold each notification with ids as keys
   byId: {},
   // an array of all the ids
-  allIds: [],
+  // ! was four element array in "REQ_NOTIFICATIONS_SUCCESS" action
+  // allIds: [],
+  allIds: "",
   // needed for cache state
   loadedAt: 0,
   // tracking if the state is loading
@@ -29,7 +31,7 @@ const initialState = {
   // any errors loading all the data
   error: null,
   // Demo State for Reducer Connection
-  demoString: 'Demo String Display',
+  // demoString: 'Demo String Display',
 };
 
 function notificationsPending(state, action) {
