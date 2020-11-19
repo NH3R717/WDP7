@@ -7,6 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "db-update": "sequelize db:migrate",
     "db-seed": "sequelize db:seed:all",
+    "build": "sequelize db:migrate && sequelize db:seed:all",
+    "migrate": "npx sequelize-cli db:migrate",
+    "migrate:reset": "npx sequelize-cli db:migrate:undo:all && npm run migrate",
     "start": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"npm start\""
   },
@@ -29,12 +32,12 @@
     "pg": "^8.4.2",
     "sequelize": "^6.3.5",
     "uuid": "^8.3.1",
-    "uuidv4": "^6.2.4"
+    "uuidv4": "^6.2.4",
+    "cross-env": "^7.0.2",
+    "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
-    "cross-env": "^7.0.2",
-    "dredd": "^13.1.2",
-    "sequelize-cli": "^6.2.0"
+    "dredd": "^13.1.2"
   },
   "keywords": [],
   "author": "",
