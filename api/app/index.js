@@ -52,7 +52,7 @@ app.use((err, req, res, next) => {
 
 // ! something for react
 app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../../client/build", index.html));
+  res.sendFile(path.join(__dirname, "../../client/build", "index.html"));
 });
 
 // ! EXPORT

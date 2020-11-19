@@ -23,6 +23,10 @@ class NotificationsList extends Component {
     this.deleteNotification = this.deleteNotification.bind(this);
   }
 
+  componentDidMount() {
+    this.props.fetchNotifications();
+  }
+
   handleInputChange(event) {
     console.log(event.target.value);
     this.setState({
@@ -51,7 +55,7 @@ class NotificationsList extends Component {
     //     JSON.stringify(notifications.loadedAt)
     // );
     // ! map all notifications
-    console.log('Object Map ' + Object.keys(notifications));
+    console.log('Redux State Notifications ', notifications );
     return (
       <section className={styles.card_container}>
         {/* notification */}

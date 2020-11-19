@@ -42,6 +42,7 @@ function notificationsPending(state, action) {
 }
 
 function notificationsSuccess(state, action) {
+  console.log("Success ", action)
   // clear loading and error, update cache time, add notifications
   return {
     ...state,

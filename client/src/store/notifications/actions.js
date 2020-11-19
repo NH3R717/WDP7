@@ -34,7 +34,8 @@ export const fetchNotifications = () => ({
   callAPI: () => API.get(`/notifications`),
   // receives the current app state and returns true if we should call the api
   shouldCallAPI: (state) => {
-    const notification = state.notificationsText;
+    console.log('redux state >>>>', state)
+    const notification = state.notifications;
     // console.log('38 action.js notification ' + JSON.stringify(notification));
     const { loadedAt, isLoading } = notification;
     // if notification notifications are currently loading don't call again
