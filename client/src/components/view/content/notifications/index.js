@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import {
-  Button,
-  Input,
-  Card,
-  CardBody,
-  CardTitle,
-  Container,
-} from 'reactstrap';
+// import {
+//   Button,
+//   Input,
+//   Card,
+//   CardBody,
+//   CardTitle,
+//   Container,
+// } from 'reactstrap';
 // import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from '../styles.module.css';
@@ -16,16 +16,16 @@ class NotificationsList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // notificationValue: '',
+      notificationValue: [],
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.updateNotification = this.updateNotification.bind(this);
     this.deleteNotification = this.deleteNotification.bind(this);
   }
-testArray = [1, 2, 3]
-  componentDidMount() {
-    this.props.fetchNotifications();
+  // testArray = [1, 2, 3];
+  async componentDidMount() {
+    await this.props.fetchNotifications();
   }
 
   handleInputChange(event) {
@@ -47,63 +47,21 @@ testArray = [1, 2, 3]
   render() {
     // const { notifications } = this.props;
     // pull the data from state
-    testArray = [1, 2, 3]
+    // let testArray = [1, 2, 3];
     const { notifications } = this.props;
-    const { notifications } = this.testArray;
-    console.log(
-      'notifications index.js ' + 32 + ' ' + JSON.stringify(notifications),
-      'notifications index.js ' +
-        33 +
-        ' Stringify ' +
-        JSON.stringify(notifications.loadedAt)
-    );
+    // const { notifications } = this.testArray;
+    // console.log(
+    //   'notifications index.js ' + 32 + ' ' + JSON.stringify(notifications),
+    //   'notifications index.js ' +
+    //     33 +
+    //     ' Stringify ' +
+    //     JSON.stringify(notifications.loadedAt)
+    // );
     // ! map all notifications
     console.log('Redux State Notifications ', notifications);
     return (
       <section className={styles.card_container}>
-        <Container>
-          <Card>
-            <div>
-              <CardBody className={styles.card_head}>
-                <CardTitle className={styles.notification_text}>
-                  <Button
-                    className={styles.direct_message_button}
-                    onClick={this.deleteNotification}
-                  >
-                    Delete
-                  </Button>
-                  <div className={styles.list}>
-                    {notifications.map((notification) => (
-                      <div>
-                        <h1 key={notification}>
-                  
-                        </h1>
-                        
-                      </div>
-                    ))}
-                  </div>
-                  <div className={styles.list}></div>
-                  <Button
-                    className={styles.direct_message_button}
-                    onClick={this.updateNotification}
-                  >
-                    Update
-                  </Button>
-                </CardTitle>
-              </CardBody>
-            </div>
-          </Card>
-
-          <Input
-            className={styles.direct_message_input}
-            type="text"
-            name="notification_update"
-            id="notification_update"
-            onChange={this.handleInputChange}
-            // placeholder=""
-          />
-          {/* : null} */}
-        </Container>
+        
       </section>
     );
   }
@@ -175,7 +133,7 @@ NotificationsList.defaultProps = {
   // avatar_img_red: '/avatar_red.png',
   // avatar_img_green: '/avatar_green.png',
   // sample_thumbnail: '/sample_image.jpg',
-  // notifications: [],
+  notifications: [],
 };
 
 export default container(NotificationsList);
