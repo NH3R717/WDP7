@@ -21,46 +21,30 @@ module.exports = {
       flags: {
         type: Sequelize.STRING,
       },
-      // notificationsTextsId: {
-      //   type: Sequelize.UUID,
-      //   unique: true,
-      //   onUpdate: "CASCADE",
-      //   onDelete: 'SET NULL',
-      //   // references: {
-      //   //   model: "NotificationsTexts",
-      //   //   key: "id",
-      //   // },
-      // },
-      // imagesId: {
-      //   type: Sequelize.UUID,
-      //   unique: true,
-      //   onUpdate: "CASCADE",
-      //   onDelete: 'SET NULL',
-      //   // references: {
-      //   //   model: "images",
-      //   //   key: "id",
-      //   // },
-      // },
-      // audiosId: {
-      //   type: Sequelize.UUID,
-      //   unique: true,
-      //   onUpdate: "CASCADE",
-      //   onDelete: 'SET NULL',
-      //   // references: {
-      //   //   model: "audios",
-      //   //   key: "id",
-      //   // },
-      // },
-      // videosId: {
-      //   type: Sequelize.UUID,
-      //   unique: true,
-      //   onUpdate: "CASCADE",
-      //   onDelete: 'SET NULL',
-      //   // references: {
-      //   //   model: "videos",
-      //   //   key: "id",
-      //   // },
-      // },
+      notificationsTextsId: {
+        type: Sequelize.STRING,
+        unique: true,
+        onUpdate: "CASCADE",
+        onDelete: 'SET NULL'
+      },
+      imagesId: {
+        type: Sequelize.STRING,
+        unique: true,
+        onUpdate: "CASCADE",
+        onDelete: 'SET NULL'
+      },
+      audiosId: {
+        type: Sequelize.STRING,
+        unique: true,
+        onUpdate: "CASCADE",
+        onDelete: 'SET NULL'
+      },
+      videosId: {
+        type: Sequelize.STRING,
+        unique: true,
+        onUpdate: "CASCADE",
+        onDelete: 'SET NULL'
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

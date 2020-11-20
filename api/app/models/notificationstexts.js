@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
       },
+      // !√
+      notificationId: {
+        type: DataTypes.STRING,
+      },
       messageText: {
         type: DataTypes.STRING,
         // validate: {
