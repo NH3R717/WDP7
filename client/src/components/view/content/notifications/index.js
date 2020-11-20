@@ -53,7 +53,9 @@ class NotificationsList extends Component {
   }
 
   render() {
-    // const { notifications } = this.props;
+    const { notificationsArray } = this.props;
+    console.log("ui notificationsArray: ", notificationsArray)
+    console.log("props: ", this.props)
     // pull the data from state
     let testArray = [
       'Head to the clients location.',
@@ -64,7 +66,14 @@ class NotificationsList extends Component {
       <section className={styles.card_container}>
       <Container>
         {/* {notifications.map((notification) => ( */}
-        {testArray.map((notification) => (
+          {notificationsArray ? notificationsArray.map((notification) => (
+            <>
+            <p>make</p>
+            <p>notificationId: {notification[1].data.notificationId}</p>
+            </>
+          )) : <p>loading</p>}
+        {/* {notifications.map((notification) => ( */}
+        {/* {testArray.map((notification) => (
           <ul>
             <Card>
               <div>
@@ -88,7 +97,7 @@ class NotificationsList extends Component {
               </div>
             </Card>
           </ul>
-        ))}
+        ))} */}
         <Form>
           <FormGroup className={styles.direct_message_input_container}>
             <Input
