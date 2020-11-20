@@ -35,11 +35,11 @@ export const fetchNotifications = () => ({
   callAPI: () => API.get(`/notifications`),
   // receives the current app state and returns true if we should call the api
   shouldCallAPI: (state) => {
-    console.log('38 action.js notification ', JSON.stringify(state.notifications));
+    // console.log('38 action.js notification ', JSON.stringify(state.notifications));
     console.log('redux state >>>®', state, '39 action.js notification ', JSON.stringify(state.notifications))
     const notification = state.notifications;
     // ! why won't the console log show up?
-    console.log(notification)
+    // console.log(notification)
     const { loadedAt, isLoading } = notification;
     // if notification notifications are currently loading don't call again
     if (!notification || isLoading) return false;
@@ -91,9 +91,9 @@ export const fetchNotifications = () => ({
 // !
 export const createNotification = (notificationText) => {
   // create a uuid for this notification so that we can use it in the reducer for pending and loading
-  console.log("action>>> ",{notificationText})
+  // console.log("action>>> ",{notificationText})
   const id = uuid();
-  console.log({id})
+  // console.log({id})
   return {
     types: [
       ADD_NOTIFICATION_PENDING,
