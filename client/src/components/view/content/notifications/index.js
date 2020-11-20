@@ -54,8 +54,8 @@ class NotificationsList extends Component {
 
   render() {
     const { notificationsArray } = this.props;
-    console.log("ui notificationsArray: ", notificationsArray)
-    console.log("props: ", this.props)
+    console.log('ui notificationsArray: ', notificationsArray);
+    console.log('props: ', this.props);
     // pull the data from state
     // let testArray = [
     //   'Head to the clients location.',
@@ -64,59 +64,66 @@ class NotificationsList extends Component {
     // ];
     return (
       <section className={styles.card_container}>
-      <Container>
-        {/* {notifications.map((notification) => ( */}
-          {notificationsArray ? notificationsArray.map((notification) => (
-            <>
-            <p>make</p>
-            <p>notificationId: {notification[1].data.notificationId}</p>
-          {/* <ul>
-            <Card>
-              <div>
-                <CardBody className={styles.card_head}>
-                  <Button
-                    className={styles.direct_message_button}
-                    onClick={this.deleteNotification}
-                  >
-                    Delete
-                  </Button>
-                  <Button
-                    className={styles.direct_message_button}
-                    onClick={this.updateNotification}
-                  >
-                    Update
-                  </Button>
-                  <CardTitle className={styles.notification_text}>
-                    {notification}
-                  </CardTitle>
-                </CardBody>
-              </div>
-            </Card>
-          </ul> */}
-          </>
-          )) : <p>Wait...</p>}
-        
-        <Form>
-          <FormGroup className={styles.direct_message_input_container}>
-            <Input
-              className={styles.direct_message_input}
-              type="text"
-              name="direct_message_input"
-              id="direct_message_input"
-              onChange={this.handleInputChange}
-              // placeholder=""
-            />
-            <Link to="/notifications">
-              <Button
-                className={styles.direct_message_button}
-                onClick={this.newNotification}
-              >
-                Add
-              </Button>
-            </Link>
-          </FormGroup>
-        </Form>
-      </Container>
+        <Container>
+          {/* {notifications.map((notification) => ( */}
+          {notificationsArray ? (
+            notificationsArray.map((notification) => (
+              <>
+                {/* <p>make</p>
+            <p>notificationId: {notification[1].data.notificationId}</p> */}
+                {/* <ul> */}
+                <Card>
+                  <div>
+                    <CardBody className={styles.card_head}>
+                      <Button
+                        className={styles.direct_message_button}
+                        onClick={this.updateNotification}
+                      >
+                        Update
+                      </Button>
+                      <Button
+                        className={styles.direct_message_button}
+                        onClick={this.deleteNotification}
+                      >
+                        Delete
+                      </Button>
+                      <p className={styles.notification_text}>
+                        notificationId: {notification[1].data.notificationId}
+                      </p>
+                      <CardTitle
+                        className={notification[1].data.notificationId}
+                      ></CardTitle>
+                    </CardBody>
+                  </div>
+                </Card>
+                {/* </ul> */}
+              </>
+            ))
+          ) : (
+            <p>Wait...</p>
+          )}
+
+          <Form>
+            <FormGroup className={styles.direct_message_input_container}>
+              <Input
+                className={styles.direct_message_input}
+                type="text"
+                name="direct_message_input"
+                id="direct_message_input"
+                onChange={this.handleInputChange}
+                // placeholder=""
+              />
+              <Link to="/notifications">
+                <Button
+                  className={styles.direct_message_button}
+                  onClick={this.newNotification}
+                >
+                  Add
+                </Button>
+              </Link>
+            </FormGroup>
+          </Form>
+        </Container>
       </section>
     );
   }

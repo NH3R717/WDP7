@@ -7,7 +7,7 @@
 .card_head {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
 }
 
@@ -93,7 +93,7 @@
 }
 
 .direct_message_button {
-  margin: 0;
+  margin: .2em .2em 0 0;
   text-align: center;
   color: var(--brand-blue-dark);
   background-color: var(--brand-green-lite);
