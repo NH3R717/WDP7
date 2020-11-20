@@ -2,6 +2,7 @@
 import { connect } from 'react-redux';
 import {
   fetchNotifications,
+  createNotification,
   updateNotification,
   deleteNotification,
 } from '../../../../store/notifications/actions';
@@ -63,6 +64,7 @@ const mapStateToProps = async function mapStateToProps(state, props) {
 // // set the actions we need in this component
 const mapDispatchToProps = {
   fetchNotifications,
+  createNotification,
   updateNotification,
   deleteNotification,
 };

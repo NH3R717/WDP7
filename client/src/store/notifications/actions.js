@@ -1,6 +1,6 @@
 import { v4 as uuid } from 'uuid';
 import API from '../../API';
-// import { shouldLoad } from '../utils';
+import { shouldLoad } from '../utils';
 
 import {
   REQ_NOTIFICATIONS_PENDING,
@@ -39,7 +39,7 @@ export const fetchNotifications = () => ({
     console.log('redux state >>>®', state, '39 action.js notification ', JSON.stringify(state.notifications))
     const notification = state.notifications;
     // ! why won't the console log show up?
-    console.log("notifications/actions.js fetchNotifications()", notification)
+    console.log(notification)
     const { loadedAt, isLoading } = notification;
     // if notification notifications are currently loading don't call again
     if (!notification || isLoading) return false;

@@ -17,6 +17,7 @@ function mapStateToProps(state) {
 // This is how we give components access to Actions
 const mapDispatchToProps = {
     createNotification,
+    
 };
 
 export default connect(mapStateToProps, mapDispatchToProps);

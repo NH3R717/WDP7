@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import {
   Button,
-  // Input,
+  Input,
   Card,
   CardBody,
   CardTitle,
   Container,
+  Form,
+  FormGroup,
 } from 'reactstrap';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from '../styles.module.css';
 import container from './container';
@@ -35,13 +37,19 @@ class NotificationsList extends Component {
     });
   }
 
-  updateNotification() {
+  createNotification() {
     console.log('this.state.notificationValue: ', this.state.notificationValue);
     this.props.createNotification(this.state.notificationValue);
   }
+
+  updateNotification() {
+    console.log('this.state.notificationValue: ', this.state.notificationValue);
+    this.props.updateNotification(this.state.notificationValue);
+  }
+
   deleteNotification() {
     console.log('this.state.notificationValue: ', this.state.notificationValue);
-    this.props.createNotification(this.state.notificationValue);
+    this.props.deleteNotification(this.state.notificationValue);
   }
 
   render() {
@@ -49,44 +57,64 @@ class NotificationsList extends Component {
     // pull the data from state
     let testArray = [
       'Head to the clients location.',
-      'Have you arrived.',
+      'Have you arrived?',
       'Meet Jane at the gate.',
     ];
-    // const { notifications } = this.props;
     return (
+      <section className={styles.card_container}>
       <Container>
+        {/* {notifications.map((notification) => ( */}
         {testArray.map((notification) => (
-          <Card>
-            <div>
-              <CardBody className={styles.card_head}>
-                <Button
-                  className={styles.direct_message_button}
-                  onClick={this.deleteNotification}
-                >
-                  Delete
-                </Button>
-                <CardTitle className={styles.notification_text}>
-                  {notification.notification_text}
+          <ul>
+            <Card>
+              <div>
+                <CardBody className={styles.card_head}>
+                  <Button
+                    className={styles.direct_message_button}
+                    onClick={this.deleteNotification}
+                  >
+                    Delete
+                  </Button>
                   <Button
                     className={styles.direct_message_button}
                     onClick={this.updateNotification}
                   >
                     Update
                   </Button>
-                  key={notification.notification_text}
-                  {/* key={message[".key"]}>{message.text} */}
-                </CardTitle>
-              </CardBody>
-            </div>
-          </Card>
+                  <CardTitle className={styles.notification_text}>
+                    {notification}
+                  </CardTitle>
+                </CardBody>
+              </div>
+            </Card>
+          </ul>
         ))}
-        {/* : null} */}
+        <Form>
+          <FormGroup className={styles.direct_message_input_container}>
+            <Input
+              className={styles.direct_message_input}
+              type="text"
+              name="direct_message_input"
+              id="direct_message_input"
+              onChange={this.handleInputChange}
+              // placeholder=""
+            />
+            <Link to="/notifications">
+              <Button
+                className={styles.direct_message_button}
+                onClick={this.newNotification}
+              >
+                Add
+              </Button>
+            </Link>
+          </FormGroup>
+        </Form>
       </Container>
+      </section>
     );
-    // ! map all notifications
-    // console.log('Redux State Notifications ', notifications);
   }
 }
+// console.log('Redux State Notifications ', notification);
 NotificationsList.propTypes = {
   id: PropTypes.string,
   notifications: PropTypes.arrayOf(
@@ -139,21 +167,10 @@ NotificationsList.propTypes = {
     })
   ),
   fetchNotifications: PropTypes.func.isRequired,
-  // createNotifications: PropTypes.func.isRequired,
-  // deleteNotifications: PropTypes.func.isRequired,
-  // notification_text: PropTypes.string,
-  // avatar: PropTypes.string,
-  // thumbnail: PropTypes.string,
   loggedIn: PropTypes.bool,
 };
 
 NotificationsList.defaultProps = {
-  // loggedIn: true,
-  // notification_text: 'Here is a notification, now you know!',
-  // avatar_img_blue: '/avatar_blue.png',
-  // avatar_img_red: '/avatar_red.png',
-  // avatar_img_green: '/avatar_green.png',
-  // sample_thumbnail: '/sample_image.jpg',
   notifications: [],
 };
 
