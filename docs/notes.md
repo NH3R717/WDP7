@@ -134,3 +134,11 @@ npm i eslint --save-dev && npm i eslint-config-airbnb --save-dev && npm i eslint
                 </CardBody>
               </div>
             </Card>
+
+
+            {notificationsArray ? notificationsArray.map((notification) => (
+            <>
+            <p>make</p>
+            <p>notificationId: {notification[1].data.notificationId}</p>
+            </>
+          )) : <p>Wait...</p>}

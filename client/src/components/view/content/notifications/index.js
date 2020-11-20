@@ -57,11 +57,11 @@ class NotificationsList extends Component {
     console.log("ui notificationsArray: ", notificationsArray)
     console.log("props: ", this.props)
     // pull the data from state
-    let testArray = [
-      'Head to the clients location.',
-      'Have you arrived?',
-      'Meet Jane at the gate.',
-    ];
+    // let testArray = [
+    //   'Head to the clients location.',
+    //   'Have you arrived?',
+    //   'Meet Jane at the gate.',
+    // ];
     return (
       <section className={styles.card_container}>
       <Container>
@@ -70,11 +70,7 @@ class NotificationsList extends Component {
             <>
             <p>make</p>
             <p>notificationId: {notification[1].data.notificationId}</p>
-            </>
-          )) : <p>loading</p>}
-        {/* {notifications.map((notification) => ( */}
-        {/* {testArray.map((notification) => (
-          <ul>
+          {/* <ul>
             <Card>
               <div>
                 <CardBody className={styles.card_head}>
@@ -96,8 +92,10 @@ class NotificationsList extends Component {
                 </CardBody>
               </div>
             </Card>
-          </ul>
-        ))} */}
+          </ul> */}
+          </>
+          )) : <p>Wait...</p>}
+        
         <Form>
           <FormGroup className={styles.direct_message_input_container}>
             <Input
