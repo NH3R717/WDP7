@@ -21,30 +21,30 @@ module.exports = {
       flags: {
         type: Sequelize.STRING,
       },
-      notificationsTextsId: {
-        type: Sequelize.STRING,
-        unique: true,
-        onUpdate: "CASCADE",
-        onDelete: 'SET NULL'
-      },
-      imagesId: {
-        type: Sequelize.STRING,
-        unique: true,
-        onUpdate: "CASCADE",
-        onDelete: 'SET NULL'
-      },
-      audiosId: {
-        type: Sequelize.STRING,
-        unique: true,
-        onUpdate: "CASCADE",
-        onDelete: 'SET NULL'
-      },
-      videosId: {
-        type: Sequelize.STRING,
-        unique: true,
-        onUpdate: "CASCADE",
-        onDelete: 'SET NULL'
-      },
+      // notificationTextId: {
+      //   type: Sequelize.STRING,
+      //   unique: true,
+      //   onUpdate: "CASCADE",
+      //   onDelete: 'SET NULL'
+      // }
+      // imagesId: {
+      //   type: Sequelize.STRING,
+      //   unique: true,
+      //   onUpdate: "CASCADE",
+      //   onDelete: 'SET NULL'
+      // },
+      // audiosId: {
+      //   type: Sequelize.STRING,
+      //   unique: true,
+      //   onUpdate: "CASCADE",
+      //   onDelete: 'SET NULL'
+      // },
+      // videosId: {
+      //   type: Sequelize.STRING,
+      //   unique: true,
+      //   onUpdate: "CASCADE",
+      //   onDelete: 'SET NULL'
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

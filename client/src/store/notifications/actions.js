@@ -93,6 +93,7 @@ export const createNotification = (notificationText) => {
   // create a uuid for this notification so that we can use it in the reducer for pending and loading
   console.log("action>>> ",{notificationText})
   const id = uuid();
+  const notificationTextId = uuid();
   console.log({id})
   return {
     types: [
@@ -101,7 +102,7 @@ export const createNotification = (notificationText) => {
       ADD_NOTIFICATION_ERROR,
     ],
     // ! 
-    callAPI: () => API.post('/notifications', { notificationText, id }),
+    callAPI: () => API.post('/notifications', { notificationText, notificationTextId, id }),
     payload: { id },
   };
 };

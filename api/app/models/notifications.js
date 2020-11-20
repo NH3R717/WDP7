@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         // },
       },
       // ! x
-      notificationsTextsId: {
+      notificationTextId: {
         type: DataTypes.STRING,
       },
     },
