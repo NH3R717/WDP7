@@ -7,6 +7,8 @@ import {
 } from '../../../../store/notifications/actions';
 
 const mapStateToProps = async function mapStateToProps(state, props) {
+
+    const { notifications } = state;
 // mapStateToProps(state, props) {
   // const { match: { params: { id } } } = props;
   // console.log("®®®", state)
@@ -20,21 +22,20 @@ const mapStateToProps = async function mapStateToProps(state, props) {
   //     byId: { [id]: { data: notification } = {} },
   //   },
   // } = state;
-  const { notifications : {byId}, notifications } = state;
+  // const { notifications : {byId}, notifications } = state;
   // console.log("mapStateToProps(state, props)", byId)
   // console.log("mapStateToProps(state, props)", notifications.allIds)
   // if(notifications.length > 1) {
 
-    const asyncArray = await Promise.all(notifications.map(async (notifications) => {
-      // await sleep(10);
-      return notifications;
-    }));
+    // const asyncArray = await Promise.all(notifications.map(async (notifications) => {
+    //   // await sleep(10);
+    //   return notifications;
+    // }));
 
   // notifications.allIds.map(id => console.log("EACH ID",id))
   // }
   // const mappedNotifications = notifications.allIds.map(id => byId[id]);
   // console.log("mapStateToProps(state, props)", mappedNotifications)
-  // return { notifications: mappedNotifications };
   // return { notifications: mappedNotifications };
   return { notifications };
 }
