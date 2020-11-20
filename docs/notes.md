@@ -50,3 +50,38 @@ npx sequelize-cli seed:generate --name Users && npx sequelize-cli seed:generate 
 
 npm i eslint --save-dev && npm i eslint-config-airbnb --save-dev && npm i eslint-config-airbnb-base --save-dev && npm i eslint-config-prettier --save-dev && npm i eslint-plugin-import --save-dev && npm i eslint-plugin-jsx-a11y --save-dev && npm i eslint-plugin-prettier --save-dev && npm i eslint-plugin-react --save-dev && npm i lint-staged --save-dev && npm i husky --save-dev && npm i prettier --save-dev
 
+<section className={styles.card_container}>
+        {/* notification */}
+
+        <Container>
+          {/* {this.props.notifications.loadedAt > 1
+            ? notifications.map((notification) => ( */}
+          {/* Object.keys(array).map((notifications) => array[notifications]) */}
+          {/* Object.keys(this.state.messages).map((key) => ( */}
+          {Object.keys(notifications).map((notification) => (
+            // {Object.keys(array).map((notifications) => array[notifications])(
+            <Card>
+              <div>
+                <CardBody className={styles.card_head}>
+                  <img
+                    className={styles.avatar_img}
+                    src={notification.avatar}
+                    alt="user avatar"
+                  />
+                  <CardTitle className={styles.notification_text}>
+                    {notification.notification_text}
+                    {/* key={notification.notification_text} */}
+                    {/* key={message[".key"]}>{message.text} */}
+                  </CardTitle>
+                  <img
+                    className={styles.card_thumb}
+                    src={notification.thumbnail}
+                    alt="notification media thumbnail"
+                  />
+                </CardBody>
+              </div>
+            </Card>
+          ))}
+          {/* : null} */}
+        </Container>
+      </section>
