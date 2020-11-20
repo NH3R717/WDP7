@@ -72,7 +72,31 @@ class NotificationsList extends Component {
             <p>notificationId: {notification[1].data.notificationId}</p>
             </>
           )) : <p>loading</p>}
-        {/* + */}
+        {/* {testArray.map((notification) => (
+          <ul>
+            <Card>
+              <div>
+                <CardBody className={styles.card_head}>
+                  <Button
+                    className={styles.direct_message_button}
+                    onClick={this.deleteNotification}
+                  >
+                    Delete
+                  </Button>
+                  <Button
+                    className={styles.direct_message_button}
+                    onClick={this.updateNotification}
+                  >
+                    Update
+                  </Button>
+                  <CardTitle className={styles.notification_text}>
+                    {notification}
+                  </CardTitle>
+                </CardBody>
+              </div>
+            </Card>
+          </ul>
+        ))} */}
         <Form>
           <FormGroup className={styles.direct_message_input_container}>
             <Input
