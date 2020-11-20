@@ -1,12 +1,13 @@
+import axios from 'axios';
 import { connect } from 'react-redux';
-import axios from axios
 import {
   fetchNotifications,
   updateNotification,
   deleteNotification,
 } from '../../../../store/notifications/actions';
 
-function mapStateToProps(state, props) {
+const mapStateToProps = async function mapStateToProps(state, props) {
+// mapStateToProps(state, props) {
   // const { match: { params: { id } } } = props;
   // console.log("®®®", state)
   // const {
@@ -21,11 +22,16 @@ function mapStateToProps(state, props) {
   // } = state;
   const { notifications : {byId}, notifications } = state;
   // console.log("mapStateToProps(state, props)", byId)
-  console.log("mapStateToProps(state, props)", notifications.allIds)
-  if(notifications.length > 1) {
+  // console.log("mapStateToProps(state, props)", notifications.allIds)
+  // if(notifications.length > 1) {
 
-    notifications.allIds.map(id => console.log("EACH ID",id))
-  }
+    const asyncArray = await Promise.all(notifications.map(async (notifications) => {
+      // await sleep(10);
+      return notifications;
+    }));
+
+  // notifications.allIds.map(id => console.log("EACH ID",id))
+  // }
   // const mappedNotifications = notifications.allIds.map(id => byId[id]);
   // console.log("mapStateToProps(state, props)", mappedNotifications)
   // return { notifications: mappedNotifications };
