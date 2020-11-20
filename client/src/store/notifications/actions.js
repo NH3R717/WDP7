@@ -39,7 +39,7 @@ export const fetchNotifications = () => ({
     console.log('redux state >>>®', state, '39 action.js notification ', JSON.stringify(state.notifications))
     const notification = state.notifications;
     // ! why won't the console log show up?
-    console.log(notification)
+    console.log("notifications/actions.js fetchNotifications()", notification)
     const { loadedAt, isLoading } = notification;
     // if notification notifications are currently loading don't call again
     if (!notification || isLoading) return false;

@@ -1,10 +1,31 @@
-import axios from 'axios';
+// import axios from 'axios';
 import { connect } from 'react-redux';
 import {
   fetchNotifications,
   updateNotification,
   deleteNotification,
 } from '../../../../store/notifications/actions';
+
+// function mapStateToProps(state) {
+//   const {
+//     notifications: { byId, allIds },
+//   } = state;
+//   return { notifications: allIds.map(id => byId[id].data || {}) };
+// }
+
+// // set the actions we need in this component
+// const mapDispatchToProps = {
+//   fetchNotifications,
+//   updateNotification,
+//   deleteNotification,
+// };
+
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// );
+
+// ! below code doesn't break
 
 const mapStateToProps = async function mapStateToProps(state, props) {
 
@@ -15,7 +36,7 @@ const mapStateToProps = async function mapStateToProps(state, props) {
   // const {
   //   notifications: { notifications, byId },
   // } = state;
-  // console.log("®®ç®", notifications)
+  console.log("®®ç®", notifications)
   
   // const {
   //   notifications: {
@@ -46,6 +67,8 @@ const mapDispatchToProps = {
   deleteNotification,
 };
 export default connect(mapStateToProps, mapDispatchToProps);
+
+// ! below old code
 
 // import { connect } from 'react-redux';
 // import {
