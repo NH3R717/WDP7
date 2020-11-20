@@ -47,7 +47,7 @@ class NotificationsList extends Component {
   render() {
     // const { notifications } = this.props;
     // pull the data from state
-    // let testArray = [1, 2, 3];
+    let testArray = ["Head to the clients location.", "Have you arrived.", "Meet Jane at the gate."];
     const { notifications } = this.props;
     // const { notifications } = this.testArray;
     // console.log(
