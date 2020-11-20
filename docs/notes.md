@@ -85,3 +85,51 @@ npm i eslint --save-dev && npm i eslint-config-airbnb --save-dev && npm i eslint
           {/* : null} */}
         </Container>
       </section>
+
+      <Card>
+              <div>
+                <CardBody className={styles.card_head}>
+                  <Button
+                    className={styles.direct_message_button}
+                    onClick={this.deleteNotification}
+                  >
+                    Delete
+                  </Button>
+                  <CardTitle className={styles.notification_text}>
+                    {notification.notification_text}
+                    <Button
+                      className={styles.direct_message_button}
+                      onClick={this.updateNotification}
+                    >
+                      Update
+                    </Button>
+                    {/* key={notification.notification_text} */}
+                    {/* key={message[".key"]}>{message.text} */}
+                  </CardTitle>
+                </CardBody>
+              </div>
+            </Card>
+
+            <Card>
+              <div>
+                <CardBody className={styles.card_head}>
+                  <Button
+                    className={styles.direct_message_button}
+                    onClick={this.deleteNotification}
+                  >
+                    Delete
+                  </Button>
+                  <CardTitle className={styles.notification_text}>
+                    {notification.notification_text}
+                    <Button
+                      className={styles.direct_message_button}
+                      onClick={this.updateNotification}
+                    >
+                      Update
+                    </Button>
+                    {/* key={notification.notification_text} */}
+                    {/* key={message[".key"]}>{message.text} */}
+                  </CardTitle>
+                </CardBody>
+              </div>
+            </Card>

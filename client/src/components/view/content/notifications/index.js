@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import {
   Button,
-  Input,
+  // Input,
   Card,
   CardBody,
   CardTitle,
   Container,
 } from 'reactstrap';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from '../styles.module.css';
 import container from './container';
@@ -52,38 +52,39 @@ class NotificationsList extends Component {
       'Have you arrived.',
       'Meet Jane at the gate.',
     ];
-    const { notifications } = this.props;
-    <section>
+    // const { notifications } = this.props;
+    return (
       <Container>
-        {posts.map((testArray) => (
+        {testArray.map((notification) => (
           <Card>
             <div>
               <CardBody className={styles.card_head}>
-                {/* <img
-                  className={styles.avatar_img}
-                  src={notification.avatar}
-                  alt="user avatar"
-                /> */}
+                <Button
+                  className={styles.direct_message_button}
+                  onClick={this.deleteNotification}
+                >
+                  Delete
+                </Button>
                 <CardTitle className={styles.notification_text}>
                   {notification.notification_text}
-                  {/* key={notification.notification_text} */}
+                  <Button
+                    className={styles.direct_message_button}
+                    onClick={this.updateNotification}
+                  >
+                    Update
+                  </Button>
+                  key={notification.notification_text}
                   {/* key={message[".key"]}>{message.text} */}
                 </CardTitle>
-                <img
-                  className={styles.card_thumb}
-                  src={notification.thumbnail}
-                  alt="notification media thumbnail"
-                />
               </CardBody>
             </div>
           </Card>
         ))}
         {/* : null} */}
       </Container>
-    </section>;
+    );
     // ! map all notifications
-    console.log('Redux State Notifications ', notifications);
-    return <section className={styles.card_container}></section>;
+    // console.log('Redux State Notifications ', notifications);
   }
 }
 NotificationsList.propTypes = {
