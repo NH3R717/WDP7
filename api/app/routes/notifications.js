@@ -23,7 +23,7 @@ const protectedRoute = require("../utils/protectedRoute");
 // GET  /notification
 // TEMP!
 // router.get("/", protectedRoute, notificationsCtrl.readNotifications);
-router.get("/", notificationsCtrl.readNotifications);
+// router.get("/", notificationsCtrl.readNotifications);
 
 // ! ROUTES
 
@@ -33,9 +33,9 @@ router.get("/", notificationsCtrl.readNotifications);
 router.post("/", protectedRoute, notificationsCtrl.createNotification);
 
 // GET /notification
-// router.get("/", protectedRoute, notificationsCtrl.readNotifications);
+router.get("/", protectedRoute, notificationsCtrl.readNotifications);
 // ! √
-router.get("/", notificationsCtrl.readNotifications);
+// router.get("/", notificationsCtrl.readNotifications);
 
 // GET (user's by id) /notifications/user/:id
 // router.get( "/user/:id",protectedRoute,notificationsCtrl.readUserNotifications);
