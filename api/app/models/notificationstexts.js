@@ -2,14 +2,6 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class NotificationsTexts extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    // static associate(models) {
-    //   NotificationsTexts.belongsTo(models.Notifications, {foreignKey: 'notificationsId'})
-    // }
   }
   NotificationsTexts.init(
     {
@@ -37,7 +29,8 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   NotificationsTexts.associate = (models) => {
-    NotificationsTexts.belongsTo(models.Notifications, {foreignKey: 'notificationId'})
+    NotificationsTexts.belongsTo(models.Notifications, {foreignKey: 'notificationId'});
+    NotificationsTexts.hasOne(models.Notifications, {foreignKey: 'notificationsTextsId'});
   }
 
   return NotificationsTexts;

@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Images.belongsTo(models.Notifications, {foreignKeys: 'notificationsId'})
+      Images.belongsTo(models.Notifications, {foreignKeys: 'notificationsId'});
+      Images.hasOne(models.Notifications, {foreignKey: 'imagesId'});
     }
   }
   Images.init(

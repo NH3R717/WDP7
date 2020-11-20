@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Audios.belongsTo(models.Notifications, {foreignKey: 'notificationsId'})
+      Audios.belongsTo(models.Notifications, {foreignKey: 'notificationsId'});
+      Audios.hasOne(models.Notifications, {foreignKey: 'audiosId'});
     }
   }
   Audios.init(
