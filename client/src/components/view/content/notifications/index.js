@@ -31,53 +31,30 @@ class NotificationsList extends Component {
   }
 
   handleInputChange(event) {
-    console.log(event.target.value);
     this.setState({
       notificationValue: [event.target.value],
     });
   }
 
   createNotification(id) {
-    // console.log('this.state.notificationValue: ', this.state.notificationValue);
-    const notification = {id, flags: this.state.notificationValue[0]}
+    const notification = { id, flags: this.state.notificationValue[0] };
     this.props.createNotification(notification);
   }
 
-  // createNotification(id) {
-  //   const notification = {id, messageText: this.state.notificationValue[0]}
-  //   console.log('this.state.notificationValue: ', this.state.notificationValue);
-  //   this.props.createNotification(notification);
-  // }
-
-// ! for use with messageText
+  // ! for use with messageText
   updateNotification(id) {
-    const notification = {id, flags: this.state.notificationValue[0]}
-    // console.log('############# this.state.notificationValue: ', notification);
+    const notification = { id, flags: this.state.notificationValue[0] };
     this.props.updateNotification(notification);
   }
-// // !for use with message text
-//   deleteNotification(id) {
-//     const notification = {id, messageText: this.state.notificationValue[0]}
-//     console.log('this.state.notificationValue: ', id);
-//     this.props.deleteNotification(notification);
-//   }
-// ! no message text
+
+  // ! no message text
   deleteNotification(id) {
-    const notification = {id}
-    console.log('this.state.notificationValue: ', id);
+    const notification = { id };
     this.props.deleteNotification(notification);
   }
 
   render() {
     const { notificationsArray } = this.props;
-    console.log('ui notificationsArray: ', notificationsArray);
-    console.log('props: ', this.props);
-    // pull the data from state
-    // let testArray = [
-    //   'Head to the clients location.',
-    //   'Have you arrived?',
-    //   'Meet Jane at the gate.',
-    // ];
     return (
       <section className={styles.card_container}>
         <Container>
@@ -85,10 +62,6 @@ class NotificationsList extends Component {
           {notificationsArray ? (
             notificationsArray.map((notification) => (
               <>
-              {console.log("notifications/index.js", notification[1].data)}
-                {/* <p>make</p>
-            <p>notificationId: {notification[1].data.notificationId}</p> */}
-                {/* <ul> */}
                 <Card>
                   <div>
                     <CardBody className={styles.card_head}>
@@ -116,7 +89,6 @@ class NotificationsList extends Component {
           ) : (
             <p>Wait...</p>
           )}
-
           <Form>
             <FormGroup className={styles.direct_message_input_container}>
               <Input
@@ -142,7 +114,6 @@ class NotificationsList extends Component {
     );
   }
 }
-// console.log('Redux State Notifications ', notification);
 NotificationsList.propTypes = {
   id: PropTypes.string,
   notifications: PropTypes.arrayOf(

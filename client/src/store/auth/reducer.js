@@ -4,8 +4,7 @@ const startState = {
   loggedIn: !!localStorage.getItem('token'),
 };
 
-// ! handle incorrect login
-
+// ! handles incorrect login
 export default function authReducer(state = startState, action) {
   const { type, ...payload } = action;
   switch (type) {
