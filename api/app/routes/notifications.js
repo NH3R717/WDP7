@@ -47,7 +47,7 @@ router.put("/:id", notificationsCtrl.updateNotification);
 
 // DELETE /notifications/:id
 // router.delete("/:id", protectedRoute, notificationsCtrl.deleteNotification);
-router.delete("/:notificationId", notificationsCtrl.deleteNotification);
+router.delete("/:id", notificationsCtrl.deleteNotification);
 
 // ! EXPORT
 
