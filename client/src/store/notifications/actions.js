@@ -128,3 +128,20 @@ export const deleteNotification = (id) => ({
   callAPI: () => API.delete(`/notifications/${id}`),
   payload: { id },
 });
+
+
+// export const deleteNotification = (notification) => {
+  
+//   console.log("deleteNotification")
+//   return {
+//   types: [
+//     DELETE_NOTIFICATION_PENDING,
+//     DELETE_NOTIFICATION_SUCCESS,
+//     DELETE_NOTIFICATION_ERROR,
+//   ],
+  
+//   callAPI: () => API.delete(`/notifications/${notification.id}`, notification),
+//   payload: { id: notification.id },
+  
+// }
+// };
