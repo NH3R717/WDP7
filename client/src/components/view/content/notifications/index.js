@@ -42,6 +42,12 @@ class NotificationsList extends Component {
     this.props.createNotification(this.state.notificationValue);
   }
 
+  // createNotification(id) {
+  //   const notification = {id, messageText: this.state.notificationValue[0]}
+  //   console.log('this.state.notificationValue: ', this.state.notificationValue);
+  //   this.props.createNotification(notification);
+  // }
+
   updateNotification(id) {
     const notification = {id, messageText: this.state.notificationValue[0]}
     // console.log('############# this.state.notificationValue: ', notification);
@@ -50,7 +56,7 @@ class NotificationsList extends Component {
 
   deleteNotification(id) {
     console.log('this.state.notificationValue: ', id);
-    this.props.deleteNotification(this.state.notificationValue);
+    this.props.deleteNotification(this.state.notificationValue[0]);
   }
 
   render() {
@@ -70,7 +76,7 @@ class NotificationsList extends Component {
           {notificationsArray ? (
             notificationsArray.map((notification) => (
               <>
-              {console.log("∫∫∫", notification)}
+              {console.log("notifications/index.js", notification[1].data)}
                 {/* <p>make</p>
             <p>notificationId: {notification[1].data.notificationId}</p> */}
                 {/* <ul> */}
@@ -90,7 +96,7 @@ class NotificationsList extends Component {
                         Delete
                       </Button>
                       <p className={styles.notification_text}>
-                        notificationId: {notification[1].data.notificationId}
+                        {notification[1].data.flags}
                       </p>
                     </CardBody>
                   </div>

@@ -89,7 +89,7 @@ exports.updateNotification = async (req, res, next) => {
   const { id } = req.params;
   const { messageText } = req.body;
   console.log(
-    "controller/notifictions.js — updateNotification()",
+    "controller/notifications.js — updateNotification()",
     id,
     messageText
   );
@@ -113,7 +113,7 @@ exports.updateNotification = async (req, res, next) => {
 
 exports.deleteNotification = async (req, res, next) => {
   const { notificationId } = req.params;
-  console.log("controller/notifictions.js — updateNotification()");
+  console.log("controller/notifictions.js — deleteNotification()");
   try {
     const notificationText = await NotificationsTexts.destroy({
       where: {

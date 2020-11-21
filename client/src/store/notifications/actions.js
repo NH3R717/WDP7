@@ -35,7 +35,7 @@ export const fetchNotifications = () => ({
   callAPI: () => API.get(`/notifications`),
   // receives the current app state and returns true if we should call the api
   shouldCallAPI: (state) => {
-    console.log('38 action.js notification ', JSON.stringify(state.notifications));
+    console.log('38 action.js fetchNotifications ', JSON.stringify(state.notifications));
     console.log('redux state >>>®', state, '39 action.js notification ', JSON.stringify(state.notifications))
     const notification = state.notifications;
     // ! why won't the console log show up?
@@ -119,12 +119,46 @@ export const updateNotification = (notification) => ({
 });
 
 // !
-export const deleteNotification = (id) => ({
+// export const deleteNotification = (id) => ({
+//   types: [
+//     DELETE_NOTIFICATION_PENDING,
+//     DELETE_NOTIFICATION_SUCCESS,
+//     DELETE_NOTIFICATION_ERROR,
+//   ],
+//   callAPI: () => API.delete(`/notifications/${id}`),
+//   payload: { id },
+// });
+
+
+// export const deleteNotification = (notification) => ({
+  
+
+//   types: [
+//     DELETE_NOTIFICATION_PENDING,
+//     DELETE_NOTIFICATION_SUCCESS,
+//     DELETE_NOTIFICATION_ERROR,
+//   ],
+  
+//   callAPI: () => API.delete(`/notifications/${notification.id}`, notification),
+//   payload: { id: notification.id },
+  
+// });
+
+
+export const deleteNotification = (notification) => {
+  
+  console.log("deleteNotification()")
+  console.log(notification)
+
+  return {
   types: [
     DELETE_NOTIFICATION_PENDING,
     DELETE_NOTIFICATION_SUCCESS,
     DELETE_NOTIFICATION_ERROR,
   ],
-  callAPI: () => API.delete(`/notifications/${id}`),
-  payload: { id },
-});
+  // callAPI: () => API.get(`/notifications`),
+  callAPI: () => API.delete(`/notifications/${notification.id}`, notification),
+  payload: { id: notification.id }
+  
+}
+};
