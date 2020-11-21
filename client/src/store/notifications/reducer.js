@@ -20,9 +20,6 @@ import {
 const initialState = {
   // will hold each notification with ids as keys
   byId: {},
-  // an array of all the ids
-  // ! was four element array in "REQ_NOTIFICATIONS_SUCCESS" action
-  // allIds: [],
   allIds: "",
   // needed for cache state
   loadedAt: 0,
@@ -44,8 +41,6 @@ function notificationsPending(state, action) {
 }
 
 function notificationsSuccess(state, action) {
-  console.log("Success ", action)
-  // clear loading and error, update cache time, add notifications
   return {
     ...state,
     isLoading: false,

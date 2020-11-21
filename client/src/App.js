@@ -5,9 +5,6 @@ import styles from './app.module.css';
 import { Provider } from 'react-redux';
 // Import the store to use
 import store from './store';
-
-// ! protected routes – https://medium.com/javascript-in-plain-english/how-to-set-up-protected-routes-in-your-react-application-a3254deda380
-
 // route imports
 import Header from './components/sub/header';
 import Footer from './components/sub/buttons';

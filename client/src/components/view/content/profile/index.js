@@ -5,7 +5,6 @@ import {
   CardTitle,
   CardSubtitle,
   CardText,
-  // CardLink,
   Container,
   Button,
   Form,
@@ -27,8 +26,6 @@ class Profile extends Component {
     const { avatar_img_blue, username, description, bio } = this.props;
     return (
       <section className={styles.card_container}>
-        {/* profile */}
-
         <Card>
           <div>
             <CardBody className={styles.card_head}>
@@ -38,11 +35,6 @@ class Profile extends Component {
                 alt="user avatar"
               />
               <CardTitle className={styles.username}>{username}</CardTitle>
-              {/* <img
-                className={styles.card_thumb}
-                src={sample_thumbnail}
-                alt="notification media thumbnail"
-              /> */}
               <CardSubtitle>{description}</CardSubtitle>
             </CardBody>
           </div>
@@ -50,9 +42,6 @@ class Profile extends Component {
             <CardText className={styles.user_bio}>{bio}</CardText>
           </CardBody>
         </Card>
-
-        {/* profile form */}
-
         <Container className={styles.form_container}>
           <div className={styles.form_box}>
             <h2>Profile</h2>

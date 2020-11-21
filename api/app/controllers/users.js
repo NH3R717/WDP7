@@ -1,14 +1,11 @@
 const axios = require("axios");
 const { Users, Sequelize } = require("../models");
 const { throwError, throwIf, sendError } = require("../utils/errorHandeling");
-// const AWS = require("aws-sdk");
 const uuid = require("uuid").v4;
 
 exports.createUser = async (req, res, next) => {
-  console.log("® controller users.js createUser ");
   try {
     const { username } = req.body;
-    console.log("® controller users.js", username);
     const user = await users
       .create({ username })
       .catch(Sequelize.ValidationError, throwError(201, "Validation Errors"))
@@ -18,7 +15,6 @@ exports.createUser = async (req, res, next) => {
       );
     Sequelize.BaseError,
       throwError(201, '"A database error has ocurred, try again."');
-    console.log("® controller users.js", user);
     res.status(201).json(user);
     // res.json(user);
   } catch (e) {
@@ -26,20 +22,17 @@ exports.createUser = async (req, res, next) => {
   }
 };
 exports.readUsers = async (req, res, next) => {
-  console.log("® controller users.js getAllUsers ");
   try {
     const usersAll = await Users.findAll().catch(
       throwError(500, "A database error has ocurred, try again.")
     );
     res.json(usersAll);
-    console.log("® controller users.js getAllUsers " + usersAll);
   } catch (e) {
     next(e);
   }
 };
 
 exports.readUser = async (req, res, next) => {
-  console.log("® controller users.js getOneByIdUser ");
   try {
     const { id } = req.params;
     const userOne = await users.findByPk(id).then(
@@ -53,7 +46,6 @@ exports.readUser = async (req, res, next) => {
 };
 
 exports.updateUser = async (req, res, next) => {
-  console.log("® controller users.js updateUser ");
   const id = req.userId;
   const { username, email, password, position, about, avatar } = req.body;
 
@@ -107,7 +99,6 @@ exports.updateUser = async (req, res, next) => {
 };
 
 exports.deleteUser = async (req, res, next) => {
-  console.log("® controller users.js deleteUser ");
   try {
     const { id } = req.body;
     const user = await users

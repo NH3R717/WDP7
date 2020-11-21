@@ -2,13 +2,7 @@
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Users extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      // define association here
     }
   }
   Users.init(
@@ -44,16 +38,6 @@ module.exports = (sequelize, DataTypes) => {
           //   args: [8, 20],
           //   msg: "Password must be between 6-20 characters.",
           // },
-        },
-      },
-      position: DataTypes.ENUM("technician", "management", "admin"),
-      position: {
-        type: DataTypes.ENUM("technician", "management", "admin"),
-        validate: {
-          isIn: {
-            args: ["technician", "management", "admin"],
-            msg: "Chose a position.",
-          },
         },
       },
       about: DataTypes.STRING,

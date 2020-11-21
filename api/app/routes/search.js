@@ -17,20 +17,3 @@ const protectedRoute = require("../utils/protectedRoute");
 // ! EXPORT
 
 module.exports = router;
-
-// ! (not a functional need in app)
-
-// GET /searchs/:id
-// router.get("/:id", protectedRoute, searchCtrl.getOneById);
-
-// POST /search
-// router.post("/", protectedRoute, searchCtrl.createSearch);
-
-// GET (user's by id) /search{?id}
-// router.get("/", protectedRoute, searchCtrl.readUserSearch);
-
-// PUT /search/:id –
-// router.put("/:id", protectedRoute, searchCtrl.updateSearch);
-
-// DELETE /search/:id
-// router.delete("/:id", protectedRoute, searchCtrl.deleteSearch);

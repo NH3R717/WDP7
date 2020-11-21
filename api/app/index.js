@@ -1,8 +1,3 @@
-// ToDO
-// !
-// *
-// ?
-
 // ! PACKAGE IMPORTS
 
 const error = require("debug")("api:error");
