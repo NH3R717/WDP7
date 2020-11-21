@@ -3,21 +3,10 @@ import API from '../../API';
 import { shouldLoad } from '../utils';
 
 import {
-  REQ_NOTIFICATIONS_PENDING,
-  REQ_NOTIFICATIONS_SUCCESS,
-  REQ_NOTIFICATIONS_ERROR,
-  // REQ_NOTIFICATION_PENDING,
-  // REQ_NOTIFICATION_SUCCESS,
-  // REQ_NOTIFICATION_ERROR,
-  ADD_NOTIFICATION_PENDING,
-  ADD_NOTIFICATION_SUCCESS,
-  ADD_NOTIFICATION_ERROR,
-  UPDATE_NOTIFICATION_PENDING,
-  UPDATE_NOTIFICATION_SUCCESS,
-  UPDATE_NOTIFICATION_ERROR,
-  DELETE_NOTIFICATION_PENDING,
-  DELETE_NOTIFICATION_SUCCESS,
-  DELETE_NOTIFICATION_ERROR,
+  REQ_NOTIFICATIONSTEXT_PENDING,
+  REQ_NOTIFICATIONSTEXT_SUCCESS,
+  REQ_NOTIFICATIONSTEXT_ERROR,
+
 } from '../actionTypes';
 
 // cache data for 5 minutes
@@ -49,44 +38,6 @@ export const fetchNotifications = () => ({
     return !loadedAt || !isCached;
   },
 });
-
-// ! alternate get all
-// export const fetchNotifications = () => async (dispatch, getState) => {
-//   const { notifications: { notificationsLoadedAt } } = getState();
-//   if (!shouldLoad(notificationsLoadedAt)) return;
-//   const userNotification = await API.get('/notifications');
-//   dispatch({ type: [
-//         REQ_NOTIFICATIONS_PENDING,
-//         REQ_NOTIFICATIONS_SUCCESS,
-//         REQ_NOTIFICATIONS_ERROR,
-//       ], userNotifications });
-// };
-
-// !
-// export const fetchNotifications = () => ({
-//   // types for this action - "request, success, error"
-//   types: [
-//     REQ_NOTIFICATIONS_PENDING,
-//     REQ_NOTIFICATIONS_SUCCESS,
-//     REQ_NOTIFICATIONS_ERROR,
-//   ],
-//   //  a function used to call the api
-//   // callAPI: () => API.get(`/notifications/${id}`),
-//   callAPI: () => API.get(`/notifications`),
-//   // receives the current app state and returns true if we should call the api
-//   shouldCallAPI: (state) => {
-//     console.log('redux state >>>>', state)
-//     const notification = state.notifications;
-//     // console.log('38 action.js notification ' + JSON.stringify(notification));
-//     const { loadedAt, isLoading } = notification;
-//     // if notification notifications are currently loading don't call again
-//     if (!notification || isLoading) return false;
-
-//     const isCached = Date.now() - loadedAt < CACHE_TIME;
-//     // if we don't have the notification notification or it's beyond the cache timeout make the api call
-//     return !loadedAt || !isCached;
-//   },
-// });
 
 // !
 export const createNotification = (notificationText) => {

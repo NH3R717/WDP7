@@ -25,6 +25,7 @@
 
 .notification_text {
   display: flex;
+  color: var(--brand-grey-1);
   padding-right: 2em;
   margin: 0 0 0 0.6em;
   width: 30em;

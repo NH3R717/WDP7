@@ -39,7 +39,7 @@ router.get("/", protectedRoute, notificationsCtrl.readNotifications);
 
 // GET (user's by id) /notifications/user/:id
 // router.get( "/user/:id",protectedRoute,notificationsCtrl.readUserNotifications);
-router.get("/user/:id", notificationsCtrl.readUserNotifications);
+// router.get("/user/:id", notificationsCtrl.readUserNotifications);
 
 // PUT /notifications/:id –
 // router.put("/:id", protectedRoute, notificationsCtrl.updateNotification);
@@ -47,7 +47,7 @@ router.put("/:id", notificationsCtrl.updateNotification);
 
 // DELETE /notifications/:id
 // router.delete("/:id", protectedRoute, notificationsCtrl.deleteNotification);
-router.delete("/:id", notificationsCtrl.deleteNotification);
+router.delete("/:notificationId", notificationsCtrl.deleteNotification);
 
 // ! EXPORT
 

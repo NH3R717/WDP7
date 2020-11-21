@@ -42,13 +42,14 @@ class NotificationsList extends Component {
     this.props.createNotification(this.state.notificationValue);
   }
 
-  updateNotification() {
-    console.log('this.state.notificationValue: ', this.state.notificationValue);
-    this.props.updateNotification(this.state.notificationValue);
+  updateNotification(id) {
+    const notification = {id, messageText: this.state.notificationValue[0]}
+    // console.log('############# this.state.notificationValue: ', notification);
+    this.props.updateNotification(notification);
   }
 
-  deleteNotification() {
-    console.log('this.state.notificationValue: ', this.state.notificationValue);
+  deleteNotification(id) {
+    console.log('this.state.notificationValue: ', id);
     this.props.deleteNotification(this.state.notificationValue);
   }
 
@@ -69,6 +70,7 @@ class NotificationsList extends Component {
           {notificationsArray ? (
             notificationsArray.map((notification) => (
               <>
+              {console.log("∫∫∫", notification)}
                 {/* <p>make</p>
             <p>notificationId: {notification[1].data.notificationId}</p> */}
                 {/* <ul> */}
@@ -77,22 +79,19 @@ class NotificationsList extends Component {
                     <CardBody className={styles.card_head}>
                       <Button
                         className={styles.direct_message_button}
-                        onClick={this.updateNotification}
+                        onClick={() => this.updateNotification(notification[0])}
                       >
                         Update
                       </Button>
                       <Button
                         className={styles.direct_message_button}
-                        onClick={this.deleteNotification}
+                        onClick={() => this.deleteNotification(notification[0])}
                       >
                         Delete
                       </Button>
                       <p className={styles.notification_text}>
                         notificationId: {notification[1].data.notificationId}
                       </p>
-                      <CardTitle
-                        className={notification[1].data.notificationId}
-                      ></CardTitle>
                     </CardBody>
                   </div>
                 </Card>
@@ -116,7 +115,7 @@ class NotificationsList extends Component {
               <Link to="/notifications">
                 <Button
                   className={styles.direct_message_button}
-                  onClick={this.newNotification}
+                  onClick={this.createNotification}
                 >
                   Add
                 </Button>
