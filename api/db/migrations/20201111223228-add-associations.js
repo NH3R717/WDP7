@@ -18,7 +18,7 @@ module.exports = {
       .then(() => {
         return queryInterface.addColumn(
           'Notifications',
-          'notificationsTextsId',
+          'notificationTextId',
           {
             type: Sequelize.UUID,
             references: {
@@ -70,7 +70,7 @@ module.exports = {
       .then(() => {
         return queryInterface.removeColumn(
           'Notifications',
-          'notificationsTextsId',
+          'notificationTextId',
         );
       })
       .then(() => {

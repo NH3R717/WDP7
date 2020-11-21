@@ -10,7 +10,7 @@ module.exports = {
         unique: true,
         // references: {
         //   model: "Notifications",
-        //   key: "notificationsTextsId",
+        //   key: "notificationTextId",
         // },
       },
       notificationId: {
@@ -37,7 +37,7 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    // await queryInterface.removeColumn("Notifications", "notificationsTextsId");
+    // await queryInterface.removeColumn("Notifications", "notificationTextId");
     await queryInterface.dropTable("NotificationsTexts");
   },
 };

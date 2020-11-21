@@ -20,6 +20,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
       },
+      // notificationId: {
+      //   type: DataTypes.STRING,
+      // },
       audioLink1: DataTypes.STRING,
       audioLink2: DataTypes.STRING,
     },

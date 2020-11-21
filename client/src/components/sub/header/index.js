@@ -12,8 +12,8 @@ class Header extends Component {
           {loggedIn && (
             <>
               <Navbar className={styles.header_nav}>
-                <NavLink className={styles.nav_link} href="/search">
-                  search
+                <NavLink className={styles.nav_link} href="https://superscafe.com/">
+                  home
                 </NavLink>
                 <NavLink className={styles.nav_link} href="/profile">
                   profile

@@ -21,45 +21,29 @@ module.exports = {
       flags: {
         type: Sequelize.STRING,
       },
-      // notificationsTextsId: {
-      //   type: Sequelize.UUID,
+      // notificationTextId: {
+      //   type: Sequelize.STRING,
       //   unique: true,
       //   onUpdate: "CASCADE",
-      //   onDelete: 'SET NULL',
-      //   // references: {
-      //   //   model: "NotificationsTexts",
-      //   //   key: "id",
-      //   // },
-      // },
+      //   onDelete: 'SET NULL'
+      // }
       // imagesId: {
-      //   type: Sequelize.UUID,
+      //   type: Sequelize.STRING,
       //   unique: true,
       //   onUpdate: "CASCADE",
-      //   onDelete: 'SET NULL',
-      //   // references: {
-      //   //   model: "images",
-      //   //   key: "id",
-      //   // },
+      //   onDelete: 'SET NULL'
       // },
       // audiosId: {
-      //   type: Sequelize.UUID,
+      //   type: Sequelize.STRING,
       //   unique: true,
       //   onUpdate: "CASCADE",
-      //   onDelete: 'SET NULL',
-      //   // references: {
-      //   //   model: "audios",
-      //   //   key: "id",
-      //   // },
+      //   onDelete: 'SET NULL'
       // },
       // videosId: {
-      //   type: Sequelize.UUID,
+      //   type: Sequelize.STRING,
       //   unique: true,
       //   onUpdate: "CASCADE",
-      //   onDelete: 'SET NULL',
-      //   // references: {
-      //   //   model: "videos",
-      //   //   key: "id",
-      //   // },
+      //   onDelete: 'SET NULL'
       // },
       createdAt: {
         allowNull: false,

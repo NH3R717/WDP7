@@ -20,6 +20,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
       },
+      // notificationId: {
+      //   type: DataTypes.STRING,
+      // },
       imageLink1: DataTypes.STRING,
       imageLink2: DataTypes.STRING,
       imageLink3: DataTypes.STRING,

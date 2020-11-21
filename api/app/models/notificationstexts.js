@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
       },
+      // !√
+      notificationId: {
+        type: DataTypes.STRING,
+      },
       messageText: {
         type: DataTypes.STRING,
         // validate: {
@@ -30,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
 
   NotificationsTexts.associate = (models) => {
     NotificationsTexts.belongsTo(models.Notifications, {foreignKey: 'notificationId'});
-    NotificationsTexts.hasOne(models.Notifications, {foreignKey: 'notificationsTextsId'});
+    NotificationsTexts.hasOne(models.Notifications, {foreignKey: 'notificationTextId'});
   }
 
   return NotificationsTexts;

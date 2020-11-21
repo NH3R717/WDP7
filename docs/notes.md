@@ -18,6 +18,7 @@ sequelize int
 - npx sequelize db:migrate:undo:all
 - npx sequelize db:migrate:undo --name 20201028123541-create-users && npx sequelize db:migrate:undo --name 20201028123542-create-notifications && npx sequelize db:migrate:undo:all
 
+
 - npx sequelize-cli db:seed:all
 - npx sequelize-cli db:seed:undo:all
 
@@ -133,3 +134,11 @@ npm i eslint --save-dev && npm i eslint-config-airbnb --save-dev && npm i eslint
                 </CardBody>
               </div>
             </Card>
+
+
+            {notificationsArray ? notificationsArray.map((notification) => (
+            <>
+            <p>make</p>
+            <p>notificationId: {notification[1].data.notificationId}</p>
+            </>
+          )) : <p>Wait...</p>}
