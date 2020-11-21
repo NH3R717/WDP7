@@ -11,10 +11,9 @@ class Login_Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // ! make this dynamic – 
+      // ! make this dynamic –
       register: false,
     };
-    console.log("login props ", props)
   }
 
   handleInputChange = (event) => {
@@ -31,19 +30,13 @@ class Login_Register extends Component {
     event.preventDefault();
     const { email, password } = this.state;
     const { loginUser } = this.props;
-    console.log(email, password);
     await loginUser({ email, password });
-    this.props.history.push("/notifications")
-    // ! a programatic routing – https://dev.to/projectescape/programmatic-navigation-in-react-3p1l
+    this.props.history.push('/notifications');
   };
 
   // ! switch view to register
   toRegisterButton = async (event) => {
     event.preventDefault();
-    // const { email, password } = this.state;
-    // const { loginUser } = this.props;
-    // console.log(email, password);
-    // await loginUser({email, password});
   };
 
   // ! switch view to register
@@ -118,13 +111,12 @@ class Login_Register extends Component {
                     />
                   </FormGroup>
                   <Link to="/notifications">
-                  <Button
-                    className={styles.left_button + ' ' + styles.button}
-                    onClick={this.loginButton}
-                    
-                  >
-                    Login
-                  </Button>
+                    <Button
+                      className={styles.left_button + ' ' + styles.button}
+                      onClick={this.loginButton}ß
+                    >
+                      Login
+                    </Button>
                   </Link>
                   <Button
                     className={styles.center_button}
@@ -203,10 +195,4 @@ Login_Register.propTypes = {
   register: PropTypes.bool,
 };
 
-// Login_Register.defaultProps = {
-//   register: false,
-// };
-
-// export default Login_Register;
-// Wrap your component with the container
 export default container(Login_Register);

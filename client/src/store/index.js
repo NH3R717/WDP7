@@ -14,7 +14,7 @@ import audio from './audio/reducer';
 import video from './video/reducer';
 
 const rootReducer = combineReducers({
-  //list all imported reducers
+  //! list all imported reducers
   auth,
   notifications,
   direct_messages,

@@ -19,17 +19,16 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
       },
-      // flags: DataTypes.ENUM("office", "shop", "field", "all"),
       flags: {
         type: DataTypes.STRING,
-        // validate: {
-        //   isIn: {
-        //     args: ["office", "shop", "field", "all"],
-        //     msg: "Flag your message, who's it for?",
+       // validate: {
+        //   len: {
+        //     args: [1, 300],
+        //     msg:
+        //       'Message is to long, make it less than 300 characters (that\'s 2 "Tweets")',
         //   },
         // },
       },
-      // ! x
       notificationTextId: {
         type: DataTypes.STRING,
       },
