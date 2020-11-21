@@ -1,4 +1,3 @@
-// ! goes in all actions
 import API from '../../API';
 import { SET_LOGGED_IN } from '../actionTypes';
 
@@ -7,7 +6,6 @@ export const logout = () => {
   return { type: SET_LOGGED_IN, loggedIn: false };
 };
 
-// ! Hook up this function
 export const loginUser = ({ email, password }) => async (dispatch) => {
   const { token, loggedIn } = await API.post('/auth/login', { email, password });
   localStorage.setItem('token', token);

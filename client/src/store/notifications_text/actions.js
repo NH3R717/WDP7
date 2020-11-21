@@ -20,7 +20,6 @@ export const fetchNotifications = () => ({
     REQ_NOTIFICATIONS_ERROR,
   ],
   //  a function used to call the api
-  // callAPI: () => API.get(`/notifications/${id}`),
   callAPI: () => API.get(`/notifications`),
   // receives the current app state and returns true if we should call the api
   shouldCallAPI: (state) => {

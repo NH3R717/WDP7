@@ -1,7 +1,6 @@
 const axios = require("axios");
 const { Users, Sequelize } = require("../models");
 const { throwError, throwIf, sendError } = require("../utils/errorHandeling");
-// const AWS = require("aws-sdk");
 const uuid = require("uuid").v4;
 
 exports.createUser = async (req, res, next) => {

@@ -39,7 +39,6 @@ export default function callAPIMiddleware({ dispatch, getState }) {
       type: requestType,
     });
     try {
-      // ! returning not res.data, (res.notificationsAll)
       const res = await callAPI();
       dispatch({
         ...props,

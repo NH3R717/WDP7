@@ -21,7 +21,7 @@ exports.signup = async (req, res) => {
       email,
       password,
     });
-
+    // generate json web token for login token
     const token = jwt.sign({ id: user.id }, process.env.SECRET);
     res.json({ token, loggedIn: true });
   } catch (e) {
