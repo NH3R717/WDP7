@@ -96,7 +96,7 @@ class NotificationsList extends Component {
                         Delete
                       </Button>
                       <p className={styles.notification_text}>
-                        "notificationId": {notification[1].data.notificationId}
+                        {notification[1].data.flags}
                       </p>
                     </CardBody>
                   </div>
