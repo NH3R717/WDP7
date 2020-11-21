@@ -120,7 +120,8 @@ export const updateNotification = (notification) => {
   ],
   callAPI: () => API.put(`/notifications/${notification.id}`, notification),
   payload: { id: notification.id },
-}};
+}
+};
 
 // !
 // export const deleteNotification = (id) => ({
