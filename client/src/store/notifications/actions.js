@@ -87,14 +87,16 @@ export const fetchNotifications = () => ({
 //     return !loadedAt || !isCached;
 //   },
 // });
-
+// action>>>   Object { id: {…}, flags: "123" }
+// action>>>  123
 // !
-export const createNotification = (notificationText) => {
+export const createNotification = ({flags}) => {
+// export const createNotification = ({flags}) => {
   // create a uuid for this notification so that we can use it in the reducer for pending and loading
-  console.log("action>>> ",{notificationText})
+  console.log("action>>> ",flags)
   const id = uuid();
   
-  console.log({id})
+  console.log("actions.js createNotification()", {id})
   return {
     types: [
       ADD_NOTIFICATION_PENDING,
@@ -102,13 +104,15 @@ export const createNotification = (notificationText) => {
       ADD_NOTIFICATION_ERROR,
     ],
     // ! 
-    callAPI: () => API.post('/notifications', { notificationText, id }),
+    callAPI: () => API.post('/notifications', { flags, id }),
     payload: { id },
   };
 };
 
 // !
-export const updateNotification = (notification) => ({
+export const updateNotification = (notification) => {
+  console.log("action.js/updateNotification()", notification)
+  return {
   types: [
     UPDATE_NOTIFICATION_PENDING,
     UPDATE_NOTIFICATION_SUCCESS,
@@ -116,7 +120,7 @@ export const updateNotification = (notification) => ({
   ],
   callAPI: () => API.put(`/notifications/${notification.id}`, notification),
   payload: { id: notification.id },
-});
+}};
 
 // !
 // export const deleteNotification = (id) => ({
@@ -147,8 +151,7 @@ export const updateNotification = (notification) => ({
 
 export const deleteNotification = (notification) => {
   
-  console.log("deleteNotification()")
-  console.log(notification)
+  console.log("actions.js/deleteNotification()", notification)
 
   return {
   types: [
@@ -157,7 +160,7 @@ export const deleteNotification = (notification) => {
     DELETE_NOTIFICATION_ERROR,
   ],
   // callAPI: () => API.get(`/notifications`),
-  callAPI: () => API.delete(`/notifications/${notification.id}`, notification),
+  callAPI: () => API.delete(`/notifications/${notification}`, notification),
   payload: { id: notification.id }
   
 }
