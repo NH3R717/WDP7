@@ -4,7 +4,6 @@ import {
   Input,
   Card,
   CardBody,
-  CardTitle,
   Container,
   Form,
   FormGroup,
@@ -22,6 +21,7 @@ class NotificationsList extends Component {
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.createNotification = this.createNotification.bind(this);
     this.updateNotification = this.updateNotification.bind(this);
     this.deleteNotification = this.deleteNotification.bind(this);
   }
@@ -37,9 +37,10 @@ class NotificationsList extends Component {
     });
   }
 
-  createNotification() {
-    console.log('this.state.notificationValue: ', this.state.notificationValue);
-    this.props.createNotification(this.state.notificationValue);
+  createNotification(id) {
+    // console.log('this.state.notificationValue: ', this.state.notificationValue);
+    const notification = {id, flags: this.state.notificationValue[0]}
+    this.props.createNotification(notification);
   }
 
   // createNotification(id) {

@@ -12,8 +12,8 @@ exports.createNotification = async (req, res) => {
   // console.log("incoming data: ", req.user.id, notificationText, id);
   try {
     const newNotifications = await Notifications.create({
-      usersId: req.user.id,
-      notificationId: id,
+      // usersId: req.user.id,
+      // notificationId: id,
       flags: flags,
       // notificationTextId: notificationTextId,
     })
@@ -168,38 +168,61 @@ exports.updateNotification = async (req, res, next) => {
 //   }
 // };
 
+exports.deleteNotification = async (req, res, next) => {
+  const { id } = req.params;
+  console.log("req.params,", req.params);
+  console.log("req.body,", req.body);
+  console.log("controller/notifictions.js — deleteNotification()", id);
+  try {
+    const [, [deleteNotification]] = await Notifications.destroy(req.body, {
+      where: { id },
+      returning: true,
+    })
+    .catch(Sequelize.ValidationError, throwError(422, "Validation Error"))
+    .catch(Sequelize.BaseError, throwError(500, "Sequelize error"));
+  res.status(200).json(deleteNotification);
+} catch (e) {
+  console.log("®DELETE ERROR", e);
+  next(e);
+}
+};
+
 // exports.deleteNotification = async (req, res, next) => {
+//   console.log("® controller notifications.js deletePost ")
 //   const { id } = req.params;
-//   console.log("req.params,", req.params);
-//   console.log("req.body,", req.body);
-//   console.log("controller/notifictions.js — deleteNotification()", id);
 //   try {
-//     const [, [deleteNotification]] = await Notifications.destroy(req.body, {
+//     const [, [deleteNotification]] = await Notifications.update(req.body, {
 //       where: { id },
 //       returning: true,
 //     })
-//     .catch(Sequelize.ValidationError, throwError(422, "Validation Error"))
-//     .catch(Sequelize.BaseError, throwError(500, "Sequelize error"));
-//   res.status(200).json(deleteNotification);
-// } catch (e) {
-//   console.log("UPDATE ERROR", e);
-//   next(e);
-// }
+//           .catch(Sequelize.ValidationError, throwError(201, 'Validation Errors'))
+//           .catch(Sequelize.BaseError, throwError(500, 'A database error has ocurred, try again.'))
+//       res.status(200).json(deleteNotification);
+//   } catch (e) {
+//       next(e)
+//   }
 // };
 
-
-exports.deleteNotification = async (req, res, next) => {
-  console.log("® controller notifications.js deletePost ")
-  try {
-      const { id } = req.params;
-      const notification = await Notifications.destroy({ where: { id } })
-          .catch(Sequelize.ValidationError, throwError(201, 'Validation Errors'))
-          .catch(Sequelize.BaseError, throwError(500, 'A database error has ocurred, try again.'))
-      res.status(200).json(notification);
-  } catch (e) {
-      next(e)
-  }
-};
+// exports.deleteNotification = async (req, res, next) => {
+//   const { id } = req.params;
+//   console.log("controller/notifications.js — deleteNotification()", id);
+//   console.log("req.body", req.body);
+//   console.log("req.params", req.params);
+//   try {
+    
+//           // const [, [deleteNotification]] = await Notifications.destroy(req.params, {
+//           //   where: { id },
+//           //   returning: true,
+//           // })
+//       // const { id } = req.params;
+//       const deleteNotification = await Notifications.destroy({ where: { id } })
+//           .catch(Sequelize.ValidationError, throwError(201, 'Validation Errors'))
+//           .catch(Sequelize.BaseError, throwError(500, 'A database error has ocurred, try again.'))
+//       res.status(200).json(deleteNotification);
+//   } catch (e) {
+//       next(e)
+//   }
+// };
 // ! Hold
 
 // exports.getOneById = async (req, res) => {

@@ -87,14 +87,16 @@ export const fetchNotifications = () => ({
 //     return !loadedAt || !isCached;
 //   },
 // });
-
+// action>>>   Object { id: {…}, flags: "123" }
+// action>>>  123
 // !
-export const createNotification = (notificationText) => {
+export const createNotification = ({flags}) => {
+// export const createNotification = ({flags}) => {
   // create a uuid for this notification so that we can use it in the reducer for pending and loading
-  console.log("action>>> ",{notificationText})
+  console.log("action>>> ",flags)
   const id = uuid();
   
-  console.log({id})
+  console.log("actions.js createNotification()", {id})
   return {
     types: [
       ADD_NOTIFICATION_PENDING,
@@ -102,7 +104,7 @@ export const createNotification = (notificationText) => {
       ADD_NOTIFICATION_ERROR,
     ],
     // ! 
-    callAPI: () => API.post('/notifications', { notificationText, id }),
+    callAPI: () => API.post('/notifications', { flags, id }),
     payload: { id },
   };
 };
@@ -116,7 +118,7 @@ export const updateNotification = (notification) => {
     UPDATE_NOTIFICATION_SUCCESS,
     UPDATE_NOTIFICATION_ERROR,
   ],
-  callAPI: () => API.put(`/notifications/${notification}`, notification),
+  callAPI: () => API.put(`/notifications/${notification.id}`, notification),
   payload: { id: notification.id },
 }};
 
