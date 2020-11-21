@@ -109,14 +109,14 @@ export const createNotification = (notificationText) => {
 
 // !
 export const updateNotification = (notification) => {
-  console.log("updateNotification()", notification)
+  console.log("action.js/updateNotification()", notification)
   return {
   types: [
     UPDATE_NOTIFICATION_PENDING,
     UPDATE_NOTIFICATION_SUCCESS,
     UPDATE_NOTIFICATION_ERROR,
   ],
-  callAPI: () => API.put(`/notifications/${notification.id}`, notification),
+  callAPI: () => API.put(`/notifications/${notification}`, notification),
   payload: { id: notification.id },
 }};
 
@@ -149,7 +149,7 @@ export const updateNotification = (notification) => {
 
 export const deleteNotification = (notification) => {
   
-  console.log("deleteNotification()", notification)
+  console.log("actions.js/deleteNotification()", notification)
 
   return {
   types: [

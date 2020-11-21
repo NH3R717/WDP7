@@ -62,7 +62,7 @@ class NotificationsList extends Component {
 //   }
 // ! no message text
   deleteNotification(id) {
-    const notification = {id, flags: this.state.notificationValue[0]}
+    const notification = {id}
     console.log('this.state.notificationValue: ', id);
     this.props.deleteNotification(notification);
   }
