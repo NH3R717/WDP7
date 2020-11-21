@@ -50,7 +50,7 @@ class NotificationsList extends Component {
 
 // ! for use with messageText
   updateNotification(id) {
-    const notification = {id, messageText: this.state.notificationValue[0]}
+    const notification = {id, flags: this.state.notificationValue[0]}
     // console.log('############# this.state.notificationValue: ', notification);
     this.props.updateNotification(notification);
   }
@@ -62,7 +62,7 @@ class NotificationsList extends Component {
 //   }
 // ! no message text
   deleteNotification(id) {
-    const notification = {id, messageText: this.state.notificationValue[0]}
+    const notification = {id, flags: this.state.notificationValue[0]}
     console.log('this.state.notificationValue: ', id);
     this.props.deleteNotification(notification);
   }

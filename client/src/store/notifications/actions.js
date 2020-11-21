@@ -108,7 +108,9 @@ export const createNotification = (notificationText) => {
 };
 
 // !
-export const updateNotification = (notification) => ({
+export const updateNotification = (notification) => {
+  console.log("updateNotification()", notification)
+  return {
   types: [
     UPDATE_NOTIFICATION_PENDING,
     UPDATE_NOTIFICATION_SUCCESS,
@@ -116,7 +118,7 @@ export const updateNotification = (notification) => ({
   ],
   callAPI: () => API.put(`/notifications/${notification.id}`, notification),
   payload: { id: notification.id },
-});
+}};
 
 // !
 // export const deleteNotification = (id) => ({
@@ -147,8 +149,7 @@ export const updateNotification = (notification) => ({
 
 export const deleteNotification = (notification) => {
   
-  console.log("deleteNotification()")
-  console.log(notification)
+  console.log("deleteNotification()", notification)
 
   return {
   types: [
