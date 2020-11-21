@@ -87,6 +87,34 @@ exports.readNotificationsTexts = async (req, res, next) => {
 //   }
 // };
 
+// ! for with messageText.NotificationText
+
+exports.updateNotification = async (req, res, next) => {
+  const { id } = req.params;
+  const { messageText } = req.body;
+  console.log(
+    "controller/notifications.js — updateNotification()",
+    id,
+    messageText
+  );
+  try {
+    const [, [messageTextfromDB]] = await NotificationsTexts.update(req.body, {
+      where: { id },
+      returning: true,
+    })
+      .catch(Sequelize.ValidationError, throwError(406, "Validation Error"))
+      .catch(
+        Sequelize.BaseError,
+        throwError(500, "A database erorr has occured")
+      );
+    console.log(">>>>", messageTextfromDB);
+    res.status(202).json(messageTextfromDB);
+  } catch (e) {
+    console.log("ERROR", e);
+    next(e);
+  }
+};
+
 exports.updateNotification = async (req, res, next) => {
   const { id } = req.params;
   const { messageText } = req.body;
