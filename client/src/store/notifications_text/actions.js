@@ -65,7 +65,7 @@ export const updateNotification = (notification) => ({
     UPDATE_NOTIFICATION_SUCCESS,
     UPDATE_NOTIFICATION_ERROR,
   ],
-  callAPI: () => API.put(`/notifications/${notification.id}`, notification),
+  callAPI: () => API.put(`/notifications/${notification.notificationId}`, notification),
   payload: { id: notification.id },
 });
 
