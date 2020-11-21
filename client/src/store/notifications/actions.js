@@ -160,7 +160,7 @@ export const deleteNotification = (notification) => {
     DELETE_NOTIFICATION_ERROR,
   ],
   // callAPI: () => API.get(`/notifications`),
-  callAPI: () => API.delete(`/notifications/${notification}`, notification),
+  callAPI: () => API.delete(`/notifications/${notification.id}`, notification),
   payload: { id: notification.id }
   
 }
