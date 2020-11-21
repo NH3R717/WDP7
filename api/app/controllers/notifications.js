@@ -7,28 +7,30 @@ const { throwIf, throwError, sendError } = require("../utils/errorHandeling");
 exports.createNotification = async (req, res) => {
   console.log("api/controllers/notifications.js – createNotification()");
   // const notificationId = uuid(),
-  const { notificationText, id, notificationTextId } = req.body;
+  const { notificationText, id, flags, notificationTextId } = req.body;
   console.log("incoming data: ", req.body);
   // console.log("incoming data: ", req.user.id, notificationText, id);
   try {
     const newNotifications = await Notifications.create({
       usersId: req.user.id,
       notificationId: id,
-      notificationTextId: notificationTextId,
+      flags: flags
+      // notificationTextId: notificationTextId,
     })
       .catch(Sequelize.ValidationError, throwError(422, "Validation Error"))
       .catch(throwError(500, "sequelize error for notification"));
     // ! how to get this NotificationsTexts.id to show up in Notifications.notificationTextId?
-    const newTextsforNotifications = await NotificationsTexts.create({
-      messageText: notificationText,
-      notificationId: id,
-      notificationTextId: notificationTextId,
-    })
-      .catch(Sequelize.ValidationError, throwError(422, "Validation Error"))
-      .catch(throwError(500, "sequelize error for text"));
+    // const newTextsforNotifications = await NotificationsTexts.create({
+    //   messageText: notificationText,
+    //   notificationId: id,
+    //   notificationTextId: notificationTextId,
+    // })
+    //   .catch(Sequelize.ValidationError, throwError(422, "Validation Error"))
+    //   .catch(throwError(500, "sequelize error for text"));
     // res.status(200).json({ newNotifications });
     // res.status(200).json({newNotifications, messageText: newTextsforNotifications.messageText});
-    res.status(200).json({ newNotifications, newTextsforNotifications });
+    // res.status(200).json({ newNotifications, newTextsforNotifications });
+    res.status(200).json({ newNotifications });
   } catch (e) {
     console.log(
       "api/controllers/notifications.js – createNotification() – !error"
@@ -84,6 +86,34 @@ exports.readNotificationsTexts = async (req, res, next) => {
 //     next(e);
 //   }
 // };
+
+// ! for with messageText.NotificationText
+
+exports.updateNotification = async (req, res, next) => {
+  const { id } = req.params;
+  const { messageText } = req.body;
+  console.log(
+    "controller/notifications.js — updateNotification()",
+    id,
+    messageText
+  );
+  try {
+    const [, [messageTextfromDB]] = await NotificationsTexts.update(req.body, {
+      where: { id },
+      returning: true,
+    })
+      .catch(Sequelize.ValidationError, throwError(406, "Validation Error"))
+      .catch(
+        Sequelize.BaseError,
+        throwError(500, "A database erorr has occured")
+      );
+    console.log(">>>>", messageTextfromDB);
+    res.status(202).json(messageTextfromDB);
+  } catch (e) {
+    console.log("ERROR", e);
+    next(e);
+  }
+};
 
 exports.updateNotification = async (req, res, next) => {
   const { id } = req.params;

@@ -48,15 +48,23 @@ class NotificationsList extends Component {
   //   this.props.createNotification(notification);
   // }
 
+// ! for use with messageText
   updateNotification(id) {
     const notification = {id, messageText: this.state.notificationValue[0]}
     // console.log('############# this.state.notificationValue: ', notification);
     this.props.updateNotification(notification);
   }
-
+// // !for use with message text
+//   deleteNotification(id) {
+//     const notification = {id, messageText: this.state.notificationValue[0]}
+//     console.log('this.state.notificationValue: ', id);
+//     this.props.deleteNotification(notification);
+//   }
+// ! no message text
   deleteNotification(id) {
+    const notification = {id, messageText: this.state.notificationValue[0]}
     console.log('this.state.notificationValue: ', id);
-    this.props.deleteNotification(this.state.notificationValue[0]);
+    this.props.deleteNotification(notification);
   }
 
   render() {
@@ -186,6 +194,9 @@ NotificationsList.propTypes = {
     })
   ),
   fetchNotifications: PropTypes.func.isRequired,
+  createNotification: PropTypes.func.isRequired,
+  updateNotification: PropTypes.func.isRequired,
+  deleteNotification: PropTypes.func.isRequired,
   loggedIn: PropTypes.bool,
 };
 
