@@ -147,7 +147,8 @@ export const updateNotification = (notification) => ({
 
 export const deleteNotification = (notification) => {
   
-  console.log("deleteNotification")
+  console.log("deleteNotification()")
+  console.log(notification)
 
   return {
   types: [
@@ -155,20 +156,9 @@ export const deleteNotification = (notification) => {
     DELETE_NOTIFICATION_SUCCESS,
     DELETE_NOTIFICATION_ERROR,
   ],
-  
+  // callAPI: () => API.get(`/notifications`),
   callAPI: () => API.delete(`/notifications/${notification.id}`, notification),
   payload: { id: notification.id }
   
 }
 };
-
-
-// ! wont work
-// export const deleteNotification = id => async (dispatch) => {
-//   await API.delete(`notifications/${id}`);
-//   dispatch({ types: [
-//     DELETE_NOTIFICATION_PENDING,
-//     DELETE_NOTIFICATION_SUCCESS,
-//     DELETE_NOTIFICATION_ERROR,
-//   ], id });
-// };
