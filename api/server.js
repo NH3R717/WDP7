@@ -7,6 +7,7 @@ const port = process.env.PORT || 5000;
 const authRoutes = require("./app/routes/auth");
 const usersRoutes = require("./app/routes/users");
 const notificationsRoutes = require("./app/routes/notifications");
+const audiosRoutes = require("./app/routes/audios");
 
 // Heroku
 if (
