@@ -15,6 +15,13 @@ const userRouter = require("./routes/users");
 const notificationsRouter = require("./routes/notifications");
 const searchRouter = require("./routes/search");
 
+// ! EXTRA ROUTES IMPORTS
+
+const audiosRouter = require("./routes/audios")
+const notificationsTextsRouter = require("./routes/notificationstexts")
+const imagesRouter = require("./routes/images")
+const videosRouter = require("./routes/videos")
+
 // ! EXPRESS APP
 
 const app = express();
@@ -30,6 +37,12 @@ app.use("/api/auth", authRouter);
 app.use("/api/users", userRouter);
 app.use("/api/notifications", notificationsRouter);
 app.use("/api/search", searchRouter);
+
+// ! extra routes
+pp.use("/api/audios", audiosRouter);
+app.use("/api/notificationText", notificationsTextsRouter);
+app.use("/api/images", imagesRouter);
+app.use("/api/videos", videosRouter);
 
 // ! look in react build folder for static assets
 app.use(express.static(path.join(__dirname, "../../client/build")));
