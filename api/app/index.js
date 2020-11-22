@@ -19,7 +19,7 @@ const searchRouter = require("./routes/search");
 const audiosRouter = require("./routes/audios");
 const notificationsTextsRouter = require("./routes/notificationstexts");
 const imagesRouter = require("./routes/images");
-// const videosRouter = require("./routes/videos")
+const videosRouter = require("./routes/videos");
 
 // ! EXPRESS APP
 
@@ -41,7 +41,7 @@ app.use("/api/search", searchRouter);
 app.use("/api/audios", audiosRouter);
 app.use("/api/notificationtexts", notificationsTextsRouter);
 app.use("/api/images", imagesRouter);
-// app.use("/api/videos", videosRouter);
+app.use("/api/videos", videosRouter);
 
 // ! look in react build folder for static assets
 app.use(express.static(path.join(__dirname, "../../client/build")));

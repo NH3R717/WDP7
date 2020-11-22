@@ -1,12 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Videos extends Model {
-    static associate(models) {
-      Videos.belongsTo(models.Notifications, { foreignKey: "notificationsId" });
-      Videos.hasOne(models.Notifications, { foreignKey: "imagesId" });
-    }
-  }
+  class Videos extends Model {}
   Videos.init(
     {
       id: {
@@ -14,6 +9,13 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
+      },
+      notificationId: {
+        type: DataTypes.STRING,
+        // allowNull: false,
+        // primaryKey: false,
+        // type: DataTypes.UUID,
+        // defaultValue: DataTypes.UUIDV4,
       },
       videoLink1: DataTypes.STRING,
       videoLink2: DataTypes.STRING,
@@ -23,5 +25,9 @@ module.exports = (sequelize, DataTypes) => {
       modelName: "Videos",
     }
   );
+  Videos.associations = (models) => {
+    Videos.belongsTo(models.Notifications, { foreignKey: "notificationsId" });
+    Videos.hasOne(models.Notifications, { foreignKey: "imagesId" });
+  };
   return Videos;
 };

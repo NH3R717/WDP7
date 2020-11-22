@@ -4,19 +4,19 @@
 const router = require("express").Router();
 
 // import import CRUD functions
-const notificationsCtrl = require("../controllers/notifications");
+const videosCtrl = require("../controllers/videos");
 
 // import the protected route – middleware
 const protectedRoute = require("../utils/protectedRoute");
 
-router.post("/", protectedRoute, notificationsCtrl.createNotification);
+router.post("/", protectedRoute, videosCtrl.createVideos);
 
-router.get("/", protectedRoute, notificationsCtrl.readNotifications);
+router.get("/", protectedRoute, videosCtrl.readVideos);
 
-router.put("/:id", notificationsCtrl.updateNotification);
+router.put("/:id", videosCtrl.updateVideos);
 
 
-router.delete("/:id", notificationsCtrl.deleteNotification);
+router.delete("/:id", videosCtrl.deleteVideos);
 
 // ! EXPORT
 
