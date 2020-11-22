@@ -1,15 +1,15 @@
 const axios = require("axios");
 const error = require("debug")("api:error");
 // const { v4: uuidv4 } = require("uuid");
-const { Notifications, Users, Audios, Images, Sequelize } = require("../models");
+const { Audios, Sequelize } = require("../models");
 const { throwIf, throwError, sendError } = require("../utils/errorHandeling");
 
-exports.createNotification = async (req, res) => {
+exports.createAudios = async (req, res) => {
   const { audioLink1, audioLink2 } = req.body;
   try {
     const newAudio = await Audios.create({
-      audioLink1: audioLink1, 
-      audioLink2: audioLink2
+      audioLink1: audioLink1,
+      audioLink2: audioLink2,
     })
       .catch(Sequelize.ValidationError, throwError(422, "Validation Error"))
       .catch(throwError(500, "sequelize error for notification"));
@@ -52,8 +52,8 @@ exports.deleteAudios = async (req, res) => {
   const { id } = req.params;
   try {
     await Audios.destroy({ where: { id } })
-    .catch(Sequelize.ValidationError, throwError(422, "Validation Error"))
-    .catch(Sequelize.BaseError, throwError(500, "Sequelize error"));
+      .catch(Sequelize.ValidationError, throwError(422, "Validation Error"))
+      .catch(Sequelize.BaseError, throwError(500, "Sequelize error"));
     res.sendStatus(202);
   } catch (e) {
     sendError(res)(e);

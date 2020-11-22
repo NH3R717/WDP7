@@ -9,12 +9,11 @@ const audiosCtrl = require("../controllers/audios");
 // import the protected route – middleware
 const protectedRoute = require("../utils/protectedRoute");
 
-router.post("/", protectedRoute, audiosCtrl.createNotification);
+router.post("/", protectedRoute, audiosCtrl.createAudios);
 
 router.get("/", protectedRoute, audiosCtrl.readAudios);
 
 router.put("/:id", audiosCtrl.updateAudios);
-
 
 router.delete("/:id", audiosCtrl.deleteAudios);
 

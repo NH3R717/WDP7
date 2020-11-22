@@ -5,7 +5,7 @@ const express = require("express");
 // const bodyParser = require("body-parser");
 const morganDebug = require("morgan-debug");
 const cors = require("cors");
-const path = require("path")
+const path = require("path");
 
 // ! ROUTES IMPORT
 
@@ -16,8 +16,8 @@ const searchRouter = require("./routes/search");
 
 // ! EXTRA ROUTES IMPORTS
 
-const audiosRouter = require("./routes/audios")
-// const notificationsTextsRouter = require("./routes/notificationstexts")
+const audiosRouter = require("./routes/audios");
+const notificationsTextsRouter = require("./routes/notificationstexts");
 // const imagesRouter = require("./routes/images")
 // const videosRouter = require("./routes/videos")
 
@@ -39,7 +39,7 @@ app.use("/api/search", searchRouter);
 
 // ! extra routes
 app.use("/api/audios", audiosRouter);
-// app.use("/api/notificationText", notificationsTextsRouter);
+app.use("/api/notificationtexts", notificationsTextsRouter);
 // app.use("/api/images", imagesRouter);
 // app.use("/api/videos", videosRouter);
 
